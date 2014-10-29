@@ -1,0 +1,420 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Juiz Social Post Sharer\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-05-09 18:49+0100\n"
+"PO-Revision-Date: 2014-05-09 18:50+0100\n"
+"Last-Translator: Geoffrey <rikuasakura@hotmail.fr>\n"
+"Language-Team: Creativejuiz <support@creativejuiz.com>\n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;_e;__\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 1.6.4\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../admin/jsps-admin.inc.php:40 ../admin/jsps-admin.inc.php:60
+#, php-format
+msgid "Visit this link find on %%siteurl%%"
+msgstr "Un bon lien à visiter sur %%siteurl%%"
+
+#: ../admin/jsps-admin.inc.php:41 ../admin/jsps-admin.inc.php:61
+#, php-format
+msgid ""
+"Hi, I found this information for you : \"%%title%%\"! This is the direct "
+"link: %%permalink%% Have a nice day :)"
+msgstr ""
+"Salut ! J'ai trouvé cette information pour toi&nbsp;: \"%%title%%\"&nbsp;! "
+"Voici le lien direct&nbsp;: %%permalink%%  Bonne journée :)"
+
+#: ../admin/jsps-admin.inc.php:102
+msgid "Settings"
+msgstr "Réglages"
+
+#: ../admin/jsps-admin.inc.php:119 ../admin/jsps-admin.inc.php:120
+msgid "Social Post Sharer"
+msgstr "Social Post Sharer"
+
+#: ../admin/jsps-admin.inc.php:152 ../admin/jsps-admin.inc.php:157
+msgid "Sharing buttons"
+msgstr "Boutons de partage"
+
+#: ../admin/jsps-admin.inc.php:167
+msgid "Hide sharing buttons for this post."
+msgstr "Cacher les boutons de partage pour ce post"
+
+#: ../admin/jsps-admin.inc.php:189
+msgid "Main settings"
+msgstr "Réglages principaux"
+
+#: ../admin/jsps-admin.inc.php:190
+msgid "Choose a style to display"
+msgstr "Choisissez votre style"
+
+#: ../admin/jsps-admin.inc.php:191
+msgid "Display those following social networks:"
+msgstr "Afficher les réseaux sociaux suivants :"
+
+#: ../admin/jsps-admin.inc.php:192
+msgid "What is your Twitter user name to be mentioned?"
+msgstr "Quel est le pseudo Twitter à mentionner lors du partage&nbsp;?"
+
+#: ../admin/jsps-admin.inc.php:193 ../admin/jsps-admin.inc.php:199
+#: ../admin/jsps-admin.inc.php:209
+msgid "Save Changes"
+msgstr "Enregistrer les modifications"
+
+#: ../admin/jsps-admin.inc.php:196
+msgid "Display settings"
+msgstr "Réglages d'affichage"
+
+#: ../admin/jsps-admin.inc.php:197
+msgid "What type of content must have buttons?"
+msgstr "Quel type de contenu doit proposer des boutons&nbsp;?"
+
+#: ../admin/jsps-admin.inc.php:198
+msgid "Where do you want to display buttons?"
+msgstr "Où souhaitez-vous placer les boutons&nbsp;?"
+
+#: ../admin/jsps-admin.inc.php:202
+msgid "Advanced settings"
+msgstr "Réglages avancés"
+
+#: ../admin/jsps-admin.inc.php:203
+msgid "Show only social icon?"
+msgstr "Afficher uniquement les icônes&nbsp;?"
+
+#: ../admin/jsps-admin.inc.php:203
+msgid "hide text, show it on mouse over or focus"
+msgstr "cache le texte et l'affiche uniquement au survol ou focus"
+
+#: ../admin/jsps-admin.inc.php:204
+msgid "Open links in a new window?"
+msgstr "Ouvrir les liens dans une nouvelle fenêtre&nbsp;?"
+
+#: ../admin/jsps-admin.inc.php:204
+#, php-format
+msgid "adds a %s attribute"
+msgstr "ajoute l'attribut %s"
+
+#: ../admin/jsps-admin.inc.php:205
+msgid "Force Pinterest button sniffing all images of the page?"
+msgstr ""
+"Forcer le bouton Pinterest à scanner toutes les images de la page&nbsp;?"
+
+#: ../admin/jsps-admin.inc.php:205 ../admin/jsps-admin.inc.php:206
+msgid "need JavaScript"
+msgstr "nécessite JavaScript"
+
+#: ../admin/jsps-admin.inc.php:206
+msgid "Display counter of sharing?"
+msgstr "Afficher un compteur de partage&nbsp;?"
+
+#: ../admin/jsps-admin.inc.php:207
+msgid "For this counter, you want to display:"
+msgstr "Pour ce compteur, vous souhaitez afficher&nbsp;:"
+
+#: ../admin/jsps-admin.inc.php:208
+msgid "Write CSS code in HTML head?"
+msgstr "Écrire le code CSS dans l'en-tête du document HTML&nbsp;?"
+
+#: ../admin/jsps-admin.inc.php:208
+msgid "good thing for performance on mobile"
+msgstr "bon pour la performance mobile"
+
+#: ../admin/jsps-admin.inc.php:212
+msgid "Customize mail texts"
+msgstr "Personnaliser les textes du mail"
+
+#: ../admin/jsps-admin.inc.php:213
+msgid "Mail subject:"
+msgstr "Sujet du mail&nbsp;:"
+
+#: ../admin/jsps-admin.inc.php:214
+msgid "Mail body:"
+msgstr "Corps du mail&nbsp;:"
+
+#: ../admin/jsps-admin.inc.php:278
+msgid "Here, you can modify default settings of the SPS plugin"
+msgstr "Ici, vous pouvez modifier les réglages par défaut du plugin SPS"
+
+#: ../admin/jsps-admin.inc.php:293
+msgid "Juizy Light Tone"
+msgstr "Juizy Light Tone"
+
+#: ../admin/jsps-admin.inc.php:297
+msgid "Juizy Light Tone Reverse"
+msgstr "Juizy Light Tone Inversé"
+
+#: ../admin/jsps-admin.inc.php:301
+msgid "Blue Metro Style"
+msgstr "Style Metro bleu"
+
+#: ../admin/jsps-admin.inc.php:305
+msgid "Gray Metro Style"
+msgstr "Style Metro gris"
+
+#: ../admin/jsps-admin.inc.php:309
+msgid "Modern Style"
+msgstr "Modern Style"
+
+#: ../admin/jsps-admin.inc.php:309 ../admin/jsps-admin.inc.php:313
+msgid "by"
+msgstr "par"
+
+#: ../admin/jsps-admin.inc.php:313
+msgid "Black"
+msgstr "Noir"
+
+#: ../admin/jsps-admin.inc.php:329
+msgid "uses JavaScript to work"
+msgstr "utilise JavaScript pour fonctionner"
+
+#: ../admin/jsps-admin.inc.php:338
+msgid "New social network!"
+msgstr "Nouveau réseau social&nbsp;!"
+
+#: ../admin/jsps-admin.inc.php:350
+msgid "Username without \"@\""
+msgstr "Pseudo sans \"@\""
+
+#: ../admin/jsps-admin.inc.php:360
+msgid ""
+"You can choose precisely the types of content that will benefit from the "
+"sharing buttons."
+msgstr ""
+"Vous pouvez choisir précisément les types de contenu qui bénéficieront des "
+"boutons de partage."
+
+#: ../admin/jsps-admin.inc.php:400
+#, php-format
+msgid "Lists of articles %s(blog, archives, search results, etc.)%s"
+msgstr ""
+"Les listes d'articles %s(blog, archives, résultats de recherche, etc.)%s"
+
+#: ../admin/jsps-admin.inc.php:416
+msgid "Content bottom"
+msgstr "Après le contenu"
+
+#: ../admin/jsps-admin.inc.php:419
+msgid "Content top"
+msgstr "Avant le contenu"
+
+#: ../admin/jsps-admin.inc.php:422
+msgid "Both"
+msgstr "Les deux"
+
+#: ../admin/jsps-admin.inc.php:425
+msgid "I'm a ninja, I want to use the shortcode only!"
+msgstr "Je suis un ninja, je veux utiliser seulement le shortcode&nbsp;!"
+
+#: ../admin/jsps-admin.inc.php:435
+msgid ""
+"Modify advanced settings of the plugin. Some of them needs JavaScript (only "
+"one file loaded)"
+msgstr ""
+"Modifiez les réglages avancés du plugin. Certains d'entre eux nécessite "
+"JavaScript (un seul fichier chargé)"
+
+#: ../admin/jsps-admin.inc.php:450 ../admin/jsps-admin.inc.php:469
+#: ../admin/jsps-admin.inc.php:486 ../admin/jsps-admin.inc.php:504
+#: ../admin/jsps-admin.inc.php:546
+msgid "Yes"
+msgstr "Oui"
+
+#: ../admin/jsps-admin.inc.php:453 ../admin/jsps-admin.inc.php:472
+#: ../admin/jsps-admin.inc.php:489 ../admin/jsps-admin.inc.php:507
+#: ../admin/jsps-admin.inc.php:549
+msgid "No"
+msgstr "Non"
+
+#: ../admin/jsps-admin.inc.php:525
+msgid "Total &amp; Sub-totals"
+msgstr "Total &amp; Sous-totaux"
+
+#: ../admin/jsps-admin.inc.php:528
+msgid "Only Total"
+msgstr "Seulement le Total"
+
+#: ../admin/jsps-admin.inc.php:531
+msgid "Only Sub-totals"
+msgstr "Seulement les Sous-totaux"
+
+#: ../admin/jsps-admin.inc.php:544
+msgid "This option will be enabled for a next version"
+msgstr "Cette option sera activée pour une prochaine version"
+
+#: ../admin/jsps-admin.inc.php:557
+msgid ""
+"You can customize texts to display when visitors share your content by mail "
+"button"
+msgstr ""
+"Vous pouvez personnaliser les textes à afficher lorsque les visiteurs "
+"partagent votre contenu grâce au bouton mail."
+
+#: ../admin/jsps-admin.inc.php:558
+#, php-format
+msgid ""
+"To perform customization, you can use %s%%%%title%%%%%s, %s%%%%siteurl%%%%%s "
+"or %s%%%%permalink%%%%%s variables."
+msgstr ""
+"Pour mettre en place la personnalisation, vous pouvez utiliser les variables "
+"%s%%%%title%%%%%s, %s%%%%siteurl%%%%%s et %s%%%%permalink%%%%%s"
+
+#: ../admin/jsps-admin.inc.php:582
+msgid "Manage Juiz Social Post Sharer"
+msgstr "Gestion de Juiz Social Post Sharer"
+
+#: ../admin/jsps-admin.inc.php:587
+#, php-format
+msgid "You must chose at least one %stype of content%s."
+msgstr "Vous devez choisir au moins un %stype de contenu%s."
+
+#: ../admin/jsps-admin.inc.php:588
+msgid ""
+"Is you don't want to use this plugin more longer, go to Plugins section and "
+"deactivate it."
+msgstr ""
+"Si vous ne souhaitez plus utiliser ce plugin, rendez-vous dans la section "
+"\"Extensions\" et désactivez-le."
+
+#: ../admin/jsps-admin.inc.php:592
+#, php-format
+msgid ""
+"You can use %s[juiz_sps]%s or %s[juiz_social]%s shortcode with an optional "
+"attribute \"buttons\" listing the social networks you want."
+msgstr ""
+"Vous pouvez utiliser le shortcode %s[juiz_sps]%s ou %s[juiz_social]%s avec "
+"un paramètre optionnel \"buttons\" listant les réseaux sociaux que vous "
+"souhaitez."
+
+#: ../admin/jsps-admin.inc.php:594
+msgid "Example with all the networks available:"
+msgstr "Exemple avec tous les réseaux disponibles&nbsp;:"
+
+#: ../admin/jsps-admin.inc.php:606
+msgid "Like it? Support this plugin! Thank you."
+msgstr "Vous l'aimez ? Soutenez ce plugin ! Merci."
+
+#: ../admin/jsps-admin.inc.php:607
+msgid "Donate"
+msgstr "Faire un don"
+
+#: ../admin/jsps-admin.inc.php:608
+msgid "Tweet it"
+msgstr "Tweetez-le"
+
+#: ../admin/jsps-admin.inc.php:609
+msgid "Rate it"
+msgstr "Évaluez-le"
+
+#: ../admin/jsps-admin.inc.php:610
+msgid "Documentation"
+msgstr "Documentation"
+
+#: ../juiz-social-post-sharer.php:137
+msgid "Share the post"
+msgstr "Partager la publication"
+
+#: ../juiz-social-post-sharer.php:210
+msgid "Share this article on Twitter"
+msgstr "Partager sur Twitter"
+
+#: ../juiz-social-post-sharer.php:215
+msgid "Share this article on Facebook"
+msgstr "Partager sur Facebook"
+
+#: ../juiz-social-post-sharer.php:220
+msgid "Share this article on Google+"
+msgstr "Partager sur Google+"
+
+#: ../juiz-social-post-sharer.php:231
+msgid "Share an image of this article on Pinterest"
+msgstr "Partager une image de cette publication sur Pinterest"
+
+#: ../juiz-social-post-sharer.php:236
+msgid "Share this article on Viadeo"
+msgstr "Partager sur Viadeo"
+
+#: ../juiz-social-post-sharer.php:241
+msgid "Share this article on LinkedIn"
+msgstr "Partager sur LinkedIn"
+
+#: ../juiz-social-post-sharer.php:246
+msgid "Share this article on Digg"
+msgstr "Partager sur Digg"
+
+#: ../juiz-social-post-sharer.php:251
+msgid "Share this article on StumbleUpon"
+msgstr "Partager sur StumbleUpon"
+
+#: ../juiz-social-post-sharer.php:259
+msgid "Share this article on Weibo"
+msgstr "Partager sur Weibo"
+
+#: ../juiz-social-post-sharer.php:264
+msgid "Share this article on VKontakte"
+msgstr "Partage sur VKontakte"
+
+#: ../juiz-social-post-sharer.php:275
+msgid "Share this article with a friend (email)"
+msgstr "Partager cette publication avec un ami (e-mail)"
+
+#: ../juiz-social-post-sharer.php:292
+msgid "Total: "
+msgstr "Total&nbsp;: "
+
+#~ msgid "Visit this link"
+#~ msgstr "Un bon lien à visiter"
+
+#~ msgid "Hi, I found this information for you! Have a nice day :)"
+#~ msgstr "Salut ! J'ai trouvé cette information pour toi. Bonne journée :)"
+
+#~ msgid "adds a <code>target=\"_blank\"</code> attribute"
+#~ msgstr "ajoute un adds attribut <code>target=\"_blank\"</code>"
+
+#~ msgid "Howdy, %1$s"
+#~ msgstr "Howdy, %1$s"
+
+#~ msgid "Credits"
+#~ msgstr "Credits"
+
+#~ msgid ""
+#~ "Mobile Admin support by <a href=\"http://wordpress.org/extend/plugins/"
+#~ "juiz-smart-mobile-admin\">Juiz SMA</a>"
+#~ msgstr ""
+#~ "Mobile Admin support by <a href=\"http://wordpress.org/extend/plugins/"
+#~ "juiz-smart-mobile-admin\">Juiz SMA</a>"
+
+#~ msgid "Top of page"
+#~ msgstr "Top of page"
+
+#~ msgid "Admin Mobile Appearance"
+#~ msgstr "Admin Mobile Appearance"
+
+#~ msgid "Show plugins shortcuts in adminbar?"
+#~ msgstr "Show plugins shortcuts in adminbar?"
+
+#~ msgid "Show custom WP admin footer ?"
+#~ msgstr "Show custom WP admin footer ?"
+
+#~ msgid "Settings saved"
+#~ msgstr "Settings saved"
+
+#~ msgid "Manage Juiz Smart Mobile Admin"
+#~ msgstr "Manage Juiz Smart Mobile Admin"
+
+#~ msgid "The redirection failed"
+#~ msgstr "The redirection failed"
+
+#~ msgid "refresh the page"
+#~ msgstr "refresh the page"
+
+#~ msgid "Sorry, nothing to update..."
+#~ msgstr "Sorry, nothing to update..."
+
+#~ msgid "Unknown error..."
+#~ msgstr "Unknown error..."

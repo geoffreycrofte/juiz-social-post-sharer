@@ -1,0 +1,726 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Juiz SPS - Documentation</title>
+	
+	<style type="text/css">
+		html {
+			background: #f2F2f2;
+			font-size: 100%;
+		}
+		body {
+			width: 772px;
+			padding: 20px;
+			margin:auto;
+			font-family:Helvetica Neue,Helvetica,Arial,sans-serif;
+			font-size:100%;
+			line-height: 1.55em;
+			color: #444;
+			font-size: .9em;
+			background: #fff;
+			box-shadow: 0 0 3px rgba(0,0,0,0.3);
+		}
+		code, pre { font-family: Consolas, 'Courier New', monospace; font-size: .9em; }
+		p code, li code { color: #0c8db8; font-size: 1em; }
+		a { color: darkorange; }
+		h1 { position: relative; margin-top:0; }
+		h1 .overlay { position: absolute; top:0; left:0; right:0; bottom:0; box-shadow: 0 0 55px rgba(0,0,0,0.35) inset; }
+		h1 .title {
+			background: none repeat scroll 0 0 rgba(30, 30, 30, 0.8);
+			border-radius: 8px 8px 8px 8px;
+			bottom: 20px;
+			box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+			color: #FFFFFF;
+			font-size: 30px;
+			left: 30px;
+			margin-bottom: 4px;
+			max-width: 682px;
+			padding: 8px 15px;
+			position: absolute;
+			text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+			z-index: 1;
+		}
+		h1 .version {
+			position: absolute;
+			right: 0;
+			bottom: -10px;
+			font-size: .5em;
+			background: #FFF;
+			padding: 6px 15px;
+			z-index: 1;
+		}
+		h2 {
+			margin-top: 1.5em;
+			padding-top: 1em;
+			border-top: 1px solid #eee;
+			font-size: 2em;
+			font-weight:normal;
+		}
+		h3 {
+			margin-top: 3.5em;
+		}
+		h3 code {
+			color: #0c8db8;
+			font-size: 1.1em;
+		}
+		pre {
+			background: #ededed;
+			border: 1px dashed #ddd;
+			padding: 8px;
+			color: #000;
+			text-shadow: 1px 1px 0 #fff;
+			line-height: 1.4em;
+		}
+		.author {
+			float: right;
+			width: 40%;
+			margin: 0 0 1em 1em;
+			background: #ffffdd;
+			border: 1px solid #EECC88;
+			padding: 20px;
+			font-size: 0.8em;
+			overflow: hidden;
+		}
+		.author img {
+			float: left;
+			margin-top: 5px;
+			margin-right: 20px;
+		}
+		blockquote {
+			border: 2px dotted #ddd;
+			padding:0 20px;
+			margin-left:0;
+		}
+		blockquote h1 {
+			font-size: 1em;
+			font-weight:bold;
+		}
+		.aligncenter {
+			text-align: center;
+		}
+		.aligncenter img {
+			box-shadow: 1px 1px 5px #aaa;
+		}
+		
+		.button {
+			display: inline-block;
+			vertical-align: top;
+			padding: 4px 10px;
+			border-radius: 4px;
+			background-color: darkorange;
+			background-image: -moz-linear-gradient(orange, darkorange);
+			color: #fff;
+			text-shadow: 0 -1px 0 rgba(0,0,0,0.3);
+			box-shadow: 1px 1px 3px rgba(0,0,0,.3);
+			text-decoration:none;
+			font-weight:bold;
+			-moz-transition: all .8s;
+		}
+		.button + .button {
+			margin-left: 1em;
+		}
+		.button.tweet {
+			background-color: #29bcec;
+			background-image: -moz-linear-gradient(#29bcec, #1b92b9);
+			text-shadow: 0 -1px 0 rgba(0,0,0,0.3);
+		}
+		.button:hover, .button:focus {
+			background-image: -moz-linear-gradient(#eee, #ccc);
+			color: darkorange;
+			text-shadow: 0 0 0;
+		}
+		
+		.tdm {
+			clear: both;
+			margin-top: 30px;
+			padding: 20px;
+			border-radius: 12px;
+			border: 1px solid #eee;
+			background: -moz-linear-gradient(#fff, #f2f2f2);
+		}
+		.tdm h2 {
+			margin:0;
+			padding:0;
+			padding-bottom: .2em;
+			text-align: left;
+			color:#777;
+			border-top: 0 none;
+			font-size: 1.5em;
+		}
+		
+		.important {
+			border: 1px dashed darkred;
+			color: darkred;
+			padding: 12px;
+			background: #f6e7e7;
+		}
+		
+		dt {
+			font-weight: bold;
+		}
+		dt:before {
+			content:'→';
+			display:inline-block;
+			vertical-align: top;
+			margin-right: .5em;
+		}
+		dd + dt {
+			margin-top: 1.5em;
+		}
+		#footer {
+			position:relative;
+			padding: 12px;
+			margin: 3em 0 1em;
+			border: 1px solid #ddd;
+			background: #f2f2f2;
+			text-align: center;
+			font-weight: bold;
+			color: #666;
+		}
+		.last-update {
+			position: absolute;
+			bottom: 0px; right: 10px;
+			font-weight: normal;
+			font-size: 0.7em;
+			line-height: 1.2em;
+			text-align:right;
+			color: #999
+		}
+		.since {
+			font-size: .7em;
+			color: #777;
+			font-weight: normal;
+		}
+		dl .since {
+			font-size: 1em;
+			color: #777;
+			font-weight: normal;
+		}
+		.ads {
+			width: 100%;
+			padding: 10px 0;
+			margin-top: 2em;
+			overflow: hidden;
+			background: #F2EFDE;
+		}
+		.ads ins {
+			margin: 0 .75em;
+			float: left;
+
+		}
+	</style>
+</head>
+<body>
+	
+	<h1>
+		<img src="http://plugins.svn.wordpress.org/juiz-social-post-sharer/assets/banner-772x250.png" width="772" height="250" alt="" />
+		<span class="title">Juiz SPS - Documentation</span>
+		<span class="version">v. 1.3.4</span>
+		<span class="overlay"></span>
+	</h1>
+	
+	<p class="author"><img src="http://www.gravatar.com/avatar/5b6a2bd86ef643786a381a212e0ef2f1?s=75" alt="Geoffrey Crofte" width="75" height="75" />
+	Developed, designed and polished by Geoffrey Crofte.<br />
+	French blogger for <a href="http://www.creativejuiz.fr/blog/?from=jsps_doc" title="Astuces et tutoriels pour WordPress, CSS3, HTML5 et jQuery, notamment.">Creative Juiz blog</a> and <a href="http://alsacreations.com/?from=jsps_doc">Alsacréations community</a>, I'm a code and pixels lover ! Find me on : <a href="http://twitter.com/geoffrey_crofte">Twitter</a>, <a href="http://creativejuiz.fr/trytotry/?from=jsps_doc" hreflang="en">TryToTry Laboratory</a> or <a href="http://crofte.fr?from=jsps_doc">crofte.fr</a></p>
+	
+	<p>This file is a documention for the plugin Juiz Social Post Sharer.<br />
+	It will be updated each time with the plugin features.</p>
+	
+	<p>Please, note that this documentation concerne all versions of the plugin. Read the "<strong>since</strong>" mention on each feature.</p>
+	
+	<p>You like this plugin and want to support it?
+	<br />
+	<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=P39NJPCWVXGDY&amp;lc=FR&amp;item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&amp;item_number=%23wp%2djsps&amp;currency_code=EUR&amp;bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted" title="Go to Paypal Website" class="button" target="_blank">Donate</a>
+	<a href="https://twitter.com/intent/tweet?source=webclient&amp;hastags=WordPress,Plugin&amp;text=Juiz%20Social%20Post%20Sharer%20is%20an%20awesome%20WordPress%20plugin%20to%20share%20content!%20Try%20it!&amp;url=http://wordpress.org/extend/plugins/juiz-social-post-sharer/&amp;related=geoffrey_crofte&amp;via=geoffrey_crofte" target="_blank" class="tweet button">Tweet it</a>
+	</p>
+
+
+	<div class="ads">
+		<script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- CreativeJuiz Blog - After comment 2 -->
+		<ins class="adsbygoogle"
+		     style="display:inline-block;width:234px;height:60px"
+		     data-ad-client="ca-pub-5551695116421662"
+		     data-ad-slot="4577393070"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+
+		<!-- CreativeJuiz blog - After comment -->
+		<ins class="adsbygoogle"
+		     style="display:inline-block;width:234px;height:60px"
+		     data-ad-client="ca-pub-5551695116421662"
+		     data-ad-slot="6666015847"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+
+		<ins class="adsbygoogle"
+		     style="display:inline-block;width:234px;height:60px"
+		     data-ad-client="ca-pub-5551695116421662"
+		     data-ad-slot="4577393070"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+	</div>
+	
+	<h2>See also</h2>
+	<ul>
+		<li><a href="http://wordpress.org/extend/plugins/juiz-last-tweet-widget/">Juiz Last Tweet Widget</a> - A to display your latest tweets with style and without JavaScript.</li>
+		<li><a href="http://wordpress.org/extend/plugins/juiz-smart-mobile-admin/">Juiz Smart Mobile Admin</a> - A responsive layout for your default WordPress Admin theme. Your administration always with you!</li>
+	</ul>
+	
+	<div class="tdm">
+		<h2>Table of content</h2>
+		<ul>
+			<li><a href="#css-classes">CSS classes</a></li>
+			<li><a href="#shortcode">Shorcode</a></li>
+			<li><a href="#template">Template functions</a></li>
+			<li><a href="#hooks">Hooks</a></li>
+			<li><a href="#faq">FAQ</a></li>
+		</ul>
+	</div>
+	
+	<h2 id="css-classes">CSS Classes</h2>
+	
+	<p>If you need to use custom styles for your buttons/links or its container:</p>
+	
+	<pre class="code"><code class="css">/* The big container */
+.juiz_sps_links { }
+
+/* Dynamic classes depending on position */
+.juiz_sps_displayed_bottom { }
+.juiz_sps_displayed_both { }
+.juiz_sps_displayed_top { }
+
+/* The &lt;p&gt; hidden to introduce list of links */
+.juiz_sps_maybe_hidden_text { }
+
+/* The list of buttons/links */
+.juiz_sps_links_list { }
+
+/* An item of this list (&lt;li&gt; element by default) */
+.juiz_sps_item { }
+
+/* Each item as a second class depending on social network name */
+.juiz_sps_link_facebook { }
+.juiz_sps_link_twitter { }
+.juiz_sps_link_google { }
+.juiz_sps_link_pinterest { }
+.juiz_sps_link_linkedin { }
+.juiz_sps_link_viadeo { }
+.juiz_sps_link_digg { }
+.juiz_sps_link_stumbleupon { }
+.juiz_sps_link_mail { }
+.juiz_sps_link_weibo { }
+
+/* Each item has its icon */
+.juiz_sps_icon { }
+
+/* and its name */
+.juiz_sps_network_name { }
+
+/* Counters */
+/* for each item */
+.juiz_sps_counter { }
+.juiz_sps_totalcount_item { }
+/* the total count bubble */
+.juiz_sps_totalcount { } </code></pre>
+	
+	<p>You can improve your CSS editions by using <a href="http://getfirebug.com/" target="_blank">Firebug plugin</a>.</p>
+
+
+
+
+<h2 id="shortcode">ShortCodes <span class="since">since 1.2.0</span></h2>
+	
+	<p>This plugin has a Shortcode, a kind of BBcode, that allows you to display those buttons where you want.<br />
+	This shortcode uses the keyword <code>juiz_social</code> or <code>juiz_sps</code> (<span class="since">since 1.2.1</span>), two particular words to oust any conflict with other plugins.</p>
+	
+	<pre class="code"><code class="html">[juiz_social]</code></pre>
+	
+	<p>Used in a post, this shortcode all the buttons available (all social networks).<br />
+	Morever, buttons are selectable with there slug in a shortcode parameter:</p>
+	<ul>
+		<li><code>buttons</code>: keywords available are "twitter, facebook, google, linkedin, digg, viadeo, stumbleupon, weibo, pinterest, vk, mail"</li>
+		<li><code>counters</code>: (<code>0</code> by default), use <code>1</code> to show counters.</li>
+		<li><code>current</code>: (<code>1</code> by default), use <code>0</code> to share permalink value instead of current URL (I advice you to keep the value <code>1</code> if you use shortcode in a widget).</li>
+		<li><code>url</code>: (<code>permalink</code> by default), use <code>permalink</code>, <code>siteurl</code> or <code>string (url value)</code> to share the value you set instead of current URL by default. <span class="since">since 1.3.3.7</span></li>
+	</ul>
+	
+	<p>Example of use:</p>
+	<pre class="code"><code class="html">[juiz_social buttons="<span style="color:red">twitter,facebook,google</span>"]</code></pre>
+	<p>This sample of code show 3 buttons : Twitter, Facebook and Google+ social networks.</p>
+	
+
+
+	
+	<h2 id="template">Template functions <span class="since">since 1.2.0</span></h2>
+
+	<p>Template functions allow you to display list of buttons inside any theme template you need.
+		<br />There are two functions: <code>juiz_sps($networks, $show_counters, $share_current_page, $is_shortcode, $url_to_share)</code> and <code>get_juiz_sps($networks, $show_counters, $share_current_page, $is_shortcode, $url_to_share)</code></p>
+
+	<p><strong>Parameters</strong></p>
+	<ul>
+		<li><code>$networks</code> (array) – the complete list of network available is (as array) <code>array('twitter', 'facebook', 'google', 'linkedin', 'digg', 'viadeo', 'stumbleupon', 'weibo', 'pinterest', 'vk', 'mail')</code><br />
+		<em>Default value is the list activated in administration panel</em></li>
+		<li><code>$show_counters</code> (int) – show or hide counters. <code>1</code> show counters, <code>0</code> hide counters.<br/>
+		<em>Default value : <code>0</code></em></li>
+		<li><code>$share_current_page</code> (int) – share the current page or the "permalink" value. <code>1</code> share the current page, <code>0</code> share the value of permalink. Note: sometimes, both value return the same URL to share.<br/>
+		<em>Default value : <code>1</code></em></li>
+		<li><code>$is_shortcode</code> (int) – share the current page or the "permalink" value. <code>1</code> share the current page, <code>0</code> share the value of permalink. Note: sometimes, both value return the same URL to share.<br/>
+		<em>Default value : <code>0</code></em></li>
+		<li><code>$url_to_share</code> (string) – the URL to share. <code>permalink</code> to share the current page permalink, <code>siteurl</code> to share the main site URL, <code>url-value</code> to share a custom URL.<br/>
+		<em>Default value : <code>NULL</code></em> <span class="since">since 1.3.3.7</span></li>
+	</ul>
+	
+	<p>Example of use:</p>
+	<pre class="code"><code class="html">&lt;?php
+	/* your social networks */
+	$jsps_networks = array( 'twitter', 'facebook', 'google', 'mail' );
+	/* show counters */
+	$show_counters = 1;
+
+	/* display buttons */
+	juiz_sps( $jsps_networks, $show_counters );
+?&gt;</code></pre>
+
+	<p><code>juiz_sps()</code> makes an <code>echo</code>, if you need to save data in a variable, use <code>get_juiz_sps()</code>.</p>
+
+	<p>Example of use:</p>
+	<pre class="code"><code class="html">&lt;?php
+	/* your social networks */
+	$jsps_networks = array( 'twitter', 'facebook', 'google', 'mail' );
+
+	/* set variable */
+	$my_buttons = get_juiz_sps($jsps_networks, 1); // 1 to show counters
+
+	/* more later, display buttons */
+	echo $my_buttons;
+?&gt;</code></pre>
+
+
+
+
+	
+	<h2 id="hooks">Hooks <span class="since">since 1.1.0</span></h2>
+	
+	<p>This plugin allows you to change some parts of its structure without broke the core.<br />The following samples of code can be inserted in the functions.php file.</p>
+	
+	
+
+	<h3 id="juiz_sps_before_the_sps">Hook: <code>juiz_sps_before_the_sps</code></h3>
+	<p>Add a content just before the container of this plugin (a <code>div</code>)</p>
+<pre class="code"><code class="php">&lt;?php
+if( !function_exists('before_the_jsps_plugin')) {
+	function before_the_jsps_plugin() {
+		return '&lt;div class="another_container"&gt;';
+	}
+}
+add_filter('juiz_sps_before_the_sps', 'before_the_jsps_plugin');
+?&gt;</code></pre>
+
+
+
+	<h3 id="juiz_sps_after_the_sps">Hook: <code>juiz_sps_after_the_sps</code></h3>
+	<p>Add a content just after the container of this plugin (a <code>div</code>).</p>
+<pre class="code"><code class="php">&lt;?php
+if( !function_exists('after_the_jsps_plugin')) {
+	function after_the_jsps_plugin() {
+		return '&lt;small&gt;
+				plugin by 
+				&lt;a href="http://creativejuiz.fr"&gt;CreativeJuiz&lt;/a&gt;
+			&lt;/small&gt;';
+	}
+}
+add_filter('juiz_sps_after_the_sps', 'after_the_jsps_plugin');
+?&gt;</code></pre>
+
+	
+	<h3 id="juiz_sps_container_tag">Hook: <code>juiz_sps_container_tag</code></h3>
+	<p>Change the big container tag of the list (<code>&lt;div&gt;</code>) by another, for example:</p>
+	<pre class="code"><code class="php">&lt;?php
+	if( !function_exists('replacing_by_span')) {
+		function replacing_by_span() {
+			return 'span';
+		}
+	}
+	add_filter('juiz_sps_container_tag', 'replacing_by_span');
+	?&gt;</code></pre>
+
+
+	<h3 id="juiz_sps_list_container_tag">Hook: <code>juiz_sps_list_container_tag</code></h3>
+	<p>Change the tag of the list container (<code>&lt;ul&gt;</code>) by another, for example:</p>
+<pre class="code"><code class="php">&lt;?php
+if( !function_exists('replacing_by_div')) {
+	function replacing_by_div() {
+		return 'div';
+	}
+}
+add_filter('juiz_sps_list_container_tag', 'replacing_by_div');
+?&gt;</code></pre>
+
+
+	<h3 id="juiz_sps_phrase_tag">Hook: <code>juiz_sps_phrase_tag</code></h3>
+	<p>Change the intro phrase tag (hidden with default style) (<code>&lt;p&gt;</code>) by another, for example:</p>
+	<pre class="code"><code class="php">&lt;?php
+	if( !function_exists('replacing_by_span')) {
+		function replacing_by_span() {
+			return 'span';
+		}
+	}
+	add_filter('juiz_sps_phrase_tag', 'replacing_by_span');
+	?&gt;</code></pre>
+	<p>If you want to remove this sentence, see <a href="#juiz_sps_hide_intro_phrase">the <code>juiz_sps_hide_intro_phrase</code> hook</a></p>
+
+
+
+
+	<h3 id="juiz_sps_intro_phrase_text">Hook: <code>juiz_sps_intro_phrase_text</code> <span class="since">(since v1.3.0)</span></h3>
+	<p>Change the intro phrase content (the text) by what you want, for example:</p>
+	<pre class="code"><code class="php">&lt;?php
+	if( !function_exists('replacing_intro_phrase_text')) {
+		function replacing_intro_phrase_text() {
+			return __('Share my awesome content');
+		}
+	}
+	add_filter('juiz_sps_intro_phrase_text', 'replacing_intro_phrase_text');
+	?&gt;</code></pre>
+	<p>If you want to remove this sentence, see <a href="#juiz_sps_hide_intro_phrase">the <code>juiz_sps_hide_intro_phrase</code> hook</a></p>
+
+
+
+
+	<h3 id="juiz_sps_container_classes">Hook: <code>juiz_sps_container_classes</code></h3>
+	<p>Adds your own classes to the container element:</p>
+<pre class="code"><code class="php">&lt;?php
+if( !function_exists('juiz_sps_container_classes')) {
+	function juiz_sps_container_classes() {
+		return 'class1 class2';
+	}
+}
+add_filter('juiz_sps_container_classes', 'add_container_classes');
+?&gt;</code></pre>
+
+
+
+<h3 id="juiz_sps_list_of_item_tag">Hook: <code>juiz_sps_list_of_item_tag</code></h3>
+	<p>Change the tag of an item of the list (<code>&lt;li&gt;</code>) by another, for example:</p>
+<pre class="code"><code class="php">&lt;?php
+if( !function_exists('replacing_by_div')) {
+	function replacing_by_div() {
+		return 'div';
+	}
+}
+add_filter('juiz_sps_list_of_item_tag', 'replacing_by_div');
+?&gt;</code></pre>
+
+
+	<h3 id="juiz_sps_before_the_list">Hook: <code>juiz_sps_before_the_list</code></h3>
+	<p>Adds content just before de list of buttons (before the <code>&lt;ul&gt;</code> element):</p>
+<pre class="code"><code class="php">&lt;?php
+if( !function_exists('content_before_jsps_list')) {
+	function content_before_jsps_list() {
+		return '&lt;p class="info"&gt;(open in a new window)&lt;/p&gt;';
+	}
+}
+add_filter('juiz_sps_before_the_list', 'content_before_jsps_list');
+?&gt;</code></pre>
+
+
+	<h3 id="juiz_sps_after_the_list">Hook: <code>juiz_sps_after_the_list</code></h3>
+	<p>Adds content just after de list of buttons (after the <code>&lt;ul&gt;</code> element):</p>
+<pre class="code"><code class="php">&lt;?php
+if( !function_exists('content_after_jsps_list')) {
+	function content_after_jsps_list() {
+		return '&lt;p class="info"&gt;Thank you for sharing!&lt;/p&gt;';
+	}
+}
+add_filter('juiz_sps_after_the_list', 'content_after_jsps_list');
+?&gt;</code></pre>
+
+
+
+	<h3 id="juiz_sps_before_first_item">Hook: <code>juiz_sps_before_first_item</code></h3>
+	<p>Adds content just before the first item of the list (before the first <code>&lt;li&gt;</code>):</p>
+<pre class="code"><code class="php">&lt;?php
+if( !function_exists('content_before_jsps_first_item')) {
+	function content_before_jsps_first_item() {
+		return '&lt;li class="juiz_sps_link_myown"&gt;&lt;a href="#"&gt;MyOwn link&lt;/a&gt;&lt;/li&gt;';
+	}
+}
+add_filter('juiz_sps_before_first_item', 'content_before_jsps_first_item');
+?&gt;</code></pre>
+
+
+<h3 id="juiz_sps_after_last_item">Hook: <code>juiz_sps_after_last_item</code></h3>
+	<p>Adds content just after the last item of the list (after the last <code>&lt;li&gt;</code>):</p>
+<pre class="code"><code class="php">&lt;?php
+if( !function_exists('content_after_jsps_last_item')) {
+	function content_after_jsps_last_item() {
+		return '&lt;li class="juiz_sps_link_myown"&gt;&lt;a href="#"&gt;MyOwn link&lt;/a&gt;&lt;/li&gt;';
+	}
+}
+add_filter('juiz_sps_after_last_item', 'content_after_jsps_last_item');
+?&gt;</code></pre>
+
+
+
+<h3 id="juiz_sps_hide_intro_phrase">Hook: <code>juiz_sps_hide_intro_phrase</code> <span class="since">(since v1.3.0)</span></h3>
+	<p>If you want the remove the introduction sentence of the plugin ("Share the [post-title] article").</p>
+<pre class="code"><code class="php">&lt;?php
+if( !function_exists('hide_the_sps_intro_sentence')) {
+	function hide_the_sps_intro_sentence() {
+		return true;
+	}
+}
+add_filter('juiz_sps_hide_intro_phrase', 'hide_the_sps_intro_sentence');
+?&gt;</code></pre>
+
+
+<h3 id="juiz_sps_the_shared_permalink">Hook: <code>juiz_sps_the_permalink</code> <span class="since">(depreciated)</span> or <code>juiz_sps_the_shared_permalink</code> <span class="since">(since v1.2.4)</span></h3>
+	<p>Customizes the link shared by users. Be carefull when you customize permalinks, you need a permanent way to find your content ;) (don't create 404 errors)</p>
+<pre class="code"><code class="php">&lt;?php
+if( !function_exists('jsps_custom_permalink')) {
+	function jsps_custom_permalink($url) {
+		return $url.'?fromJsps';
+	}
+}
+add_filter('juiz_sps_the_shared_permalink', 'jsps_custom_permalink');
+?&gt;</code></pre>
+
+
+
+<h3 id="juiz_sps_the_shared_permalink_for_">Hook: <code>juiz_sps_the_shared_permalink_for_<em>[network]</em></code><span class="since">(since v1.2.4)</span></h3>
+	<p>Customizes the link shared by users only for the targeted network. Example for Twitter network:</p>
+<pre class="code"><code class="php">&lt;?php
+if( !function_exists('jsps_custom_permalink_for_twitter')) {
+	function jsps_custom_permalink($url) {
+		return $url.'?doWhatYouWant=twitter';
+	}
+}
+add_filter('juiz_sps_the_shared_permalink_for_twitter', 'jsps_custom_permalink_for_twitter');
+?&gt;</code></pre>
+
+
+<h3 id="juiz_sps_share_name_for_">Hook: <code>juiz_sps_share_name_for_<em>[network]</em></code><span class="since">(since v1.3.3.7)</span></h3>
+	<p>Customizes the name text for each network by replacing [network] by the good social network's name:</p>
+<pre class="code"><code class="php">&lt;?php
+if( !function_exists('jsps_change_twitter_name')) {
+function jsps_change_twitter_name(){
+	return __('BlueBird');
+}
+}
+add_filter('juiz_sps_share_name_for_twitter', 'jsps_change_twitter_name');
+?&gt;</code></pre>
+
+<h3 id="juiz_sps_share_text_for_">Hook: <code>juiz_sps_share_text_for_<em>[network]</em></code> <span class="since">(since v1.3.0)</span></h3>
+	<p>Customizes the text inside each tooltip for each network by replacing [network] by the good social network's name:</p>
+<pre class="code"><code class="php">&lt;?php
+if( !function_exists('custom_share_text_for_facebook')) {
+	function custom_share_text_for_facebook() {
+		return __('Share my content to your Facebook friends.');
+	}
+}
+add_filter('juiz_sps_share_text_for_facebook', 'custom_share_text_for_facebook');
+?&gt;</code></pre>
+
+
+
+<h3 id="juiz_sps_links_nofollow">Hook: <code>juiz_sps_links_nofollow</code></h3>
+	<p>By default, links are nofollow-links. If you need to remove this attribute:</p>
+<pre class="code"><code class="php">&lt;?php
+if( !function_exists('custom_links_attributes')) {
+	function custom_links_attributes() {
+		return ''; // you can add new attributes instead... just an idea ;)
+	}
+}
+add_filter('juiz_sps_links_nofollow', 'custom_links_attributes');
+?&gt;</code></pre>
+
+
+<h3 id="jsps_remove_default_css">Hook: <code>jsps_remove_default_css</code> <span class="since">(since v1.3.3.7)</span></h3>
+	<p>You need to use your own CSS file, you can remove default CSS files</p>
+<pre class="code"><code class="php">&lt;?php
+if( !function_exists('jsps_remove_default_css')) {
+function jsps_remove_default_css(){
+	return false;
+}
+}
+add_filter('juiz_sps_use_default_css', 'jsps_remove_default_css');
+?&gt;</code></pre>
+
+
+	
+
+	<h2 id="faq">FAQ</h2>
+	
+	<dl>
+		<dt>
+			The text shared by default is very ugly, something like "Share the post "YOUR POST TITLE" FacebookTwitterGoogle+E-mail [SOME OTHER WORDS]"?
+		</dt>
+		<dd>
+			You certainly activated the buttons in the top of your post. It's your choice, but in this case, you need to improve by yourself the SEO-description of your article/page. You can try using the <a href="https://wordpress.org/plugins/wordpress-seo/">WordPress SEO plugin by Yoast</a>.
+		</dd>
+
+		<dt>
+			Can I add a "Like" ou "Google +1" button with this plugin?
+		</dt>
+		<dd>
+			Yes, but not with the page options of this plugin. You need to use a hook to add an item in your buttons list.<br>
+			See the <a href="#juiz_sps_before_first_item"><code>juiz_sps_before_first_item</code></a> or <a href="#juiz_sps_after_last_item"><code>juiz_sps_after_last_item</code></a> hook in this documentation.
+		</dd>
+
+		<dt>
+			Styles are not loaded, there are some ugly sharing links, why?
+		</dt>
+		<dd>
+			This plugin uses the recommandation functions to load plugins styles (recommandation by WordPress). If your theme does not use <code>wp_enqueue_style()</code>, styles of this plugin won't be loaded.
+		</dd>
+
+		<dt>
+			Pinterest button did not find my images, why? <span class="since">(since v1.3.0)</span>
+		</dt>
+		<dd>
+			Pinterest API need a "Featured Image" in your post to work. So use the best image of your article as "Featured Image", or turn on the plugin option "Force Pinterest button sniffing all images of the page?". This option needs JavaScript to work, and uses the Pinterest official bookmarklet to scan compatible images with Pinterest service.
+		</dd>
+
+		<dt>
+			I have a fatal error or a 500 server error since update to 1.2.3 <span class="since">(since 1.2.3)</span>
+		</dt>
+		<dd>
+			Yes, you surely use Pinterest button. It's a bug, update to 1.2.4 at least.<br />
+			Thank you.
+		</dd>
+
+		<dt>
+			I can't just use shortcode by deactivating all the checkbox display option in admin option page? <span class="since">(since 1.2.0)</span>
+		</dt>
+		<dd>
+			Yes, it's a bug, please, use the plugin version 1.2.2 at least.
+		</dd>
+
+		<dt>
+			Some options are not visible (if it's not the first installation, but an update of the plugin) <span class="since">(since 1.1.0)</span>
+		</dt>
+		<dd>
+			Deactivate and reactivate the plugin to force the options rebuild.
+		</dd>
+		
+		<dt>
+			Nothing ?
+		</dt>
+		<dd>
+			You can open an issue here: <a href="http://wordpress.org/support/plugin/juiz-social-post-sharer">http://wordpress.org/support/plugin/juiz-social-post-sharer</a>
+		</dd>
+	</dl>
+	
+	<div id="footer"><p>Documentation for your life easier !<br />
+	<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=P39NJPCWVXGDY&amp;lc=FR&amp;item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&amp;item_number=%23wp%2djsps&amp;currency_code=EUR&amp;bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted" title="Go to Paypal Website" class="button" target="_blank">Donate</a>
+	<a href="https://twitter.com/intent/tweet?source=webclient&amp;hastags=WordPress,Plugin&amp;text=Juiz%20Social%20Post%20Sharer%20is%20an%20awesome%20WordPress%20plugin%20to%20share%20content!%20Try%20it!&amp;url=http://wordpress.org/extend/plugins/juiz-social-post-sharer/&amp;related=geoffrey_crofte&amp;via=geoffrey_crofte" target="_blank" class="tweet button">Tweet it</a></p>
+	<p class="last-update">v 1.3.4<br />Last update: 2014, 20 may</p>
+
+	</div>
+</body>
+</html>

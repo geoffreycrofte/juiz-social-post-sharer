@@ -1,0 +1,373 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: juiz-social-post-sharer\n"
+"POT-Creation-Date: 2014-05-31 23:03+0900\n"
+"PO-Revision-Date: 2014-06-01 00:05+0900\n"
+"Last-Translator: Shun Takeda\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;_e;__\n"
+"X-Poedit-Basepath: C:\\Users\\Shun\\Desktop\\WordPress\n"
+"Language: Japanese\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: juiz-social-post-sharer\n"
+
+#: juiz-social-post-sharer/juiz-social-post-sharer.php:137
+msgid "Share the post"
+msgstr "この記事を共有する"
+
+#: juiz-social-post-sharer/juiz-social-post-sharer.php:210
+msgid "Share this article on Twitter"
+msgstr "この記事を Twitter で共有する"
+
+#: juiz-social-post-sharer/juiz-social-post-sharer.php:215
+msgid "Share this article on Facebook"
+msgstr "この記事を Facebook で共有する"
+
+#: juiz-social-post-sharer/juiz-social-post-sharer.php:220
+msgid "Share this article on Google+"
+msgstr "この記事を Google+ で共有する"
+
+#: juiz-social-post-sharer/juiz-social-post-sharer.php:231
+msgid "Share an image of this article on Pinterest"
+msgstr "この記事の画像を Pinterest で共有する"
+
+#: juiz-social-post-sharer/juiz-social-post-sharer.php:236
+msgid "Share this article on Viadeo"
+msgstr "この記事を Viadeo で共有する"
+
+#: juiz-social-post-sharer/juiz-social-post-sharer.php:241
+msgid "Share this article on LinkedIn"
+msgstr "この記事を LinkedIn で共有する"
+
+#: juiz-social-post-sharer/juiz-social-post-sharer.php:246
+msgid "Share this article on Digg"
+msgstr "この記事を Digg で共有する"
+
+#: juiz-social-post-sharer/juiz-social-post-sharer.php:251
+msgid "Share this article on StumbleUpon"
+msgstr "この記事を StumbleUpon で共有する"
+
+#: juiz-social-post-sharer/juiz-social-post-sharer.php:259
+msgid "Share this article on Weibo"
+msgstr "この記事を Weibo で共有する"
+
+#: juiz-social-post-sharer/juiz-social-post-sharer.php:264
+msgid "Share this article on VKontakte"
+msgstr "この記事を VKontakte で共有する"
+
+#: juiz-social-post-sharer/juiz-social-post-sharer.php:275
+msgid "Share this article with a friend (email)"
+msgstr "この記事を Eメール で友達に送る"
+
+#: juiz-social-post-sharer/juiz-social-post-sharer.php:292
+msgid "Total: "
+msgstr "合計:"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:40
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:60
+#, php-format
+msgid "Visit this link find on %%siteurl%%"
+msgstr "Visit this link find on %%siteurl%%"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:41
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:61
+#, php-format
+msgid ""
+"Hi, I found this information for you : \"%%title%%\"! This is the direct "
+"link: %%permalink%% Have a nice day :)"
+msgstr ""
+"Hi, I found this information for you : \"%%title%%\"! This is the direct "
+"link: %%permalink%% Have a nice day :)"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:102
+msgid "Settings"
+msgstr "設定"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:119
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:120
+msgid "Social Post Sharer"
+msgstr "Social Post Sharer"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:152
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:157
+msgid "Sharing buttons"
+msgstr "共有ボタン"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:167
+msgid "Hide sharing buttons for this post."
+msgstr "この記事の共有ボタンを隠す"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:189
+msgid "Main settings"
+msgstr "メインの設定"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:190
+msgid "Choose a style to display"
+msgstr "表示するスタイルを選択"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:191
+msgid "Display those following social networks:"
+msgstr "表示するSNSを選択"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:192
+msgid "What is your Twitter user name to be mentioned?"
+msgstr "通知される Twitter ユーザー名"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:193
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:199
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:209
+msgid "Save Changes"
+msgstr "変更を保存"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:196
+msgid "Display settings"
+msgstr "表示の設定"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:197
+msgid "What type of content must have buttons?"
+msgstr "ボタンを表示するコンテンツの種類"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:198
+msgid "Where do you want to display buttons?"
+msgstr "ボタンを表示する場所"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:202
+msgid "Advanced settings"
+msgstr "詳細の設定"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:203
+msgid "Show only social icon?"
+msgstr "ソーシャルアイコンのみを表示"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:203
+msgid "hide text, show it on mouse over or focus"
+msgstr "マウスオーバーまたはフォーカス時にテキストを表示"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:204
+msgid "Open links in a new window?"
+msgstr "リンクを新規ウィンドウで開く"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:204
+#, php-format
+msgid "adds a %s attribute"
+msgstr "%s 属性を追加"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:205
+msgid "Force Pinterest button sniffing all images of the page?"
+msgstr "ページのあらゆる画像に Pinterest ボタンを表示する"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:205
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:206
+msgid "need JavaScript"
+msgstr "JavaScript が必要"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:206
+msgid "Display counter of sharing?"
+msgstr "共有カウンターを表示"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:207
+msgid "For this counter, you want to display:"
+msgstr "共有カウンターの表示スタイル"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:208
+msgid "Write CSS code in HTML head?"
+msgstr "CSS コードを HTML ヘッダーに記述"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:208
+msgid "good thing for performance on mobile"
+msgstr "携帯端末でのパフォーマンスが向上"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:212
+msgid "Customize mail texts"
+msgstr "メール文のカスタマイズ"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:213
+msgid "Mail subject:"
+msgstr "件名:"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:214
+msgid "Mail body:"
+msgstr "本文:"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:278
+msgid "Here, you can modify default settings of the SPS plugin"
+msgstr "Social Post Sharer プラグインのデフォルト設定を変更できます。"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:293
+msgid "Juizy Light Tone"
+msgstr "Juizy Light Tone"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:297
+msgid "Juizy Light Tone Reverse"
+msgstr "Juizy Light Tone Reverse"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:301
+msgid "Blue Metro Style"
+msgstr "Blue Metro Style"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:305
+msgid "Gray Metro Style"
+msgstr "Gray Metro Style"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:309
+msgid "Modern Style"
+msgstr "Modern Style"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:309
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:313
+msgid "by"
+msgstr "by"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:313
+msgid "Black"
+msgstr "Black"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:329
+msgid "uses JavaScript to work"
+msgstr "JavaScript が必要"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:338
+msgid "New social network!"
+msgstr "新しいSNS"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:350
+msgid "Username without \"@\""
+msgstr "ユーザー名は \"@\" を抜いて入力してください"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:360
+msgid ""
+"You can choose precisely the types of content that will benefit from the "
+"sharing buttons."
+msgstr "共有ボタンを表示するコンテンツの種類を選択できます。"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:400
+#, php-format
+msgid "Lists of articles %s(blog, archives, search results, etc.)%s"
+msgstr "記事の一覧%s(ブログ、アーカイブ、検索結果、ほか)%s"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:416
+msgid "Content bottom"
+msgstr "コンテンツの下"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:419
+msgid "Content top"
+msgstr "コンテンツの上"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:422
+msgid "Both"
+msgstr "両方"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:425
+msgid "I'm a ninja, I want to use the shortcode only!"
+msgstr "ショートコードのみ"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:435
+msgid ""
+"Modify advanced settings of the plugin. Some of them needs JavaScript (only "
+"one file loaded)"
+msgstr ""
+"プラグインの詳細の設定を変更できます。いくつかの設定は JavaScript が必要で"
+"す。( 1 つのファイルがロードされます )"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:450
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:469
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:486
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:504
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:546
+msgid "Yes"
+msgstr "はい"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:453
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:472
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:489
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:507
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:549
+msgid "No"
+msgstr "いいえ"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:525
+msgid "Total &amp; Sub-totals"
+msgstr "合計と小計"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:528
+msgid "Only Total"
+msgstr "合計のみ"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:531
+msgid "Only Sub-totals"
+msgstr "小計のみ"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:544
+msgid "This option will be enabled for a next version"
+msgstr "このオプションは次期バージョンで有効になります"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:557
+msgid ""
+"You can customize texts to display when visitors share your content by mail "
+"button"
+msgstr ""
+"訪問者が Eメール ボタンからコンテンツを共有した際に表示されるテキストをカスタ"
+"マイズできます。"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:558
+#, php-format
+msgid ""
+"To perform customization, you can use %s%%%%title%%%%%s, %s%%%%siteurl%%%%%s "
+"or %s%%%%permalink%%%%%s variables."
+msgstr ""
+"カスタマイズには、%s%%%%title%%%%%s、 %s%%%%siteurl%%%%%s または %s%%"
+"%%permalink%%%%%s 変数を使用できます。"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:582
+msgid "Manage Juiz Social Post Sharer"
+msgstr "Juiz Social Post Sharer の管理"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:587
+#, php-format
+msgid "You must chose at least one %stype of content%s."
+msgstr "最低でも 1 つの  %stype of content%s を選択してください。"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:588
+msgid ""
+"Is you don't want to use this plugin more longer, go to Plugins section and "
+"deactivate it."
+msgstr ""
+"このプラグインの使用を止めたい場合は、インストール済みプラグイン ページを開"
+"き、プラグインを停止します。"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:592
+#, php-format
+msgid ""
+"You can use %s[juiz_sps]%s or %s[juiz_social]%s shortcode with an optional "
+"attribute \"buttons\" listing the social networks you want."
+msgstr ""
+"%s[juiz_sps]%s または %s[juiz_social]%s ショートコード を使うと、思い通りの場"
+"所にソーシャルネットワークボタンの一覧を表示できます。"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:594
+msgid "Example with all the networks available:"
+msgstr "有効なすべての SNS と記述例:"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:606
+msgid "Like it? Support this plugin! Thank you."
+msgstr "お気に召しましたか？このプラグインをサポートしてください！"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:607
+msgid "Donate"
+msgstr "寄付"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:608
+msgid "Tweet it"
+msgstr "プラグインをツイート"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:609
+msgid "Rate it"
+msgstr "評価する"
+
+#: juiz-social-post-sharer/admin/jsps-admin.inc.php:610
+msgid "Documentation"
+msgstr "ドキュメント"
