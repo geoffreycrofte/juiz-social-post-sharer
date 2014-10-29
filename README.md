@@ -1,4 +1,4 @@
-Juiz Social Post Sharer v1.3.8.1
+Juiz Social Post Sharer v1.3.6.1
 ========================
 WordPress Plugin
 ---------------
@@ -58,6 +58,8 @@ Languages available:
 * Serbian (thank to [Borisa Djuraskovic](http://www.webhostinghub.com "Borisa Djuraskovic's website")!)
 * Spanish (thank to [Roberto Castiñeira](www.mediapartner.es "Roberto Castiñeira's website")!)
 * Turkish (thanks to [Hakaner](http://hakanertr.wordpress.com/ "His website")!)
+
+**You can help translation using <a href="https://www.transifex.com/projects/p/juiz-social-post-sharer/">Transifex</a> or <a href="http://plugins.svn.wordpress.org/juiz-social-post-sharer/trunk/languages/">translating manually</a>. Thank you for your help!**
 
 <strong>Full <a href="http://creativejuiz.fr/blog/doc/juiz-social-post-sharer-documentation.html">Documentation</a> available</strong>.
 
