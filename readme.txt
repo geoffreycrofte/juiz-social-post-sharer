@@ -3,8 +3,8 @@ Contributors: CreativeJuiz
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJPCWVXGDY&lc=FR&item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&item_number=%23wp%2djsps&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted
 Tags: social, twitter, google, facebook, digg, stumbleupon, linkedin, pinterest, viadeo, weibo, vkontakte, post, share
 Requires at least: 3.3
-Tested up to: 4.0.0
-Stable tag: 1.3.6.1
+Tested up to: 4.1
+Stable tag: 1.3.6.2
 
 Add buttons after your posts to allow visitors share your content (includes no JavaScript mode).
 
@@ -194,6 +194,11 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
 
 
 == Changelog ==
+
+= 1.3.6.2 =
+* Transifex ready (thanks to [WP Translations](http://wp-translations.org))
+* Tested in WordPress 4.1
+* Icon sizes updated
 
 = 1.3.6.1 =
 * Russian Translation update (Thank you [Fandia](http://fandia.w.pw "Fandia's website")!) 

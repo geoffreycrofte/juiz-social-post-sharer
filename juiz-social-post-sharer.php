@@ -2,16 +2,16 @@
 /*
 Plugin Name: Juiz Social Post Sharer
 Plugin URI: http://wordpress.org/extend/plugins/juiz-social-post-sharer/
-Description: Add buttons after (or before, or both) your posts to allow visitors share your content (includes no JavaScript mode). You can also use <code>juiz_sps($array)</code> template function or <code>[juiz_sps]</code> shortcode. For more informations see the setting page located in <strong>Settings</strong> submenu. <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=P39NJPCWVXGDY&amp;lc=FR&amp;item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&amp;item_number=%23wp%2djsps&amp;currency_code=EUR&amp;bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted">Donate</a>
+Description: Add buttons after (or before, or both) your posts to allow visitors share your content (includes no JavaScript mode). You can also use <code>juiz_sps($array)</code> template function or <code>[juiz_sps]</code> shortcode. For more informations see the setting page located in <strong>Settings</strong> submenu.
 Author: Geoffrey Crofte
-Version: 1.3.6.1
-Author URI: http://crofte.fr
+Version: 1.3.6.2
+Author URI: http://geoffrey.crofte.fr
 License: GPLv2 or later 
 */
 
 /**
 
-Copyright 2012-2014  Geoffrey Crofte  (email : support@creativejuiz.com)
+Copyright 2012-2015  Geoffrey Crofte  (email : support@creativejuiz.com)
 
     
 This program is free software; you can redistribute it and/or
@@ -31,7 +31,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 **/
 
 define( 'JUIZ_SPS_PLUGIN_NAME',	 'Juiz Social Post Sharer' );
-define( 'JUIZ_SPS_VERSION',		 '1.3.6.1' );
+define( 'JUIZ_SPS_VERSION',		 '1.3.6.2' );
 define( 'JUIZ_SPS_FILE',		 __FILE__ );
 define( 'JUIZ_SPS_DIRNAME',		 basename( dirname( __FILE__ ) ) );
 define( 'JUIZ_SPS_PLUGIN_URL',	 plugin_dir_url( __FILE__ ));
