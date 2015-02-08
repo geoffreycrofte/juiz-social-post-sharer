@@ -21,7 +21,7 @@ grunt.initConfig({
           type: 'wp-plugin',    // Type of project (wp-plugin or wp-theme).
           updateTimestamp: true,    // Whether the POT-Creation-Date should be updated without other changes.
           processPot: function( pot, options ) {
-            pot.headers['report-msgid-bugs-to'] = 'http://crofte.fr/';
+            pot.headers['report-msgid-bugs-to'] = 'http://geoffrey.crofte.fr/';
             pot.headers['last-translator'] = 'WP-Translations (http://wp-translations.org/)\n';
             pot.headers['language-team'] = 'WP-Translations  <fxb@wp-translations.org>\n';
             pot.headers['language'] = 'en_US';
