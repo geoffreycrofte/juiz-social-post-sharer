@@ -1,4 +1,4 @@
-Juiz Social Post Sharer v1.3.6.1
+Juiz Social Post Sharer v1.3.6.2
 ========================
 WordPress Plugin
 ---------------
@@ -15,6 +15,7 @@ Select your favorites social networks among a little list. Display an optional s
 * [Flattr this thing!](https://flattr.com/submit/auto?user_id=CreativeJuiz&url=http://wordpress.org/plugins/juiz-social-post-sharer/&title=Juiz%20Social%20Post%20Sharer%20-%20WordPress%20Plugin&description=Awesome%20WordPress%20Plugin%20helping%20you%20to%20add%20buttons%20at%20the%20beginning%20or%20the%20end%20of%20your%20WordPress%20contents%20easily&tags=WordPress,Social,Share,Buttons,Network,Twitter,Facebook,Linkedin&category=software)
 
 **Please, use the support forum to tell me bugs encountered, and be patient**
+<a href="http://creativejuiz.fr/blog/doc/juiz-social-post-sharer-documentation.html">**&lt;&lt;Documentation&gt;&gt;**</a>
 
 
 Social networks supported:
