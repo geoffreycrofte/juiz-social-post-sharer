@@ -1,4 +1,4 @@
-Juiz Social Post Sharer v1.3.6.2
+Juiz Social Post Sharer v1.3.7
 ========================
 WordPress Plugin
 ---------------
@@ -34,7 +34,7 @@ Social networks supported:
 
 Options plugin:
 
-* 6 graphic templates available
+* 8 graphic templates available
 * Choose from all available networks
 * Open links in a new window (deactivated by default)
 * Choose to display only the social network icon

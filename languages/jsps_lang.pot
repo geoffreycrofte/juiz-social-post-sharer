@@ -2,9 +2,9 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Juiz Social Post Sharer 1.3.6.1\n"
-"Report-Msgid-Bugs-To: http://crofte.fr/\n"
-"POT-Creation-Date: 2015-02-06 12:57:18+00:00\n"
+"Project-Id-Version: Juiz Social Post Sharer 1.3.6.2\n"
+"Report-Msgid-Bugs-To: http://geoffrey.crofte.fr/\n"
+"POT-Creation-Date: 2015-02-24 23:15:06+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -211,8 +211,8 @@ msgstr ""
 
 #: admin/jsps-admin.inc.php:435
 msgid ""
-"Modify advanced settings of the plugin. Some of them needs JavaScript (only "
-"one file loaded)"
+"Modify advanced settings of the plugin. Some of them need JavaScript (a "
+"unique JS file will be loaded)"
 msgstr ""
 
 #: admin/jsps-admin.inc.php:450 admin/jsps-admin.inc.php:469
@@ -365,11 +365,7 @@ msgid ""
 "your content (includes no JavaScript mode). You can also use "
 "<code>juiz_sps($array)</code> template function or <code>[juiz_sps]</code> "
 "shortcode. For more informations see the setting page located in "
-"<strong>Settings</strong> submenu. <a "
-"href=\"https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=P39"
-"NJPCWVXGDY&amp;lc=FR&amp;item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%"
-"20Plugin&amp;item_number=%23wp%2djsps&amp;currency_code=EUR&amp;bn=PP%2"
-"dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted\">Donate</a>"
+"<strong>Settings</strong> submenu."
 msgstr ""
 
 #. Author of the plugin/theme
@@ -377,5 +373,5 @@ msgid "Geoffrey Crofte"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "http://crofte.fr"
+msgid "http://geoffrey.crofte.fr"
 msgstr ""

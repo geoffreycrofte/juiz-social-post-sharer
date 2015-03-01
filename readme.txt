@@ -3,8 +3,8 @@ Contributors: CreativeJuiz
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJPCWVXGDY&lc=FR&item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&item_number=%23wp%2djsps&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted
 Tags: social, twitter, google, facebook, digg, stumbleupon, linkedin, pinterest, viadeo, weibo, vkontakte, post, share
 Requires at least: 3.3
-Tested up to: 4.1
-Stable tag: 1.3.6.2
+Tested up to: 4.1.1
+Stable tag: 1.3.7
 
 Add buttons after your posts to allow visitors share your content (includes no JavaScript mode).
 
@@ -37,7 +37,7 @@ Social networks supported:
 
 Options plugin:
 
-* 6 graphic templates available
+* 8 graphic templates available
 * Choose from all available networks
 * Open links in a new window (deactivated by default)
 * Choose to display only the social network icon
@@ -104,7 +104,7 @@ Les réseaux sociaux supportés :
 
 Options du plugin :
 
-* 6 thèmes graphiques de base
+* 8 thèmes graphiques de base
 * Faites votre choix parmi tous les réseaux disponibles
 * Ouverture des liens dans une nouvelle fenêtre (désactivé par défaut)
 * Choix de n'afficher que l'icône du réseau social
@@ -186,6 +186,7 @@ Deactivate and reactivate the plugin to force the options rebuild.
 2. After a post
 3. The new 1.3.0 Black theme and sharings counter
 4. The metabox to hide buttons on a post
+5. Both new themes: Brands Colors & Material Design
 
 == Other plugins ==
 
@@ -195,10 +196,13 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
 
 == Changelog ==
 
-= 1.3.6.2 =
-* Transifex ready (thanks to [WP Translations](http://wp-translations.org))
-* Tested in WordPress 4.1
-* Icon sizes updated
+= 1.3.7 =
+* **Tested up to WordPress 4.1.1**
+* New style "Brands Colors" available (7 themes available now)
+* New themes and "Black" theme by Fandia support Retina and HDPI screens (font-icons)
+* Some little bugs in other styles fixed
+* RTL languages compatibility
+* Note: Plurk, Appnet and Flattr buttons should coming...
 
 = 1.3.6.1 =
 * Russian Translation update (Thank you [Fandia](http://fandia.w.pw "Fandia's website")!) 
