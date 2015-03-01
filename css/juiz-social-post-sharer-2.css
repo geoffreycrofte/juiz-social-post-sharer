@@ -155,7 +155,7 @@ Version: Styles v2
 	border-top: 6px solid transparent;
 }
 .juiz_sps_totalcount {
-	border-radius: 3px;
+	border-radius: 6px;
 }
 .juiz_hidden_counter {
 	display:none;
