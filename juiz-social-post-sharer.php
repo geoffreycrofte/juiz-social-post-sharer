@@ -4,7 +4,7 @@ Plugin Name: Juiz Social Post Sharer
 Plugin URI: http://wordpress.org/extend/plugins/juiz-social-post-sharer/
 Description: Add buttons after (or before, or both) your posts to allow visitors share your content (includes no JavaScript mode). You can also use <code>juiz_sps($array)</code> template function or <code>[juiz_sps]</code> shortcode. For more informations see the setting page located in <strong>Settings</strong> submenu.
 Author: Geoffrey Crofte
-Version: 1.3.6.2
+Version: 1.3.7
 Author URI: http://geoffrey.crofte.fr
 License: GPLv2 or later 
 */
@@ -31,7 +31,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 **/
 
 define( 'JUIZ_SPS_PLUGIN_NAME',	 'Juiz Social Post Sharer' );
-define( 'JUIZ_SPS_VERSION',		 '1.3.6.2' );
+define( 'JUIZ_SPS_VERSION',		 '1.3.7' );
 define( 'JUIZ_SPS_FILE',		 __FILE__ );
 define( 'JUIZ_SPS_DIRNAME',		 basename( dirname( __FILE__ ) ) );
 define( 'JUIZ_SPS_PLUGIN_URL',	 plugin_dir_url( __FILE__ ));
@@ -276,7 +276,7 @@ if (!is_admin()) {
 								break;
 						}
 
-						$juiz_sps_content .= '<'.$li.' class="juiz_sps_item juiz_sps_link_'.$k.'"><a href="'.wp_strip_all_tags(esc_attr($api_link)).'" '.$rel_nofollow.' title="'.esc_attr($api_text).'"'.$juiz_sps_target_link.'><span class="juiz_sps_icon"></span><span class="juiz_sps_network_name">'.$network_name.'</span></a></'.$li.'>';
+						$juiz_sps_content .= '<'.$li.' class="juiz_sps_item juiz_sps_link_'.$k.'"><a href="'.wp_strip_all_tags(esc_attr($api_link)).'" '.$rel_nofollow.' title="'.esc_attr($api_text).'"'.$juiz_sps_target_link.'><span class="juiz_sps_icon jsps-'.$k.'"></span><span class="juiz_sps_network_name">'.$network_name.'</span></a></'.$li.'>';
 
 					}
 				}

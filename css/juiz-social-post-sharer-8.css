@@ -1,0 +1,230 @@
+/*
+Plugin Name: Juiz Social Post Sharer
+Plugin URI: http://creativejuiz.fr
+Author: Geoffrey Crofte
+Version: Styles v8 inspired from Material Design
+*/
+@font-face{font-family:'jsps';src:url('fonts/jsps.eot?-f1jxj9');src:url('fonts/jsps.eot?#iefix-f1jxj9') format('embedded-opentype'),url('fonts/jsps.woff?-f1jxj9') format('woff'),url('fonts/jsps.ttf?-f1jxj9') format('truetype'),url('fonts/jsps.svg?-f1jxj9#jsps') format('svg');font-weight:normal;font-style:normal}[class^="jsps-"],[class*="jsps-"]{font-family:'jsps';speak:none;font-style:normal;font-weight:normal;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-size:1.5em;}.jsps-viadeo:before{content:"\e603"}.jsps-digg:before{content:"\e601"}.jsps-stumbleupon:before{content:"\e602"}.jsps-vk:before{content:"\e606"}.jsps-weibo:before{content:"\e604"}.jsps-mail:before{content:"\e600"}.jsps-google:before{content:"\ea88";vertical-align:-0.1em}.jsps-facebook:before{position:relative;left:-.05em;content:"\ea8c";vertical-align:0.11em}.jsps-twitter:before{content:"\ea91"}.jsps-linkedin:before{content:"\eac9";font-size:0.85em;vertical-align:0.2em}.jsps-pinterest:before{content:"\ead0"}
+
+.juiz_sps_links {
+	word-wrap: normal!important;
+	clear: both;
+	margin: 1em 0;
+}
+.juiz_sps_maybe_hidden_text {
+	position: absolute;
+	left: -9999em;
+	text-indent: -9999em;
+}
+[dir="rtl"] .juiz_sps_maybe_hidden_text {
+	position: absolute;
+	right: -9999em;
+}
+.juiz_sps_links ul,
+.juiz_sps_links .juiz_sps_item  { 
+	padding: 0!important;
+	margin: 0!important;
+	list-style: none!important;
+}
+
+.juiz_sps_links .juiz_sps_item a .juiz_sps_icon,
+.juiz_sps_links .juiz_sps_item a .juiz_sps_network_name { 
+	display: inline-block;
+	vertical-align: middle;
+}
+.juiz_sps_links .juiz_sps_item a .juiz_sps_network_name {
+	font-weight: bold;
+}
+.juiz_sps_links .juiz_sps_item {
+	display: inline-table;
+	vertical-align: middle;
+	border-spacing: 0.2em;
+}
+.juiz_sps_links .juiz_sps_item > * {
+	display: table-cell!important;
+}
+.juiz_sps_links .juiz_sps_item a { 
+	padding: 0.5em 1.1em 0.5em 1em;
+	border: 0;
+	font-size: 0.95em;
+	color: #FFF;
+	text-decoration: none;
+	text-shadow: none;
+	background: #2E2E2E;
+	-webkit-background-clip: padding-box;
+	-moz-background-clip: padding;
+	background-clip: padding-box;
+	transition: background-color .5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+	transition-delay: 0.2s;
+	border-radius: 2px;
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+	-webkit-user-select: none;
+	   -moz-user-select: none;
+		-ms-user-select: none;
+			user-select: none;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	-webkit-touch-callout: none;
+}
+.juiz_sps_links .juiz_sps_item a:focus {
+	outline: 0;
+}
+.juiz_sps_links .juiz_sps_item a:hover,
+.juiz_sps_links .juiz_sps_item a:focus {
+	box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2);
+	transition-delay: 0s;
+}
+.juiz_sps_links .juiz_sps_item a:active {
+	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.3);
+}
+.juiz_sps_links .juiz_sps_icon {
+	margin-right: 0.4em;
+}
+
+.juiz_sps_links .juiz_sps_link_mail a { 
+	color: #333;
+}
+
+.juiz_sps_links .juiz_sps_item a:hover,
+.juiz_sps_links .juiz_sps_item a:focus {
+	color: #FFF;
+}
+
+.juiz_sps_links .juiz_sps_link_twitter a {
+	background-color: #55acee;
+}
+.juiz_sps_links .juiz_sps_link_twitter a:hover,
+.juiz_sps_links .juiz_sps_link_twitter a:focus { 
+	background-color: #3f93d3;
+}
+
+.juiz_sps_links .juiz_sps_link_google a {
+	background-color: #dd4b39;
+}
+.juiz_sps_links .juiz_sps_link_google a:hover,
+.juiz_sps_links .juiz_sps_link_google a:focus { 
+	background-color: #be3f2f;
+ }
+
+.juiz_sps_links .juiz_sps_link_facebook a {
+	background-color: #3b5998;
+}
+.juiz_sps_links .juiz_sps_link_facebook a:hover,
+.juiz_sps_links .juiz_sps_link_facebook a:focus { 
+	background-color: #284277;
+}
+
+.juiz_sps_links .juiz_sps_link_vk a {
+	background-color: #45668e;
+}
+.juiz_sps_links .juiz_sps_link_vk a:hover,
+.juiz_sps_links .juiz_sps_link_vk a:focus { 
+	background-color: #2f4e72;
+}
+
+.juiz_sps_links .juiz_sps_link_pinterest a {
+	background-color: #cc2127;
+}
+.juiz_sps_links .juiz_sps_link_pinterest a:hover,
+.juiz_sps_links .juiz_sps_link_pinterest a:focus { 
+	background-color: #ac1b20;
+ }
+
+.juiz_sps_links .juiz_sps_link_viadeo a {
+	background-color: #ec7500;
+}
+.juiz_sps_links .juiz_sps_link_viadeo a:hover,
+.juiz_sps_links .juiz_sps_link_viadeo a:focus { 
+	background-color: #c0660e;
+ }
+
+.juiz_sps_links .juiz_sps_link_digg a {
+	background-color: #000;
+}
+.juiz_sps_links .juiz_sps_link_digg a:hover,
+.juiz_sps_links .juiz_sps_link_digg a:focus { 
+	background-color: #0093cc;
+}
+
+.juiz_sps_links .juiz_sps_link_linkedin a {
+	background-color: #0976b4;
+}
+.juiz_sps_links .juiz_sps_link_linkedin a:hover,
+.juiz_sps_links .juiz_sps_link_linkedin a:focus { 
+	background-color: #0f5f8c;
+ }
+
+.juiz_sps_links .juiz_sps_link_stumbleupon a {
+	background-color: #eb4723;
+}
+.juiz_sps_links .juiz_sps_link_stumbleupon a:hover,
+.juiz_sps_links .juiz_sps_link_stumbleupon a:focus { 
+	background-color: #eb4723;
+ }
+
+.juiz_sps_links .juiz_sps_link_weibo a {
+	background-color: #EC5452; /*F74700*/
+}
+.juiz_sps_links .juiz_sps_link_weibo a:hover,
+.juiz_sps_links .juiz_sps_link_weibo a:focus { 
+	background-color: #CB4543;
+ }
+.juiz_sps_links .juiz_sps_link_mail a,
+.juiz_sps_links .juiz_sps_link_mail a:hover,
+.juiz_sps_links .juiz_sps_link_mail a:focus {
+	color: #fff
+}
+
+/* special if names are hidden */
+.juiz_sps_hide_name .juiz_sps_item a {
+	padding: 0.4em .85em 0.45em;
+}
+.juiz_sps_hide_name a .juiz_sps_network_name {
+	max-width: 0;
+	white-space: nowrap!important;
+	overflow: hidden;
+}
+
+.juiz_sps_hide_name a .juiz_sps_network_name { 
+	-webkit-transition: max-width .75s;
+			transition: max-width .75s;
+}
+.juiz_sps_hide_name a .juiz_sps_icon {
+	margin-right:0;
+	-webkit-transition: margin .75s;
+			transition: margin .75s;
+}
+.juiz_sps_hide_name a:hover .juiz_sps_network_name,
+.juiz_sps_hide_name a:focus .juiz_sps_network_name {
+	max-width: 8em;
+}
+.juiz_sps_hide_name a:hover .juiz_sps_icon,
+.juiz_sps_hide_name a:focus .juiz_sps_icon {
+	margin-right:0.3em;
+}
+.juiz_sps_counter,
+.juiz_sps_totalcount {
+	position: relative;
+	margin-top: 0.15em;
+	padding: 0.38em 0.5em 0.38em;
+	font-size: 0.725em;
+	color: #FFF;
+	background: #727272;
+	border-radius: 2px;
+}
+.juiz_sps_counter:after {
+	content: "";
+	position: absolute;
+	right: -0.325em;
+	top: 50%;
+	margin-top:-0.325em;
+	border-left: 0.4em solid #727272;
+	border-bottom: 0.4em solid transparent;
+	border-top: 0.4em solid transparent;
+}
+.juiz_sps_totalcount {
+	color: #727272;
+	background: #F4F4F4;
+}
+.juiz_hidden_counter{
+	display:none;
+}

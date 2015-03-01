@@ -15,7 +15,7 @@ function juiz_sps_activation() {
 	if ( !is_array($juiz_sps_options) ) {
 		
 		$default_array = array(
-			'juiz_sps_style' 			=> 1,
+			'juiz_sps_style' 			=> 7,
 			'juiz_sps_networks' 		=> array(
 											"facebook"		=>	array(1, "Facebook"), 
 											"twitter"		=>	array(1, "Twitter"), 
@@ -100,6 +100,8 @@ if (!function_exists('juiz_sps_plugin_action_links')) {
 	add_filter( 'plugin_action_links_'.plugin_basename( JUIZ_SPS_FILE ), 'juiz_sps_plugin_action_links',  10, 2);
 	function juiz_sps_plugin_action_links( $links, $file ) {
 		$links[] = '<a href="'.admin_url('options-general.php?page='.JUIZ_SPS_SLUG).'">' . __('Settings') .'</a>';
+		/*$links[] = '<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJPCWVXGDY&lc=FR&item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&item_number=%23wp%2djsps&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted">' . __('Donate', JUIZ_SPS_LANG).'</a>';
+		$links[] = '<a href="https://flattr.com/submit/auto?user_id=CreativeJuiz&amp;url=http://wordpress.org/plugins/juiz-social-post-sharer/&amp;title=Juiz%20Social%20Post%20Sharer%20-%20WordPress%20Plugin&amp;description=Awesome%20WordPress%20Plugin%20helping%20you%20to%20add%20buttons%20at%20the%20beginning%20or%20the%20end%20of%20your%20WordPress%20contents%20easily&amp;tags=WordPress,Social,Share,Buttons,Network,Twitter,Facebook,Linkedin&amp;category=software">Flattr!</a>';*/
 		return $links;
 	}
 }
@@ -242,7 +244,7 @@ function juiz_sps_sanitize($options) {
 	}
 
 
-	$newoptions['juiz_sps_style'] = $options['juiz_sps_style']>=1 && $options['juiz_sps_style']<=6 ? (int)$options['juiz_sps_style'] : 1;
+	$newoptions['juiz_sps_style'] = $options['juiz_sps_style']>=1 && $options['juiz_sps_style']<=8 ? (int)$options['juiz_sps_style'] : 1;
 	$newoptions['juiz_sps_hide_social_name'] = (int)$options['juiz_sps_hide_social_name']==1 ? 1 : 0;
 	$newoptions['juiz_sps_target_link'] = (int)$options['juiz_sps_target_link']==1 ? 1 : 0;
 	$newoptions['juiz_sps_counter'] = (int)$options['juiz_sps_counter']==1 ? 1 : 0;
@@ -285,7 +287,7 @@ function juiz_sps_setting_radio_style_choice() {
 
 	$options = get_option( JUIZ_SPS_SETTING_NAME );
 	if ( is_array($options) ) {
-		$n1 = $n2 = $n3 = $n4 = $n5 = $n6 = "";
+		$n1 = $n2 = $n3 = $n4 = $n5 = $n6 = $n7 = $n8 = "";
 		${'n'.$options['juiz_sps_style']} = " checked='checked'";
 	
 		echo '<p class="juiz_sps_styles_options">
@@ -311,6 +313,14 @@ function juiz_sps_setting_radio_style_choice() {
 				<p class="juiz_sps_styles_options">
 					<input id="jsps_style_6" value="6" name="'.JUIZ_SPS_SETTING_NAME.'[juiz_sps_style]" type="radio" '.$n6.' />
 					<label for="jsps_style_6"><span class="juiz_sps_demo_styles"></span><br /><span class="juiz_sps_style_name">'. __('Black', JUIZ_SPS_LANG) . ' '.__('by', JUIZ_SPS_LANG).' <a href="http://fandia.w.pw" target="_blank">Fandia</a></span></label>
+				</p>
+				<p class="juiz_sps_styles_options">
+					<input id="jsps_style_7" value="7" name="'.JUIZ_SPS_SETTING_NAME.'[juiz_sps_style]" type="radio" '.$n7.' />
+					<label for="jsps_style_7"><span class="juiz_sps_demo_styles"></span><br /><span class="juiz_sps_style_name">'. __('Brands colors', JUIZ_SPS_LANG) . '</label>
+				</p>
+				<p class="juiz_sps_styles_options">
+					<input id="jsps_style_8" value="8" name="'.JUIZ_SPS_SETTING_NAME.'[juiz_sps_style]" type="radio" '.$n8.' />
+					<label for="jsps_style_8"><span class="juiz_sps_demo_styles"></span><br /><span class="juiz_sps_style_name">'. __('Material Design', JUIZ_SPS_LANG) . '</label>
 				</p>';
 	}
 }
@@ -366,7 +376,7 @@ function juiz_sps_setting_checkbox_content_type() {
 	$pts	= get_post_types( array('public'=> true, 'show_ui' => true, '_builtin' => true) );
 	$cpts	= get_post_types( array('public'=> true, 'show_ui' => true, '_builtin' => false) );
 	$options = get_option( JUIZ_SPS_SETTING_NAME );
-	$all_lists_icon = '<img class="jsps_icon" alt="&#8226; " src="'.JUIZ_SPS_PLUGIN_URL.'img/icon-list.png"/>';
+	$all_lists_icon = '<span class="dashicons-before dashicons-editor-ul"></span>';
 	$all_lists_selected = '';
 	if (is_array($options['juiz_sps_display_in_types'])) {
 		$all_lists_selected = in_array('all_lists', $options['juiz_sps_display_in_types']) ? 'checked="checked"': '';
@@ -381,9 +391,20 @@ function juiz_sps_setting_checkbox_content_type() {
 		foreach ( $pts as $pt ) {
 
 			$selected = in_array($pt, $options['juiz_sps_display_in_types']) ? 'checked="checked"' : '';
+			$icon = '';
 
-			$icon = isset($wp_post_types[$pt]->menu_icon) && $wp_post_types[$pt]->menu_icon ? '<img alt="&#8226; " src="'.esc_url($wp_post_types[$pt]->menu_icon).'"/>' : $no_icon;
-			echo '<p><input type="checkbox" name="'.JUIZ_SPS_SETTING_NAME.'[juiz_sps_display_in_types][]" id="'.$pt.'" value="'.$pt.'" '.$selected.'> <label for="'.$pt.'">'.$icon.' '.$wp_post_types[$pt]->label . '</label></p>';
+			switch($wp_post_types[$pt]->name) {
+				case 'post' :
+					$icon = 'dashicons-before dashicons-admin-post';
+					break;
+				case 'page' :
+					$icon = 'dashicons-before dashicons-admin-page';
+					break;
+				case 'attachment' :
+					$icon = 'dashicons-before dashicons-admin-media';
+					break;
+			}
+			echo '<p><input type="checkbox" name="'.JUIZ_SPS_SETTING_NAME.'[juiz_sps_display_in_types][]" id="'.$pt.'" value="'.$pt.'" '.$selected.'> <label for="'.$pt.'"><span class="'.$icon.'"></span> '.$wp_post_types[$pt]->label . '</label></p>';
 		}
 
 		// custom post types listing

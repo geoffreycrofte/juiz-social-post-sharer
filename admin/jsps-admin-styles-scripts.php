@@ -49,6 +49,8 @@
 			[for="jsps_style_4"] .juiz_sps_demo_styles { height: 36px; background-position: 0 -129px }
 			[for="jsps_style_5"] .juiz_sps_demo_styles { height: 39px; background-position: 0 -165px }
 			[for="jsps_style_6"] .juiz_sps_demo_styles { height: 36px; background-position: 0 -204px }
+			[for="jsps_style_7"] .juiz_sps_demo_styles { height: 39px; background-position: 0 -242px }
+			[for="jsps_style_8"] .juiz_sps_demo_styles { height: 58px; background-position: 0 -282px }
 			.juiz_sps_style_name { display:inline-block; margin: 4px 0 0 2px; color: #777;}
 			.juiz_sps_demo_hide {display:block; width:592px; height:37px; background:url('.JUIZ_SPS_PLUGIN_URL.'img/demo-sprites.png) no-repeat 0 -52px}
 
