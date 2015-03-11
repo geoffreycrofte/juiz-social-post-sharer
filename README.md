@@ -1,4 +1,4 @@
-Juiz Social Post Sharer v1.3.7
+Juiz Social Post Sharer v1.3.8
 ========================
 WordPress Plugin
 ---------------

@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJ
 Tags: social, twitter, google, facebook, digg, stumbleupon, linkedin, pinterest, viadeo, weibo, vkontakte, post, share
 Requires at least: 3.3
 Tested up to: 4.1.1
-Stable tag: 1.3.7
+Stable tag: 1.3.8
 
 Add buttons after your posts to allow visitors share your content (includes no JavaScript mode).
 
@@ -195,6 +195,10 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
 
 
 == Changelog ==
+
+= 1.3.8 =
+* Should include a better HTTPS support
+ * Thanks to [evelyette](https://wordpress.org/support/topic/contributing-the-code?replies=5#post-6635057) and [Adam](https://wordpress.org/support/topic/some-counters-wont-work-under-https)
 
 = 1.3.7 =
 * **Tested up to WordPress 4.1.1**
