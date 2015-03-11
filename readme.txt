@@ -197,6 +197,7 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
 == Changelog ==
 
 = 1.3.8 =
+* Better Viadeo support
 * Should include a better HTTPS support
  * Thanks to [evelyette](https://wordpress.org/support/topic/contributing-the-code?replies=5#post-6635057) and [Adam](https://wordpress.org/support/topic/some-counters-wont-work-under-https)
 

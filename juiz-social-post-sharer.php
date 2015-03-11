@@ -232,7 +232,7 @@ if (!is_admin()) {
 								break;
 
 							case "viadeo" :
-								$api_link = "https://www.viadeo.com/shareit/share/?url=".$url;
+								$api_link = "https://www.viadeo.com/?url=".$url.'&amp;title='.$text;
 								$api_text = __('Share this article on Viadeo',JUIZ_SPS_LANG);
 								break;
 
