@@ -28,15 +28,15 @@ Author: Geoffrey Crofte
 				item_class = ' juiz_hidden_counter';
 			}
 
-			var twitter_url		= "http://cdn.api.twitter.com/1/urls/count.json?url=" + url + "&callback=?"; 
+			var twitter_url		= "//cdn.api.twitter.com/1/urls/count.json?url=" + url + "&callback=?"; 
 			// return : {"count":18,"url":"http:\/\/www.creativejuiz.fr\/blog\/"}
-			var delicious_url	= "http://feeds.delicious.com/v2/json/urlinfo/data?url=" + url + "&callback=?" ;
+			var delicious_url	= "//feeds.delicious.com/v2/json/urlinfo/data?url=" + url + "&callback=?" ;
 			// return : [{"url": "http://www.creativejuiz.fr/blog", "total_posts": 2}]
-			var linkedin_url	= "http://www.linkedin.com/countserv/count/share?format=jsonp&url=" + url + "&callback=?";
+			var linkedin_url	= "//www.linkedin.com/countserv/count/share?format=jsonp&url=" + url + "&callback=?";
 			// return : {"count":17,"fCnt":"17","fCntPlusOne":"18","url":"http:\/\/stylehatch.co"}
-			var pinterest_url   = "http://api.pinterest.com/v1/urls/count.json?callback=?&url=" + url;
+			var pinterest_url   = "//api.pinterest.com/v1/urls/count.json?callback=?&url=" + url;
 			// return : ({"count": 0, "url": "http://stylehatch.co"})
-			var facebook_url	= "https://graph.facebook.com/fql?q=SELECT%20like_count,%20total_count,%20share_count,%20click_count,%20comment_count%20FROM%20link_stat%20WHERE%20url%20=%20%22"+url+"%22";
+			var facebook_url	= "//graph.facebook.com/fql?q=SELECT%20like_count,%20total_count,%20share_count,%20click_count,%20comment_count%20FROM%20link_stat%20WHERE%20url%20=%20%22"+url+"%22";
 			// return : {"data": [{"like_count": 6,"total_count": 25,"share_count": 9,"click_count": 0,"comment_count": 10}]}
 			var google_url		= plugin_url+"js/get-noapi-counts.php?nw=google&url=" + url;
 			var stumble_url		= plugin_url+"js/get-noapi-counts.php?nw=stumble&url=" + url;

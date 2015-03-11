@@ -4,7 +4,7 @@ Plugin Name: Juiz Social Post Sharer
 Plugin URI: http://wordpress.org/extend/plugins/juiz-social-post-sharer/
 Description: Add buttons after (or before, or both) your posts to allow visitors share your content (includes no JavaScript mode). You can also use <code>juiz_sps($array)</code> template function or <code>[juiz_sps]</code> shortcode. For more informations see the setting page located in <strong>Settings</strong> submenu.
 Author: Geoffrey Crofte
-Version: 1.3.7
+Version: 1.3.8
 Author URI: http://geoffrey.crofte.fr
 License: GPLv2 or later 
 */
@@ -31,7 +31,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 **/
 
 define( 'JUIZ_SPS_PLUGIN_NAME',	 'Juiz Social Post Sharer' );
-define( 'JUIZ_SPS_VERSION',		 '1.3.7' );
+define( 'JUIZ_SPS_VERSION',		 '1.3.8' );
 define( 'JUIZ_SPS_FILE',		 __FILE__ );
 define( 'JUIZ_SPS_DIRNAME',		 basename( dirname( __FILE__ ) ) );
 define( 'JUIZ_SPS_PLUGIN_URL',	 plugin_dir_url( __FILE__ ));
@@ -222,32 +222,32 @@ if (!is_admin()) {
 
 							case "pinterest" :
 								if ( $image != '' && $force_pinterest_snif == 0 ) {
-									$api_link = 'http://pinterest.com/pin/create/bookmarklet/?media='.$image[0].'&amp;url='.$url.'&amp;title='.get_the_title().'&amp;description='.$post->post_excerpt;
+									$api_link = 'https://pinterest.com/pin/create/bookmarklet/?media='.$image[0].'&amp;url='.$url.'&amp;title='.get_the_title().'&amp;description='.$post->post_excerpt;
 								}
 								else {
-									$api_link = "javascript:void((function(){var%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)})());";
+									$api_link = "javascript:void((function(){var%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','//assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)})());";
 									$juiz_sps_target_link = "";
 								}
 								$api_text = apply_filters('juiz_sps_share_text_for_'.$k, __('Share an image of this article on Pinterest',JUIZ_SPS_LANG));
 								break;
 
 							case "viadeo" :
-								$api_link = "http://www.viadeo.com/shareit/share/?url=".$url;
+								$api_link = "https://www.viadeo.com/shareit/share/?url=".$url;
 								$api_text = __('Share this article on Viadeo',JUIZ_SPS_LANG);
 								break;
 
 							case 'linkedin':
-								$api_link = "http://www.linkedin.com/shareArticle?mini=true&amp;ro=true&amp;trk=JuizSocialPostSharer&amp;title=".$text."&amp;url=".$url;
+								$api_link = "https://www.linkedin.com/shareArticle?mini=true&amp;ro=true&amp;trk=JuizSocialPostSharer&amp;title=".$text."&amp;url=".$url;
 								$api_text = apply_filters('juiz_sps_share_text_for_'.$k, __('Share this article on LinkedIn',JUIZ_SPS_LANG));
 								break;
 
 							case 'digg':
-								$api_link = "http://digg.com/submit?phase=2%20&amp;url=".$url."&amp;title=".$text;
+								$api_link = "https://digg.com/submit?phase=2%20&amp;url=".$url."&amp;title=".$text;
 								$api_text = apply_filters('juiz_sps_share_text_for_'.$k, __('Share this article on Digg',JUIZ_SPS_LANG));
 								break;
 
 							case 'stumbleupon':
-								$api_link = "http://www.stumbleupon.com/badge/?url=".$url;
+								$api_link = "https://www.stumbleupon.com/badge/?url=".$url;
 								$api_text = apply_filters('juiz_sps_share_text_for_'.$k, __('Share this article on StumbleUpon',JUIZ_SPS_LANG));
 								break;
 
@@ -260,7 +260,7 @@ if (!is_admin()) {
         						break;
 
 							case 'vk':
-								$api_link = "http://vkontakte.ru/share.php?url=".$url;
+								$api_link = "https://vkontakte.ru/share.php?url=".$url;
 								$api_text = apply_filters('juiz_sps_share_text_for_'.$k, __('Share this article on VKontakte',JUIZ_SPS_LANG));
 								break;
 
