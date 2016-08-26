@@ -3,15 +3,17 @@ Contributors: CreativeJuiz
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJPCWVXGDY&lc=FR&item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&item_number=%23wp%2djsps&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted
 Tags: social, twitter, google, facebook, digg, stumbleupon, linkedin, pinterest, viadeo, weibo, vkontakte, post, share
 Requires at least: 3.3
-Tested up to: 4.1.1
-Stable tag: 1.3.8
+Tested up to: 4.6
+Stable tag: 1.4.5
 
-Add buttons after your posts to allow visitors share your content (includes no JavaScript mode).
+Add smart designed buttons after/before your posts to allow visitors sharing your content (includes no JavaScript mode & counters)
 
 == Description ==
 
-Add buttons after your posts to allow visitors share your content (includes no JavaScript mode).
-Select your favorites social networks among a little list. Display an optional sharings counter.
+Add smart designed buttons after/before your posts to allow visitors sharing your content (includes no JavaScript mode & counters). Buttons are Retina/HDPI-ready, translation-ready and come with useful options and hooks.
+
+Select your favorites social networks among a little list.
+Display an optional sharings counter.
 
 **You can donate to support**
 
@@ -23,17 +25,25 @@ Select your favorites social networks among a little list. Display an optional s
 
 Social networks supported:
 
+* Delicious
 * Digg
 * Facebook 
 * Google+
 * LinkedIn
-* Mail
 * Pinterest
+* Reddit
 * StumbleUpon
+* Tumblr
 * Twitter
 * Viadeo
 * Weibo
 * VKontakte
+
+Other actions supported:
+
+* Send by Mail (mailto:)
+* Print
+* Add to bookmark
 
 Options plugin:
 
@@ -67,74 +77,7 @@ Languages available:
 
 
 This tool relies on third-party applications (API), so if you say "it's broken", please tell me why ;)
-
-
-
-–––––––––––––––––––––––––––––––––––
-
-Français
-
-––
-
-Ajoutez des boutons après vos publications pour permettre aux visiteurs de partager votre contenu (inclus un mode sans JavaScript)
-
-Sélectionnez vos réseaux sociaux favoris parmis une petite liste.
-
-**Merci d'utiliser le forum de support si vous rencontrez un bogue, et soyez patients.**
-
-**Vous pouvez donner pour aider au développement**
-
-* [Faire un don avec Paypal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJPCWVXGDY&lc=FR&item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&item_number=%23wp%2djsps&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted)
-* [Utiliser Flattr](https://flattr.com/submit/auto?user_id=CreativeJuiz&url=http://wordpress.org/plugins/juiz-social-post-sharer/&title=Juiz%20Social%20Post%20Sharer%20-%20WordPress%20Plugin&description=Awesome%20WordPress%20Plugin%20helping%20you%20to%20add%20buttons%20at%20the%20beginning%20or%20the%20end%20of%20your%20WordPress%20contents%20easily&tags=WordPress,Social,Share,Buttons,Network,Twitter,Facebook,Linkedin&category=software)
-
-
-Les réseaux sociaux supportés :
-
-* Digg
-* Facebook 
-* Google+
-* LinkedIn
-* Mail
-* Pinterest
-* StumbleUpon
-* Twitter
-* Viadeo
-* Weibo
-* VKontakte
-
-Options du plugin :
-
-* 8 thèmes graphiques de base
-* Faites votre choix parmi tous les réseaux disponibles
-* Ouverture des liens dans une nouvelle fenêtre (désactivé par défaut)
-* Choix de n'afficher que l'icône du réseau social
-* Ajout du pseudo Twitter pour ajouter la mention "via" lors d'un partage
-* Choix du type de contenu bénéficiant des boutons
-* Choix des posts où les boutons de partage ne doivent pas s'afficher directement dans la page concernée (activé pour les types de posts qui utilisent les boutons uniquement, logique...)
-* Choix de l'emplacement des boutons, avant, après le contenu, ou les deux. (ou juste le shortcode)
-* Personnalisez les textes du mail (sujet et corps)
-* Affichez un compteur de partage (optionnel et en beta)
-* Quelques hooks sont disponibles pour modifier le markup HTML (ou ajouter des choses)
-* Un hook est disponible pour ajouter les boutons que vous souhaitez
-* Utilisez le shortcode <code>[juiz_sps]</code> ou <code>[juiz_social]</code> où vous le souhaitez
-* Utilisez la fonction de template <code>juiz_sps()</code> ou <code>get_juiz_sps()</code> dans votre code
-
-Langues disponibles :
-
-* Allemand (merci à [Dennis Schmitz](http://compcardinmotion.de "Site web de Dennis Schmitz") !)
-* Anglais
-* Espagnol (merci à [Roberto Castiñeira](www.mediapartner.es "Site web de Roberto Castiñeira's") !)
-* Français
-* Japonais (merci à [半月 (Hangetsu)](http://wp.fruit-frappe.net/ "Site web de Hangetsu") !)
-* Russe (merci à [Fandia](http://fandia.w.pw "Site web de Fandia") !)
-* Serbe (merci à [Borisa Djuraskovic](http://www.webhostinghub.com "Borisa Djuraskovic's website") !)
-* Turc (merci à [Hakaner](http://hakanertr.wordpress.com/ "Son site web") !)
-
-<strong><a href="http://creativejuiz.fr/blog/doc/juiz-social-post-sharer-documentation.html">Documentation</a> complète disponible !</strong>.
-
-
-Cet outil dépend d'applications tierces (API), donc si vous notez le plugin comme étant cassé ou fonctionnant mal, merci de me dire pourquoi, car ça n'est pas forcément entièrement ma faute ;)
-
+Before adding a bad rating, thanks to open a support ticket to solve your issue.
 
 
 == Installation ==
@@ -158,6 +101,11 @@ You can use one of both method :
 == Frequently Asked Questions ==
 
 Find a complete documentation on <a href="http://creativejuiz.fr/blog/doc/juiz-social-post-sharer-documentation.html">this official documentation</a>
+
+= Twitter counter doesn't appear OR the count seems to be not exact =
+Yep, sorry about that, but <a href="https://twittercommunity.com/t/a-new-design-for-tweet-and-follow-buttons/52791">Twitter decided to shut down counter</a>.
+
+Use the version 1.4.3 or more of this plugin to get an alternative of the native counter. But, keep in mind that alternative is not 100% precise, but better than nothing, I guess.
 
 = The text shared by default is very ugly, something like "Share the post "YOUR POST TITLE" FacebookTwitterGoogle+E-mail [SOME OTHER WORDS]"? =
 You certainly activated the buttons in the top of your post. It's your choice, but in this case, you need to improve by yourself the SEO-description of your article/page. You can try using the <a href="https://wordpress.org/plugins/wordpress-seo/">WordPress SEO plugin by Yoast</a>. 
@@ -196,11 +144,62 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
 
 == Changelog ==
 
+= 1.4.5 =
+* Fixes a weird bug when you select Pinterest and "Open in new window" option: networks that follow the Pinterest button will open in a new window now! (thanks to <a href="https://wordpress.org/support/topic/some-buttons-doesnt-open-in-separate-window?replies=4#post-8322706">Éric</a>'s report)
+* Fixes a bug in Safari (`Chrome undefined` message)
+
+= 1.4.4 =
+* Translation
+ * Error fixed with an untranslatable english string
+* Fixes
+ * Google+ and StumbleUpon counters fixed
+ * CURLOPT_FOLLOWLOCATION PHP error fixed
+
+= 1.4.3 =
+* Compatibility
+ * Tested up to WordPress 4.5 (I took advance that time!)
+ * Tested up to PHP 7 (Did you try that version? The Fast And Furious version of PHP)
+* Features
+ * Twitter counter is back from the death thanks to NewShareCounts Services, a third-party that try to bring back your preciouuuus… counter. Golum!
+
+= 1.4.2 =
+* Tested in WordPress 4.4.1
+* Networks:
+ * New Fav button
+ * New Print button
+* Security:
+ * Better translation controls
+* Support info:
+ * No more support for this plugin version 1.1.0 (0,2% of plugin users)
+* Better URL encode (hope so)
+
+= 1.4.1 =
+* Tested in WordPress 4.4
+* Interface:
+ * Better dashicons support for your custom post types
+ * Some CSS reworks on admin settings
+ * "Metro", "Modern" and "Black" styles are now Retina-ready
+ * Button styles CSS updated (each one)
+* Engine:
+ * Code rewrite to follow WordPress convention
+ * Buttons are optionnaly added to excerpt (deactivated by default, see doc)
+* Networks :
+ * New Delicious button
+ * New Tumblr button
+ * New Reddit button
+
+= 1.4.0 =
+* Tested in WordPress 4.3.1
+* Code rewrite to follow WordPress convention
+* Explicit Text Domain for better translation (coming with <a href="https://translate.wordpress.org/locale/fr/default/wp-plugins">translate.wordpress.org</a>)
+* Bug fix when you select option "Total Only" for counters
+
+= 1.3.9 =
+* Tested in WordPress 4.3.0
+* Notice PHP fixed in admin area.
+
 = 1.3.8 =
-<<<<<<< HEAD
-=======
 * Better Viadeo support
->>>>>>> origin/dev
 * Should include a better HTTPS support
  * Thanks to [evelyette](https://wordpress.org/support/topic/contributing-the-code?replies=5#post-6635057) and [Adam](https://wordpress.org/support/topic/some-counters-wont-work-under-https)
 

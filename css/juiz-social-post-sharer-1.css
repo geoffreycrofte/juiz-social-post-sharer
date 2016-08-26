@@ -16,8 +16,9 @@ Version: Styles v1
 	display: inline-block;
 }
 .juiz_sps_links .juiz_sps_item a { 
-	padding: 3px 15px 3px 10px;
-	margin: 2px 5px 2px 0;
+	vertical-align: top;
+	padding: 5px 15px 5px 10px;
+	margin: 0 5px 2px 0;
 	border: 1px solid #ddd;
 	background-color: #E5E5E5;
 	background-image: -webkit-linear-gradient(rgba(255,255,255,1),rgba(255,255,255,0));
@@ -38,7 +39,9 @@ Version: Styles v1
 .juiz_sps_item .juiz_sps_counter + a {
 	border-radius: 0 3px 3px 0;
 }
-.juiz_sps_links .juiz_sps_item:last-child a { margin-right:0;}
+.juiz_sps_links .juiz_sps_item:last-child a {
+	margin-right:0;
+}
 .juiz_sps_links .juiz_sps_icon {
 	width: 16px;
 	height: 16px;
@@ -75,6 +78,18 @@ Version: Styles v1
 .juiz_sps_links .juiz_sps_link_mail a { color: #4280c4; }
 .juiz_sps_links .juiz_sps_link_mail .juiz_sps_icon { background-position: -48px 0; }
 
+.juiz_sps_links .juiz_sps_link_tumblr a { color: #35465c; }
+.juiz_sps_links .juiz_sps_link_tumblr .juiz_sps_icon { background-position: -208px 0; }
+.juiz_sps_links .juiz_sps_link_delicious a { color: #222; }
+.juiz_sps_links .juiz_sps_link_delicious .juiz_sps_icon { background-position: -192px -1px; }
+.juiz_sps_links .juiz_sps_link_reddit a { color: #5F99CF; }
+.juiz_sps_links .juiz_sps_link_reddit .juiz_sps_icon { background-position: -176px 0; }
+
+.juiz_sps_links .juiz_sps_link_bookmark a { color: #af0818; }
+.juiz_sps_links .juiz_sps_link_bookmark .juiz_sps_icon { background-position: -224px 0; }
+.juiz_sps_links .juiz_sps_link_print a { color: #2b835d; }
+.juiz_sps_links .juiz_sps_link_print .juiz_sps_icon { background-position: -240px 0; }
+
 .juiz_sps_links .juiz_sps_item a:hover,
 .juiz_sps_links .juiz_sps_item a:focus  { background-color: #ccc; color: #333; }
 .juiz_sps_links .juiz_sps_item a:hover .juiz_sps_icon,
@@ -102,6 +117,18 @@ Version: Styles v1
 .juiz_sps_links .juiz_sps_item.juiz_sps_link_mail a:hover .juiz_sps_icon,
 .juiz_sps_links .juiz_sps_item.juiz_sps_link_mail a:focus .juiz_sps_icon { background-position: -48px -16px; }
 
+.juiz_sps_links .juiz_sps_item.juiz_sps_link_tumblr a:hover .juiz_sps_icon,
+.juiz_sps_links .juiz_sps_item.juiz_sps_link_tumblr a:focus .juiz_sps_icon { background-position: -208px -16px; }
+.juiz_sps_links .juiz_sps_item.juiz_sps_link_delicious a:hover .juiz_sps_icon,
+.juiz_sps_links .juiz_sps_item.juiz_sps_link_delicious a:focus .juiz_sps_icon { background-position: -192px -16px; }
+.juiz_sps_links .juiz_sps_item.juiz_sps_link_reddit a:hover .juiz_sps_icon,
+.juiz_sps_links .juiz_sps_item.juiz_sps_link_reddit a:focus .juiz_sps_icon { background-position: -176px -16px; }
+
+.juiz_sps_links .juiz_sps_item.juiz_sps_link_bookmark a:hover .juiz_sps_icon,
+.juiz_sps_links .juiz_sps_item.juiz_sps_link_bookmark a:focus .juiz_sps_icon { background-position: -224px -16px; }
+.juiz_sps_links .juiz_sps_item.juiz_sps_link_print a:hover .juiz_sps_icon,
+.juiz_sps_links .juiz_sps_item.juiz_sps_link_print a:focus .juiz_sps_icon { background-position: -240px -16px; }
+
 /* special if names are hidden */
 .juiz_sps_hide_name .juiz_sps_item a {
 	padding: 3px 10px 2px 10px;
@@ -128,8 +155,7 @@ Version: Styles v1
 .juiz_sps_totalcount {
 	position: relative;
 	display: inline-block;
-	padding: 3px 6px 2px;
-	margin-top: 2px;
+	padding: 4px 6px 3px;
 	vertical-align: top;
 	font-size: 14px;
 	color: #777;
@@ -150,6 +176,6 @@ Version: Styles v1
 .juiz_sps_totalcount {
 	border-radius: 3px;
 }
-.juiz_hidden_counter {
-	display:none;
+.juiz_sps_links.counters_total .juiz_hidden_counter {
+	display: none!important;
 }

@@ -4,8 +4,114 @@ Plugin URI: http://creativejuiz.fr
 Author: Geoffrey Crofte
 Version: Styles v5 (Design and CSS by Tony Trancard - tonytrancard.fr)
 */
-.juiz_sps_links {word-wrap:normal!important; clear: both; margin: 1em 0; }
-.juiz_sps_maybe_hidden_text { position:absolute; left:-9999px; text-indent:-9999px; }
+@font-face{
+	font-family: 'jsps';
+	src: url('fonts/jsps.eot?142');
+	src: url('fonts/jsps.eot?#iefix142') format('embedded-opentype'),
+		 url('fonts/jsps.woff?142') format('woff'),
+		 url('fonts/jsps.ttf?142') format('truetype'),
+		 url('fonts/jsps.svg?142#jsps') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+[class^="jsps-"],
+[class*=" jsps-"]{
+	font-family: 'jsps'!important;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-size: 1.5em;
+}
+.jsps-print:before {
+	content: "\e903";
+	font-size: 0.95em;
+}
+.jsps-bookmark:before {
+	content: "\e904";
+	font-size: 0.9em;
+}
+.jsps-star:before {
+	content: "\e905";
+}
+.jsps-share:before {
+	content: "\e906";
+}
+.jsps-share2:before {
+	content: "\e907";
+}
+.jsps-tumblr:before {
+	content: "\e900";
+	font-size: 0.85em;
+	vertical-align: 0.1em;
+}
+.jsps-reddit:before {
+	content: "\e901";
+	vertical-align: 0.1em;
+}
+.jsps-delicious:before {
+	content: "\e902";
+	font-size: 0.85em;
+	vertical-align: 0.1em;
+}
+.jsps-viadeo:before {
+	content: "\e603";
+}
+.jsps-digg:before {
+	content: "\e601";
+}
+.jsps-stumbleupon:before {
+	content: "\e602";
+}
+.jsps-vk:before {
+	content: "\e606";
+}
+.jsps-weibo:before {
+	content: "\e604";
+}
+.jsps-mail:before {
+	content: "\e600";
+}
+.jsps-google:before {
+	content: "\ea88";
+	vertical-align:-0.1em;
+}
+.jsps-facebook:before {
+	position: relative;
+	left: -.05em;
+	content: "\ea8c";
+	vertical-align: 0.11em;
+}
+.jsps-twitter:before {
+	content: "\ea91";
+}
+.jsps-linkedin:before {
+	content: "\eac9";
+	font-size: 0.85em;
+	vertical-align: 0.2em;
+}
+.jsps-pinterest:before {
+	content: "\ead0";
+}
+
+.juiz_sps_links {
+	word-wrap: normal!important;
+	clear: both;
+	margin: 1em 0;
+}
+.juiz_sps_maybe_hidden_text {
+	position: absolute;
+	left: -9999px;
+	text-indent: -9999px;
+}
+[dir="rtl"] .juiz_sps_maybe_hidden_text {
+	position: absolute;
+	right: -9999em;
+}
 .juiz_sps_links ul,
 .juiz_sps_links li  { 
 	padding:0!important;
@@ -19,8 +125,8 @@ Version: Styles v5 (Design and CSS by Tony Trancard - tonytrancard.fr)
 	vertical-align: middle;
 }
 .juiz_sps_links li a { 
-	padding: 2px 15px 2px 10px;
-	margin: 2px 5px 2px 0;
+	padding: 6px 15px 8px 10px;
+	margin: 3px 5px 0 0;
 	border: 1px solid #ddd;
 	color: #fff;
 	text-decoration: none;
@@ -37,26 +143,13 @@ Version: Styles v5 (Design and CSS by Tony Trancard - tonytrancard.fr)
 	border-radius: 4px;
 	background-clip: padding-box;
 }
-.juiz_sps_links li:last-child a { margin-right:0;}
-.juiz_sps_links .juiz_sps_icon {
-	width: 32px;
-	height: 32px;
-	margin-right: 5px;
-	vertical-align:-4px;
-	background:url("../img/sps_sprites_tt.png") 0 0 no-repeat;
+.juiz_sps_links li:last-child a {
+	margin-right: 0;
 }
 
-.juiz_sps_links .juiz_sps_link_google .juiz_sps_icon { background-position: -32px 0; }
-.juiz_sps_links .juiz_sps_link_facebook .juiz_sps_icon { background-position: -64px 0; }
-.juiz_sps_links .juiz_sps_link_pinterest .juiz_sps_icon { background-position: -128px 0; }
-.juiz_sps_links .juiz_sps_link_mail .juiz_sps_icon { background-position: -96px 0; }
-.juiz_sps_links .juiz_sps_link_mail a { color: #333; text-shadow: 0 0 0; }
-.juiz_sps_links .juiz_sps_link_viadeo .juiz_sps_icon { background-position: -160px 0; }
-.juiz_sps_links .juiz_sps_link_linkedin .juiz_sps_icon { background-position: -192px 0; }
-.juiz_sps_links .juiz_sps_link_stumbleupon .juiz_sps_icon { background-position: -224px 0; }
-.juiz_sps_links .juiz_sps_link_weibo .juiz_sps_icon { background-position: -288px 0; }
-.juiz_sps_links .juiz_sps_link_digg .juiz_sps_icon { background-position: -256px 0; }
-.juiz_sps_links .juiz_sps_link_vk .juiz_sps_icon { background-position: -319px -1px; }
+.juiz_sps_links .juiz_sps_icon {
+	margin-right: 0.4em;
+}
 
 .juiz_sps_links a:hover,
 .juiz_sps_links a:focus {
@@ -103,20 +196,38 @@ Version: Styles v5 (Design and CSS by Tony Trancard - tonytrancard.fr)
 .juiz_sps_links .juiz_sps_link_linkedin a:focus { 
 	border: 1px solid #278cc0;
 	background-color: #2ba3e1;
- }
+}
 .juiz_sps_links .juiz_sps_link_stumbleupon a,
 .juiz_sps_links .juiz_sps_link_stumbleupon a:hover,
 .juiz_sps_links .juiz_sps_link_stumbleupon a:focus { 
 	border: 1px solid #cf3f1e;
 	background-color: #eb4723;
- }
+}
+.juiz_sps_links .juiz_sps_link_tumblr a,
+.juiz_sps_links .juiz_sps_link_tumblr a:hover,
+.juiz_sps_links .juiz_sps_link_tumblr a:focus { 
+	border: 1px solid #1B2735;
+	background-color: #35465c;
+}
+.juiz_sps_links .juiz_sps_link_reddit a,
+.juiz_sps_links .juiz_sps_link_reddit a:hover,
+.juiz_sps_links .juiz_sps_link_reddit a:focus { 
+	border: 1px solid #497DAA;
+	background-color: #5F99CF;
+}
+.juiz_sps_links .juiz_sps_link_delicious a,
+.juiz_sps_links .juiz_sps_link_delicious a:hover,
+.juiz_sps_links .juiz_sps_link_delicious a:focus { 
+	border: 1px solid #000;
+	background-color: #222;
+}
 .juiz_sps_links .juiz_sps_link_weibo a,
 .juiz_sps_links .juiz_sps_link_weibo a:hover,
 .juiz_sps_links .juiz_sps_link_weibo a:focus { 
 	border: 1px solid #a63305;
 	background-color: #F74700;
  }
- .juiz_sps_links .juiz_sps_link_vk a,
+.juiz_sps_links .juiz_sps_link_vk a,
 .juiz_sps_links .juiz_sps_link_vk a:hover,
 .juiz_sps_links .juiz_sps_link_vk a:focus { 
 	border: 1px solid #325d88;
@@ -124,7 +235,13 @@ Version: Styles v5 (Design and CSS by Tony Trancard - tonytrancard.fr)
  }
 .juiz_sps_links .juiz_sps_link_mail a,
 .juiz_sps_links .juiz_sps_link_mail a:hover,
-.juiz_sps_links .juiz_sps_link_mail a:focus { 
+.juiz_sps_links .juiz_sps_link_mail a:focus,
+.juiz_sps_links .juiz_sps_link_bookmark a,
+.juiz_sps_links .juiz_sps_link_bookmark a:hover,
+.juiz_sps_links .juiz_sps_link_bookmark a:focus,
+.juiz_sps_links .juiz_sps_link_print a,
+.juiz_sps_links .juiz_sps_link_print a:hover,
+.juiz_sps_links .juiz_sps_link_print a:focus { 
 	background-color: #dedede;
 	color: #000!important;
 	box-shadow: inset 0 0 2px rgba(0,0,0,.4);
@@ -178,6 +295,6 @@ Version: Styles v5 (Design and CSS by Tony Trancard - tonytrancard.fr)
 	border-right-width: 1px;
 	border-radius: 3px 3px;
 }
-.juiz_hidden_counter{
-	display:none;
+.juiz_sps_links.counters_total .juiz_hidden_counter {
+	display: none!important;
 }

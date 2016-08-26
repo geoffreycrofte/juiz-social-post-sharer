@@ -1,12 +1,12 @@
 <?php
 	echo '
-		<!-- '.JUIZ_SPS_PLUGIN_NAME.' styles -->
+		<!-- ' . JUIZ_SPS_PLUGIN_NAME . ' styles -->
 		<style rel="stylesheet">
 			#juiz-sps .error { margin: 20px 20px 20px 48px; }
 			#juiz-sps .submit { margin-bottom: 3em }
 			#juiz-sps th .submit { font-weight:normal; margin-bottom: 0 }
 			#juiz-sps .error em { font-weight: normal; }
-			#juiz-sps .jsps_info { max-width:800px; padding: 15px; margin-left: 48px; color: #888; line-height: 1.6;  background: #f2f2f2; box-shadow: 0 0 3px #999;}
+			#juiz-sps .jsps_info { max-width:800px; padding: 15px; margin-left: 48px; color: #444; line-height: 1.6;  background: #FFF; box-shadow: 1px 1px 3px rgba(0,0,0,.15);}
 			#juiz-sps h3 { font-size: 1.65em; color: #444; font-weight:normal; }
 			#juiz-sps table + h3 { margin-top: 3em;}
 			.juiz_sps_section_intro {font-style: italic; color: #777; }
@@ -25,7 +25,13 @@
 			.jsps_demo_icon_stumbleupon	{ background-position: -128px -16px }
 			.jsps_demo_icon_weibo		{ background-position: -144px -16px }
 			.jsps_demo_icon_vk			{ background-position: -160px -16px }
-
+			.jsps_demo_icon_reddit		{ background-position: -176px -16px }
+			.jsps_demo_icon_delicious	{ background-position: -192px -15px }
+			.jsps_demo_icon_tumblr		{ background-position: -208px -17px }
+			.jsps_demo_icon_bookmark	{ background-position: -224px -16px }
+			.jsps_demo_icon_print		{ background-position: -240px -16px }
+			
+			input[type="checkbox"]:checked + label { font-weight: bold; color: #333; }
 			:checked + label .jsps_demo_icon_twitter 	{ background-position: 0 0 }
 			:checked + label .jsps_demo_icon_google 	{ background-position: -16px 0 }
 			:checked + label .jsps_demo_icon_facebook 	{ background-position: -32px 0 }
@@ -37,13 +43,19 @@
 			:checked + label .jsps_demo_icon_stumbleupon{ background-position: -128px 0 }
 			:checked + label .jsps_demo_icon_weibo		{ background-position: -144px 0 }
 			:checked + label .jsps_demo_icon_vk			{ background-position: -160px 0 }
+			:checked + label .jsps_demo_icon_reddit		{ background-position: -176px 0 }
+			:checked + label .jsps_demo_icon_delicious	{ background-position: -192px 0 }
+			:checked + label .jsps_demo_icon_tumblr		{ background-position: -208px -1px }
+			:checked + label .jsps_demo_icon_bookmark	{ background-position: -224px 0 }
+			:checked + label .jsps_demo_icon_print		{ background-position: -240px 0 }
 
 			#juiz-sps input[type="radio"] + label { display: inline-block; vertical-align: middle; margin-right: 20px;}
 			.juiz_sps_options_p { margin: .2em 5% .2em 0; }
-
+			
+			.juiz_sps_styles_options + .juiz_sps_styles_options { margin-top: 1em;}
 			.juiz_sps_styles_options label { vertical-align:top;}
 			.juiz_sps_styles_options input { vertical-align:8px;}
-			.juiz_sps_demo_styles { display:inline-block; vertical-align:middle; width:592px; height:26px; background:url('.JUIZ_SPS_PLUGIN_URL.'img/demo-sprites.png) no-repeat 0 -26px}
+			.juiz_sps_demo_styles { display:inline-block; vertical-align:middle; width:592px; height:26px; background:url(' . JUIZ_SPS_PLUGIN_URL . 'img/demo-sprites.png) no-repeat 0 -26px}
 			[for="jsps_style_2"] .juiz_sps_demo_styles { background-position: 0 0 }
 			[for="jsps_style_3"] .juiz_sps_demo_styles { height: 36px; background-position: 0 -93px }
 			[for="jsps_style_4"] .juiz_sps_demo_styles { height: 36px; background-position: 0 -129px }
@@ -55,7 +67,7 @@
 			.juiz_sps_demo_hide {display:block; width:592px; height:37px; background:url('.JUIZ_SPS_PLUGIN_URL.'img/demo-sprites.png) no-repeat 0 -52px}
 
 			.jsps_no_icon, .jsps_icon { display:inline-block; vertical-align:-3px; }
-			.jsps_no_icon {width:16px;height:16px;background:url('.admin_url('images/menu.png').') -276px -8px no-repeat; }
+			.jsps_no_icon {width:16px;height:16px;background:url(' . admin_url( 'images/menu.png' ) . ') -276px -8px no-repeat; }
 
 			.juiz_bottom_links {margin-bottom:0;border-top: 1px solid #ddd; background: #f2f2f2; padding: 10px 45px; }
 			.juiz_paypal, .juiz_twitter, .juiz_rate {display: inline-block; margin-right: 10px; padding: 3px 12px; text-decoration: none; border-radius: 3px;
@@ -72,6 +84,20 @@
 			#juiz_sps_mail_body {width: 100%; max-width: 400px;}
 			.juiz_hide {display:none;}
 
+			.juiz-twitter-alternative {
+				display: block;
+				max-width: 100%;
+				width: 600px;
+				margin: 0.5em 0;
+				padding: 10px 15px;
+				background: #1094BF;
+				color: #FFF;
+			}
+			.juiz-twitter-alternative a {
+				color: #FFF;
+				font-weight: bold;
+			}
+
 			@media (max-width:640px) {
 				#juiz-sps .jsps_info { margin-left: 0; }
 				.juiz_bottom_links { padding: 15px; }
@@ -83,10 +109,27 @@
 				#jsps_style_5 {vertical-align: 21px;}
 				.juiz_sps_demo_hide {width: 92px;}
 			}
+			@media (min-width: 1380px) {
+				.juiz_bottom_links {
+					position: fixed;
+					top: 50px; right: 15px;
+					padding: 10px 15px;
+					width: 175px;
+					border: 0;
+					background: #FFF;
+					box-shadow: 1px 1px 3px rgba(0,0,0,.15);
+				}
+				.juiz_bottom_links a {
+					-webkit-box-sizing: border-box;
+					box-sizing: border-box;
+					width: 100%;
+					margin: .2em 0;
+				}
+			}
 			</style>
-		<!-- end of '.JUIZ_SPS_PLUGIN_NAME.' styles -->
+		<!-- end of ' . JUIZ_SPS_PLUGIN_NAME . ' styles -->
 
-		<!-- '.JUIZ_SPS_PLUGIN_NAME.' scripts -->
+		<!-- ' . JUIZ_SPS_PLUGIN_NAME . ' scripts -->
 		<script>
 			jQuery(document).ready(function($){
 				$("input[disabled]").closest("tr").addClass("juiz_disabled");
@@ -105,5 +148,5 @@
 				juiz_on_change_visibility();
 			});
 		</script>
-		<!-- end of '.JUIZ_SPS_PLUGIN_NAME.' scripts -->
+		<!-- end of ' . JUIZ_SPS_PLUGIN_NAME . ' scripts -->
 	';
