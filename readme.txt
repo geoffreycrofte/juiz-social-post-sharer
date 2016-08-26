@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJ
 Tags: social, twitter, google, facebook, digg, stumbleupon, linkedin, pinterest, viadeo, weibo, vkontakte, post, share
 Requires at least: 3.3
 Tested up to: 4.6
-Stable tag: 1.4.5
+Stable tag: 1.4.6
 
 Add smart designed buttons after/before your posts to allow visitors sharing your content (includes no JavaScript mode & counters)
 
@@ -143,6 +143,10 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
 
 
 == Changelog ==
+
+= 1.4.6 =
+* Tested up to WordPress 4.6
+* Facebook counter fixed by Jean-Baptiste from <a href="http://www.whodunit.fr/" target="_blank">Whodunit</a> (thanks!)
 
 = 1.4.5 =
 * Fixes a weird bug when you select Pinterest and "Open in new window" option: networks that follow the Pinterest button will open in a new window now! (thanks to <a href="https://wordpress.org/support/topic/some-buttons-doesnt-open-in-separate-window?replies=4#post-8322706">Éric</a>'s report)
