@@ -146,7 +146,7 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
 
 = 1.4.6 =
 * Tested up to WordPress 4.6
-* Facebook counter fixed by Jean-Baptiste from <a href="http://www.whodunit.fr/" target="_blank">Whodunit</a> (thanks!)
+* Facebook counter is back thanks to Jean-Baptiste (from [Whodunit](http://www.whodunit.fr/))
 
 = 1.4.5 =
 * Fixes a weird bug when you select Pinterest and "Open in new window" option: networks that follow the Pinterest button will open in a new window now! (thanks to <a href="https://wordpress.org/support/topic/some-buttons-doesnt-open-in-separate-window?replies=4#post-8322706">Éric</a>'s report)

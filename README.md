@@ -20,19 +20,27 @@ Select your favorites social networks among a little list. Display an optional s
 
 Social networks supported:
 
+* Delicious
 * Digg
 * Facebook 
 * Google+
 * LinkedIn
-* Mail
 * Pinterest
+* Reddit
 * StumbleUpon
+* Tumblr
 * Twitter
 * Viadeo
 * Weibo
 * VKontakte
 
-Options plugin:
+Other actions supported:
+
+* Send by Mail (mailto:)
+* Print
+* Add to bookmark
+
+Plugin options:
 
 * 8 graphic templates available
 * Choose from all available networks
@@ -66,3 +74,18 @@ Languages available:
 
 
 This tool relies on third-party applications (API), so if you say "it's broken", please tell me why ;)
+
+Contributors
+------------------
+
+* *Author*
+ * Geoffrey Crofte ([WP Media](http://wp-media.me))
+* *Contributors*
+ * Jean-Baptiste Audras ([Whodunit](http://www.whodunit.fr/))
+* *Translators*
+ * [Dennis Schmitz](http://compcardinmotion.de)
+ * [半月 Hangetsu](http://wp.fruit-frappe.net/)
+ * [Fandia](http://fandia.w.pw)
+ * [Borisa Djuraskovic](http://www.webhostinghub.com)
+ * [Roberto Castiñeira](www.mediapartner.es)
+ * [Hakaner](http://hakanertr.wordpress.com/)
