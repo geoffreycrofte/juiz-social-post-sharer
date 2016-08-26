@@ -618,7 +618,7 @@ add_filter('juiz_sps_share_name_for_twitter', 'jsps_change_twitter_name');
 <h3 id="juiz_sps_share_text_for_">Hook: <code>juiz_sps_share_text_for_<em>[network]</em></code> <span class="since">(since v1.3.0)</span></h3>
 	<p>Customizes the text inside each tooltip for each network by replacing [network] by the good social network's name:</p>
 <pre class="code"><code class="php">&lt;?php
-if( !function_exists('custom_share_text_for_facebook')) {
+if ( ! function_exists('custom_share_text_for_facebook') ) {
 	function custom_share_text_for_facebook() {
 		return __('Share my content to your Facebook friends.');
 	}
@@ -631,7 +631,7 @@ add_filter('juiz_sps_share_text_for_facebook', 'custom_share_text_for_facebook')
 <h3 id="juiz_sps_links_nofollow">Hook: <code>juiz_sps_links_nofollow</code></h3>
 	<p>By default, links are nofollow-links. If you need to remove this attribute:</p>
 <pre class="code"><code class="php">&lt;?php
-if( !function_exists('custom_links_attributes')) {
+if ( ! function_exists('custom_links_attributes') ) {
 	function custom_links_attributes() {
 		return ''; // you can add new attributes instead... just an idea ;)
 	}
@@ -643,7 +643,7 @@ add_filter('juiz_sps_links_nofollow', 'custom_links_attributes');
 <h3 id="jsps_remove_default_css">Hook: <code>jsps_remove_default_css</code> <span class="since">(since v1.3.3.7)</span></h3>
 	<p>You need to use your own CSS file, you can remove default CSS files</p>
 <pre class="code"><code class="php">&lt;?php
-if( !function_exists('jsps_remove_default_css')) {
+if ( ! function_exists('jsps_remove_default_css') ) {
 function jsps_remove_default_css(){
 	return false;
 }
@@ -652,11 +652,37 @@ add_filter('juiz_sps_use_default_css', 'jsps_remove_default_css');
 ?&gt;</code></pre>
 
 
+<h3 id="juiz_sps_total_count_word">Hook: <code>juiz_sps_total_count_word</code> <span class="since">(since v1.4.1)</span></h3>
+	<p>It's a simple filter to remove or change the "Total:" word next to the total counter.</p>
+<pre class="code"><code class="php">&lt;?php
+if ( ! function_exists('jsps_change_title_word') ) {
+function jsps_change_title_word(){
+	return __('Shares:');
+}
+}
+add_filter('juiz_sps_total_count_word', 'jsps_change_title_word');
+?&gt;</code></pre>
+
+<h3 id="juiz_sps_buttons_in_excerpt">Hook: <code>juiz_sps_buttons_in_excerpt</code> <span class="since">(since v1.4.1)</span></h3>
+	<p>Reject or accept buttons in excerpt</p>
+<pre class="code"><code class="php">&lt;?php
+if ( ! function_exists('jsps_accept_button_in_excerpt') ) {
+function jsps_accept_button_in_excerpt(){
+	return true;
+}
+}
+add_filter('juiz_sps_buttons_in_excerpt', 'jsps_accept_button_in_excerpt');
+?&gt;</code></pre>
+
+
 	
 
 	<h2 id="faq">FAQ</h2>
 	
 	<dl>
+		<dt>Twitter counter doesn't appear</dt>
+		<dd>Yep, sorry about that, but <a href="https://twittercommunity.com/t/a-new-design-for-tweet-and-follow-buttons/52791">Twitter decided to shut down counter</a>.</dd>
+
 		<dt>
 			The text shared by default is very ugly, something like "Share the post "YOUR POST TITLE" FacebookTwitterGoogle+E-mail [SOME OTHER WORDS]"?
 		</dt>
@@ -719,7 +745,7 @@ add_filter('juiz_sps_use_default_css', 'jsps_remove_default_css');
 	<div id="footer"><p>Documentation for your life easier !<br />
 	<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=P39NJPCWVXGDY&amp;lc=FR&amp;item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&amp;item_number=%23wp%2djsps&amp;currency_code=EUR&amp;bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted" title="Go to Paypal Website" class="button" target="_blank">Donate</a>
 	<a href="https://twitter.com/intent/tweet?source=webclient&amp;hastags=WordPress,Plugin&amp;text=Juiz%20Social%20Post%20Sharer%20is%20an%20awesome%20WordPress%20plugin%20to%20share%20content!%20Try%20it!&amp;url=http://wordpress.org/extend/plugins/juiz-social-post-sharer/&amp;related=geoffrey_crofte&amp;via=geoffrey_crofte" target="_blank" class="tweet button">Tweet it</a></p>
-	<p class="last-update">v 1.3.4<br />Last update: 2014, 20 may</p>
+	<p class="last-update">v 1.4.1<br />Last update: 2015, 3 dec</p>
 
 	</div>
 </body>

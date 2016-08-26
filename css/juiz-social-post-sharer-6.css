@@ -2,13 +2,117 @@
 Plugin Name: Juiz Social Post Sharer
 Plugin URI: http://creativejuiz.fr
 Author: Geoffrey Crofte
+Contributors: Geoffrey Crofte, Fandia
 Version: Styles v6 (Design and CSS by Fandia - http://fandia.w.pw)
 */
-@font-face{font-family:'jsps';src:url('fonts/jsps.eot?-f1jxj9');src:url('fonts/jsps.eot?#iefix-f1jxj9') format('embedded-opentype'),url('fonts/jsps.woff?-f1jxj9') format('woff'),url('fonts/jsps.ttf?-f1jxj9') format('truetype'),url('fonts/jsps.svg?-f1jxj9#jsps') format('svg');font-weight:normal;font-style:normal}[class^="jsps-"],[class*="jsps-"]{font-family:'jsps';speak:none;font-style:normal;font-weight:normal;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-size:1.5em;}.jsps-viadeo:before{content:"\e603"}.jsps-digg:before{content:"\e601"}.jsps-stumbleupon:before{content:"\e602"}.jsps-vk:before{content:"\e606"}.jsps-weibo:before{content:"\e604"}.jsps-mail:before{content:"\e600"}.jsps-google:before{content:"\ea88";vertical-align:-0.1em}.jsps-facebook:before{content:"\ea8c";vertical-align:0.11em}.jsps-twitter:before{content:"\ea91"}.jsps-linkedin:before{content:"\eac9";font-size:0.85em;vertical-align:0.2em}.jsps-pinterest:before{content:"\ead0"}
+@font-face{
+	font-family: 'jsps';
+	src: url('fonts/jsps.eot?142');
+	src: url('fonts/jsps.eot?#iefix142') format('embedded-opentype'),
+		 url('fonts/jsps.woff?142') format('woff'),
+		 url('fonts/jsps.ttf?142') format('truetype'),
+		 url('fonts/jsps.svg?142#jsps') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+[class^="jsps-"],
+[class*=" jsps-"]{
+	font-family: 'jsps'!important;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-size: 1.5em;
+}
+.jsps-print:before {
+	content: "\e903";
+	font-size: 0.95em;
+}
+.jsps-bookmark:before {
+	content: "\e904";
+	font-size: 0.9em;
+}
+.jsps-star:before {
+	content: "\e905";
+}
+.jsps-share:before {
+	content: "\e906";
+}
+.jsps-share2:before {
+	content: "\e907";
+}
+.jsps-tumblr:before {
+	content: "\e900";
+	font-size: 0.85em;
+	vertical-align: 0.1em;
+}
+.jsps-reddit:before {
+	content: "\e901";
+	vertical-align: 0.1em;
+}
+.jsps-delicious:before {
+	content: "\e902";
+	font-size: 0.85em;
+	vertical-align: 0.1em;
+}
+.jsps-viadeo:before {
+	content: "\e603";
+}
+.jsps-digg:before {
+	content: "\e601";
+}
+.jsps-stumbleupon:before {
+	content: "\e602";
+}
+.jsps-vk:before {
+	content: "\e606";
+}
+.jsps-weibo:before {
+	content: "\e604";
+}
+.jsps-mail:before {
+	content: "\e600";
+}
+.jsps-google:before {
+	content: "\ea88";
+	vertical-align:-0.1em;
+}
+.jsps-facebook:before {
+	position: relative;
+	left: -.05em;
+	content: "\ea8c";
+	vertical-align: 0.11em;
+}
+.jsps-twitter:before {
+	content: "\ea91";
+}
+.jsps-linkedin:before {
+	content: "\eac9";
+	font-size: 0.85em;
+	vertical-align: 0.2em;
+}
+.jsps-pinterest:before {
+	content: "\ead0";
+}
 
-.juiz_sps_links {word-wrap:normal!important; clear: both; margin: 1em 0; }
-.juiz_sps_maybe_hidden_text { position:absolute; left:-9999em; text-indent:-9999em; }
-[dir="rtl"] .juiz_sps_maybe_hidden_text { position:absolute; right:-9999em; }
+.juiz_sps_links {
+	word-wrap: normal!important;
+	clear: both;
+	margin: 1em 0;
+}
+.juiz_sps_maybe_hidden_text {
+	position: absolute;
+	left: -9999em;
+	text-indent: -9999em;
+}
+[dir="rtl"] .juiz_sps_maybe_hidden_text {
+	position: absolute;
+	right: -9999em;
+}
 .juiz_sps_links ul,
 .juiz_sps_links .juiz_sps_item  { 
 	padding:0!important;
@@ -49,7 +153,12 @@ Version: Styles v6 (Design and CSS by Fandia - http://fandia.w.pw)
 	margin-right: 0.4em;
 }
 
-.juiz_sps_links .juiz_sps_link_mail a { color: #333; text-shadow: 0 0 0; }
+.juiz_sps_links .juiz_sps_link_mail a,
+.juiz_sps_links .juiz_sps_link_bookmark a,
+.juiz_sps_links .juiz_sps_link_print a {
+	color: #333;
+	text-shadow: 0 0 0;
+}
 
 .juiz_sps_links .juiz_sps_item a:hover,
 .juiz_sps_links .juiz_sps_item a:focus {
@@ -99,14 +208,43 @@ Version: Styles v6 (Design and CSS by Fandia - http://fandia.w.pw)
 	background-color: #eb4723;
  }
 
+ .juiz_sps_links .juiz_sps_link_tumblr a:hover,
+.juiz_sps_links .juiz_sps_link_tumblr a:focus {
+	background-color: #35465c;
+}
+
+.juiz_sps_links .juiz_sps_link_reddit a:hover,
+.juiz_sps_links .juiz_sps_link_reddit a:focus {
+	background-color: #5F99CF;
+}
+
+.juiz_sps_links .juiz_sps_link_delicious a:hover,
+.juiz_sps_links .juiz_sps_link_delicious a:focus {
+	background-color: #222;
+}
+
 .juiz_sps_links .juiz_sps_link_weibo a:hover,
 .juiz_sps_links .juiz_sps_link_weibo a:focus { 
 	background-color: #F74700;
  }
 .juiz_sps_links .juiz_sps_link_mail a,
 .juiz_sps_links .juiz_sps_link_mail a:hover,
-.juiz_sps_links .juiz_sps_link_mail a:focus {
-	color:#fff
+.juiz_sps_links .juiz_sps_link_mail a:focus,
+.juiz_sps_links .juiz_sps_link_bookmark a,
+.juiz_sps_links .juiz_sps_link_bookmark a:hover,
+.juiz_sps_links .juiz_sps_link_bookmark a:focus,
+.juiz_sps_links .juiz_sps_link_print a,
+.juiz_sps_links .juiz_sps_link_print a:hover,
+.juiz_sps_links .juiz_sps_link_print a:focus {
+	color: #fff
+}
+.juiz_sps_links .juiz_sps_link_bookmark a:hover,
+.juiz_sps_links .juiz_sps_link_bookmark a:focus {
+	background: #af0818;
+}
+.juiz_sps_links .juiz_sps_link_print a:hover,
+.juiz_sps_links .juiz_sps_link_print a:focus {
+	background: #2b835d;
 }
 
 /* special if names are hidden */
@@ -119,10 +257,22 @@ Version: Styles v6 (Design and CSS by Fandia - http://fandia.w.pw)
 	overflow: hidden;
 }
 
-.juiz_sps_hide_name a .juiz_sps_network_name { -webkit-transition: max-width .75s; transition: max-width .75s}
-.juiz_sps_hide_name a .juiz_sps_icon { margin-right:0; -webkit-transition: margin .75s; transition: margin .75s}
-.juiz_sps_hide_name a:hover .juiz_sps_network_name, .juiz_sps_hide_name a:focus .juiz_sps_network_name { max-width: 8em}
-.juiz_sps_hide_name a:hover .juiz_sps_icon, .juiz_sps_hide_name a:focus .juiz_sps_icon { margin-right:0.3em}
+.juiz_sps_hide_name a .juiz_sps_network_name {
+	-webkit-transition: max-width .75s;
+	transition: max-width .75s;
+}
+.juiz_sps_hide_name a .juiz_sps_icon {
+	margin-right:0;
+	-webkit-transition: margin .75s;
+	transition: margin .75s;
+}
+.juiz_sps_hide_name a:hover .juiz_sps_network_name,
+.juiz_sps_hide_name a:focus .juiz_sps_network_name {
+	max-width: 8em;
+}
+.juiz_sps_hide_name a:hover .juiz_sps_icon, .juiz_sps_hide_name a:focus .juiz_sps_icon {
+	margin-right: 0.3em;
+}
 .juiz_sps_counter,
 .juiz_sps_totalcount {
 	position: relative;
@@ -143,6 +293,6 @@ Version: Styles v6 (Design and CSS by Fandia - http://fandia.w.pw)
 	border-bottom: 0.45em solid transparent;
 	border-top: 0.45em solid transparent;
 }
-.juiz_hidden_counter{
-	display:none;
+.juiz_sps_links.counters_total .juiz_hidden_counter {
+	display: none!important;
 }

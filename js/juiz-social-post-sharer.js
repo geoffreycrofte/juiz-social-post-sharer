@@ -28,7 +28,7 @@ Author: Geoffrey Crofte
 				item_class = ' juiz_hidden_counter';
 			}
 
-			var twitter_url		= "//cdn.api.twitter.com/1/urls/count.json?url=" + url + "&callback=?"; 
+			var twitter_url		= "//public.newsharecounts.com/count.json?url=" + url; 
 			// return : {"count":18,"url":"http:\/\/www.creativejuiz.fr\/blog\/"}
 			var delicious_url	= "//feeds.delicious.com/v2/json/urlinfo/data?url=" + url + "&callback=?" ;
 			// return : [{"url": "http://www.creativejuiz.fr/blog", "total_posts": 2}]
@@ -36,7 +36,7 @@ Author: Geoffrey Crofte
 			// return : {"count":17,"fCnt":"17","fCntPlusOne":"18","url":"http:\/\/stylehatch.co"}
 			var pinterest_url   = "//api.pinterest.com/v1/urls/count.json?callback=?&url=" + url;
 			// return : ({"count": 0, "url": "http://stylehatch.co"})
-			var facebook_url	= "//graph.facebook.com/fql?q=SELECT%20like_count,%20total_count,%20share_count,%20click_count,%20comment_count%20FROM%20link_stat%20WHERE%20url%20=%20%22"+url+"%22";
+			var facebook_url	= "//graph.facebook.com/?id=" + url;
 			// return : {"data": [{"like_count": 6,"total_count": 25,"share_count": 9,"click_count": 0,"comment_count": 10}]}
 			var google_url		= plugin_url+"js/get-noapi-counts.php?nw=google&url=" + url;
 			var stumble_url		= plugin_url+"js/get-noapi-counts.php?nw=stumble&url=" + url;
@@ -76,9 +76,10 @@ Author: Geoffrey Crofte
 			if ( $facebook.length ) {
 				$.getJSON(facebook_url)
 					.done(function(data){
-						var facebookdata = 0;
-						if ( data.data.length > 0 ) facebookdata = data.data[0].total_count;
-						$facebook.prepend('<span class="juiz_sps_counter'+item_class+'">' + facebookdata + '</span>');
+						var facebookdata = data.share.share_count;
+						if ( facebookdata ) {
+							$facebook.prepend('<span class="juiz_sps_counter'+item_class+'">' + facebookdata + '</span>');
+						}
 					});
 			}
 			if ( $delicious.length ) {
@@ -116,6 +117,82 @@ Author: Geoffrey Crofte
 	if ($('.juiz_sps_links.juiz_sps_counters.counters_subtotal').length == 0) {
 		$('.juiz_sps_counters .juiz_sps_links_list').juiz_update_counters();
 	}
+
+	/**
+	 * Print button
+	 */
+	if ( window.print ) {
+		$('.juiz_sps_link_print').on('click', function(){
+			window.print();
+			return false;
+		});
+	}
+	else {
+		$('.juiz_sps_link_print').remove();
+	}
+	
+	/**
+	 * Bokmark button
+	 *
+	 * Contributions : Kilbourne fix https://github.com/creativejuiz/juiz-social-post-sharer/issues/6#issuecomment-191647422
+	 */
+	if (
+		( 'addToHomescreen' in window && window.addToHomescreen.isCompatible )
+		||
+		( window.sidebar && window.sidebar.addPanel )
+		||
+		( (window.sidebar && /Firefox/i.test(navigator.userAgent)) || (window.opera && window.print) )
+		||
+		( window.external && ('AddFavorite' in window.external) )
+		||
+		( typeof chrome === 'undefined' )
+		||
+		( typeof chrome !== 'undefined' )
+	) {
+		$('.juiz_sps_link_bookmark').find('a').on('click', function(e){
+			// Thanks to:
+			// https://www.thewebflash.com/how-to-add-a-cross-browser-add-to-favorites-bookmark-button-to-your-website/
+			var bookmarkURL = window.location.href;
+			var bookmarkTitle = document.title;
+
+			if ( 'addToHomescreen' in window && window.addToHomescreen.isCompatible ) {
+				// Mobile browsers
+				addToHomescreen({ autostart: false, startDelay: 0 }).show(true);
+			}
+			else if ( window.sidebar && window.sidebar.addPanel ) {
+				// Firefox version < 23
+				window.sidebar.addPanel(bookmarkTitle, bookmarkURL, '');
+			}
+			else if ( ( window.sidebar && /Firefox/i.test(navigator.userAgent) ) || ( window.opera && window.print ) ) {
+				// Firefox version >= 23 and Opera Hotlist
+				$(this).attr({
+					href: bookmarkURL,
+					title: bookmarkTitle,
+					rel: 'sidebar'
+				}).off( e );
+				return true;
+			}
+			else if ( window.external && ( 'AddFavorite' in window.external ) ) {
+				// IE Favorite
+				window.external.AddFavorite(bookmarkURL, bookmarkTitle);
+			}
+			else {
+				// Other browsers (mainly WebKit - Chrome/Safari)
+				command = (/Mac/i.test(navigator.userAgent) ? 'Cmd' : 'Ctrl') + '+D';
+				message = $(this).data('alert');
+				message = message.replace(/%s/, command);
+				alert( message );
+
+				return false;
+
+			}
+			return false;
+		});
+	}
+	else {
+		$('.juiz_sps_link_bookmark').remove();
+	}
+
 });
 /*
 //var google_url = "https://clients6.google.com/rpc?key=YOUR_API_KEY";

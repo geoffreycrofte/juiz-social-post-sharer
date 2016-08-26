@@ -4,7 +4,99 @@ Plugin URI: http://creativejuiz.fr
 Author: Geoffrey Crofte
 Version: Styles v8 inspired from Material Design
 */
-@font-face{font-family:'jsps';src:url('fonts/jsps.eot?-f1jxj9');src:url('fonts/jsps.eot?#iefix-f1jxj9') format('embedded-opentype'),url('fonts/jsps.woff?-f1jxj9') format('woff'),url('fonts/jsps.ttf?-f1jxj9') format('truetype'),url('fonts/jsps.svg?-f1jxj9#jsps') format('svg');font-weight:normal;font-style:normal}[class^="jsps-"],[class*="jsps-"]{font-family:'jsps';speak:none;font-style:normal;font-weight:normal;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-size:1.5em;}.jsps-viadeo:before{content:"\e603"}.jsps-digg:before{content:"\e601"}.jsps-stumbleupon:before{content:"\e602"}.jsps-vk:before{content:"\e606"}.jsps-weibo:before{content:"\e604"}.jsps-mail:before{content:"\e600"}.jsps-google:before{content:"\ea88";vertical-align:-0.1em}.jsps-facebook:before{position:relative;left:-.05em;content:"\ea8c";vertical-align:0.11em}.jsps-twitter:before{content:"\ea91"}.jsps-linkedin:before{content:"\eac9";font-size:0.85em;vertical-align:0.2em}.jsps-pinterest:before{content:"\ead0"}
+@font-face{
+	font-family: 'jsps';
+	src: url('fonts/jsps.eot?142');
+	src: url('fonts/jsps.eot?#iefix142') format('embedded-opentype'),
+		 url('fonts/jsps.woff?142') format('woff'),
+		 url('fonts/jsps.ttf?142') format('truetype'),
+		 url('fonts/jsps.svg?142#jsps') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+[class^="jsps-"],
+[class*=" jsps-"]{
+	font-family: 'jsps'!important;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-size: 1.5em;
+}
+.jsps-print:before {
+	content: "\e903";
+	font-size: 0.95em;
+}
+.jsps-bookmark:before {
+	content: "\e904";
+	font-size: 0.9em;
+}
+.jsps-star:before {
+	content: "\e905";
+}
+.jsps-share:before {
+	content: "\e906";
+}
+.jsps-share2:before {
+	content: "\e907";
+}
+.jsps-tumblr:before {
+	content: "\e900";
+	font-size: 0.85em;
+	vertical-align: 0.1em;
+}
+.jsps-reddit:before {
+	content: "\e901";
+	vertical-align: 0.1em;
+}
+.jsps-delicious:before {
+	content: "\e902";
+	font-size: 0.85em;
+	vertical-align: 0.1em;
+}
+.jsps-viadeo:before {
+	content: "\e603";
+}
+.jsps-digg:before {
+	content: "\e601";
+}
+.jsps-stumbleupon:before {
+	content: "\e602";
+}
+.jsps-vk:before {
+	content: "\e606";
+}
+.jsps-weibo:before {
+	content: "\e604";
+}
+.jsps-mail:before {
+	content: "\e600";
+}
+.jsps-google:before {
+	content: "\ea88";
+	vertical-align:-0.1em;
+}
+.jsps-facebook:before {
+	position: relative;
+	left: -.05em;
+	content: "\ea8c";
+	vertical-align: 0.11em;
+}
+.jsps-twitter:before {
+	content: "\ea91";
+}
+.jsps-linkedin:before {
+	content: "\eac9";
+	font-size: 0.85em;
+	vertical-align: 0.2em;
+}
+.jsps-pinterest:before {
+	content: "\ead0";
+}
 
 .juiz_sps_links {
 	word-wrap: normal!important;
@@ -80,7 +172,9 @@ Version: Styles v8 inspired from Material Design
 	margin-right: 0.4em;
 }
 
-.juiz_sps_links .juiz_sps_link_mail a { 
+.juiz_sps_links .juiz_sps_link_mail a,
+.juiz_sps_links .juiz_sps_link_bookmark a,
+.juiz_sps_links .juiz_sps_link_print a { 
 	color: #333;
 }
 
@@ -159,7 +253,31 @@ Version: Styles v8 inspired from Material Design
 .juiz_sps_links .juiz_sps_link_stumbleupon a:hover,
 .juiz_sps_links .juiz_sps_link_stumbleupon a:focus { 
 	background-color: #eb4723;
- }
+}
+
+.juiz_sps_links .juiz_sps_link_tumblr a {
+	background-color: #35465c;
+}
+.juiz_sps_links .juiz_sps_link_tumblr a:hover,
+.juiz_sps_links .juiz_sps_link_tumblr a:focus { 
+	background-color: #1B2735;
+}
+
+.juiz_sps_links .juiz_sps_link_reddit a {
+	background-color: #5F99CF;
+}
+.juiz_sps_links .juiz_sps_link_reddit a:hover,
+.juiz_sps_links .juiz_sps_link_reddit a:focus { 
+	background-color: #497DAA;
+}
+
+.juiz_sps_links .juiz_sps_link_delicious a {
+	background-color: #222;
+}
+.juiz_sps_links .juiz_sps_link_delicious a:hover,
+.juiz_sps_links .juiz_sps_link_delicious a:focus { 
+	background-color: #000;
+}
 
 .juiz_sps_links .juiz_sps_link_weibo a {
 	background-color: #EC5452; /*F74700*/
@@ -170,8 +288,28 @@ Version: Styles v8 inspired from Material Design
  }
 .juiz_sps_links .juiz_sps_link_mail a,
 .juiz_sps_links .juiz_sps_link_mail a:hover,
-.juiz_sps_links .juiz_sps_link_mail a:focus {
+.juiz_sps_links .juiz_sps_link_mail a:focus,
+.juiz_sps_links .juiz_sps_link_bookmark a,
+.juiz_sps_links .juiz_sps_link_bookmark a:hover,
+.juiz_sps_links .juiz_sps_link_bookmark a:focus,
+.juiz_sps_links .juiz_sps_link_print a,
+.juiz_sps_links .juiz_sps_link_print a:hover,
+.juiz_sps_links .juiz_sps_link_print a:focus {
 	color: #fff
+}
+.juiz_sps_links .juiz_sps_link_bookmark a {
+	background: #af0818;
+}
+.juiz_sps_links .juiz_sps_link_bookmark a:hover,
+.juiz_sps_links .juiz_sps_link_bookmark a:focus {
+	background: #830915;
+}
+.juiz_sps_links .juiz_sps_link_print a {
+	background: #2b835d;
+}
+.juiz_sps_links .juiz_sps_link_print a:hover,
+.juiz_sps_links .juiz_sps_link_print a:focus {
+	background: #1d6747;
 }
 
 /* special if names are hidden */
@@ -225,6 +363,6 @@ Version: Styles v8 inspired from Material Design
 	color: #727272;
 	background: #F4F4F4;
 }
-.juiz_hidden_counter{
-	display:none;
+.juiz_sps_links.counters_total .juiz_hidden_counter {
+	display: none!important;
 }

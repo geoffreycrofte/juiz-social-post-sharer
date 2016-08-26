@@ -20,7 +20,13 @@
 		);
 		$ch = curl_init();
 
-		$options[CURLOPT_URL] = $encUrl;  
+		$options[CURLOPT_URL] = $encUrl;
+		// avoid error 
+		// curl_setopt_array():
+		// CURLOPT_FOLLOWLOCATION cannot be activated when an open_basedir is set
+		if ( ini_get('open_basedir') ) {
+			$options[CURLOPT_FOLLOWLOCATION] = false;
+		}
 		curl_setopt_array($ch, $options);
 
 		$content	= curl_exec( $ch );
