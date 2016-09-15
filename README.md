@@ -1,20 +1,20 @@
-Juiz Social Post Sharer v1.3.8
+Juiz Social Post Sharer v1.4.6
 ========================
 WordPress Plugin
 ---------------
-Available on WordPress Extend:
+Available on WordPress.org:
 https://wordpress.org/plugins/juiz-social-post-sharer/
 
 
-Add buttons after your posts to allow visitors share your content (includes no JavaScript mode).
-Select your favorites social networks among a little list. Display an optional sharings counter.
+Adds buttons after your posts to allow visitors share your content (includes no JavaScript mode).
+Select your favorite social networks among a list of available networks. Display an optional sharings counter.
 
 **You can donate to support**
 
 * [Donate what you want with Paypal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJPCWVXGDY&lc=FR&item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&item_number=%23wp%2djsps&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted)
 * [Flattr this thing!](https://flattr.com/submit/auto?user_id=CreativeJuiz&url=http://wordpress.org/plugins/juiz-social-post-sharer/&title=Juiz%20Social%20Post%20Sharer%20-%20WordPress%20Plugin&description=Awesome%20WordPress%20Plugin%20helping%20you%20to%20add%20buttons%20at%20the%20beginning%20or%20the%20end%20of%20your%20WordPress%20contents%20easily&tags=WordPress,Social,Share,Buttons,Network,Twitter,Facebook,Linkedin&category=software)
 
-**Please, use the support forum to tell me bugs encountered, and be patient**
+**Please, use the <a href="https://wordpress.org/support/plugin/juiz-social-post-sharer">support forum</a> to tell me bugs encountered, or <a href="https://github.com/creativejuiz/juiz-social-post-sharer/issues">open an issue</a> right here and be patient. Please, look for existing subjects before opening a new one. I hate repeat myself :p**
 <a href="http://creativejuiz.fr/blog/doc/juiz-social-post-sharer-documentation.html">**&lt;&lt;Documentation&gt;&gt;**</a>
 
 
