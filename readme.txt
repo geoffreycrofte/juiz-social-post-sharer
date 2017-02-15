@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJ
 Tags: social, twitter, google, facebook, digg, stumbleupon, linkedin, pinterest, viadeo, weibo, vkontakte, post, share
 Requires at least: 3.3
 Tested up to: 4.6
-Stable tag: 1.4.6
+Stable tag: 1.4.5
 
 Add smart designed buttons after/before your posts to allow visitors sharing your content (includes no JavaScript mode & counters)
 
