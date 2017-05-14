@@ -1,10 +1,9 @@
 <?php
-
 // activation hook
 register_activation_hook( JUIZ_SPS_FILE, 'juiz_sps_activation' );
 function juiz_sps_activation() {
 
-	$juiz_sps_options = get_option ( JUIZ_SPS_SETTING_NAME );
+	$juiz_sps_options = juiz_get_option( JUIZ_SPS_SETTING_NAME );
 
 	if ( ! is_array( $juiz_sps_options ) ) {
 		
@@ -46,7 +45,7 @@ function juiz_sps_activation() {
 				)
 		);
 		
-		update_option( JUIZ_SPS_SETTING_NAME , $default_array );
+		juiz_update_plugin_option( JUIZ_SPS_SETTING_NAME , $default_array );
 	}
 	else {
 		// if was version under 1.2.3
@@ -56,7 +55,7 @@ function juiz_sps_activation() {
 			);
 
 			$updated_array = array_merge( $juiz_sps_options, $new_options );
-			update_option( JUIZ_SPS_SETTING_NAME , $updated_array );
+			juiz_update_plugin_option( JUIZ_SPS_SETTING_NAME , $updated_array );
 		}
 
 		// if was version under 1.3.0
@@ -65,7 +64,7 @@ function juiz_sps_activation() {
 			$juiz_sps_options['juiz_sps_networks']['vk'] = array( 0, __( 'VKontakte', 'juiz-social-post-sharer' ) );
 			$juiz_sps_options['juiz_sps_colors'] = array( 'bg_color' => '', 'txt_color' => ''); // for next update
 
-			update_option( JUIZ_SPS_SETTING_NAME , $juiz_sps_options );
+			juiz_update_plugin_option( JUIZ_SPS_SETTING_NAME , $juiz_sps_options );
 		}
 
 		// if was version under 1.3.3.7
@@ -73,7 +72,7 @@ function juiz_sps_activation() {
 
 			$juiz_sps_options['juiz_sps_counter_option'] = 'both';
 
-			update_option( JUIZ_SPS_SETTING_NAME , $juiz_sps_options );
+			juiz_update_plugin_option( JUIZ_SPS_SETTING_NAME , $juiz_sps_options );
 		}
 
 		// if was version under 1.4.1
@@ -84,7 +83,7 @@ function juiz_sps_activation() {
 			$juiz_sps_options['juiz_sps_networks']['delicious'] = array( 0, __( 'Delicious', 'juiz-social-post-sharer' ) );
 			$juiz_sps_options['juiz_sps_networks']['reddit'] 	= array( 0, __( 'Reddit', 'juiz-social-post-sharer' ) );
 
-			update_option( JUIZ_SPS_SETTING_NAME , $juiz_sps_options );
+			juiz_update_plugin_option( JUIZ_SPS_SETTING_NAME , $juiz_sps_options );
 		}
 
 		// if was version under 1.4.2
@@ -94,7 +93,7 @@ function juiz_sps_activation() {
 			$juiz_sps_options['juiz_sps_networks']['bookmark'] 	= array( 0, __( 'Bookmark', 'juiz-social-post-sharer' ) );
 			$juiz_sps_options['juiz_sps_networks']['print'] = array( 0, __( 'Print', 'juiz-social-post-sharer' ) );
 
-			update_option( JUIZ_SPS_SETTING_NAME , $juiz_sps_options );
+			juiz_update_plugin_option( JUIZ_SPS_SETTING_NAME , $juiz_sps_options );
 		}
 	}
 }
@@ -145,7 +144,7 @@ if ( ! function_exists( 'juiz_sps_metaboxes' ) ) {
 	add_action( 'add_meta_boxes', 'juiz_sps_metaboxes' );
 	function juiz_sps_metaboxes(){
 
-		$options = get_option( JUIZ_SPS_SETTING_NAME );
+		$options = juiz_get_option( JUIZ_SPS_SETTING_NAME );
 		$pts	 = get_post_types( array( 'public'=> true, 'show_ui' => true, '_builtin' => true ) );
 		$cpts	 = get_post_types( array( 'public'=> true, 'show_ui' => true, '_builtin' => false ) );
 
@@ -227,7 +226,7 @@ function juiz_sps_sanitize( $options ) {
 	if ( is_array( $options['juiz_sps_networks'] ) ) {
 		
 		$temp_array = array( 'facebook' => 0, 'twitter' => 0, 'google' => 0, 'pinterest' => 0, 'viadeo' => 0, 'linkedin' => 0, 'digg' => 0, 'stumbleupon' => 0, 'weibo' => 0, 'mail' => 0, 'vk' => 0 );
-		$juiz_sps_opt = get_option ( JUIZ_SPS_SETTING_NAME );
+		$juiz_sps_opt = juiz_get_option( JUIZ_SPS_SETTING_NAME );
 
 		// new option (1.2.0)
 		if ( ! in_array( 'weibo', $juiz_sps_opt['juiz_sps_networks'] ) ) {
@@ -302,7 +301,7 @@ function juiz_sps_section_text() {
 if ( ! function_exists( 'juiz_sps_setting_radio_style_choice' ) ) {
 function juiz_sps_setting_radio_style_choice() {
 
-	$options = get_option( JUIZ_SPS_SETTING_NAME );
+	$options = juiz_get_option( JUIZ_SPS_SETTING_NAME );
 	if ( is_array( $options ) ) {
 		$n1 = $n2 = $n3 = $n4 = $n5 = $n6 = $n7 = $n8 = '';
 		${'n' . $options['juiz_sps_style']} = ' checked="checked"';
@@ -348,7 +347,7 @@ function juiz_sps_setting_radio_style_choice() {
 if ( ! function_exists( 'juiz_sps_setting_checkbox_network_selection' ) ) {
 function juiz_sps_setting_checkbox_network_selection() {
 	$y = $n = '';
-	$options = get_option( JUIZ_SPS_SETTING_NAME );
+	$options = juiz_get_option( JUIZ_SPS_SETTING_NAME );
 	if ( is_array( $options ) ) {
 		foreach ( $options['juiz_sps_networks'] as $k => $v ) {
 
@@ -370,7 +369,7 @@ function juiz_sps_setting_checkbox_network_selection() {
 // input for twitter username
 if ( ! function_exists( 'juiz_sps_setting_input_twitter_user' ) ) {
 function juiz_sps_setting_input_twitter_user() {
-	$options = get_option( JUIZ_SPS_SETTING_NAME );
+	$options = juiz_get_option( JUIZ_SPS_SETTING_NAME );
 	if ( is_array( $options ) ) {
 		$username = isset( $options['juiz_sps_twitter_user'] ) ? $options['juiz_sps_twitter_user'] : '';
 	echo '<p class="juiz_sps_options_p">
@@ -392,7 +391,7 @@ if ( ! function_exists( 'juiz_sps_setting_checkbox_content_type' ) ) {
 function juiz_sps_setting_checkbox_content_type() {
 	$pts	= get_post_types( array( 'public'=> true, 'show_ui' => true, '_builtin' => true ) );
 	$cpts	= get_post_types( array( 'public'=> true, 'show_ui' => true, '_builtin' => false ) );
-	$options = get_option( JUIZ_SPS_SETTING_NAME );
+	$options = juiz_get_option( JUIZ_SPS_SETTING_NAME );
 	$all_lists_icon = '<span class="dashicons-before dashicons-editor-ul"></span>';
 	$all_lists_selected = '';
 	if ( is_array( $options['juiz_sps_display_in_types'] ) ) {
@@ -452,7 +451,7 @@ function juiz_sps_setting_checkbox_content_type() {
 if ( ! function_exists( 'juiz_sps_setting_radio_where' ) ) {
 function juiz_sps_setting_radio_where() {
 
-	$options = get_option( JUIZ_SPS_SETTING_NAME );
+	$options = juiz_get_option( JUIZ_SPS_SETTING_NAME );
 
 	$w_bottom = $w_top = $w_both = $w_nowhere = '';
 	if ( is_array( $options ) && isset( $options['juiz_sps_display_where'] ) )
@@ -487,7 +486,7 @@ function juiz_sps_section_text_advanced() {
 if ( ! function_exists( 'juiz_sps_setting_radio_hide_social_name' ) ) {
 function juiz_sps_setting_radio_hide_social_name() {
 	$y = $n = '';
-	$options = get_option( JUIZ_SPS_SETTING_NAME );
+	$options = juiz_get_option( JUIZ_SPS_SETTING_NAME );
 
 	if ( is_array( $options ) )
 		( isset( $options['juiz_sps_hide_social_name'] ) && $options['juiz_sps_hide_social_name'] == 1 ) ? $y = ' checked="checked"' : $n = ' checked="checked"';
@@ -506,7 +505,7 @@ function juiz_sps_setting_radio_hide_social_name() {
 if ( ! function_exists( 'juiz_sps_setting_radio_target_link' ) ) {
 function juiz_sps_setting_radio_target_link() {
 	$y = $n = '';
-	$options = get_option( JUIZ_SPS_SETTING_NAME );
+	$options = juiz_get_option( JUIZ_SPS_SETTING_NAME );
 
 	if ( is_array( $options ) )
 		( isset( $options['juiz_sps_target_link'] ) && $options['juiz_sps_target_link'] == 1 ) ? $y = ' checked="checked"' : $n = ' checked="checked"';
@@ -523,7 +522,7 @@ function juiz_sps_setting_radio_target_link() {
 if ( ! function_exists( 'juiz_sps_setting_radio_force_snif' ) ) {
 function juiz_sps_setting_radio_force_snif() {
 	$y = $n = '';
-	$options = get_option( JUIZ_SPS_SETTING_NAME );
+	$options = juiz_get_option( JUIZ_SPS_SETTING_NAME );
 
 	if ( is_array( $options ) )
 		( isset( $options['juiz_sps_force_pinterest_snif'] ) && $options['juiz_sps_force_pinterest_snif'] == 1 ) ? $y = ' checked="checked"' : $n = ' checked="checked"';
@@ -541,7 +540,7 @@ if ( ! function_exists( 'juiz_sps_setting_radio_counter' ) ) {
 function juiz_sps_setting_radio_counter() {
 
 	$y = $n = '';
-	$options = get_option( JUIZ_SPS_SETTING_NAME );
+	$options = juiz_get_option( JUIZ_SPS_SETTING_NAME );
 
 	if ( is_array( $options ) )
 		( isset( $options['juiz_sps_counter'] ) && $options['juiz_sps_counter'] == 1 ) ? $y = ' checked="checked"' : $n = ' checked="checked"';
@@ -558,7 +557,7 @@ function juiz_sps_setting_radio_counter() {
 if ( ! function_exists( 'juiz_sps_setting_radio_counter_option' ) ) {
 function juiz_sps_setting_radio_counter_option() {
 
-	$options = get_option( JUIZ_SPS_SETTING_NAME );
+	$options = juiz_get_option( JUIZ_SPS_SETTING_NAME );
 	if ( is_array( $options ) ) {
 		$both 		= ( isset( $options['juiz_sps_counter_option'] ) && $options['juiz_sps_counter_option'] == 'both' ) ? ' checked="checked"' : '';
 		$total 		= ( isset( $options['juiz_sps_counter_option'] ) && $options['juiz_sps_counter_option'] == 'total' ) ? ' checked="checked"' : '';
@@ -586,7 +585,7 @@ function juiz_sps_setting_radio_counter_option() {
 if ( ! function_exists( 'juiz_sps_setting_radio_css_in_html' ) ) {
 function juiz_sps_setting_radio_css_in_html() {
 	$y = $n = '';
-	$options = get_option( JUIZ_SPS_SETTING_NAME );
+	$options = juiz_get_option( JUIZ_SPS_SETTING_NAME );
 
 	if ( is_array( $options ) )
 		( isset( $options['juiz_sps_write_css_in_html'] ) && $options['juiz_sps_write_css_in_html'] == 1 ) ? $y = ' checked="checked"' : $n = ' checked="checked"';
@@ -610,7 +609,7 @@ function juiz_sps_section_text_mail() {
 }
 if ( ! function_exists( 'juiz_sps_setting_input_mail_subject' ) ) {
 function juiz_sps_setting_input_mail_subject() {
-	$options = get_option( JUIZ_SPS_SETTING_NAME );
+	$options = juiz_get_option( JUIZ_SPS_SETTING_NAME );
 	if ( isset( $options['juiz_sps_mail_subject'] ) ) {
 		echo '<input id="juiz_sps_mail_subject" value="' . esc_attr( $options['juiz_sps_mail_subject'] ) . '" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_mail_subject]" type="text">';
 	}
@@ -618,7 +617,7 @@ function juiz_sps_setting_input_mail_subject() {
 }
 if ( ! function_exists( 'juiz_sps_setting_textarea_mail_body' ) ) {
 function juiz_sps_setting_textarea_mail_body() {
-	$options = get_option( JUIZ_SPS_SETTING_NAME );
+	$options = juiz_get_option( JUIZ_SPS_SETTING_NAME );
 	if ( isset( $options['juiz_sps_mail_body'] ) ) {
 		echo '<textarea id="juiz_sps_mail_body" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_mail_body]">' . esc_textarea( $options['juiz_sps_mail_body'] ) . '</textarea>';
 	}
