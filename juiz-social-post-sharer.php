@@ -4,7 +4,7 @@ Plugin Name: Juiz Social Post Sharer
 Plugin URI: http://wordpress.org/extend/plugins/juiz-social-post-sharer/
 Description: Add buttons after (or before, or both) your posts to allow visitors share your content (includes no JavaScript mode). You can also use <code>juiz_sps($array)</code> template function or <code>[juiz_sps]</code> shortcode. For more informations see the setting page located in <strong>Settings</strong> submenu.
 Author: Geoffrey Crofte
-Version: 1.4.6
+Version: 1.4.7
 Author URI: http://geoffrey.crofte.fr
 License: GPLv2 or later
 Text Domain: juiz-social-post-sharer
@@ -12,7 +12,7 @@ Domain Path: /languages
 
 
 
-Copyright 2012-2015  Geoffrey Crofte  (email : support@creativejuiz.com)
+Copyright 2012-2017  Geoffrey Crofte  (email : support@creativejuiz.com)
 
     
 This program is free software; you can redistribute it and/or
@@ -32,19 +32,81 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
 define( 'JUIZ_SPS_PLUGIN_NAME',	 'Juiz Social Post Sharer' );
-define( 'JUIZ_SPS_VERSION',		 '1.4.6' );
+define( 'JUIZ_SPS_VERSION',		 '1.4.7' );
 define( 'JUIZ_SPS_FILE',		 __FILE__ );
 define( 'JUIZ_SPS_DIRNAME',		 basename( dirname( __FILE__ ) ) );
 define( 'JUIZ_SPS_PLUGIN_URL',	 plugin_dir_url( __FILE__ ));
 define( 'JUIZ_SPS_SLUG',		 'juiz-social-post-sharer' );
 define( 'JUIZ_SPS_SETTING_NAME', 'juiz_SPS_settings' );
 
-	
-// multilingue
+// Checking network activation.
+$is_nw_activated = function_exists( 'is_plugin_active_for_network' ) && is_plugin_active_for_network( JUIZ_SPS_SLUG . '/' . JUIZ_SPS_SLUG . '.php' ) ? true : false;
 
+define( 'JUIZ_SPS_NETWORK_ACTIVATED', $is_nw_activated );
+
+	
+// Multilingal.
 add_action( 'init', 'make_juiz_sps_multilang' );
 function make_juiz_sps_multilang() {
 	load_plugin_textdomain( 'juiz-social-post-sharer', false, JUIZ_SPS_DIRNAME.'/languages' );
+}
+
+/**
+ * Getting options from the right place.
+ * Multisite compatibility.
+ *
+ * @author Marie Comet, Geoffrey Crofte
+ * @since 1.4.7
+ */
+function jsps_get_option( $option_name = '' ) {
+
+	// When we want a precise option in a network activated website.
+	if ( ! empty( $option_name ) && true === JUIZ_SPS_NETWORK_ACTIVATED ) {
+		$options = get_blog_option( get_current_blog_id(), JUIZ_SPS_SETTING_NAME );
+		return $options[ $option_name ];
+	}
+
+	// When we want all options in a network activated website.
+	else if ( empty( $option_name ) && true === JUIZ_SPS_NETWORK_ACTIVATED ) {
+		return get_blog_option( get_current_blog_id(), JUIZ_SPS_SETTING_NAME );
+	}
+
+	// When we want a precise option in a simple website.
+	else if ( ! empty( $option_name ) && false === JUIZ_SPS_NETWORK_ACTIVATED ) {
+		$options = get_option( JUIZ_SPS_SETTING_NAME );
+		return $options[ $option_name ];
+	}
+
+	// When we want all options in a simple website.
+	else {
+		return get_option( JUIZ_SPS_SETTING_NAME );
+	}
+
+}
+
+/**
+ * Updating options to the right place.
+ * Multisite compatibility.
+ *
+ * @author Marie Comet, Geoffrey Crofte
+ * @since 1.4.7
+ */
+function jsps_update_option( $options ) {
+
+	if ( ! is_array( $options ) ) {
+		die( '$options has to be an array' );
+	}
+
+	// When we want to update options in a network activated website.
+	if ( true === JUIZ_SPS_NETWORK_ACTIVATED ) {
+		$options = update_blog_option( get_current_blog_id(), JUIZ_SPS_SETTING_NAME, $options );
+		return $options;
+	}
+
+	// When we want to update options in a simple website.
+	else {
+		$options = update_option( JUIZ_SPS_SETTING_NAME, $options );
+	}
 }
 
 if ( is_admin() || ( defined( 'DOING_AJAX' ) && ! DOING_AJAX ) ) {
@@ -62,7 +124,7 @@ if ( ! is_admin() ) {
 
 		function juiz_sps_style_and_script() {
 
-			$juiz_sps_options = get_option( JUIZ_SPS_SETTING_NAME );
+			$juiz_sps_options = jsps_get_option();
 
 			if ( is_array( $juiz_sps_options ) ) {
 
@@ -173,7 +235,7 @@ if ( ! is_admin() ) {
 
 
 				// get the plugin options
-				$juiz_sps_options = get_option( JUIZ_SPS_SETTING_NAME );
+				$juiz_sps_options = jsps_get_option();
 
 				// classes and attributes options
 				$juiz_sps_target_link = ( isset( $juiz_sps_options['juiz_sps_target_link'] ) && $juiz_sps_options['juiz_sps_target_link'] == 1 ) ? ' target="_blank"' : '';
@@ -374,7 +436,7 @@ if ( ! is_admin() ) {
 	if ( ! function_exists( 'juiz_sps_print_links' ) ) {
 		function juiz_sps_print_links( $content ) {
 			
-			$juiz_sps_options = get_option( JUIZ_SPS_SETTING_NAME );
+			$juiz_sps_options = jsps_get_option();
 
 			if ( isset( $juiz_sps_options['juiz_sps_display_in_types'] ) ) {
 
