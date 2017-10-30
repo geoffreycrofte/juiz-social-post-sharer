@@ -45,7 +45,7 @@
 	// get counters
 
 	$json = array('url'=>'','count'=>0);
-	$url = $_GET['url'];
+	$url = strip_tags( $_GET['url'] );
 	$json['url'] = $url;
 	$network = $_GET['nw'];
 	
