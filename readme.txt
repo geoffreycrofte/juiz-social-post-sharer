@@ -3,7 +3,7 @@ Contributors: CreativeJuiz
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJPCWVXGDY&lc=FR&item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&item_number=%23wp%2djsps&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted
 Tags: social, twitter, google, facebook, digg, stumbleupon, linkedin, pinterest, viadeo, weibo, vkontakte, post, share
 Requires at least: 3.3
-Tested up to: 4.7.4
+Tested up to: 4.8.3
 Stable tag: 1.4.8
 
 Add smart designed buttons after/before your posts to allow visitors sharing your content (includes no JavaScript mode & counters)
@@ -146,6 +146,9 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
 
 = 1.4.8 =
 * Security Update: Fixes XSS vulnerability.
+* Network Counters:
+ * StumbleUpon: code improvement.
+ * Google+: not supported anymore.
 
 = 1.4.7 =
 * Compatibility on network (multisite) thanks to Marie Comet ([Marie Comet](http://mariecomet.fr/))
