@@ -1,0 +1,526 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Juiz Social Post Sharer\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-04-11 23:42+0200\n"
+"PO-Revision-Date: 2016-04-11 23:42+0200\n"
+"Last-Translator: Borisa Djuraskovic <borisad@webhostinghub.com>\n"
+"Language-Team: Creativejuiz <support@creativejuiz.com>\n"
+"Language: sr_RS\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;_e;__;esc_html__;esc_html_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 1.8.6\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../admin/jsps-admin.inc.php:15 ../admin/jsps-admin.inc.php:84
+#: ../admin/jsps-admin.inc.php:243
+msgid "Delicious"
+msgstr ""
+
+#: ../admin/jsps-admin.inc.php:16
+msgid "Digg"
+msgstr ""
+
+#: ../admin/jsps-admin.inc.php:17
+msgid "Facebook"
+msgstr ""
+
+#: ../admin/jsps-admin.inc.php:18
+msgid "Google+"
+msgstr ""
+
+#: ../admin/jsps-admin.inc.php:19
+msgid "LinkedIn"
+msgstr ""
+
+#: ../admin/jsps-admin.inc.php:20
+msgid "Pinterest"
+msgstr ""
+
+#: ../admin/jsps-admin.inc.php:21 ../admin/jsps-admin.inc.php:85
+#: ../admin/jsps-admin.inc.php:244
+msgid "Reddit"
+msgstr ""
+
+#: ../admin/jsps-admin.inc.php:22
+msgid "StumbleUpon"
+msgstr ""
+
+#: ../admin/jsps-admin.inc.php:23
+msgid "Twitter"
+msgstr ""
+
+#: ../admin/jsps-admin.inc.php:24 ../admin/jsps-admin.inc.php:83
+#: ../admin/jsps-admin.inc.php:242
+msgid "Tumblr"
+msgstr ""
+
+#: ../admin/jsps-admin.inc.php:25
+msgid "Viadeo"
+msgstr ""
+
+#: ../admin/jsps-admin.inc.php:26 ../admin/jsps-admin.inc.php:65
+#: ../admin/jsps-admin.inc.php:238
+msgid "VKontakte"
+msgstr ""
+
+#: ../admin/jsps-admin.inc.php:27 ../admin/jsps-admin.inc.php:234
+msgid "Weibo"
+msgstr ""
+
+#: ../admin/jsps-admin.inc.php:28
+msgid "Email"
+msgstr ""
+
+#: ../admin/jsps-admin.inc.php:29 ../admin/jsps-admin.inc.php:94
+#: ../admin/jsps-admin.inc.php:248
+msgid "Bookmark"
+msgstr ""
+
+#: ../admin/jsps-admin.inc.php:30 ../admin/jsps-admin.inc.php:95
+#: ../admin/jsps-admin.inc.php:249
+msgid "Print"
+msgstr ""
+
+#: ../admin/jsps-admin.inc.php:40
+#, php-format
+msgid "Visit this link find on %%siteurl%%"
+msgstr "Posetite ovaj link na %%urlsajta%%"
+
+#: ../admin/jsps-admin.inc.php:41
+#, php-format
+msgid ""
+"Hi, I found this information for you : \"%%title%%\"! This is the direct "
+"link: %%permalink%% Have a nice day :)"
+msgstr ""
+"Našao sam ovu info za vas : \"%%title%%\"! Ovo je direktan link: %%permalink"
+"%% Have a nice day :)"
+
+#: ../admin/jsps-admin.inc.php:106
+msgid "Settings"
+msgstr "Postavke"
+
+#: ../admin/jsps-admin.inc.php:123 ../admin/jsps-admin.inc.php:124
+msgid "Social Post Sharer"
+msgstr "Social Post Sharer"
+
+#: ../admin/jsps-admin.inc.php:155 ../admin/jsps-admin.inc.php:160
+msgid "Sharing buttons"
+msgstr "Dugmad za deljenje"
+
+#: ../admin/jsps-admin.inc.php:170
+msgid "Hide sharing buttons for this post."
+msgstr "Sakriti dugmad za deljenje kod ovog posta"
+
+#: ../admin/jsps-admin.inc.php:190
+msgid "Main settings"
+msgstr "Glavne postavke"
+
+#: ../admin/jsps-admin.inc.php:191
+msgid "Choose a style to display"
+msgstr "Izabrati stil za prikaz"
+
+#: ../admin/jsps-admin.inc.php:192 ../admin/jsps-admin.inc.php:195
+#: ../admin/jsps-admin.inc.php:201 ../admin/jsps-admin.inc.php:211
+msgid "Save Changes"
+msgstr "Sačuvati promene"
+
+#: ../admin/jsps-admin.inc.php:193
+msgid "Display those following social networks:"
+msgstr "Prikaži sledeće socijalne mreže:"
+
+#: ../admin/jsps-admin.inc.php:194
+msgid "What is your Twitter user name to be mentioned?"
+msgstr "Koje Twitter  ime želite da bude pomenuto?"
+
+#: ../admin/jsps-admin.inc.php:198
+msgid "Display settings"
+msgstr "Prikaži postavke"
+
+#: ../admin/jsps-admin.inc.php:199
+msgid "What type of content must have buttons?"
+msgstr "Koji tip sadržaja moraju imati dugmad ?"
+
+#: ../admin/jsps-admin.inc.php:200
+msgid "Where do you want to display buttons?"
+msgstr "Gde želite da prikažete dugmad?"
+
+#: ../admin/jsps-admin.inc.php:204
+msgid "Advanced settings"
+msgstr "Napredne postavke"
+
+#: ../admin/jsps-admin.inc.php:205
+msgid "Show only social icon?"
+msgstr "Prikazati samo ikonu sa socijalnom mrežom?"
+
+#: ../admin/jsps-admin.inc.php:205
+msgid "hide text, show it on mouse over or focus"
+msgstr "sakriti tekst, prikazati tek kada se mišem prdje preko"
+
+#: ../admin/jsps-admin.inc.php:206
+msgid "Open links in a new window?"
+msgstr "Otvoriti linkove u novim prozorima? "
+
+#: ../admin/jsps-admin.inc.php:206
+#, php-format
+msgid "adds a %s attribute"
+msgstr "dodaci %s atributa"
+
+#: ../admin/jsps-admin.inc.php:207
+msgid "Force Pinterest button sniffing all images of the page?"
+msgstr "Naterati Pinterest dugme da predje sve slike na stranici?"
+
+#: ../admin/jsps-admin.inc.php:207 ../admin/jsps-admin.inc.php:208
+msgid "need JavaScript"
+msgstr "treba vam JavaScript"
+
+#: ../admin/jsps-admin.inc.php:208
+msgid "Display counter of sharing?"
+msgstr "Display counter of sharing?"
+
+#: ../admin/jsps-admin.inc.php:209
+msgid "For this counter, you want to display:"
+msgstr ""
+
+#: ../admin/jsps-admin.inc.php:210
+msgid "Write CSS code in HTML head?"
+msgstr "Napisati CSS kod u HTML glavi?"
+
+#: ../admin/jsps-admin.inc.php:210
+msgid "good thing for performance on mobile"
+msgstr "dobra stvar za performanse na telefonu"
+
+#: ../admin/jsps-admin.inc.php:214
+msgid "Customize mail texts"
+msgstr "Customize tekstove mejlova"
+
+#: ../admin/jsps-admin.inc.php:215
+msgid "Mail subject:"
+msgstr "Predmet mejla:"
+
+#: ../admin/jsps-admin.inc.php:216
+msgid "Mail body:"
+msgstr "Telo mejla:"
+
+#: ../admin/jsps-admin.inc.php:297
+msgid "Here, you can modify default settings of the SPS plugin"
+msgstr "Ovde možete izmeniti podrazumevane postavke iz SPS plugin"
+
+#: ../admin/jsps-admin.inc.php:312
+msgid "Juizy Light Tone"
+msgstr "Juizy Light Tone"
+
+#: ../admin/jsps-admin.inc.php:316
+msgid "Juizy Light Tone Reverse"
+msgstr "Juizy Light Tone obrnuto"
+
+#: ../admin/jsps-admin.inc.php:320
+msgid "Blue Metro Style"
+msgstr "Plavi Metro stil"
+
+#: ../admin/jsps-admin.inc.php:324
+msgid "Gray Metro Style"
+msgstr "Sivi Metro stil"
+
+#: ../admin/jsps-admin.inc.php:328
+#, php-format
+msgid "Modern Style by %s"
+msgstr ""
+
+#: ../admin/jsps-admin.inc.php:332
+#, php-format
+msgid "Black by %s"
+msgstr ""
+
+#: ../admin/jsps-admin.inc.php:336
+msgid "Brands colors"
+msgstr ""
+
+#: ../admin/jsps-admin.inc.php:340
+msgid "Material Design"
+msgstr ""
+
+#: ../admin/jsps-admin.inc.php:356
+msgid "uses JavaScript to work"
+msgstr "koristi JavaScript da bi radio"
+
+#: ../admin/jsps-admin.inc.php:365
+msgid "New social network!"
+msgstr "Noa socijalna mreža!"
+
+#: ../admin/jsps-admin.inc.php:377
+msgid "Username without \"@\""
+msgstr "Korisničko ime bezt "
+
+#: ../admin/jsps-admin.inc.php:387
+msgid ""
+"You can choose precisely the types of content that will benefit from the "
+"sharing buttons."
+msgstr ""
+"Možete izabrati tačno tip sadržaja koji će imati koristi od dugmadi za "
+"deljenje ."
+
+#: ../admin/jsps-admin.inc.php:446
+#, php-format
+msgid "Lists of articles %s(blog, archives, search results, etc.)%s"
+msgstr "Lista članaka %s (blog, arhive, rezultate pretraga, itd)%s"
+
+#: ../admin/jsps-admin.inc.php:462
+msgid "Content bottom"
+msgstr "Dno sadržaja"
+
+#: ../admin/jsps-admin.inc.php:465
+msgid "Content top"
+msgstr "Vrh sadržaja"
+
+#: ../admin/jsps-admin.inc.php:468
+msgid "Both"
+msgstr "Oba"
+
+#: ../admin/jsps-admin.inc.php:471
+msgid "I'm a ninja, I want to use the shortcode only!"
+msgstr "Ja sam nindža , želim da koristim samo skraćenicu !"
+
+#: ../admin/jsps-admin.inc.php:481
+msgid ""
+"Modify advanced settings of the plugin. Some of them needs JavaScript (only "
+"one file loaded)"
+msgstr ""
+"Izmena naprednih podešavanja dodatka . Neki od njih treba JavaScript ( samo "
+"jedan fajl  je učitan )"
+
+#: ../admin/jsps-admin.inc.php:496 ../admin/jsps-admin.inc.php:515
+#: ../admin/jsps-admin.inc.php:532 ../admin/jsps-admin.inc.php:550
+#: ../admin/jsps-admin.inc.php:596
+msgid "Yes"
+msgstr "Da"
+
+#: ../admin/jsps-admin.inc.php:499 ../admin/jsps-admin.inc.php:518
+#: ../admin/jsps-admin.inc.php:535 ../admin/jsps-admin.inc.php:553
+#: ../admin/jsps-admin.inc.php:599
+msgid "No"
+msgstr "Ne"
+
+#: ../admin/jsps-admin.inc.php:573
+msgid "Total &amp; Sub-totals"
+msgstr ""
+
+#: ../admin/jsps-admin.inc.php:576
+msgid "Only Total"
+msgstr ""
+
+#: ../admin/jsps-admin.inc.php:579
+msgid "Only Sub-totals"
+msgstr ""
+
+#: ../admin/jsps-admin.inc.php:581
+#, php-format
+msgid ""
+"Important: Twitter doesn't support counter anymore since %sthat decision%s."
+msgstr ""
+
+#: ../admin/jsps-admin.inc.php:581
+#, php-format
+msgid ""
+"I suggest you an alternative using %sNewShareCounts%s. Click the link, enter "
+"your website address and click the big blue Twitter button. Authorize this "
+"app with your Twitter Account, and that's all. You will retrieve your "
+"Twitter counts."
+msgstr ""
+
+#: ../admin/jsps-admin.inc.php:594
+msgid "This option will be enabled for a next version"
+msgstr "Ova opcije će biti omogućena u sledećoj verziji"
+
+#: ../admin/jsps-admin.inc.php:607
+msgid ""
+"You can customize texts to display when visitors share your content by mail "
+"button"
+msgstr ""
+"Možete da prilagodite tekstove da prikažete kada posetioci dele vaš sadržaj "
+"email dugmetom "
+
+#: ../admin/jsps-admin.inc.php:608
+#, php-format
+msgid ""
+"To perform customization, you can use %s%%%%title%%%%%s, %s%%%%siteurl%%%%%s "
+"or %s%%%%permalink%%%%%s variables."
+msgstr ""
+"Da biste izvršili prilagođavanje , možete da koristite %s%%%%title%%%%%s, %s"
+"%%%%siteurl%%%%%s or %s%%%%permalink%%%%%s  promenljive ."
+
+#: ../admin/jsps-admin.inc.php:634
+msgid "Manage Juiz Social Post Sharer"
+msgstr "Upravljajte sa Juiz Social Post Sharer-om"
+
+#: ../admin/jsps-admin.inc.php:639
+#, php-format
+msgid "You must chose at least one %stype of content%s."
+msgstr "Treba izabrete  najmanje jedan % stip sadržaja%s."
+
+#: ../admin/jsps-admin.inc.php:640
+msgid ""
+"Is you don't want to use this plugin more longer, go to Plugins section and "
+"deactivate it."
+msgstr ""
+"Ako ne želite više da koristite ovaj plugin , idite na Plugins deoi "
+"deaktivirajte ."
+
+#: ../admin/jsps-admin.inc.php:644
+#, php-format
+msgid ""
+"You can use %s[juiz_sps]%s or %s[juiz_social]%s shortcode with an optional "
+"attribute \"buttons\" listing the social networks you want."
+msgstr ""
+"Možete da koristite %s[juiz_sps]%s ili %s[juiz_social]%s skraćenicu sa "
+"opcionim atributom  \"buttons\" listing društvene mreže koje želite ."
+
+#: ../admin/jsps-admin.inc.php:646
+msgid "Example with all the networks available:"
+msgstr "Primer sa svim dostupnim mrežama:"
+
+#: ../admin/jsps-admin.inc.php:658
+msgid "Like it? Support this plugin! Thank you."
+msgstr "Dopada vam se? Podržite ovaj plugin! Hvala."
+
+#: ../admin/jsps-admin.inc.php:659
+msgid "Donate"
+msgstr "Donirati"
+
+#: ../admin/jsps-admin.inc.php:660
+msgid "Tweet it"
+msgstr "Tweetuj o ovome"
+
+#: ../admin/jsps-admin.inc.php:662
+msgid "Rate it"
+msgstr "Oceniti"
+
+#: ../admin/jsps-admin.inc.php:664
+msgid "Documentation"
+msgstr "Dokumentacija"
+
+#: ../juiz-social-post-sharer.php:154
+msgid "Total: "
+msgstr "Ukupno:"
+
+#: ../juiz-social-post-sharer.php:158
+msgid "Share the post"
+msgstr "Šeruj post"
+
+#: ../juiz-social-post-sharer.php:229
+#, php-format
+msgid "Share this article on %s"
+msgstr ""
+
+#: ../juiz-social-post-sharer.php:254
+msgid "Share an image of this article on Pinterest"
+msgstr "Šerujovaj članak na Pinterest"
+
+#: ../juiz-social-post-sharer.php:303
+msgid "Share this article with a friend (email)"
+msgstr "Šerujovaj članak na sa prijateljem (email)"
+
+#: ../juiz-social-post-sharer.php:308
+msgid "Bookmark this article (on your browser)"
+msgstr ""
+
+#: ../juiz-social-post-sharer.php:309
+#, php-format
+msgid "Press %s to bookmark this page."
+msgstr ""
+
+#: ../juiz-social-post-sharer.php:314
+msgid "Print this page"
+msgstr ""
+
+#~ msgid "Share this article on Twitter"
+#~ msgstr "Šerujovaj članak na Twitter"
+
+#~ msgid "Share this article on Facebook"
+#~ msgstr "Šerujovaj članak na Facebook"
+
+#~ msgid "Share this article on Google+"
+#~ msgstr "Šerujovaj članak na Google+"
+
+#~ msgid "Share this article on Viadeo"
+#~ msgstr "Šerujovaj članak na Viadeo"
+
+#~ msgid "Share this article on LinkedIn"
+#~ msgstr "Šerujovaj članak na LinkedIn"
+
+#~ msgid "Share this article on Digg"
+#~ msgstr "Šerujovaj članak na Digg"
+
+#~ msgid "Share this article on StumbleUpon"
+#~ msgstr "Šerujovaj članak na StumbleUpon"
+
+#~ msgid "Share this article on Weibo"
+#~ msgstr "Šerujovaj članak na Weibo"
+
+#~ msgid "Share this article on VKontakte"
+#~ msgstr "Šerujovaj članak na VKontakte"
+
+#~ msgid "Modern Style"
+#~ msgstr "Moderno stil"
+
+#~ msgid "by"
+#~ msgstr "od strane"
+
+#~ msgid "Black"
+#~ msgstr "Crno"
+
+#~ msgid "Visit this link"
+#~ msgstr "Un bon lien à visiter"
+
+#~ msgid "Hi, I found this information for you! Have a nice day :)"
+#~ msgstr "Salut ! J'ai trouvé cette information pour toi. Bonne journée :)"
+
+#~ msgid "adds a <code>target=\"_blank\"</code> attribute"
+#~ msgstr "ajoute un adds attribut <code>target=\"_blank\"</code>"
+
+#~ msgid "Howdy, %1$s"
+#~ msgstr "Howdy, %1$s"
+
+#~ msgid "Credits"
+#~ msgstr "Credits"
+
+#~ msgid ""
+#~ "Mobile Admin support by <a href=\"http://wordpress.org/extend/plugins/"
+#~ "juiz-smart-mobile-admin\">Juiz SMA</a>"
+#~ msgstr ""
+#~ "Mobile Admin support by <a href=\"http://wordpress.org/extend/plugins/"
+#~ "juiz-smart-mobile-admin\">Juiz SMA</a>"
+
+#~ msgid "Top of page"
+#~ msgstr "Top of page"
+
+#~ msgid "Admin Mobile Appearance"
+#~ msgstr "Admin Mobile Appearance"
+
+#~ msgid "Show plugins shortcuts in adminbar?"
+#~ msgstr "Show plugins shortcuts in adminbar?"
+
+#~ msgid "Show custom WP admin footer ?"
+#~ msgstr "Show custom WP admin footer ?"
+
+#~ msgid "Settings saved"
+#~ msgstr "Settings saved"
+
+#~ msgid "Manage Juiz Smart Mobile Admin"
+#~ msgstr "Manage Juiz Smart Mobile Admin"
+
+#~ msgid "The redirection failed"
+#~ msgstr "The redirection failed"
+
+#~ msgid "refresh the page"
+#~ msgstr "refresh the page"
+
+#~ msgid "Sorry, nothing to update..."
+#~ msgstr "Sorry, nothing to update..."
+
+#~ msgid "Unknown error..."
+#~ msgstr "Unknown error..."

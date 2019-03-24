@@ -1,0 +1,679 @@
+.jsps-main-header,
+.jsps-links-header {
+    padding: 15px 35px 18px;
+    background: #23282D;
+    color: #F2F2F2;
+    font-size: 1.4em;
+}
+
+.jsps-links-header {
+    padding: 15px 35px 18px;
+}
+
+.jsps-main-header > *,
+.jsps-links-header > * {
+    margin: 0;
+    color: #FFF;
+}
+
+.jsps-links-header p {
+    font-size: 1.295em;
+    padding: 6px 0 5px;
+}
+
+.jsps-main-header .notice > * {
+    color: #333;
+}
+
+.jsps-main-header h1 small {
+    opacity: 0.4;
+    font-size: 0.6em;
+}
+
+.jsps-main-header h1 .dashicons,
+.jsps-links-header .dashicons {
+    color: #43AFD2;
+    margin-right: 8px;
+    font-size: 24px;
+    vertical-align: -4px;
+}
+
+/**
+ * Layout Tabs + Tab contents
+ */
+.jsps-main-body form {
+	position: relative;
+	display: flex;
+}
+
+[id="jsps-all-tabs"],
+.jsps-tabs {
+	margin-top: 0;
+}
+
+.jsps-tabs ul,
+.jsps-tabs li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.jsps-tabs {
+	position: relative;
+	flex-basis: 192px;
+	flex-shrink: 0;
+	margin-left: -36px;
+	background: #23282D;
+}
+
+.jsps-tabs ul {
+	position: sticky;
+	top: 40px;
+}
+
+.jsps-tabs li {
+	border-top: 1px solid rgba(255, 255, 255, .1);
+}
+
+.jsps-tabs a {
+	position: relative;
+	display: block;
+	padding: 20px 16px;
+	font-size: 1.1em;
+	font-weight: 600;
+	color: #FFF;
+	text-decoration: none;
+	background: #23282D;
+	transition: all .275s;
+}
+.jsps-tabs a::before,
+.jsps-tabs a::after {
+	content: '';
+	position: absolute;
+	transition: all .275s;
+}
+
+.jsps-tabs a::before {
+	top: 0;
+	bottom: 0;
+	left: 0;
+	width: 5px;
+	background: #43AFD2;
+	opacity: 0;
+}
+.jsps-tabs a::after {
+	top: 50%;
+	right: 0;
+	margin-top: -10px;
+	border-right: 10px solid #FFF;
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent;
+	opacity: 0;
+	transform: translateX(100%);
+}
+
+.jsps-tabs [aria-selected="true"]::after {
+	opacity: 1;
+	transform: translateX(0);
+}
+
+.jsps-tabs [aria-selected="true"]::before {
+	opacity: 1;
+}
+
+.jsps-tabs [aria-selected="true"],
+.jsps-tabs a:hover,
+.jsps-tabs a:focus {
+	background: #34393E;
+	outline: none;
+	box-shadow: none;
+}
+
+[id="jsps-all-tabs"] {
+	padding-left: 32px;
+}
+
+[id="juiz-sps"] [id="jsps-all-tabs"] h2 {
+	margin-top: 32px;
+	padding-top: 0;
+	border-top: 0;
+}
+
+.jsps-tab-container .form-table,
+.jsps-tab-container .form-table tbody,
+.jsps-tab-container .form-table tr,
+.jsps-tab-container .form-table td,
+.jsps-tab-container .form-table th {
+	display: block;
+}
+.jsps-tab-container .form-table {
+	margin-left: -32px;
+}
+
+.jsps-tab-container .form-table th,
+.jsps-tab-container .form-table td {
+	padding-left: 32px;
+	width: auto;
+}
+
+.jsps-tab-container .form-table th {
+	font-size: 1.1em;
+	margin-top: 32px;
+	padding-top: 32px;
+	border-top: 1px solid #F2F2F2;
+}
+
+/**
+ * Main body
+ */
+
+.jsps-main-body {
+    padding: 0 35px 15px;
+    background: #FFF;
+    border: 1px solid #E3E8ED;
+    border-top: 0;
+}
+
+.jsps-main-body p {
+    font-size: 14px;
+}
+
+.juiz_bottom_links {
+    margin-bottom: 0;
+    border-top: 1px solid #E3E8ED;
+    background: #FFF;
+}
+
+.juiz_bottom_links_p {
+    margin: 0;
+    padding: 20px 35px;
+}
+
+[id="juiz-sps"] .error {
+    margin: 20px 20px 20px 48px;
+}
+
+[id="juiz-sps"] .submit {
+    margin-bottom: 3em
+}
+
+[id="juiz-sps"] th .submit {
+    font-weight: normal;
+    margin-bottom: 0
+}
+
+[id="juiz-sps"] .error em {
+    font-weight: normal;
+}
+
+[id="juiz-sps"] .jsps_info {
+    padding: 20px 25px;
+    color: #444;
+    line-height: 1.7;
+    background: #F2F2F2;
+}
+
+[id="juiz-sps"] h2 {
+    margin-top: 25px;
+    margin-bottom: 0;
+    padding: 25px 0 0;
+    border-top: 1px solid #E3E8ED;
+    font-size: 1.5em;
+    color: #444;
+    font-weight: bold;
+    letter-spacing: 0.125em;
+    text-transform: uppercase;
+}
+
+.juiz_sps_section_intro {
+    margin-bottom: 20px;
+    color: #777;
+    font-size: 1.2em;
+}
+
+[id="juiz-sps"] h3 {
+    font-size: 1.65em;
+    color: #444;
+    font-weight: normal;
+}
+
+[id="juiz-sps"] table + h3 {
+    margin-top: 3em;
+}
+
+[id="juiz-sps"] th {
+    font-weight: bold;
+}
+
+[id="juiz-sps"] th em {
+    font-weight: normal;
+    font-style: italic;
+    color: #777;
+}
+
+.jsps_demo_icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+    vertical-align: middle;
+    background: url(../img/sps_sprites.png) no-repeat 0 -16px;
+}
+
+.jsps_demo_icon_google {
+    background-position: -16px -16px
+}
+
+.jsps_demo_icon_facebook {
+    background-position: -32px -16px
+}
+
+.jsps_demo_icon_mail {
+    background-position: -48px -16px
+}
+
+.jsps_demo_icon_pinterest {
+    background-position: -64px -16px
+}
+
+.jsps_demo_icon_viadeo {
+    background-position: -80px -16px
+}
+
+.jsps_demo_icon_linkedin {
+    background-position: -96px -16px
+}
+
+.jsps_demo_icon_digg {
+    background-position: -112px -16px
+}
+
+.jsps_demo_icon_stumbleupon {
+    background-position: -128px -16px
+}
+
+.jsps_demo_icon_weibo {
+    background-position: -144px -16px
+}
+
+.jsps_demo_icon_vk {
+    background-position: -160px -16px
+}
+
+.jsps_demo_icon_reddit {
+    background-position: -176px -16px
+}
+
+.jsps_demo_icon_delicious {
+    background-position: -192px -15px
+}
+
+.jsps_demo_icon_tumblr {
+    background-position: -208px -17px
+}
+
+.jsps_demo_icon_bookmark {
+    background-position: -224px -16px
+}
+
+.jsps_demo_icon_print {
+    background-position: -240px -16px
+}
+
+input[type="checkbox"]:checked+label {
+    font-weight: bold;
+    color: #333;
+}
+
+input[type="checkbox"]:checked+label em {
+    font-weight: normal;
+}
+
+:checked+label .jsps_demo_icon_twitter {
+    background-position: 0 0
+}
+
+:checked+label .jsps_demo_icon_google {
+    background-position: -16px 0
+}
+
+:checked+label .jsps_demo_icon_facebook {
+    background-position: -32px 0
+}
+
+:checked+label .jsps_demo_icon_mail {
+    background-position: -48px 0
+}
+
+:checked+label .jsps_demo_icon_pinterest {
+    background-position: -64px 0
+}
+
+:checked+label .jsps_demo_icon_viadeo {
+    background-position: -80px 0
+}
+
+:checked+label .jsps_demo_icon_linkedin {
+    background-position: -96px 0
+}
+
+:checked+label .jsps_demo_icon_digg {
+    background-position: -112px 0
+}
+
+:checked+label .jsps_demo_icon_stumbleupon {
+    background-position: -128px 0
+}
+
+:checked+label .jsps_demo_icon_weibo {
+    background-position: -144px 0
+}
+
+:checked+label .jsps_demo_icon_vk {
+    background-position: -160px 0
+}
+
+:checked+label .jsps_demo_icon_reddit {
+    background-position: -176px 0
+}
+
+:checked+label .jsps_demo_icon_delicious {
+    background-position: -192px 0
+}
+
+:checked+label .jsps_demo_icon_tumblr {
+    background-position: -208px -1px
+}
+
+:checked+label .jsps_demo_icon_bookmark {
+    background-position: -224px 0
+}
+
+:checked+label .jsps_demo_icon_print {
+    background-position: -240px 0
+}
+
+[id="juiz-sps"] input[type="radio"]+label {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 20px;
+}
+
+.juiz_sps_options_p {
+    margin: .2em 5% .2em 0;
+}
+
+.juiz_sps_styles_options+.juiz_sps_styles_options {
+    margin-top: 1em;
+}
+
+.juiz_sps_styles_options label {
+    vertical-align: top;
+}
+
+.juiz_sps_styles_options input {
+    vertical-align: 8px;
+}
+
+.juiz_sps_styles_options.juiz_sps_styles_options {
+	display: inline-block;
+	margin-bottom: 2em;
+}
+
+.juiz_sps_demo_styles {
+    display: inline-block;
+    vertical-align: middle;
+    width: 592px;
+    height: 26px;
+    background: url(../img/demo-sprites.png) no-repeat 0 -26px;
+}
+
+[for="jsps_style_2"] .juiz_sps_demo_styles {
+    background-position: 0 0
+}
+
+[for="jsps_style_3"] .juiz_sps_demo_styles {
+    height: 36px;
+    background-position: 0 -93px
+}
+
+[for="jsps_style_4"] .juiz_sps_demo_styles {
+    height: 36px;
+    background-position: 0 -129px
+}
+
+[for="jsps_style_5"] .juiz_sps_demo_styles {
+    height: 39px;
+    background-position: 0 -165px
+}
+
+[for="jsps_style_6"] .juiz_sps_demo_styles {
+    height: 36px;
+    background-position: 0 -204px
+}
+
+[for="jsps_style_7"] .juiz_sps_demo_styles {
+    height: 39px;
+    background-position: 0 -242px
+}
+
+[for="jsps_style_8"] .juiz_sps_demo_styles {
+    height: 58px;
+    background-position: 0 -282px
+}
+
+.juiz_sps_style_name {
+    display: block;
+    margin: 4px 0 0 2px;
+    color: #777;
+}
+
+.juiz_sps_demo_hide {
+    display: block;
+    width: 592px;
+    height: 37px;
+    background: url(../img/demo-sprites.png) no-repeat 0 -52px;
+}
+
+.jsps_no_icon,
+.jsps_icon {
+    display: inline-block;
+    vertical-align: -3px;
+}
+
+.jsps_no_icon {
+    width: 16px;
+    height: 16px;
+    background: url(/wp-admin/images/menu.png) -276px -8px no-repeat;
+}
+
+.juiz_btn_link {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 3px 12px;
+    text-decoration: none;
+    border-radius: 3px;
+    background-color: #e48e07;
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, .25), rgba(255, 255, 255, 0));
+    border-width: 1px;
+    border-style: solid;
+    border-color: #e7a439 #e7a439 #ba7604;
+    box-shadow: 0 1px 0 rgba(230, 192, 120, 0.5) inset;
+    color: #FFFFFF;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+    transition: all .275s;
+}
+
+.juiz_btn_link i {
+    margin-right: 4px;
+    opacity: 0.65;
+    transition: opacity .275s;
+}
+
+.juiz_btn_link:hover,
+.juiz_btn_link:focus {
+    color: #FFF;
+}
+
+.juiz_btn_link:hover i {
+    opacity: 1;
+}
+
+.juiz_twitter {
+    background-color: #1094bf;
+    border-color: #10a1d1 #10a1d1 #0e80a5;
+    box-shadow: 0 1px 0 rgba(120, 203, 230, 0.5) inset;
+}
+
+.juiz_rate,
+.juiz_doc {
+    background-color: #666;
+    border-color: #777 #777 #444;
+    box-shadow: 0 1px 0 rgba(180, 180, 180, 0.5) inset;
+}
+
+.juiz_flattr {
+    background-color: #6FB43B;
+    border-color: #74C13E #74C13E #78B642;
+    box-shadow: 0 1px 0 rgba(180, 180, 180, 0.5) inset;
+}
+
+/* Hover styles */
+.juiz_paypal:hover {
+    background-color: #BA7F27;
+}
+
+.juiz_twitter:hover {
+    background-color: #0D7899;
+}
+
+.juiz_rate:hover,
+.juiz_doc:hover {
+    background-color: #444;
+}
+
+.juiz_flattr:hover {
+    background-color: #669B37;
+}
+
+.juiz_disabled th {
+    color: #999;
+}
+
+.juiz_bottom_links a+em {
+    margin-top: 1em;
+}
+
+.juiz_bottom_links em {
+    display: block;
+    margin-bottom: 1em;
+    font-style: italic;
+    color: #777;
+}
+
+#juiz_sps_mail_body {
+    width: 100%;
+    max-width: 400px;
+}
+
+.juiz_hide {
+    display: none;
+}
+
+.juiz-twitter-alternative {
+    display: block;
+    max-width: 100%;
+    width: 600px;
+    margin: 0.5em 0;
+    padding: 10px 15px;
+    background: #1094BF;
+    color: #FFF;
+}
+
+.juiz-twitter-alternative a {
+    color: #FFF;
+    font-weight: bold;
+}
+
+.juiz_bottom_links a {
+    margin: .5em 0;
+    padding: 7px 13px;
+    font-weight: bold;
+    letter-spacing: 0.025em;
+}
+
+@media (max-width:640px) {
+    [id="juiz-sps"] .jsps_info {
+        margin-left: 0;
+    }
+
+    [id="juiz-sps"] form {
+        padding-left: 0;
+    }
+
+    .juiz_sps_demo_styles {
+        width: 110px;
+    }
+
+    [id="juiz-sps"] .juiz_sps_styles_options input[type="radio"]+label {
+        margin-right: 0
+    }
+
+    .juiz_sps_style_name a {
+        display: block;
+    }
+
+    #jsps_style_5 {
+        vertical-align: 21px;
+    }
+
+    .juiz_sps_demo_hide {
+        width: 92px;
+    }
+}
+
+@media (min-width: 1380px) {
+    .jsps-main-content {
+        margin-top: 19px;
+        margin-right: 265px;
+    }
+
+    .juiz_bottom_links {
+        position: fixed;
+        top: 50px;
+        right: 15px;
+        width: 255px;
+        border: 0;
+    }
+
+    .juiz_bottom_links_p {
+        background: #FFF;
+        margin-top: 0;
+        border: 1px solid #e3e8ed;
+        border-top: 0;
+    }
+
+    .juiz_bottom_links a {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        width: 100%;
+        display: block;
+    }
+}
+
+/**
+ * Dark mode support
+ */
+.dark-mode [id="juiz-sps"] .jsps_info,
+.dark-mode [id="juiz-sps"] .juiz_bottom_links {
+    background: rgba(255, 255, 255, .25);
+}
+
+.dark-mode [id="juiz-sps"] .jsps_info code {
+    background: rgba(0, 0, 0, .2);
+}
+
+.dark-mode [id="juiz-sps"] .juiz_bottom_links em,
+.dark-mode [id="juiz-sps"] .juiz_bottom_links a {
+    color: white;
+}
