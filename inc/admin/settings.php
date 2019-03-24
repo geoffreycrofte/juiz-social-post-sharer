@@ -193,8 +193,9 @@ function juiz_sps_setting_radio_style_choice() {
 		
 		// Slug of theme activated.
 		$current_theme = $options['juiz_sps_style'];
+		$all_themes    = $core_themes + $custom_themes;
 
-		foreach ( $core_themes as $slug => $theme ) {
+		foreach ( $all_themes as $slug => $theme ) {
 			$theme_author = isset( $theme['author'] ) ? esc_html( $theme['author'] ) : '';
 			$theme_author = isset( $theme['author_url'] ) ? '<a href="' . esc_url( $theme['author_url'] ) . '" target="_blank">' . $theme_author . '</a>' : $theme_author;
 			$theme_name   = isset( $theme['name'] ) ? esc_html( $theme['name'] ) : __( "This theme doesn't have a name", 'juiz-social-post-sharer' );
