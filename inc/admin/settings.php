@@ -75,7 +75,7 @@ function add_juiz_sps_plugin_options() {
 	add_settings_field( 'juiz_sps_temp_submit', get_submit_button( __( 'Save Changes' ), 'secondary' ), create_function( '', 'return "";' ), JUIZ_SPS_SLUG, 'juiz_sps_plugin_main' );
 	add_settings_field( 'juiz_sps_network_selection', __( 'Display those following social networks:', 'juiz-social-post-sharer' ) , 'juiz_sps_setting_checkbox_network_selection', JUIZ_SPS_SLUG, 'juiz_sps_plugin_main' );
 	add_settings_field( 'juiz_sps_twitter_user', __( 'What is your Twitter user name to be mentioned?', 'juiz-social-post-sharer' ) , 'juiz_sps_setting_input_twitter_user', JUIZ_SPS_SLUG, 'juiz_sps_plugin_main' );
-	add_settings_field( 'juiz_sps_temp_submit_1', get_submit_button( __( 'Save Changes' ), 'secondary' ), create_function( '', 'return "";' ), JUIZ_SPS_SLUG, 'juiz_sps_plugin_main' );
+	add_settings_field( 'juiz_sps_temp_submit_1', get_submit_button( __( 'Save Changes' ), 'primary' ), create_function( '', 'return "";' ), JUIZ_SPS_SLUG, 'juiz_sps_plugin_main' );
 
 
 	add_settings_section( 'juiz_sps_plugin_display_in', __( 'Display settings','juiz-social-post-sharer'), 'juiz_sps_section_text_display', JUIZ_SPS_SLUG );
@@ -200,12 +200,16 @@ function juiz_sps_setting_radio_style_choice() {
 			$theme_author = isset( $theme['author_url'] ) ? '<a href="' . esc_url( $theme['author_url'] ) . '" target="_blank">' . $theme_author . '</a>' : $theme_author;
 			$theme_name   = isset( $theme['name'] ) ? esc_html( $theme['name'] ) : __( "This theme doesn't have a name", 'juiz-social-post-sharer' );
 			$theme_name   = isset( $theme['author'] ) ? sprintf( __( '%1$s by %2$s', 'juiz-social-post-sharer' ), $theme_name, $theme_author) : $theme_name;
+			$demo_src     = isset( $theme['demo_url'] ) ? esc_url( $theme['demo_url'] ) : JUIZ_SPS_PLUGIN_URL . 'themes/' . $slug . '/demo.png';
+			$demo_src_2x  = isset( $theme['demo_url_2x'] ) ? esc_url( $theme['demo_url_2x'] ) : JUIZ_SPS_PLUGIN_URL . 'themes/' . $slug . '/demo@2x.png';
 
 			// Print the themes.
 			echo '<p class="juiz_sps_styles_options">
 					<input id="jsps_style_' . esc_attr( $slug ) . '" value="' . esc_attr( $slug ) . '" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_style]" type="radio" ' . ( $current_theme === $slug ? ' checked="checked"' : '' ) . ' />
 					<label for="jsps_style_' . esc_attr( $slug ) . '">
-						<span class="juiz_sps_demo_styles"></span>
+						<span class="juiz_sps_demo_styles">
+							<img src="' . $demo_src . '" srcset="' . $demo_src_2x . ' 2x">
+						</span>
 						<span class="juiz_sps_style_name">' . $theme_name . '</span>
 					</label>
 				</p>';
@@ -220,6 +224,9 @@ function juiz_sps_setting_checkbox_network_selection() {
 	$y = $n = '';
 	$options = jsps_get_option();
 	if ( is_array( $options ) ) {
+		
+		echo '<div class="juiz-sps-squared-options">';
+
 		foreach ( $options['juiz_sps_networks'] as $k => $v ) {
 
 			$is_checked = ( $v[0] == 1 ) ? ' checked="checked"' : '';
@@ -229,11 +236,21 @@ function juiz_sps_setting_checkbox_network_selection() {
 			echo '<p class="juiz_sps_options_p">
 					<input id="jsps_network_selection_' . $k . '" value="' . $k . '" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_networks][]" type="checkbox"
 				' . $is_checked . ' />
-			  		<label for="jsps_network_selection_' . $k . '"><span class="jsps_demo_icon jsps_demo_icon_' . $k . '"></span>' . $network_name . '' . $is_js_test . '</label>
+			  		<label for="jsps_network_selection_' . $k . '">
+			  			<span class="jsps_demo_icon">
+			  				<i class="jsps-icon-' . $k . '" aria-hidden="true"></i>
+			  			</span>
+			  			<span class="jsps_demo_name">' . $network_name . '' . $is_js_test . '</span>
+			  		</label>
 			  	</p>';
 		}
 
-		if ( ! is_array( $options['juiz_sps_networks']['weibo'] ) ) echo '<p class="juiz_sps_options_p"><input id="jsps_network_selection_weibo" value="weibo" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_networks][]" type="checkbox"> <label for="jsps_network_selection_weibo"><span class="jsps_demo_icon jsps_demo_icon_weibo"></span>Weibo</label> <!--em class="jsps_new">(' . __( 'New social network!', 'juiz-social-post-sharer' ) . ')</em--></p>';
+		if ( ! is_array( $options['juiz_sps_networks']['weibo'] ) ) {
+			echo '<p class="juiz_sps_options_p"><input id="jsps_network_selection_weibo" value="weibo" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_networks][]" type="checkbox"> <label for="jsps_network_selection_weibo"><span class="jsps_demo_icon jsps_demo_icon_weibo"></span>Weibo</label> <!--em class="jsps_new">(' . __( 'New social network!', 'juiz-social-post-sharer' ) . ')</em--></p>';
+		}
+
+		echo '</div>';
+
 	}
 }
 }
