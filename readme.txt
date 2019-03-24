@@ -139,7 +139,6 @@ Deactivate and reactivate the plugin to force the options rebuild.
 
 == Other plugins ==
 
-**Try the new plugin <a href="http://wordpress.org/plugins/juiz-user-login-by-email/">User Log-in by email</a>**
 Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://profiles.wordpress.org/creativejuiz/</a>
 
 
@@ -159,9 +158,10 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
 * *Plugin structure*
  * Assets (img/css/js/fonts) are now inside a folder named `assets`
  * Admin files are now inside a folder named `inc/admin`
- * `admin/jsps-admin.inc.php` renamed `inc/admin/jsps-settings.php`
+ * `admin/jsps-admin.inc.php` renamed `inc/admin/settings.php`
  * Remove the file `inc/admin/jsps-admin-styles-scrips.php` (now external asset files)
-* *New hooks*: see documentation.html file inside the plugin folder.
+ * Move metaboxes to `inc/admin/metaboxes.php`
+* *New hooks*: see revamped documentation.html file inside the plugin folder.
 * *Fixes*
  * Fav/bookmark button JS error on Firefox (`chrome is undefined`)
  * Buttons are not printed if you use your browser print function (or the JSPS print button)

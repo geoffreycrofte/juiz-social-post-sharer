@@ -38,7 +38,7 @@ function jsps_get_custom_themes( $custom_themes = array() ) {
 			'demo_url'   => '../theme-visual.png', // optional
 		);
 	 */
-	$custom_themes = apply_fitlers( 'jsps_register_custom_theme', $custom_themes );
+	$custom_themes = apply_filters( 'jsps_register_custom_theme', $custom_themes );
 
 	// TODO: check array structure to pop error.
 	return $custom_themes;

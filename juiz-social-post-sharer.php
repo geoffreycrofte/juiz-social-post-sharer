@@ -55,9 +55,11 @@ function make_juiz_sps_multilang() {
 }
 
 include_once( 'inc/options.php' );
+include_once( 'themes/theme-register.php' );
 
 if ( is_admin() || ( defined( 'DOING_AJAX' ) && ! DOING_AJAX ) ) {
-	include_once( 'inc/admin/jsps-settings.php' );
+	include_once( 'inc/admin/settings.php' );
+	include_once( 'inc/admin/metaboxes.php' );
 } // end if is_admin
 
 

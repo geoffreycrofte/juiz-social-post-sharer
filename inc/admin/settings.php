@@ -2,124 +2,33 @@
 	die( 'Cheatin&#8217; uh?' );
 }
 
-// activation hook
-register_activation_hook( JUIZ_SPS_FILE, 'juiz_sps_activation' );
+include_once('register-settings.php');
 
-function juiz_sps_activation() {
-
-	$juiz_sps_options = jsps_get_option();
-
-	if ( ! is_array( $juiz_sps_options ) ) {
-		
-		$default_array = array(
-			'juiz_sps_version' 			=> JUIZ_SPS_VERSION,
-			'juiz_sps_style' 			=> 7,
-			'juiz_sps_networks' 		=> array(
-				'delicious'		=>	array( 0, __( 'Delicious', 'juiz-social-post-sharer' ) ), // new 1.4.1
-				'digg'	 		=>	array( 0, __( 'Digg', 'juiz-social-post-sharer' ) ),
-				'facebook'		=>	array( 1, __( 'Facebook', 'juiz-social-post-sharer' ) ), 
-				'google'		=>	array( 0, __( 'Google+', 'juiz-social-post-sharer' ) ),
-				'linkedin' 		=>	array( 0, __( 'LinkedIn', 'juiz-social-post-sharer' ) ),
-				'pinterest' 	=>	array( 0, __( 'Pinterest', 'juiz-social-post-sharer' ) ),
-				'reddit'		=>	array( 0, __( 'Reddit', 'juiz-social-post-sharer' ) ), // new 1.4.1
-				'stumbleupon'	=>	array( 0, __( 'StumbleUpon', 'juiz-social-post-sharer' ) ),
-				'twitter'		=>	array( 1, __( 'Twitter', 'juiz-social-post-sharer' ) ), 
-				'tumblr'		=>	array( 0, __( 'Tumblr', 'juiz-social-post-sharer' ) ), // new 1.4.1
-				'viadeo' 		=>	array( 0, __( 'Viadeo', 'juiz-social-post-sharer' ) ),
-				'vk'			=>	array( 0, __( 'VKontakte', 'juiz-social-post-sharer' ) ), // new 1.3.0
-				'weibo'			=>	array( 0, __( 'Weibo', 'juiz-social-post-sharer' ) ), // new 1.2.0
-				'mail'			=>	array( 1, __( 'Email', 'juiz-social-post-sharer' ) ),
-				'bookmark'		=>	array( 0, __( 'Bookmark', 'juiz-social-post-sharer' ) ), // new 1.4.2
-				'print'			=>	array( 0, __( 'Print', 'juiz-social-post-sharer' ) ) // new 1.4.2
-										),
-			'juiz_sps_counter'			=> 0,
-			'juiz_sps_counter_option'	=> 'both', // new 1.3.3.7
-			'juiz_sps_hide_social_name' => 0,
-			'juiz_sps_target_link'		=> 0, // new 1.1.0
-			'juiz_sps_twitter_user'		=> 'CreativeJuiz',
-			'juiz_sps_display_in_types' => array( 'post' ),
-			'juiz_sps_display_where'	=> 'bottom',
-			'juiz_sps_write_css_in_html'=> 0,
-			'juiz_sps_mail_subject'		=> __( 'Visit this link find on %%siteurl%%', 'juiz-social-post-sharer'),
-			'juiz_sps_mail_body'		=> __( 'Hi, I found this information for you : "%%title%%"! This is the direct link: %%permalink%% Have a nice day :)', 'juiz-social-post-sharer' ),
-			'juiz_sps_force_pinterest_snif' => 0,
-			'juiz_sps_colors' 			=> array(
-					'bg_color'	=> '', 
-					'txt_color' => ''
-				)
-		);
-		
-		jsps_update_option( $default_array );
-	}
-	else {
-		// if was version under 1.2.3
-		if ( ! isset( $juiz_sps_options['juiz_sps_force_pinterest_snif'] ) ) {
-			$new_options = array (
-				'juiz_sps_force_pinterest_snif' => 0
-			);
-
-			$updated_array = array_merge( $juiz_sps_options, $new_options );
-			jsps_update_option( $updated_array );
-		}
-
-		// if was version under 1.3.0
-		if ( ! isset( $juiz_sps_options['juiz_sps_networks']['vk'] ) ) {
-
-			$juiz_sps_options['juiz_sps_networks']['vk'] = array( 0, __( 'VKontakte', 'juiz-social-post-sharer' ) );
-			$juiz_sps_options['juiz_sps_colors'] = array( 'bg_color' => '', 'txt_color' => ''); // for next update
-
-			jsps_update_option( $juiz_sps_options );
-		}
-
-		// if was version under 1.3.3.7
-		if ( ! isset( $juiz_sps_options['juiz_sps_counter_option'] ) ) {
-
-			$juiz_sps_options['juiz_sps_counter_option'] = 'both';
-
-			jsps_update_option( $juiz_sps_options );
-		}
-
-		// if was version under 1.4.1
-		if ( ! isset( $juiz_sps_options['juiz_sps_version'] ) ) {
-			
-			$juiz_sps_options['juiz_sps_version'] = JUIZ_SPS_VERSION;
-			$juiz_sps_options['juiz_sps_networks']['tumblr'] 	= array( 0, __( 'Tumblr', 'juiz-social-post-sharer' ) );
-			$juiz_sps_options['juiz_sps_networks']['delicious'] = array( 0, __( 'Delicious', 'juiz-social-post-sharer' ) );
-			$juiz_sps_options['juiz_sps_networks']['reddit'] 	= array( 0, __( 'Reddit', 'juiz-social-post-sharer' ) );
-
-			jsps_update_option( $juiz_sps_options );
-		}
-
-		// if was version under 1.4.2
-		if ( ! isset( $juiz_sps_options['juiz_sps_version'] ) || ( isset( $juiz_sps_options['juiz_sps_version'] ) && version_compare( $juiz_sps_options['juiz_sps_version'], '1.4.2', '<') ) ) {
-			
-			$juiz_sps_options['juiz_sps_version'] = JUIZ_SPS_VERSION;
-			$juiz_sps_options['juiz_sps_networks']['bookmark'] 	= array( 0, __( 'Bookmark', 'juiz-social-post-sharer' ) );
-			$juiz_sps_options['juiz_sps_networks']['print'] = array( 0, __( 'Print', 'juiz-social-post-sharer' ) );
-
-			jsps_update_option( $juiz_sps_options );
-		}
-	}
-}
-
-// description setting page
 if ( ! function_exists( 'juiz_sps_plugin_action_links' ) ) {
-	add_filter( 'plugin_action_links_' . plugin_basename( JUIZ_SPS_FILE ), 'juiz_sps_plugin_action_links',  10, 2 );
+	/**
+	 * Add link to settings into Plugins Page
+	 * @param  array $links  Array of links.
+	 * @param  string $file  File root.
+	 * @return array         New array of links.
+	 *
+	 * @since 1.0.0
+	 * @updated 1.5.0
+	 * @author Geoffrey Crofte
+	 */
 	function juiz_sps_plugin_action_links( $links, $file ) {
 		$links[] = '<a href="' . admin_url( 'options-general.php?page=' . JUIZ_SPS_SLUG ) . '">' . __( 'Settings' ) . '</a>';
 		return $links;
 	}
+	add_filter( 'plugin_action_links_' . plugin_basename( JUIZ_SPS_FILE ), 'juiz_sps_plugin_action_links',  10, 2 );
 }
 
-
-/*
- * Options page
- */
- 
- 
-// Settings page in admin menu
 if ( ! function_exists( 'add_juiz_sps_settings_page' ) ) {
-	add_action( 'admin_menu', 'add_juiz_sps_settings_page' );
+	/**
+	 * Create a page of options
+	 * @since  1.0.0
+	 * @updated 1.5.0
+	 * @author  Geoffrey Crofte
+	 */
 	function add_juiz_sps_settings_page() {
 		add_submenu_page( 
 			'options-general.php', 
@@ -130,24 +39,17 @@ if ( ! function_exists( 'add_juiz_sps_settings_page' ) ) {
 			'juiz_sps_settings_page' 
 		);
 	}
+	add_action( 'admin_menu', 'add_juiz_sps_settings_page' );
 }
 
-// Some styles for settings page in admin
-if ( ! function_exists( 'juiz_sps_custom_admin_header' ) ) {
-	function juiz_sps_custom_admin_header() {
-		include_once ( 'jsps-admin-styles.php' );
-	}
-	add_action( 'admin_head-settings_page_' . JUIZ_SPS_SLUG, 'juiz_sps_custom_admin_header' );
-}
-
-if ( ! function_exists( 'jsps_load_custom_wp_admin_scripts' ) ) {
+if ( ! function_exists( 'jsps_load_custom_wp_admin_assets' ) ) {
 	/**
 	 * Include Admin dedicated scripts.
 	 * @return void
 	 * @author Geoffrey Crofte
 	 * @since 1.5
 	 */
-	function jsps_load_custom_wp_admin_scripts() {
+	function jsps_load_custom_wp_admin_assets() {
 		global $current_screen;
 
 		if ( $current_screen->base !== 'settings_page_juiz-social-post-sharer' ) {
@@ -158,55 +60,12 @@ if ( ! function_exists( 'jsps_load_custom_wp_admin_scripts' ) ) {
 		wp_enqueue_style( 'jsps-admin-styles', JUIZ_SPS_PLUGIN_ASSETS . 'admin/admin.css', 
 			array(), JUIZ_SPS_VERSION, 'all' );
 	}
-	add_action( 'admin_enqueue_scripts', 'jsps_load_custom_wp_admin_scripts' );
+	add_action( 'admin_enqueue_scripts', 'jsps_load_custom_wp_admin_assets' );
 }
 
 /**
- * Section for Metabox
+ * Sections and fields for settings.
  */
-if ( ! function_exists( 'juiz_sps_metaboxes' ) ) {
-
-	add_action( 'add_meta_boxes', 'juiz_sps_metaboxes' );
-	function juiz_sps_metaboxes(){
-
-		$options = jsps_get_option();
-		$pts	 = get_post_types( array( 'public'=> true, 'show_ui' => true, '_builtin' => true ) );
-		$cpts	 = get_post_types( array( 'public'=> true, 'show_ui' => true, '_builtin' => false ) );
-
-		if ( is_array( $options['juiz_sps_display_in_types'] ) ) {
-			foreach ( $pts as $pt ) {
-				if ( in_array( $pt, $options['juiz_sps_display_in_types'] ) ) {
-					add_meta_box( 'jsps_hide_buttons', __( 'Sharing buttons', 'juiz-social-post-sharer' ), 'jsps_hide_buttons_f', $pt, 'side', 'default' );
-				}
-			}
-			foreach ( $cpts as $cpt ) {
-				if ( in_array( $cpt, $options['juiz_sps_display_in_types'] ) ) {
-					add_meta_box( 'jsps_hide_buttons', __( 'Sharing buttons', 'juiz-social-post-sharer' ), 'jsps_hide_buttons_f', $cpt, 'side', 'default' );
-				}
-			}
-		}
-	}
-}
-// build the metabox
-if ( ! function_exists( 'jsps_hide_buttons_f' ) ) {
-	function jsps_hide_buttons_f( $post ){
-		$checked = ( get_post_meta( $post->ID, '_jsps_metabox_hide_buttons', true) == 'on') ? ' checked="checked"' : '';
-		echo '<input id="jsps_metabox_hide_buttons" type="checkbox"' . $checked . ' name="jsps_metabox_hide_buttons" /> <label for="jsps_metabox_hide_buttons">' . __('Hide sharing buttons for this post.', 'juiz-social-post-sharer' ) . '</label>';
-	}
-}
-// save datas
-if ( ! function_exists( 'jsps_save_metabox' ) ) {
-	add_action( 'save_post', 'jsps_save_metabox' );
-	function jsps_save_metabox( $post_ID ) {
-		$data = isset( $_POST['jsps_metabox_hide_buttons'] ) ? 'on' : 'off';
-		update_post_meta( $post_ID, '_jsps_metabox_hide_buttons', $data );
-	}
-}
-
-/**
- * Sections and fields for settings
- */
-
 function add_juiz_sps_plugin_options() {
 	// all options in single registration as array
 	register_setting( JUIZ_SPS_SETTING_NAME, JUIZ_SPS_SETTING_NAME, 'juiz_sps_sanitize' );
@@ -322,60 +181,37 @@ if ( ! function_exists( 'juiz_sps_section_text' ) ) {
 	}
 }
 
-// radio fields styles choice
+// Radio fields styles choice
 if ( ! function_exists( 'juiz_sps_setting_radio_style_choice' ) ) {
 function juiz_sps_setting_radio_style_choice() {
 
-	$options = jsps_get_option();
+	$options       = jsps_get_option();
+	$core_themes   = jsps_get_core_themes();
+	$custom_themes = jsps_get_custom_themes();
 
-	if ( is_array( $options ) ) {
-		$n1 = $n2 = $n3 = $n4 = $n5 = $n6 = $n7 = $n8 = '';
-		${'n' . $options['juiz_sps_style']} = ' checked="checked"';
-	
-		echo '<p class="juiz_sps_styles_options">
-					<input id="jsps_style_1" value="1" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_style]" type="radio" ' . $n1 . ' />
-					<label for="jsps_style_1"><span class="juiz_sps_demo_styles"></span>
-					<span class="juiz_sps_style_name">' . __( 'Juizy Light Tone', 'juiz-social-post-sharer' ) . '</span></label>
-				</p>
-				<p class="juiz_sps_styles_options">
-					<input id="jsps_style_2" value="2" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_style]" type="radio" ' . $n2 . ' />
-					<label for="jsps_style_2"><span class="juiz_sps_demo_styles"></span>
-					<span class="juiz_sps_style_name">' . __( 'Juizy Light Tone Reverse', 'juiz-social-post-sharer' ) . '</span></label>
-				</p>
-				<p class="juiz_sps_styles_options">
-					<input id="jsps_style_3" value="3" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_style]" type="radio" ' . $n3 . ' />
-					<label for="jsps_style_3"><span class="juiz_sps_demo_styles"></span>
-					<span class="juiz_sps_style_name">' . __( 'Blue Metro Style', 'juiz-social-post-sharer' ) . '</span></label>
-				</p>
-				<p class="juiz_sps_styles_options">
-					<input id="jsps_style_4" value="4" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_style]" type="radio" ' . $n4 . ' />
-					<label for="jsps_style_4"><span class="juiz_sps_demo_styles"></span>
-					<span class="juiz_sps_style_name">' . __( 'Gray Metro Style', 'juiz-social-post-sharer' ) . '</span></label>
-				</p>
-				<p class="juiz_sps_styles_options">
-					<input id="jsps_style_5" value="5" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_style]" type="radio" ' . $n5 . ' />
-					<label for="jsps_style_5"><span class="juiz_sps_demo_styles"></span>
-					<span class="juiz_sps_style_name">' . sprintf( __( 'Modern Style by %s', 'juiz-social-post-sharer' ), '<a href="http://tonytrancard.fr" target="_blank">Tony Trancard</a>' ) . '</span></label>
-				</p>
-				<p class="juiz_sps_styles_options">
-					<input id="jsps_style_6" value="6" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_style]" type="radio" ' . $n6 . ' />
-					<label for="jsps_style_6"><span class="juiz_sps_demo_styles"></span>
-					<span class="juiz_sps_style_name">' . sprintf( __( 'Black by %s', 'juiz-social-post-sharer' ), '<a href="http://fandia.w.pw" target="_blank">Fandia</a>' ) . '</span></label>
-				</p>
-				<p class="juiz_sps_styles_options">
-					<input id="jsps_style_7" value="7" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_style]" type="radio" ' . $n7 . ' />
-					<label for="jsps_style_7"><span class="juiz_sps_demo_styles"></span>
-					<span class="juiz_sps_style_name"> '. __( 'Brands colors', 'juiz-social-post-sharer' ) . '</label>
-				</p>
-				<p class="juiz_sps_styles_options">
-					<input id="jsps_style_8" value="8" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_style]" type="radio" ' . $n8 . ' />
-					<label for="jsps_style_8"><span class="juiz_sps_demo_styles"></span>
-					<span class="juiz_sps_style_name">' . __( 'Material Design', 'juiz-social-post-sharer' ) . '</label>
+	if ( is_array( $options ) && is_array( $core_themes ) ) {
+		
+		// Slug of theme activated.
+		$current_theme = $options['juiz_sps_style'];
+
+		foreach ( $core_themes as $slug => $theme ) {
+			$theme_author = isset( $theme['author'] ) ? esc_html( $theme['author'] ) : '';
+			$theme_author = isset( $theme['author_url'] ) ? '<a href="' . esc_url( $theme['author_url'] ) . '" target="_blank">' . $theme_author . '</a>' : $theme_author;
+			$theme_name   = isset( $theme['name'] ) ? esc_html( $theme['name'] ) : __( "This theme doesn't have a name", 'juiz-social-post-sharer' );
+			$theme_name   = isset( $theme['author'] ) ? sprintf( __( '%1$s by %2$s', 'juiz-social-post-sharer' ), $theme_name, $theme_author) : $theme_name;
+
+			// Print the themes.
+			echo '<p class="juiz_sps_styles_options">
+					<input id="jsps_style_' . esc_attr( $slug ) . '" value="' . esc_attr( $slug ) . '" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_style]" type="radio" ' . ( $current_theme === $slug ? ' checked="checked"' : '' ) . ' />
+					<label for="jsps_style_' . esc_attr( $slug ) . '">
+						<span class="juiz_sps_demo_styles"></span>
+						<span class="juiz_sps_style_name">' . $theme_name . '</span>
+					</label>
 				</p>';
+		}
 	}
 }
 }
-
 
 // checkboxes fields for networks
 if ( ! function_exists( 'juiz_sps_setting_checkbox_network_selection' ) ) {
@@ -395,6 +231,7 @@ function juiz_sps_setting_checkbox_network_selection() {
 			  		<label for="jsps_network_selection_' . $k . '"><span class="jsps_demo_icon jsps_demo_icon_' . $k . '"></span>' . $network_name . '' . $is_js_test . '</label>
 			  	</p>';
 		}
+
 		if ( ! is_array( $options['juiz_sps_networks']['weibo'] ) ) echo '<p class="juiz_sps_options_p"><input id="jsps_network_selection_weibo" value="weibo" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_networks][]" type="checkbox"> <label for="jsps_network_selection_weibo"><span class="jsps_demo_icon jsps_demo_icon_weibo"></span>Weibo</label> <!--em class="jsps_new">(' . __( 'New social network!', 'juiz-social-post-sharer' ) . ')</em--></p>';
 	}
 }
