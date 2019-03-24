@@ -134,6 +134,10 @@
 	margin-top: 0;
 }
 
+[id="jsps-all-tabs"] {
+    width: 100%;
+}
+
 .jsps-tabs::after {
     content: '';
     position: absolute;
@@ -232,6 +236,10 @@
 	border-top: 0;
 }
 
+.jsps-tab-container {
+    width: 100%;
+}
+
 .jsps-tab-container .form-table,
 .jsps-tab-container .form-table tbody,
 .jsps-tab-container .form-table tr,
@@ -288,7 +296,7 @@
  */
 
 .jsps-main-body {
-    padding: 0 35px 15px;
+    padding: 0 0 15px 35px;
     background: #FFF;
     border: 1px solid #E3E8ED;
     border-top: 0;
@@ -323,7 +331,7 @@
 
 [id="juiz-sps"] th .submit {
     font-weight: normal;
-    margin: -32px -32px -44px -32px;
+    margin: -34px -32px -44px -32px;
     padding: 24px 32px;
     background: #F2F2F2;
 }
