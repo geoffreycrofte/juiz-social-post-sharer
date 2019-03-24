@@ -310,7 +310,7 @@ function juiz_sps_setting_checkbox_content_type() {
 					$icon = 'dashicons-before dashicons-admin-media';
 					break;
 			}
-			echo '<p><input type="checkbox" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_display_in_types][]" id="' . $pt . '" value="' . $pt . '" ' . $selected . '> <label for="' . $pt . '"><span class="' . $icon . '"></span> ' . $wp_post_types[ $pt ]->label . '</label></p>';
+			echo '<p class="juiz_sps_options_p"><input type="checkbox" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_display_in_types][]" id="' . $pt . '" value="' . $pt . '" ' . $selected . '> <label for="' . $pt . '"><span class="' . $icon . '"></span> ' . $wp_post_types[ $pt ]->label . '</label></p>';
 		}
 
 		// custom post types listing
@@ -328,11 +328,11 @@ function juiz_sps_setting_checkbox_content_type() {
 							'<img alt="&#8226;" src="' . esc_url( $wp_post_types[ $cpt ]->menu_icon ) . '" />';
 				}
 
-				echo '<p><input type="checkbox" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_display_in_types][]" id="' . $cpt . '" value="' . $cpt . '" ' . $selected . '> <label for="' . $cpt . '">' . $icon . ' ' . $wp_post_types[ $cpt ]->label . '</label></p>';
+				echo '<p class="juiz_sps_options_p"><input type="checkbox" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_display_in_types][]" id="' . $cpt . '" value="' . $cpt . '" ' . $selected . '> <label for="' . $cpt . '">' . $icon . ' ' . $wp_post_types[ $cpt ]->label . '</label></p>';
 			}
 		}
 	}
-	echo '<p><input type="checkbox" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_display_in_types][]" id="all_lists" value="all_lists" ' . $all_lists_selected . '> <label for="all_lists">' . $all_lists_icon . ' ' . sprintf( __( 'Lists of articles %s(blog, archives, search results, etc.)%s', 'juiz-social-post-sharer' ), '<em>', '</em>' ) . '</label></p>';
+	echo '<p class="juiz_sps_options_p"><input type="checkbox" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_display_in_types][]" id="all_lists" value="all_lists" ' . $all_lists_selected . '> <label for="all_lists">' . $all_lists_icon . ' ' . sprintf( __( 'Lists of articles %s(blog, archives, search results, etc.)%s', 'juiz-social-post-sharer' ), '<em>', '</em>' ) . '</label></p>';
 }
 }
 
@@ -347,18 +347,22 @@ function juiz_sps_setting_radio_where() {
 	if ( is_array( $options ) && isset( $options['juiz_sps_display_where'] ) )
 		${'w_' . $options['juiz_sps_display_where']} = ' checked="checked"';
 	
-	echo '	<input id="jsps_w_b" value="bottom" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_display_where]" type="radio" ' . $w_bottom . ' />
+	echo '<p class="juiz_sps_options_p">
+			<input id="jsps_w_b" value="bottom" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_display_where]" type="radio" ' . $w_bottom . ' />
 			<label for="jsps_w_b">' . __( 'Content bottom', 'juiz-social-post-sharer' ) . '</label>
-			
+		</p>
+		<p class="juiz_sps_options_p">
 			<input id="jsps_w_t" value="top" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_display_where]" type="radio" ' . $w_top . ' />
 			<label for="jsps_w_t">'. __( 'Content top', 'juiz-social-post-sharer' ) . '</label>
-			
+		</p>
+		<p class="juiz_sps_options_p">	
 			<input id="jsps_w_2" value="both" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_display_where]" type="radio" ' . $w_both . ' />
 			<label for="jsps_w_2">' . __( 'Both', 'juiz-social-post-sharer' ) . '</label>
-
+		</p>
+		<p class="juiz_sps_options_p">
 			<input id="jsps_w_0" value="nowhere" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_display_where]" type="radio" ' . $w_nowhere . ' />
-			<label for="jsps_w_0">' . __( "I'm a ninja, I want to use the shortcode only!", 'juiz-social-post-sharer') . '</label>';
-			// nowhere option, new in 1.2.2
+			<label for="jsps_w_0">' . __( "I'm a ninja, I want to use the shortcode only!", 'juiz-social-post-sharer') . '</label>
+		</p>'; // nowhere new in 1.2.2
 }
 }
 
@@ -381,13 +385,14 @@ function juiz_sps_setting_radio_hide_social_name() {
 	if ( is_array( $options ) )
 		( isset( $options['juiz_sps_hide_social_name'] ) && $options['juiz_sps_hide_social_name'] == 1 ) ? $y = ' checked="checked"' : $n = ' checked="checked"';
 	
-	echo '	<input id="jsps_hide_name_y" value="1" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_hide_social_name]" type="radio" ' . $y . ' />
-			<label for="jsps_hide_name_y">' . __( 'Yes', 'juiz-social-post-sharer' ) . '</label>
-			
-			<input id="jsps_hide_name_n" value="0" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_hide_social_name]" type="radio" ' . $n . ' />
-			<label for="jsps_hide_name_n">' . __( 'No', 'juiz-social-post-sharer' ) . '</label>
+	echo '
+		<img class="jsps-gif-demo" src="' . JUIZ_SPS_PLUGIN_ASSETS . 'img/jsps-icon-only.gif" width="350" height="60">
 
-			<span class="juiz_sps_demo_hide"></span>';
+		<input id="jsps_hide_name_y" value="1" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_hide_social_name]" type="radio" ' . $y . ' />
+		<label for="jsps_hide_name_y">' . __( 'Yes', 'juiz-social-post-sharer' ) . '</label>
+			
+		<input id="jsps_hide_name_n" value="0" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_hide_social_name]" type="radio" ' . $n . ' />
+		<label for="jsps_hide_name_n">' . __( 'No', 'juiz-social-post-sharer' ) . '</label>';
 }
 }
 
@@ -400,11 +405,11 @@ function juiz_sps_setting_radio_target_link() {
 	if ( is_array( $options ) )
 		( isset( $options['juiz_sps_target_link'] ) && $options['juiz_sps_target_link'] == 1 ) ? $y = ' checked="checked"' : $n = ' checked="checked"';
 	
-	echo '	<input id="jsps_target_link_y" value="1" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_target_link]" type="radio" ' . $y . ' />
-			<label for="jsps_target_link_y">' . __( 'Yes', 'juiz-social-post-sharer' ) . '</label>
+	echo '<input id="jsps_target_link_y" value="1" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_target_link]" type="radio" ' . $y . ' />
+		<label for="jsps_target_link_y">' . __( 'Yes', 'juiz-social-post-sharer' ) . '</label>
 			
-			<input id="jsps_target_link_n" value="0" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_target_link]" type="radio" ' . $n . ' />
-			<label for="jsps_target_link_n">' .  __( 'No', 'juiz-social-post-sharer' ) . '</label>';
+		<input id="jsps_target_link_n" value="0" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_target_link]" type="radio" ' . $n . ' />
+		<label for="jsps_target_link_n">' .  __( 'No', 'juiz-social-post-sharer' ) . '</label>';
 }
 }
 

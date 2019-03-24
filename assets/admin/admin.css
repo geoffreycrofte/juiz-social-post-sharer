@@ -539,11 +539,18 @@ input[type="checkbox"]:checked + label em {
     margin-right: 20px;
 }
 
-.juiz_sps_options_p {
-    margin: .2em 5% .2em 0;
+.juiz_sps_options_p.juiz_sps_options_p {
+    margin: .5em 5% .5em 0;
 }
 
-.juiz_sps_styles_options+.juiz_sps_styles_options {
+.juiz_sps_options_p .dashicons-before,
+.juiz_sps_options_p .dashicons {
+    position: relative;
+    top: 2px;
+    color: #888;
+}
+
+.juiz_sps_styles_options + .juiz_sps_styles_options {
     margin-top: 1em;
 }
 
@@ -577,6 +584,11 @@ input[type="checkbox"]:checked + label em {
     height: 37px;
     background: url(../img/demo-sprites.png) no-repeat 0 -52px;
 }
+
+.jsps-gif-demo {
+    display: block;
+    margin: -24px 0 16px -4px;
+} 
 
 .jsps_no_icon,
 .jsps_icon {
