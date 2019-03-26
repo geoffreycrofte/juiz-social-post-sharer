@@ -90,7 +90,6 @@ function add_juiz_sps_plugin_options() {
 	add_settings_field( 'juiz_sps_force_pinterest_snif', __( 'Force Pinterest button sniffing all images of the page?', 'juiz-social-post-sharer' ) . '<br /><em>(' . __( 'need JavaScript', 'juiz-social-post-sharer' ) . ')</em>', 'juiz_sps_setting_radio_force_snif', JUIZ_SPS_SLUG, 'juiz_sps_plugin_advanced');
 	add_settings_field( 'juiz_sps_counter', __( 'Display counter of sharing?', 'juiz-social-post-sharer' ) . '<br /><em>(' . __( 'need JavaScript', 'juiz-social-post-sharer' ) . ')</em>', 'juiz_sps_setting_radio_counter', JUIZ_SPS_SLUG, 'juiz_sps_plugin_advanced' );
 	add_settings_field( 'juiz_sps_counter_option', __( 'For this counter, you want to display:', 'juiz-social-post-sharer' ), 'juiz_sps_setting_radio_counter_option', JUIZ_SPS_SLUG, 'juiz_sps_plugin_advanced' );
-	add_settings_field( 'juiz_sps_write_css_in_html', __( 'Write CSS code in HTML head?', 'juiz-social-post-sharer' ) . '<br /><em>(' . __( 'good thing for performance on mobile', 'juiz-social-post-sharer' ) . ')</em>', 'juiz_sps_setting_radio_css_in_html', JUIZ_SPS_SLUG, 'juiz_sps_plugin_advanced' );
 	add_settings_field( 'juiz_sps_temp_submit_3', get_submit_button( __( 'Save Changes' ), 'primary' ), create_function( '', 'return "";' ), JUIZ_SPS_SLUG, 'juiz_sps_plugin_advanced' );
 
 
@@ -475,25 +474,6 @@ function juiz_sps_setting_radio_counter_option() {
 			<p><strong>' . sprintf( esc_html__( 'Important: Twitter doesn\'t support counter anymore since %sthat decision%s.', 'juiz-social-post-sharer' ), '<a href="https://twittercommunity.com/t/a-new-design-for-tweet-and-follow-buttons/52791" target="_blank">', '</a>' ) . '</strong><span class="juiz-twitter-alternative">' . sprintf( esc_html__( 'I suggest you an alternative using %sNewShareCounts%s. Click the link, enter your website address and click the big blue Twitter button. Authorize this app with your Twitter Account, and that\'s all. You will retrieve your Twitter counts.', 'juiz-social-post-sharer' ), '<a href="http://newsharecounts.com" target="_blank">', '</a>' ) . '</span></p>';
 }
 }
-
-// radio to display CSS in html head or not
-if ( ! function_exists( 'juiz_sps_setting_radio_css_in_html' ) ) {
-function juiz_sps_setting_radio_css_in_html() {
-	$y = $n = '';
-	$options = jsps_get_option();
-
-	if ( is_array( $options ) )
-		( isset( $options['juiz_sps_write_css_in_html'] ) && $options['juiz_sps_write_css_in_html'] == 1 ) ? $y = ' checked="checked"' : $n = ' checked="checked"';
-	
-	echo '	<em style="color:#777;">' . __( 'This option will be enabled for a next version', 'juiz-social-post-sharer' ) . '</em><br />
-			<input id="jsps_target_link_y" value="1" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_write_css_in_html]" type="radio" ' . $y . ' disabled="disabled" />
-			<label style="color:#777;" for="jsps_target_link_y">' . __( 'Yes', 'juiz-social-post-sharer' ) . '</label>
-			
-			<input id="jsps_target_link_n" value="0" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_write_css_in_html]" type="radio" ' . $n . ' disabled="disabled" />
-			<label style="color:#777;" for="jsps_target_link_n">' . __( 'No', 'juiz-social-post-sharer' ) . '</label>';
-}
-}
-
 
 // Mail section text
 if ( ! function_exists( 'juiz_sps_section_text_mail' ) ) {

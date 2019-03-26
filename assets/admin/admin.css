@@ -671,10 +671,6 @@ input[type="checkbox"]:checked + label em {
     background-color: #669B37;
 }
 
-.juiz_disabled th {
-    color: #999;
-}
-
 .juiz_bottom_links a+em {
     margin-top: 1em;
 }
