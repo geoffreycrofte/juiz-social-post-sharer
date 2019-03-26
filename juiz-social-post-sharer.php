@@ -124,10 +124,10 @@ if ( ! is_admin() ) {
 				$rel_nofollow 				= apply_filters( 'juiz_sps_links_nofollow', 'rel="nofollow"' );
 
 				// markup filters
-				$div 	= apply_filters( 'juiz_sps_container_tag', 'div' );
-				$p 		= apply_filters( 'juiz_sps_phrase_tag', 'p' );
-				$ul 	= apply_filters( 'juiz_sps_list_container_tag', 'ul' ); 
-				$li 	= apply_filters( 'juiz_sps_list_of_item_tag', 'li' );
+				$div = apply_filters( 'juiz_sps_container_tag', 'div' );
+				$p 	 = apply_filters( 'juiz_sps_phrase_tag', 'p' );
+				$ul  = apply_filters( 'juiz_sps_list_container_tag', 'ul' ); 
+				$li  = apply_filters( 'juiz_sps_list_of_item_tag', 'li' );
 
 
 				// get the plugin options

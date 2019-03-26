@@ -49,11 +49,18 @@ if ( ! function_exists( 'juiz_sps_style_and_script' ) ) {
 		if ( is_array( $juiz_sps_options ) ) {
 
 			$prefix = ( defined('WP_DEBUG') && WP_DEBUG === true ) ? '' : '.min';
-			// TODO future : if(is_numeric($juiz_sps_options['juiz_sps_style'] ) && $juiz_sps_options['juiz_sps_write_css_in_html']==0)
-			if ( is_numeric( $juiz_sps_options['juiz_sps_style'] ) && apply_filters( 'juiz_sps_use_default_css', true ) ) {
+
+			if ( isset( $juiz_sps_options['juiz_sps_style'] ) && apply_filters( 'juiz_sps_use_default_css', true ) ) {
+
+				$core_themes   = jsps_get_core_themes();
+				$custom_themes = jsps_get_custom_themes();
+				$all_themes    = $core_themes + $custom_themes;
+				$current_slug  = $juiz_sps_options['juiz_sps_style'];
+
+				$css_file = isset( $all_themes[ $current_slug ]['css_url'] ) ? $all_themes[ $current_slug ]['css_url'] : JUIZ_SPS_PLUGIN_ASSETS . 'css/' . JUIZ_SPS_SLUG . '-' . $current_slug . $prefix . '.css';
 
 				// The CSS file for theme.
-				wp_enqueue_style( 'juiz_sps_styles', JUIZ_SPS_PLUGIN_ASSETS . 'css/' . JUIZ_SPS_SLUG . '-' . $juiz_sps_options['juiz_sps_style'] . $prefix . '.css', false, JUIZ_SPS_VERSION, 'all' );
+				wp_enqueue_style( 'juiz_sps_styles', $css_file, false, JUIZ_SPS_VERSION, 'all' );
 
 				// The CSS file for modal.
 				wp_enqueue_style( 'juiz_sps_modal_styles', JUIZ_SPS_PLUGIN_ASSETS . 'css/' . JUIZ_SPS_SLUG . '-modal' . $prefix . '.css', false, JUIZ_SPS_VERSION, 'all' );

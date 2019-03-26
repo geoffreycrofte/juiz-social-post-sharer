@@ -144,7 +144,7 @@ function juiz_sps_sanitize( $options ) {
 	}
 
 
-	$newoptions['juiz_sps_style'] = $options['juiz_sps_style'] >= 1 && $options['juiz_sps_style'] <= 8 ? (int) $options['juiz_sps_style'] : 1;
+	$newoptions['juiz_sps_style'] = esc_attr( $options['juiz_sps_style'] );
 	$newoptions['juiz_sps_hide_social_name'] = (int) $options['juiz_sps_hide_social_name'] == 1 ? 1 : 0;
 	$newoptions['juiz_sps_target_link'] = (int) $options['juiz_sps_target_link'] == 1 ? 1 : 0;
 	$newoptions['juiz_sps_counter'] = (int) $options['juiz_sps_counter'] == 1 ? 1 : 0;
