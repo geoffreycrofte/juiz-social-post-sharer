@@ -469,9 +469,7 @@ function juiz_sps_setting_radio_counter_option() {
 			<label for="jsps_counter_total">' . __( 'Only Total', 'juiz-social-post-sharer' ) . '</label>
 
 			<input id="jsps_counter_subtotal" value="subtotal" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_counter_option]" type="radio" ' . $subtotal . ' />
-			<label for="jsps_counter_subtotal">' . __( 'Only Sub-totals', 'juiz-social-post-sharer' ) . '</label>
-
-			<p><strong>' . sprintf( esc_html__( 'Important: Twitter doesn\'t support counter anymore since %sthat decision%s.', 'juiz-social-post-sharer' ), '<a href="https://twittercommunity.com/t/a-new-design-for-tweet-and-follow-buttons/52791" target="_blank">', '</a>' ) . '</strong><span class="juiz-twitter-alternative">' . sprintf( esc_html__( 'I suggest you an alternative using %sNewShareCounts%s. Click the link, enter your website address and click the big blue Twitter button. Authorize this app with your Twitter Account, and that\'s all. You will retrieve your Twitter counts.', 'juiz-social-post-sharer' ), '<a href="http://newsharecounts.com" target="_blank">', '</a>' ) . '</span></p>';
+			<label for="jsps_counter_subtotal">' . __( 'Only Sub-totals', 'juiz-social-post-sharer' ) . '</label>';
 }
 }
 

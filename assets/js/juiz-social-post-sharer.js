@@ -12,7 +12,6 @@ Author: Geoffrey Crofte
 			var plugin_url 		= $(this).find('.juiz_sps_info_plugin_url').val(),
 				url 			= $(this).find('.juiz_sps_info_permalink').val(),
 
-				$twitter 	= $(this).find('.juiz_sps_link_twitter'),
 				$delicious 	= $(this).find('.juiz_sps_link_delicious'),
 				$facebook 	= $(this).find('.juiz_sps_link_facebook'),
 				$pinterest 	= $(this).find('.juiz_sps_link_pinterest'),
@@ -24,8 +23,6 @@ Author: Geoffrey Crofte
 				item_class = ' juiz_hidden_counter';
 			}
 
-			var twitter_url		= "//public.newsharecounts.com/count.json?url=" + url; 
-			// return : {"count":18,"url":"http:\/\/www.creativejuiz.fr\/blog\/"}
 			var delicious_url	= "//feeds.delicious.com/v2/json/urlinfo/data?url=" + url + "&callback=?" ;
 			// return : [{"url": "http://www.creativejuiz.fr/blog", "total_posts": 2}]
 			var pinterest_url   = "//api.pinterest.com/v1/urls/count.json?callback=?&url=" + url;
@@ -35,13 +32,6 @@ Author: Geoffrey Crofte
 			var google_url		= plugin_url+"js/get-noapi-counts.php?nw=google&url=" + url;
 			var stumble_url		= plugin_url+"js/get-noapi-counts.php?nw=stumble&url=" + url;
 
-
-			if ( $twitter.length ) {
-				$.getJSON(twitter_url)
-					.done(function(data){
-						$twitter.prepend('<span class="juiz_sps_counter'+item_class+'">' + data.count + '</span>');
-					});
-			}
 			if ( $pinterest.length ) {
 				$.getJSON(pinterest_url)
 					.done(function(data){

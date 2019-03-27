@@ -151,6 +151,7 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
  * Script and Styles in external files (force refresh if you have bugs)
 * *New feature*
  * Remove LinkedIn counter because LinkedIn doesn't offer a count anymore. (@see https://developer.linkedin.com/blog/posts/2018/deprecating-the-inshare-counter)
+ * Remove Twitter counter because Twitter doesn't offer a count anymore. (@see https://twittercommunity.com/t/a-new-design-for-tweet-and-follow-buttons/52791)
  * Email button has now an option to open a little form in lightbox instead of mailto: protocole
  * New button: Evernote
  * New button: 

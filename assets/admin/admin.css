@@ -691,21 +691,6 @@ input[type="checkbox"]:checked + label em {
     display: none;
 }
 
-.juiz-twitter-alternative {
-    display: block;
-    max-width: 100%;
-    width: 600px;
-    margin: 0.5em 0;
-    padding: 10px 15px;
-    background: #1094BF;
-    color: #FFF;
-}
-
-.juiz-twitter-alternative a {
-    color: #FFF;
-    font-weight: bold;
-}
-
 .juiz_bottom_links a {
     margin: .5em 0;
     padding: 7px 13px;
