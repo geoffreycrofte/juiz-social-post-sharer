@@ -390,7 +390,7 @@
     flex-wrap: wrap;
 }
 
-.juiz-sps-squared-options .juiz_sps_options_p {
+.juiz-sps-squared-options .juiz_sps_options_p.juiz_sps_options_p {
     position: relative;
     display: flex;
     flex-direction: column;
