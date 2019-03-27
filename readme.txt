@@ -166,6 +166,11 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
 * *Fixes*
  * Fav/bookmark button JS error on Firefox (`chrome is undefined`)
  * Buttons are not printed if you use your browser print function (or the JSPS print button)
+* *Thanks*
+ * To [jeherve](https://github.com/geoffreycrofte/juiz-social-post-sharer/pull/12)
+ * To [sebastienserre](https://github.com/geoffreycrofte/juiz-social-post-sharer/pull/14)
+ * To [MarieComet](https://github.com/geoffreycrofte/juiz-social-post-sharer/pull/10)
+ * To [audrasjb](https://github.com/geoffreycrofte/juiz-social-post-sharer/pull/7)
 
 = 1.4.9 =
 * Compatible with Dark Mode plugin.
