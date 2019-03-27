@@ -6,11 +6,11 @@ Version: Styles v5 (Design and CSS by Tony Trancard - tonytrancard.fr)
 */
 @font-face{
 	font-family: 'jsps';
-	src: url('fonts/jsps.eot?142');
-	src: url('fonts/jsps.eot?#iefix142') format('embedded-opentype'),
-		 url('fonts/jsps.woff?142') format('woff'),
-		 url('fonts/jsps.ttf?142') format('truetype'),
-		 url('fonts/jsps.svg?142#jsps') format('svg');
+	src: url('../common/fonts/jsps.eot?142');
+	src: url('../common/fonts/jsps.eot?#iefix142') format('embedded-opentype'),
+		 url('../common/fonts/jsps.woff?142') format('woff'),
+		 url('../common/fonts/jsps.ttf?142') format('truetype'),
+		 url('../common/fonts/jsps.svg?142#jsps') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }

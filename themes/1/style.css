@@ -47,7 +47,7 @@ Version: Styles v1
 	height: 16px;
 	margin-right: 5px;
 	vertical-align:-4px;
-	background:url("../img/sps_sprites.png") 0 0 no-repeat;
+	background:url("sps_sprites.png") 0 0 no-repeat;
 	-webkit-transition: background-position .4s;
 	-moz-transition: background-position .4s;
 	-o-transition: background-position .4s;

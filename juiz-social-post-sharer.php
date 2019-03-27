@@ -39,6 +39,7 @@ define( 'JUIZ_SPS_FILE',		  __FILE__ );
 define( 'JUIZ_SPS_DIRNAME',		  basename( dirname( __FILE__ ) ) );
 define( 'JUIZ_SPS_PLUGIN_URL',	  plugin_dir_url( __FILE__ ));
 define( 'JUIZ_SPS_PLUGIN_ASSETS', JUIZ_SPS_PLUGIN_URL . 'assets/' );
+define( 'JUIZ_SPS_THEMES_FOLDER', JUIZ_SPS_PLUGIN_URL . 'themes/' );
 define( 'JUIZ_SPS_SLUG',		  'juiz-social-post-sharer' );
 define( 'JUIZ_SPS_SETTING_NAME',  'juiz_SPS_settings' );
 

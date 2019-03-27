@@ -1,11 +1,11 @@
 @font-face{
 	font-family: 'jsps-icon';
-	src: url('../css/fonts/jsps.eot?150');
-	src: url('../css/fonts/jsps.eot?#iefix150') format('embedded-opentype'),
-		 url('../css/fonts/jsps.woff2?150') format('woff2'),
-		 url('../css/fonts/jsps.woff?150') format('woff'),
-		 url('../css/fonts/jsps.ttf?150') format('truetype'),
-		 url('../css/fonts/jsps.svg?150#jsps') format('svg');
+	src: url('../../themes/common/fonts/jsps.eot?150');
+	src: url('../../themes/common/fonts/jsps.eot?#iefix150') format('embedded-opentype'),
+		 url('../../themes/common/fonts/jsps.woff2?150') format('woff2'),
+		 url('../../themes/common/fonts/jsps.woff?150') format('woff'),
+		 url('../../themes/common/fonts/jsps.ttf?150') format('truetype'),
+		 url('../../themes/common/fonts/jsps.svg?150#jsps') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }

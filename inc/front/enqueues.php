@@ -57,7 +57,7 @@ if ( ! function_exists( 'juiz_sps_style_and_script' ) ) {
 				$all_themes    = $core_themes + $custom_themes;
 				$current_slug  = $juiz_sps_options['juiz_sps_style'];
 
-				$css_file = isset( $all_themes[ $current_slug ]['css_url'] ) ? $all_themes[ $current_slug ]['css_url'] : JUIZ_SPS_PLUGIN_ASSETS . 'css/' . JUIZ_SPS_SLUG . '-' . $current_slug . $prefix . '.css';
+				$css_file = isset( $all_themes[ $current_slug ]['css_url'] ) ? $all_themes[ $current_slug ]['css_url'] : JUIZ_SPS_THEMES_FOLDER . $current_slug . '/style' . $prefix . '.css';
 
 				// The CSS file for theme.
 				wp_enqueue_style( 'juiz_sps_styles', $css_file, false, JUIZ_SPS_VERSION, 'all' );

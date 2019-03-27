@@ -205,7 +205,7 @@ function juiz_sps_setting_radio_style_choice() {
 
 			// Print the themes.
 			echo '<p class="juiz_sps_styles_options">
-					<input id="jsps_style_' . esc_attr( $slug ) . '" value="' . esc_attr( $slug ) . '" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_style]" type="radio" ' . ( $current_theme === $slug ? ' checked="checked"' : '' ) . ' />
+					<input id="jsps_style_' . esc_attr( $slug ) . '" value="' . esc_attr( $slug ) . '" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_style]" type="radio" ' . ( intval( $current_theme ) === $slug ? ' checked="checked"' : '' ) . ' />
 					<label for="jsps_style_' . esc_attr( $slug ) . '">
 						<span class="juiz_sps_demo_styles">
 							<img src="' . $demo_src . '" srcset="' . $demo_src_2x . ' 2x">
