@@ -8,30 +8,27 @@ Author: Geoffrey Crofte
 /* Juiz SPS core */
 
 ;jQuery(document).ready(function($){
-	
+
 	jQuery.fn.juiz_get_counters = function(){
 		return this.each(function(){
-			
+
 			var nonce       = $(this).find('.juiz_sps_nonce').val(),
 				url         = $(this).find('.juiz_sps_info_permalink').val(),
 				$twitter    = $(this).find('.juiz_sps_link_twitter'),
-				$linkedin   = $(this).find('.juiz_sps_link_linkedin'),
 				$delicious  = $(this).find('.juiz_sps_link_delicious'),
 				$facebook   = $(this).find('.juiz_sps_link_facebook'),
 				$pinterest  = $(this).find('.juiz_sps_link_pinterest'),
 				$stumble    = $(this).find('.juiz_sps_link_stumbleupon'),
 				item_class  = '';
-				
+
 			if ( $(this).hasClass('counters_total') ) {
 				item_class = ' juiz_hidden_counter';
 			}
 
-			var twitter_url		= "//public.newsharecounts.com/count.json?url=" + url; 
+			var twitter_url		= "//public.newsharecounts.com/count.json?url=" + url;
 			// return : {"count":18,"url":"http:\/\/www.creativejuiz.fr\/blog\/"}
 			var delicious_url	= "//feeds.delicious.com/v2/json/urlinfo/data?url=" + url + "&callback=?" ;
 			// return : [{"url": "http://www.creativejuiz.fr/blog", "total_posts": 2}]
-			var linkedin_url	= "//www.linkedin.com/countserv/count/share?format=jsonp&url=" + url + "&callback=?";
-			// return : {"count":17,"fCnt":"17","fCntPlusOne":"18","url":"http:\/\/stylehatch.co"}
 			var pinterest_url   = "//api.pinterest.com/v1/urls/count.json?callback=?&url=" + url;
 			// return : ({"count": 0, "url": "http://stylehatch.co"})
 			var facebook_url	= "//graph.facebook.com/?id=" + url;
@@ -43,12 +40,6 @@ Author: Geoffrey Crofte
 				$.getJSON(twitter_url)
 					.done(function(data){
 						$twitter.prepend('<span class="juiz_sps_counter'+item_class+'">' + data.count + '</span>');
-					});
-			}
-			if ( $linkedin.length ) {
-				$.getJSON(linkedin_url)
-					.done(function(data){
-						$linkedin.prepend('<span class="juiz_sps_counter'+item_class+'">' + data.count + '</span>');
 					});
 			}
 			if ( $pinterest.length ) {
@@ -120,7 +111,7 @@ Author: Geoffrey Crofte
 	else {
 		$('.juiz_sps_link_print').remove();
 	}
-	
+
 	/**
 	 * Bokmark button
 	 *
@@ -186,5 +177,5 @@ Author: Geoffrey Crofte
 });
 /*
 //var google_url = "https://clients6.google.com/rpc?key=YOUR_API_KEY";
-//var digg_url = "http://services.digg.com/2.0/story.getInfo?links=" + url + "&type=javascript&callback=?"; 
+//var digg_url = "http://services.digg.com/2.0/story.getInfo?links=" + url + "&type=javascript&callback=?";
 */
