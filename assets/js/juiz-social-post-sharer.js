@@ -4,11 +4,8 @@ Plugin URI: http://creativejuiz.fr
 Author: Geoffrey Crofte
 */
 
-
 /* Juiz SPS core */
-
 ;jQuery(document).ready(function($){
-	
 	jQuery.fn.juiz_get_counters = function(){
 		return this.each(function(){
 			
@@ -16,7 +13,6 @@ Author: Geoffrey Crofte
 				url 			= $(this).find('.juiz_sps_info_permalink').val(),
 
 				$twitter 	= $(this).find('.juiz_sps_link_twitter'),
-				$linkedin 	= $(this).find('.juiz_sps_link_linkedin'),
 				$delicious 	= $(this).find('.juiz_sps_link_delicious'),
 				$facebook 	= $(this).find('.juiz_sps_link_facebook'),
 				$pinterest 	= $(this).find('.juiz_sps_link_pinterest'),
@@ -32,8 +28,6 @@ Author: Geoffrey Crofte
 			// return : {"count":18,"url":"http:\/\/www.creativejuiz.fr\/blog\/"}
 			var delicious_url	= "//feeds.delicious.com/v2/json/urlinfo/data?url=" + url + "&callback=?" ;
 			// return : [{"url": "http://www.creativejuiz.fr/blog", "total_posts": 2}]
-			var linkedin_url	= "//www.linkedin.com/countserv/count/share?format=jsonp&url=" + url + "&callback=?";
-			// return : {"count":17,"fCnt":"17","fCntPlusOne":"18","url":"http:\/\/stylehatch.co"}
 			var pinterest_url   = "//api.pinterest.com/v1/urls/count.json?callback=?&url=" + url;
 			// return : ({"count": 0, "url": "http://stylehatch.co"})
 			var facebook_url	= "//graph.facebook.com/fql?q=SELECT%20like_count,%20total_count,%20share_count,%20click_count,%20comment_count%20FROM%20link_stat%20WHERE%20url%20=%20%22"+url+"%22";
@@ -46,12 +40,6 @@ Author: Geoffrey Crofte
 				$.getJSON(twitter_url)
 					.done(function(data){
 						$twitter.prepend('<span class="juiz_sps_counter'+item_class+'">' + data.count + '</span>');
-					});
-			}
-			if ( $linkedin.length ) {
-				$.getJSON(linkedin_url)
-					.done(function(data){
-						$linkedin.prepend('<span class="juiz_sps_counter'+item_class+'">' + data.count + '</span>');
 					});
 			}
 			if ( $pinterest.length ) {

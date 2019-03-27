@@ -150,6 +150,7 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
  * Administration interface redesign
  * Script and Styles in external files (force refresh if you have bugs)
 * *New feature*
+ * Remove LinkedIn counter because LinkedIn doesn't offer a count anymore. (@see https://developer.linkedin.com/blog/posts/2018/deprecating-the-inshare-counter)
  * Email button has now an option to open a little form in lightbox instead of mailto: protocole
  * New button: Evernote
  * New button: 
