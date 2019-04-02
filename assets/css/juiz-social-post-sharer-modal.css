@@ -11,59 +11,99 @@ Author: Geoffrey Crofte
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	padding: 16px;
 	background: #FFF;
-	background: rgba(0, 0, 0, .9);
-	z-index: 99999;
+	background: rgba(0, 0, 0, .85);
+	z-index: 999999;
 }
+
+.juiz-sps-modal ::selection {
+	background: #1A7B9B;
+	color: #FFF;
+}
+
+.juiz-sps-modal ::-moz-selection {
+	background: #1A7B9B;
+	color: #FFF;
+}
+
 .juiz-sps-modal .juiz-sps-modal-inside {
 	position: relative;
-	display: flex;
-	flex-direction: column;
 	margin: 1em auto;
 	width: 460px;
 	max-width: 100%;
 	font-size: 1em;
+	line-height: 1.7;
 	background: #FFF;
-	color: #333;
-	text-align: center;
 	box-shadow: 1px 1px 4px rgba(0, 0, 0, .5);
 	border-radius: 3px;
 	overflow: auto;
 }
-.juiz-sps-modal .juiz-sps-modal-header,
-.juiz-sps-modal .juiz-sps-modal-content,
-.juiz-sps-modal .juiz-sps-modal-footer {
-	padding: 10px 20px;
+
+.juiz-sps-modal .juiz-sps-modal-inside p {
+	line-height: 1.7;
 }
+
+.juiz-sps-modal .juiz-sps-modal-content {
+	padding: 8px 16px 16px;	
+}
+
 .juiz-sps-modal .juiz-sps-modal-header {
-	padding: 20px;
+	padding: 16px;
+	border-bottom: 1px solid #F6F6F6;
+	font-size: 1.2em;
+}
+
+.juiz-sps-modal .juiz-sps-modal-footer {
+	padding: 16px;
+	font-size: .75em;
+	text-align: left;
 	background: #F2F2F2;
 }
+
+.juiz-sps-modal .juiz-sps-modal-footer p {
+	margin: 0;
+}
+
+.juiz-sps-modal .juiz-sps-modal-footer a {
+	text-decoration: underline;
+}
+
+@media (min-width: 640px) {
+	.juiz-sps-modal .juiz-sps-modal-header,
+	.juiz-sps-modal .juiz-sps-modal-content,
+	.juiz-sps-modal .juiz-sps-modal-footer {
+		padding-left: 24px;
+		padding-right: 24px;
+	}
+}
+
 .juiz-sps-modal .juiz-sps-modal-title {
 	margin: 0;
-	font-size: 16px;
-	font-weight: bold;
+	font-weight: normal;
+	text-align: left;
 }
-.juiz-sps-modal .juiz-sps-message-info,
-.juiz-sps-modal .juiz-sps-input-info {
-	padding: 5px 10px;
-	font-size: 12px;
+
+.juiz-sps-modal .juiz-sps-message-info {
+	padding: 8px 0;
+	font-size: .875em;
 	font-style: italic;
-	background: #eee;
 	color: #444;	
 }
-.juiz-sps-modal .juiz-sps-input-info {
-	display: block;
-}
+
 .juiz-sps-modal label {
 	display: block;
-	text-align: left;
+	margin-top: 1em;
+	margin-bottom: .2em;
 	font-size: 14px;
 	font-weight: bold;
+	text-align: left;
 }
+
 .juiz-sps-modal form p {
 	margin: .4em 0;
 }
+
 .juiz-sps-modal input[type="text"],
 .juiz-sps-modal input[type="email"],
 .juiz-sps-modal textarea {
@@ -71,40 +111,71 @@ Author: Geoffrey Crofte
 	max-width: 100%;
 	padding: 0.5278em;
 	margin: 0;
-	border: 1px solid rgba(51, 51, 51, 0.1);
+	border: 1px solid rgba(51, 51, 51, 0.15);
 	font-size: 14px;
-	color: rgba(51, 51, 51, 0.7);
-	background: #f7f7f7;
+	background: #f8f8f8;
+	border-radius: 4px;
+	transition: all .275s;
 }
+
 .juiz-sps-modal textarea {
 	resize: vertical;
-	height: 85px;
+	height: 80px;
 }
+
+.juiz-sps-modal input[type="text"]:focus,
+.juiz-sps-modal input[type="email"]:focus,
+.juiz-sps-modal textarea:focus {
+	background: #FFF;
+	border-color: #43AFD2;
+}
+
 .juiz-sps-modal .juiz-sps-submit-line {
 	margin: .5em 0;
 }
+
 .juiz-sps-modal .juiz-sps-submit-line button,
 .juiz-sps-modal .juiz-sps-submit-line input {
-	background: #555;
-	color: #FFF;
-	border-radius: 3px;
-	box-shadow: 0 3px 0 #222;
+	font-size: 12px;
+	border-radius: 20px;
+	letter-spacing: 0.1em;
 	font-weight: bold;
 	text-transform: uppercase;
-	font-size: 12px;
-	letter-spacing: 0.1em;
+	color: #FFF;
+	background: #1A7B9B;;
+}
+
+.juiz-sps-modal .juiz-sps-submit-line button:focus,
+.juiz-sps-modal .juiz-sps-submit-line input:focus,
+.juiz-sps-modal .juiz-sps-submit-line button:hover,
+.juiz-sps-modal .juiz-sps-submit-line input:hover {
+	background: #43AFD2;
 }
 
 .juiz-sps-modal .juiz-sps-message {
-	padding: 10px 15px;
-	font-size: 14px;
+	margin-top: 8px;
+	padding: 24px;
+	font-size: 20px;
+	text-align: center;
 	color: #FFF;
+	border-radius: 6px;
 }
+
+.juiz-sps-modal .juiz-sps-message svg {
+	width: 80px;
+}
+
+.juiz-sps-modal .juiz-sps-message p {
+	font-size: 20px;
+	margin: 0;
+}
+
 .juiz-sps-modal .juiz-sps-error {
-	background: #AE4848;
+	background: #A04C4C;
 }
+
 .juiz-sps-modal .juiz-sps-success {
-	background: #83B113;
+	background: #48864D;
 }
 
 .juiz-sps-modal .juiz-sps-close {
@@ -119,16 +190,19 @@ Author: Geoffrey Crofte
 	color: #FFF;
 	color: rgba(255,255,255,.7);
 }
+
 .juiz-sps-modal .juiz-sps-hidden {
 	position: absolute;
 	clip: rect(0, 0, 0, 0);
 	overflow: hidden;
 }
+
 .juiz-sps-modal .juiz-sps-submit-txt,
 .juiz-sps-modal .juiz-sps-loader {
 	display: inline-block;
 	vertical-align: middle;
 }
+
 .juiz-sps-modal .juiz-sps-loader {
 	width: 0;
 	opacity: 0;
@@ -136,6 +210,7 @@ Author: Geoffrey Crofte
 	height: 22px;
 	transition: all .275s;
 }
+
 .juiz-sps-modal .juiz-sps-loader.is-active {
 	width: 22px;
 	opacity: 1;

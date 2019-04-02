@@ -63,7 +63,12 @@ if ( is_admin() || ( defined( 'DOING_AJAX' ) && ! DOING_AJAX ) ) {
 	include_once( 'inc/admin/metaboxes.php' );
 } // end if is_admin
 
+// Include the AJAX file when you send an Email.
+if ( defined('DOING_AJAX') && DOING_AJAX ) {
+	include_once( 'inc/front/actions.php' );
+}
 
+// Things you do in front.
 if ( ! is_admin() ) {
 	include_once( 'inc/front/enqueues.php' );
 	include_once( 'inc/front/utilities.php' );
