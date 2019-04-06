@@ -80,11 +80,11 @@ Author: Geoffrey Crofte
 			function count_total() {
 				var total = 0;
 				$group.find('.juiz_sps_counter').each(function(){
-					total += parseInt($(this).text());
+					total += parseInt( $(this).text() );
 				});
-				$total_count_nb.text(total);
+				$total_count_nb.text( total );
 			}
-			setInterval(count_total, 1200);
+			setInterval(count_total, 3000);
 
 		});
 	}; // juiz_get_counters()
