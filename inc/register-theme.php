@@ -4,9 +4,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * [jsps_get_core_themes description]
- * @param  [type] $core_themes [description]
- * @return [type]              [description]
+ * Get the custom array of themes.
+ * 
+ * @param  (array) $core_themes The themes array.
+ * @return (array)              The new array of themes.
  */
 function jsps_get_core_themes( $core_themes = array() ) {
 	/**
@@ -23,8 +24,8 @@ function jsps_get_core_themes( $core_themes = array() ) {
 /**
  * Get the custom array of themes.
  *
- * @param  (array)  $custom_themes The themes array.
- * @return (array)                 The new array of themes.
+ * @param  (array) $custom_themes The themes array.
+ * @return (array)                The new array of themes.
  */
 function jsps_get_custom_themes( $custom_themes = array() ) {
 	/**

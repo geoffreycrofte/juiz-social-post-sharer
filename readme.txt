@@ -163,6 +163,8 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
  * `admin/jsps-admin.inc.php` renamed `inc/admin/settings.php`
  * Remove the file `inc/admin/jsps-admin-styles-scrips.php` (now external asset files)
  * Move metaboxes to `inc/admin/metaboxes.php`
+ * Move shortcodes to `inc/front/shortcode.php`
+ * Move button rendering functions to `inc/front/buttons.php`
 * *New hooks*: see revamped documentation.html file inside the plugin folder.
 * *Fixes*
  * Fav/bookmark button JS error on Firefox (`chrome is undefined`)

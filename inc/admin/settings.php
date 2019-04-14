@@ -2,8 +2,6 @@
 	die( 'Cheatin&#8217; uh?' );
 }
 
-include_once('register-settings.php');
-
 if ( ! function_exists( 'juiz_sps_plugin_action_links' ) ) {
 	/**
 	 * Add link to settings into Plugins Page
