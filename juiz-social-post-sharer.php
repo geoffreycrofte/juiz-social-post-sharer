@@ -4,7 +4,7 @@ Plugin Name: Juiz Social Post Sharer
 Plugin URI: http://wordpress.org/extend/plugins/juiz-social-post-sharer/
 Description: Add buttons after (or before, or both) your posts to allow visitors share your content (includes no JavaScript mode). You can also use <code>juiz_sps($array)</code> template function or <code>[juiz_sps]</code> shortcode. For more informations see the setting page located in <strong>Settings</strong> submenu.
 Author: Geoffrey Crofte
-Version: 1.4.8
+Version: 1.4.10
 Author URI: http://geoffrey.crofte.fr
 License: GPLv2 or later
 Text Domain: juiz-social-post-sharer
