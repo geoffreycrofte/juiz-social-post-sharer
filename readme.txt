@@ -154,6 +154,9 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
 
 = 1.4.8 =
 * Security Update: Fixes XSS vulnerability.
+* Network Counters:
+ * StumbleUpon: code improvement.
+ * Google+: not supported anymore.
 
 = 1.4.7 =
 * Compatibility on network (multisite) thanks to Marie Comet ([Marie Comet](http://mariecomet.fr/))
