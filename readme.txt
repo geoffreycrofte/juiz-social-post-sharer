@@ -3,14 +3,14 @@ Contributors: CreativeJuiz
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJPCWVXGDY&lc=FR&item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&item_number=%23wp%2djsps&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted
 Tags: social, twitter, google, facebook, digg, stumbleupon, linkedin, pinterest, viadeo, weibo, vkontakte, post, share
 Requires at least: 3.3
-Tested up to: 4.7.4
-Stable tag: 1.4.8
+Tested up to: 5.2.3
+Stable tag: 1.4.10
 
-Add smart designed buttons after/before your posts to allow visitors sharing your content (includes no JavaScript mode & counters)
+Add smart designed buttons after/before your posts to allow visitors sharing your content (includes no JavaScript mode & counters). Totally GDPR compliant.
 
 == Description ==
 
-Add smart designed buttons after/before your posts to allow visitors sharing your content (includes no JavaScript mode & counters). Buttons are Retina/HDPI-ready, translation-ready and come with useful options and hooks.
+Add smart designed buttons after/before your posts to allow visitors sharing your content (includes no JavaScript mode & counters). Buttons are Retina/HDPI-ready, translation-ready and come with useful options and hooks. Totally GDPR compliant.
 
 Select your favorites social networks among a little list.
 Display an optional sharings counter.
@@ -143,6 +143,14 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
 
 
 == Changelog ==
+
+= 1.4.10 =
+* Tested up to WP 5.2.3
+* New hook `juiz_sps_twitter_nickname` to change the Twitter Username
+
+= 1.4.9 =
+* Compatible with Dark Mode plugin.
+* Tested up to WP 4.9.8
 
 = 1.4.8 =
 * Security Update: Fixes XSS vulnerability.

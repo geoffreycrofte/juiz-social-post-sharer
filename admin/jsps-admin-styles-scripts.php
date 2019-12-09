@@ -1,4 +1,4 @@
-<?php
+<?php if ( ! defined( 'ABSPATH' ) ) exit;
 	echo '
 		<!-- ' . JUIZ_SPS_PLUGIN_NAME . ' styles -->
 		<style rel="stylesheet">
@@ -126,6 +126,12 @@
 					margin: .2em 0;
 				}
 			}
+
+			.dark-mode #juiz-sps .jsps_info,
+			.dark-mode #juiz-sps .juiz_bottom_links { background: rgba(255,255,255,.25); }
+			.dark-mode #juiz-sps .jsps_info code {background: rgba(0,0,0,.2);}
+			.dark-mode #juiz-sps .juiz_bottom_links em,
+			.dark-mode #juiz-sps .juiz_bottom_links a {color: white; }
 			</style>
 		<!-- end of ' . JUIZ_SPS_PLUGIN_NAME . ' styles -->
 

@@ -1,4 +1,4 @@
-Juiz Social Post Sharer v1.4.8
+Juiz Social Post Sharer v1.4.10
 ========================
 WordPress Plugin
 ---------------
@@ -7,7 +7,7 @@ https://wordpress.org/plugins/juiz-social-post-sharer/
 
 
 Adds buttons after your posts to allow visitors share your content (includes no JavaScript mode).
-Select your favorite social networks among a list of available networks. Display an optional sharings counter.
+Select your favorite social networks among a list of available networks. Display an optional sharings counter. Totally GDPR compliant.
 
 **You can donate to support**
 
