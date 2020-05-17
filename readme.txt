@@ -3,7 +3,7 @@ Contributors: CreativeJuiz
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJPCWVXGDY&lc=FR&item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&item_number=%23wp%2djsps&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted
 Tags: social, twitter, google, facebook, digg, stumbleupon, linkedin, pinterest, viadeo, weibo, vkontakte, post, share
 Requires at least: 3.3
-Tested up to: 5.2.3
+Tested up to: 5.4.1
 Stable tag: 1.4.10
 
 Add smart designed buttons after/before your posts to allow visitors sharing your content (includes no JavaScript mode & counters). Totally GDPR compliant.
