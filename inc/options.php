@@ -51,11 +51,12 @@ function jsps_update_option( $options ) {
 	// When we want to update options in a network activated website.
 	if ( true === JUIZ_SPS_NETWORK_ACTIVATED ) {
 		$options = update_blog_option( get_current_blog_id(), JUIZ_SPS_SETTING_NAME, $options );
-		return $options;
 	}
 
 	// When we want to update options in a simple website.
 	else {
 		$options = update_option( JUIZ_SPS_SETTING_NAME, $options );
 	}
+
+	return $options;
 }

@@ -390,33 +390,63 @@
 	flex-wrap: wrap;
 }
 
-.juiz-sps-squared-options .juiz_sps_options_p.juiz_sps_options_p {
+.juiz-sps-squared-options .juiz_sps_options_p.juiz_sps_options_p,
+.juiz_sps_options_p.juiz_sps_options_p.lmdd-mirror {
 	position: relative;
 	display: flex;
+	align-content: center;
+	justify-content: center;
 	flex-direction: column;
-	flex-basis: 100px;
+	flex-basis: 140px;
 	flex-shrink: 0;
 	flex-grow: 0;
-	padding: 16px;
+	min-height: 140px;
 	margin: 0;
 	background: #FFF;
 	box-shadow: 0 0 0 1px rgba(0, 0, 0, .1);
 }
 
-.juiz-sps-squared-options .juiz_sps_options_p label {
+.juiz-sps-squared-options .juiz_sps_options_p label,
+.lmdd-mirror.juiz_sps_options_p label {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
 
-.juiz-sps-squared-options .juiz_sps_options_p label em {
+.juiz-sps-squared-options .juiz_sps_options_p label em,
+.lmdd-mirror.juiz_sps_options_p label em {
 	display: none;
+}
+
+.juiz-sps-handle {
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	background: radial-gradient(circle at 50%, #ddd, #aaa 2px, white 3px) repeat;
+	background-size: 9px 11px;
+	width: 26px;
+	height: 22px;
+	cursor: grab;
+	transition: all .275s;
+}
+
+[id$="-lmddClone"] .juiz-sps-handle {
+	opacity: 0;
+}
+
+.lmdd-mirror .juiz-sps-handle {
+	opacity: 1;
+}
+
+.juiz-sps-handle:active {
+	cursor: grabbing;
 }
 
 .jsps_demo_name {
 	position: relative;
 	text-align: center;
 	margin-bottom: 12px;
+	font-size: 12px;
 }
 
 .jsps_demo_icon::before {
@@ -671,7 +701,7 @@ input[type="checkbox"]:checked + label em {
 	background-color: #669B37;
 }
 
-.juiz_bottom_links a+em {
+.juiz_bottom_links a + em {
 	margin-top: 1em;
 }
 
@@ -755,6 +785,79 @@ input[type="checkbox"]:checked + label em {
 		width: 100%;
 		display: block;
 	}
+}
+
+/**
+ * LMDD Drag & Drop Script
+ */
+.jsps-drag-container {
+	position: relative;
+}
+
+#jsps-draggable-networks-lmddClone {
+	left: 0!important;
+	top: 0!important;
+}
+
+.no-display {
+	display: none !important;
+}
+
+.no-transition,
+.no-transition * {
+	transition: none !important;
+}
+
+.unselectable {
+	-webkit-user-select: none !important;
+	-moz-user-select: none !important;
+	-ms-user-select: none !important;
+	user-select: none !important;
+	cursor: not-allowed;
+}
+
+.hidden-layer,
+.hidden-layer * {
+	opacity: 0;
+	z-index: 1;
+	cursor: crosshair !important;
+}
+
+.visible-layer,
+.visible-layer * {
+	opacity: 1;
+	z-index: -1;
+	pointer-events: none;
+	transition: all 0.7s;
+}
+
+.visible-layer .jsps_demo_icon i {
+	z-index: 1;
+}
+.visible-layer input {
+	display: none!important;
+	opacity: 0!important;
+}
+
+.visible-layer .lmdd-mirror.gf-transition {
+	transition: all 0.3s !important;
+}
+
+.visible-layer .lmdd-mirror {
+	z-index: 1;
+	position: absolute;
+	margin: 0;
+	pointer-events: none;
+	transition: top 00s, left 00s !important;
+	opacity: 0.5;
+}
+
+.lmdd-shadow {
+	opacity: 0.5;
+}
+
+.lmdd-hidden {
+	visibility: hidden;
 }
 
 /**

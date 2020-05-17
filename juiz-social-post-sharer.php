@@ -11,7 +11,7 @@
 
 
 
-	Copyright 2012-2019  Geoffrey Crofte  (email : support@creativejuiz.com)
+	Copyright 2012-2020  Geoffrey Crofte  (email : support@creativejuiz.com)
 
 	    
 	This program is free software; you can redistribute it and/or
@@ -55,10 +55,11 @@ function make_juiz_sps_multilang() {
 	load_plugin_textdomain( 'juiz-social-post-sharer', false, JUIZ_SPS_DIRNAME.'/languages' );
 }
 
-include_once( 'inc/options.php'          );
-include_once( 'inc/register-theme.php'   );
-include_once( 'inc/register-network.php' );
-include_once( 'inc/register-networks.php'   );
+include_once( 'inc/options.php'           );
+include_once( 'inc/register-theme.php'    );
+include_once( 'inc/register-network.php'  );
+include_once( 'inc/register-networks.php' );
+include_once( 'inc/utilities.php' );
 
 // Include the admin files in admin and when it's not an AJAX request.
 if ( is_admin() || ( defined( 'DOING_AJAX' ) && ! DOING_AJAX ) ) {
@@ -66,6 +67,11 @@ if ( is_admin() || ( defined( 'DOING_AJAX' ) && ! DOING_AJAX ) ) {
 	include_once( 'inc/admin/register-themes.php'   );
 	include_once( 'inc/admin/settings.php'          );
 	include_once( 'inc/admin/metaboxes.php'         );
+	include_once( 'inc/admin/enqueues.php'          );
+}
+
+if ( is_admin() ) {
+	include_once( 'inc/admin/actions.php' );
 }
 
 // Include the AJAX file when you send an Email.
@@ -76,7 +82,6 @@ if ( defined('DOING_AJAX') && DOING_AJAX ) {
 // Things you do in front.
 if ( ! is_admin() ) {
 	include_once( 'inc/front/enqueues.php'  );
-	include_once( 'inc/front/utilities.php' );
 	include_once( 'inc/front/buttons.php'   );
 	include_once( 'inc/front/shortcode.php' );
 }

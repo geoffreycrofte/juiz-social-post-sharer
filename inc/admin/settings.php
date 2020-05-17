@@ -40,27 +40,6 @@ if ( ! function_exists( 'add_juiz_sps_settings_page' ) ) {
 	add_action( 'admin_menu', 'add_juiz_sps_settings_page' );
 }
 
-if ( ! function_exists( 'jsps_load_custom_wp_admin_assets' ) ) {
-	/**
-	 * Include Admin dedicated scripts.
-	 * @return void
-	 * @author Geoffrey Crofte
-	 * @since 1.5
-	 */
-	function jsps_load_custom_wp_admin_assets() {
-		global $current_screen;
-
-		if ( $current_screen->base !== 'settings_page_juiz-social-post-sharer' ) {
-			return;
-		}
-		
-		wp_enqueue_script( 'jsps-admin-script', JUIZ_SPS_PLUGIN_ASSETS . 'admin/admin.js', array('jquery'), JUIZ_SPS_VERSION );
-		wp_enqueue_style( 'jsps-admin-styles', JUIZ_SPS_PLUGIN_ASSETS . 'admin/admin.css', 
-			array(), JUIZ_SPS_VERSION, 'all' );
-	}
-	add_action( 'admin_enqueue_scripts', 'jsps_load_custom_wp_admin_assets' );
-}
-
 /**
  * Sections and fields for settings.
  */
@@ -102,13 +81,16 @@ add_filter( 'admin_init', 'add_juiz_sps_plugin_options' );
 
 
 // sanitize posted data
-
 function juiz_sps_sanitize( $options ) {
 	
 	if ( is_array( $options['juiz_sps_networks'] ) ) {
 		
-		$temp_array = array( 'facebook' => 0, 'twitter' => 0, 'google' => 0, 'pinterest' => 0, 'viadeo' => 0, 'linkedin' => 0, 'digg' => 0, 'stumbleupon' => 0, 'weibo' => 0, 'mail' => 0, 'vk' => 0 );
 		$juiz_sps_opt = jsps_get_option();
+
+		// All the following to add new networks alongside the versionning
+		// a bit overkill
+		// TODO: find another way to sanitize and update this option.
+		$temp_array = array( 'facebook' => 0, 'twitter' => 0, 'google' => 0, 'pinterest' => 0, 'viadeo' => 0, 'linkedin' => 0, 'digg' => 0, 'stumbleupon' => 0, 'weibo' => 0, 'mail' => 0, 'vk' => 0 );
 
 		// new option (1.2.0)
 		if ( ! in_array( 'weibo', $juiz_sps_opt['juiz_sps_networks'] ) ) {
@@ -138,6 +120,9 @@ function juiz_sps_sanitize( $options ) {
 			$juiz_sps_opt['juiz_sps_networks'][ $k ][0] = $v;
 		}
 
+		var_dump($juiz_sps_opt['juiz_sps_networks']);
+		wp_die();
+
 		$newoptions['juiz_sps_networks'] = $juiz_sps_opt['juiz_sps_networks'];
 	}
 
@@ -155,8 +140,7 @@ function juiz_sps_sanitize( $options ) {
 
 	if ( is_array( $options['juiz_sps_display_in_types'] ) && count( $options['juiz_sps_display_in_types'] ) > 0 ) {
 		$newoptions['juiz_sps_display_in_types'] = $options['juiz_sps_display_in_types'];
-	}
-	else {
+	} else {
 		wp_redirect( admin_url( 'options-general.php?page=' . JUIZ_SPS_SLUG . '&message=1337' ) );
 		exit;
 	}
@@ -168,6 +152,9 @@ function juiz_sps_sanitize( $options ) {
 
 	// new options (1.3.3.7)
 	$newoptions['juiz_sps_counter_option'] = in_array( $options['juiz_sps_counter_option'], array( 'both', 'total', 'subtotal' ) ) ? $options['juiz_sps_counter_option'] : 'both';
+
+	// new options (1.5.0)
+	$newoptions['juiz_sps_order'] = is_array( $options['juiz_sps_order'] ) ? $options['juiz_sps_order'] : array();
 	
 	return $newoptions;
 }
@@ -223,31 +210,37 @@ function juiz_sps_setting_checkbox_network_selection() {
 	$options = jsps_get_option();
 	if ( is_array( $options ) ) {
 		
-		echo '<div class="juiz-sps-squared-options">';
+		echo '<div class="jsps-drag-container">
+				<div id="jsps-draggable-networks">
+					<div class="juiz-sps-squared-options">';
 
-		foreach ( $options['juiz_sps_networks'] as $k => $v ) {
+		$networks = juiz_sps_get_ordered_networks( $options['juiz_sps_order'], $options['juiz_sps_networks']);
+
+		foreach ( $networks as $k => $v ) {
 
 			$is_checked = ( $v[0] == 1 ) ? ' checked="checked"' : '';
 			$is_js_test = ( $k == 'pinterest' ) ? ' <em>(' . __( 'uses JavaScript to work', 'juiz-social-post-sharer' ) . ')</em>' : '';
 			$network_name = isset( $v[1] ) ? $v[1] : $k;
 
-			echo '<p class="juiz_sps_options_p">
-					<input id="jsps_network_selection_' . $k . '" value="' . $k . '" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_networks][]" type="checkbox"
+			echo '<p class="juiz_sps_options_p" data-network="' . esc_attr( $k ) . '">
+					<input id="jsps_network_selection_' . esc_attr( $k ) . '" value="' . esc_attr( $k ) . '" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_networks][]" type="checkbox"
 				' . $is_checked . ' />
-			  		<label for="jsps_network_selection_' . $k . '">
+			  		<label for="jsps_network_selection_' . esc_attr( $k ) . '">
 			  			<span class="jsps_demo_icon">
-			  				<i class="jsps-icon-' . $k . '" aria-hidden="true"></i>
+			  				<i class="jsps-icon-' . esc_attr( $k ) . '" aria-hidden="true"></i>
 			  			</span>
-			  			<span class="jsps_demo_name">' . $network_name . '' . $is_js_test . '</span>
+			  			<span class="jsps_demo_name">' . esc_html( $network_name ) . '' . $is_js_test . '</span>
 			  		</label>
+			  		<input type="hidden" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_order][]" value=' . esc_attr( $k ) . '>
+			  		<span class="juiz-sps-handle"></span>
 			  	</p>';
 		}
 
 		if ( ! is_array( $options['juiz_sps_networks']['weibo'] ) ) {
-			echo '<p class="juiz_sps_options_p"><input id="jsps_network_selection_weibo" value="weibo" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_networks][]" type="checkbox"> <label for="jsps_network_selection_weibo"><span class="jsps_demo_icon jsps_demo_icon_weibo"></span>Weibo</label> <!--em class="jsps_new">(' . __( 'New social network!', 'juiz-social-post-sharer' ) . ')</em--></p>';
+			echo '<p class="juiz_sps_options_p" data-network="weibo"><input id="jsps_network_selection_weibo" value="weibo" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_networks][]" type="checkbox"> <label for="jsps_network_selection_weibo"><span class="jsps_demo_icon jsps_demo_icon_weibo"></span>Weibo</label> <!--em class="jsps_new">(' . __( 'New social network!', 'juiz-social-post-sharer' ) . ')</em--></p>';
 		}
 
-		echo '</div>';
+		echo '</div></div></div>';
 
 	}
 }
@@ -259,7 +252,7 @@ function juiz_sps_setting_input_twitter_user() {
 	$options = jsps_get_option();
 	if ( is_array( $options ) ) {
 		$username = isset( $options['juiz_sps_twitter_user'] ) ? $options['juiz_sps_twitter_user'] : '';
-	echo '<p class="juiz_sps_options_p">
+	echo '<p class="juiz_sps_options_p juiz_option_twitter_name">
 			<input id="juiz_sps_twitter_user" value="' . esc_attr( $username ) . '" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_twitter_user]" type="text"> <em>(' . __( 'Username without "@"', 'juiz-social-post-sharer' ) . ')</em>
 	  	</p>';
 	}

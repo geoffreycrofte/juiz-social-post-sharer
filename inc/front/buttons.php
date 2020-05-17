@@ -107,8 +107,6 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 
 		if ( ! empty( $networks ) ) {
 			// compare $juiz_sps_options['juiz_sps_networks'] array and $networks array and conserve from the first one all that correspond to the second one's keys
-			$juiz_sps_networks = array();
-
 			foreach( $juiz_sps_options['juiz_sps_networks'] as $k => $v ) {
 				if ( in_array( $k, $networks ) ) {
 					$juiz_sps_networks[ $k ] = $v;
@@ -120,41 +118,25 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 			$juiz_sps_networks = $juiz_sps_options['juiz_sps_networks'];
 		}
 
-		//TODO: make it dynamic.
-		$order = array(
-			'twitter',
-			'pinterest',
-			'facebook',
-			'digg',
-			'linkedin',
-			'bookmark',
-			'mail',
-		);
-		var_dump( jsps_get_core_networks() );
-		var_dump( $order );
-		var_dump( $networks );
-		var_dump( $juiz_sps_options['juiz_sps_networks'] );
-		// Sort networks by user choice order.
-		// @see: https://stackoverflow.com/questions/348410/sort-an-array-by-keys-based-on-another-array/9098675#9098675
-		$sorted_networks = array_replace( array_flip( $order ), $juiz_sps_networks );
+		// Set network order
+		$order = ! empty( $networks ) ? $networks : $juiz_sps_options['juiz_sps_order'];
+		$sorted_networks = juiz_sps_get_ordered_networks( $order, $juiz_sps_networks);
 
 
-		// each links (come from options or manual array)
-		foreach( $juiz_sps_networks as $k => $v ) {
+		// Each links (come from options or manual array)
+		foreach( $sorted_networks as $k => $v ) {
 			if ( $v[0] == 1 ) {
-				$api_link = $api_text = '';
-				$url  = apply_filters( 'juiz_sps_the_shared_permalink_for_' . $k, $url );
+				$api_link     = $api_text = '';
+				$url          = apply_filters( 'juiz_sps_the_shared_permalink_for_' . $k, $url );
 				$network_name = isset( $v[1] ) ? $v[1] : $k;
 				$network_name = apply_filters( 'juiz_sps_share_name_for_' . $k, $network_name );
-
-				$twitter_user = $juiz_sps_options['juiz_sps_twitter_user'] != '' ? '&amp;related=' . $juiz_sps_options['juiz_sps_twitter_user'] . '&amp;via=' . $juiz_sps_options['juiz_sps_twitter_user'] : '';
-
-				$api_text = apply_filters( 'juiz_sps_share_text_for_' . $k, sprintf( __( 'Share this article on %s', 'juiz-social-post-sharer' ), $network_name ) );
+				$api_text     = apply_filters( 'juiz_sps_share_text_for_' . $k, sprintf( __( 'Share this article on %s', 'juiz-social-post-sharer' ), $network_name ) );
 
 				$more_attr = $juiz_sps_target_link;
 
 				switch ( $k ) {
 					case 'twitter' :
+						$twitter_user = $juiz_sps_options['juiz_sps_twitter_user'] != '' ? '&amp;related=' . apply_filters( 'juiz_sps_twitter_nickname', $juiz_sps_options['juiz_sps_twitter_user'] ) . '&amp;via=' . apply_filters( 'juiz_sps_twitter_nickname', $juiz_sps_options['juiz_sps_twitter_user'] ) : '';
 						$api_link = 'https://twitter.com/intent/tweet?source=webclient&amp;original_referer=' . $url . '&amp;text=' . $text . '&amp;url=' . $url . $twitter_user;
 						break;
 

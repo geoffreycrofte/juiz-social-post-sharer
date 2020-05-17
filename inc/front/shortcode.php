@@ -22,7 +22,8 @@ if ( ! function_exists( 'sc_4_jsps' ) ) {
 			'url'		=> NULL
 		), $atts );
 		
-		// Buttons become array ("digg,mail", "digg ,mail", "digg, mail", "digg , mail", are right syntaxes)
+		// Buttons become array
+		// "digg,mail", "digg ,mail", "digg, mail", "digg , mail", are correct syntaxes
 		$jsps_networks 		= preg_split( '#[\s+,\s+]#', $atts['buttons'] );
 		$jsps_counters 		= intval( $atts['counters'] );
 		$jsps_current_page 	= intval( $atts['current'] );
