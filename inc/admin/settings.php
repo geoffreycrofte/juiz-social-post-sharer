@@ -84,6 +84,8 @@ add_filter( 'admin_init', 'add_juiz_sps_plugin_options' );
 function juiz_sps_sanitize( $options ) {
 	
 	if ( is_array( $options['juiz_sps_networks'] ) ) {
+
+		
 		
 		$juiz_sps_opt = jsps_get_option();
 
@@ -119,9 +121,6 @@ function juiz_sps_sanitize( $options ) {
 		foreach ( $temp_array as $k => $v ) {
 			$juiz_sps_opt['juiz_sps_networks'][ $k ][0] = $v;
 		}
-
-		var_dump($juiz_sps_opt['juiz_sps_networks']);
-		wp_die();
 
 		$newoptions['juiz_sps_networks'] = $juiz_sps_opt['juiz_sps_networks'];
 	}
