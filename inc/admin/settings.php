@@ -83,9 +83,10 @@ add_filter( 'admin_init', 'add_juiz_sps_plugin_options' );
 // sanitize posted data
 function juiz_sps_sanitize( $options ) {
 	
-	if ( is_array( $options['juiz_sps_networks'] ) ) {
-
-		
+	// Normal option update only send an array with visible networks. array('twitter', 'facebook')
+	// AJAX Update send complete network array.
+	// if $options['juiz_sps_networks']['twitter'] is set, it's an AJAX Request
+	if ( is_array( $options['juiz_sps_networks'] ) && ! isset( $options['juiz_sps_networks']['twitter'] ) ) {
 		
 		$juiz_sps_opt = jsps_get_option();
 
@@ -119,10 +120,13 @@ function juiz_sps_sanitize( $options ) {
 		}
 
 		foreach ( $temp_array as $k => $v ) {
-			$juiz_sps_opt['juiz_sps_networks'][ $k ][0] = $v;
+			$juiz_sps_opt['juiz_sps_networks'][ $k ][0] = (int) $v;
 		}
 
 		$newoptions['juiz_sps_networks'] = $juiz_sps_opt['juiz_sps_networks'];
+
+	} else {
+		$newoptions['juiz_sps_networks'] = $options['juiz_sps_networks'];
 	}
 
 
@@ -213,6 +217,8 @@ function juiz_sps_setting_checkbox_network_selection() {
 				<div id="jsps-draggable-networks">
 					<div class="juiz-sps-squared-options">';
 
+		jsps_update_option($options);
+
 		$networks = juiz_sps_get_ordered_networks( $options['juiz_sps_order'], $options['juiz_sps_networks']);
 
 		foreach ( $networks as $k => $v ) {
@@ -240,6 +246,9 @@ function juiz_sps_setting_checkbox_network_selection() {
 		}
 
 		echo '</div></div></div>';
+
+		// For AJAX notification.
+		juiz_sps_get_notification_markup();
 
 	}
 }

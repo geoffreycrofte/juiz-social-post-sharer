@@ -84,6 +84,13 @@ jQuery( document ).ready( function( $ ){
 
 			// Init draggable stuff
 			let draggableElement = document.getElementById('jsps-draggable-networks');
+			var networkOrder = [];
+
+			draggableElement.querySelectorAll('.juiz_sps_options_p').forEach(function(el){
+				networkOrder.push(el.dataset.network);
+			});
+
+			var lastOrder = networkOrder;
 
 			lmdd.set(draggableElement, {
 				containerClass: 'juiz-sps-squared-options',
@@ -97,23 +104,70 @@ jQuery( document ).ready( function( $ ){
 
 				// When hidden-layer is removed, dragEvent just ended
 				if ( event[0].target.classList.contains('hidden-layer') === false ) {
-					let networkOrder = [];
+					var isDiff = false;
+					networkOrder = [];
 
 					draggableElement.querySelectorAll('.juiz_sps_options_p').forEach(function(el){
 						networkOrder.push(el.dataset.network);
 					});
 
-					
-					// AJAX Post actions on ordering stuff
-					let orderdata = {
-						'action': jsps.networkOrderAction,
-						'nonce' : jsps.networkOrderNonce,
-						'order' : networkOrder,
-					};
-					$.post(jsps.ajaxurl, orderdata, function(response) {
-						console.log(response);
-					});
-					 
+					// Check if there is any change of order.
+					for (i = 0; i < lastOrder.length; i++) {
+						if ( lastOrder[i] !== networkOrder[i] ) {
+							isDiff = true;
+							break;
+						}
+					}
+
+					// If there is, do the AJAX request.
+					if ( isDiff ) {
+
+						// To avoid resquet being made is no change.
+						lastOrder = networkOrder;
+
+						// AJAX Post actions on ordering stuff
+						let orderdata = {
+							'action': jsps.networkOrderAction,
+							'nonce' : jsps.networkOrderNonce,
+							'order' : networkOrder,
+						};
+
+						$.post(jsps.ajaxurl, orderdata, function(response) {
+							var notif = document.querySelector('.juiz-sps-notif'),
+								icon = document.querySelector('.juiz-sps-notif-icon i'),
+								text = document.querySelector('.juiz-sps-notif-text'),
+								delay = 3000;
+
+							notif.classList.add('is-visible');
+							notif.setAttribute('aria-live', 'assertive');
+							notif.setAttribute('role', 'alert');
+
+							if ( response.success === true ) {
+								notif.classList.remove('is-error');
+								notif.classList.add('is-success');
+								icon.classList.remove('dashicons-warning');
+								icon.classList.add('dashicons-yes-alt');
+								text.innerHTML = response.data.message;
+							} else {
+								notif.classList.remove('is-success');
+								notif.classList.add('is-error');
+								icon.classList.remove('dashicons-yes-alt');
+								icon.classList.add('dashicons-warning');
+								text.innerHTML = response.data.message;
+								delay = 6000;
+							}
+
+							// Remove notification after a delay
+							setTimeout(function(){
+								notif.classList.remove('is-visible');
+								notif.removeAttribut('aria-live');
+								notif.removeAttribute('role');
+							}, delay);
+
+						});
+					} else {
+						console.info('JuizSPS: No change baby!');
+					}
 				}
 			});
 

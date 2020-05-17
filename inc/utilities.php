@@ -35,11 +35,26 @@ if ( ! function_exists( 'juiz_sf_get_current_url' ) ) {
 }
 
 if ( ! function_exists( 'juiz_sps_get_ordered_networks') ) {
-	function juiz_sps_get_ordered_networks($order, $networks) {
+	function juiz_sps_get_ordered_networks( $order, $networks ) {
 		$order = isset( $order ) && is_array( $order ) ? $order : null;
 
 		// Sort networks by user choice order.
 		// @see: https://stackoverflow.com/questions/348410/sort-an-array-by-keys-based-on-another-array/9098675#9098675
 		return $order !== null ? array_replace( array_flip( $order ), $networks ) : $networks;
+	}
+}
+
+if ( ! function_exists('juiz_sps_get_notification_markup') ) {
+	function juiz_sps_get_notification_markup() {
+		?>
+
+		<div class="juiz-sps-notif">
+			<div class="juiz-sps-notif-icon">
+				<i class="dashicons" role="presentation"></i>
+			</div>
+			<p class="juiz-sps-notif-text"></p>
+		</div>
+
+		<?php
 	}
 }

@@ -9,6 +9,7 @@
 	font-weight: normal;
 	font-style: normal;
 }
+
 [class^="jsps-icon-"],
 [class*=" jsps-icon-"]{
 	font-family: 'jsps-icon'!important;
@@ -22,6 +23,7 @@
 	-moz-osx-font-smoothing: grayscale;
 	font-size: 1em;
 }
+
 .jsps-icon-print:before {
 	content: "\e903";
 }
@@ -80,6 +82,7 @@
 	content: "\ead0";
 }
 
+/* Header */
 .jsps-main-header,
 .jsps-links-header {
 	padding: 15px 35px 18px;
@@ -858,6 +861,73 @@ input[type="checkbox"]:checked + label em {
 
 .lmdd-hidden {
 	visibility: hidden;
+}
+/**
+ * Notification system (AJAX toaster)
+ */
+.juiz-sps-notif {
+	position: fixed;
+	bottom: 48px;
+	left: 50%;
+	display: flex;
+	width: 320px;
+	border: 1px solid rgba(67, 175, 210, .1);
+	border-radius: 8px;
+	background: #FFF;
+	overflow: hidden;
+	box-shadow: 0 2px 8px -4px rgba(30, 30, 45, .2),
+				0 4px 12px -8px rgba(30, 30, 45, .15), 
+				0 8px 18px -12px rgba(30, 30, 45, .1);
+	
+	opacity: 0;
+	transform: translateX(-50%) translateY(200px);
+	transition: all .300s;
+}
+
+.juiz-sps-notif.is-visible {
+	opacity: 1;
+	transform: translateX(-50%) translateY(0);
+}
+
+.juiz-sps-notif-icon {
+	padding: 16px;
+	background: rgba(67, 175, 210, .1);
+}
+
+.juiz-sps-notif-icon i {
+	font-size: 32px;
+	width: 1em;
+	height: 1em;
+	color: #43AFD2;
+}
+
+.juiz-sps-notif-text.juiz-sps-notif-text {
+	margin: 0;
+	padding: 16px;
+	align-self: center;
+	font-weight: 500;
+}
+
+/* Success */
+.juiz-sps-notif.is-success {
+	border-color: rgba(70, 180, 80, .1);
+}
+.juiz-sps-notif.is-success .juiz-sps-notif-icon {
+	background: rgba(70, 180, 80, .1);
+}
+.juiz-sps-notif.is-success .juiz-sps-notif-icon i {
+	color: rgb(70, 180, 80);
+}
+
+/* Warning */
+.juiz-sps-notif.is-error {
+	border-color: rgba(255, 185, 0, .1);
+}
+.juiz-sps-notif.is-error .juiz-sps-notif-icon {
+	background: rgba(255, 185, 0, .1);
+}
+.juiz-sps-notif.is-error .juiz-sps-notif-icon i {
+	color: rgb(255, 185, 0);
 }
 
 /**

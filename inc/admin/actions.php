@@ -22,17 +22,20 @@ function juiz_sps_AJAX_order_networks() {
 		$jsps_options_new = jsps_get_option();
 
 		if ( $updated ) {
-			$data['datasent'] = $jsps_options;
-			$data['db'] = $jsps_options_new;
+			$data['message'] = esc_html__( 'New order saved!', 'juiz-social-post-sharer' ); 
 			wp_send_json_success( $data );
 			wp_die();
 		} else {
-			wp_send_json_error( $jsps_options );
+			$data['message'] = esc_html__( 'Sorry, can’t save the order. Use the Save Changes button.', 'juiz-social-post-sharer' );
+			$data['data'] = $jsps_options;
+			wp_send_json_error( $data );
 			wp_die();
 		}
 
 	} else {
-		echo 'Didn’t work';
+		$data['message'] = esc_html__( 'Sorry, can’t save the order. Use the Save Changes button.', 'juiz-social-post-sharer' );
+		$data['data'] = $jsps_options;
+		wp_send_json_error( $data );
 		wp_die();
 	}
 }
