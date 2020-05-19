@@ -39,7 +39,7 @@ define( 'JUIZ_SPS_FILE',		  __FILE__ );
 define( 'JUIZ_SPS_DIRNAME',		  basename( dirname( __FILE__ ) ) );
 define( 'JUIZ_SPS_PLUGIN_URL',	  plugin_dir_url( __FILE__ ));
 define( 'JUIZ_SPS_PLUGIN_ASSETS', JUIZ_SPS_PLUGIN_URL . 'assets/' );
-define( 'JUIZ_SPS_THEMES_FOLDER', JUIZ_SPS_PLUGIN_URL . 'themes/' );
+define( 'JUIZ_SPS_SKINS_FOLDER',  JUIZ_SPS_PLUGIN_URL . 'skins/' );
 define( 'JUIZ_SPS_SLUG',		  'juiz-social-post-sharer' );
 define( 'JUIZ_SPS_SETTING_NAME',  'juiz_SPS_settings' );
 
@@ -55,16 +55,16 @@ function make_juiz_sps_multilang() {
 	load_plugin_textdomain( 'juiz-social-post-sharer', false, JUIZ_SPS_DIRNAME.'/languages' );
 }
 
-include_once( 'inc/options.php'           );
-include_once( 'inc/register-theme.php'    );
-include_once( 'inc/register-network.php'  );
-include_once( 'inc/register-networks.php' );
-include_once( 'inc/utilities.php' );
+include_once( 'inc/options.php'               );
+include_once( 'inc/register-skin.php'        );
+include_once( 'inc/register-skins.php' );
+include_once( 'inc/register-network.php'      );
+include_once( 'inc/register-networks.php'     );
+include_once( 'inc/utilities.php'             );
 
 // Include the admin files in admin and when it's not an AJAX request.
 if ( is_admin() || ( defined( 'DOING_AJAX' ) && ! DOING_AJAX ) ) {
 	include_once( 'inc/admin/register-settings.php' );
-	include_once( 'inc/admin/register-themes.php'   );
 	include_once( 'inc/admin/settings.php'          );
 	include_once( 'inc/admin/metaboxes.php'         );
 	include_once( 'inc/admin/enqueues.php'          );

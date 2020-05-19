@@ -174,31 +174,31 @@ if ( ! function_exists( 'juiz_sps_setting_radio_style_choice' ) ) {
 function juiz_sps_setting_radio_style_choice() {
 
 	$options       = jsps_get_option();
-	$core_themes   = jsps_get_core_themes();
-	$custom_themes = jsps_get_custom_themes();
+	$core_skins   = jsps_get_core_skins();
+	$custom_skins = jsps_get_custom_skins();
 
-	if ( is_array( $options ) && is_array( $core_themes ) ) {
+	if ( is_array( $options ) && is_array( $core_skins ) ) {
 		
 		// Slug of theme activated.
-		$current_theme = $options['juiz_sps_style'];
-		$all_themes    = $core_themes + $custom_themes;
+		$current_skin = $options['juiz_sps_style'];
+		$all_skins    = $core_skins + $custom_skins;
 
-		foreach ( $all_themes as $slug => $theme ) {
-			$theme_author = isset( $theme['author'] ) ? esc_html( $theme['author'] ) : '';
-			$theme_author = isset( $theme['author_url'] ) ? '<a href="' . esc_url( $theme['author_url'] ) . '" target="_blank">' . $theme_author . '</a>' : $theme_author;
-			$theme_name   = isset( $theme['name'] ) ? esc_html( $theme['name'] ) : __( "This theme doesn't have a name", 'juiz-social-post-sharer' );
-			$theme_name   = isset( $theme['author'] ) ? sprintf( __( '%1$s by %2$s', 'juiz-social-post-sharer' ), $theme_name, $theme_author) : $theme_name;
-			$demo_src     = isset( $theme['demo_url'] ) ? esc_url( $theme['demo_url'] ) : JUIZ_SPS_PLUGIN_URL . 'themes/' . $slug . '/demo.png';
-			$demo_src_2x  = isset( $theme['demo_url_2x'] ) ? esc_url( $theme['demo_url_2x'] ) : JUIZ_SPS_PLUGIN_URL . 'themes/' . $slug . '/demo@2x.png';
+		foreach ( $all_skins as $slug => $skin ) {
+			$skin_author = isset( $skin['author'] ) ? esc_html( $skin['author'] ) : '';
+			$skin_author = isset( $skin['author_url'] ) ? '<a href="' . esc_url( $skin['author_url'] ) . '" target="_blank">' . $skin_author . '</a>' : $skin_author;
+			$skin_name   = isset( $skin['name'] ) ? esc_html( $skin['name'] ) : __( "This skin doesn't have a name", 'juiz-social-post-sharer' );
+			$skin_name   = isset( $skin['author'] ) ? sprintf( __( '%1$s by %2$s', 'juiz-social-post-sharer' ), $skin_name, $skin_author) : $skin_name;
+			$demo_src     = isset( $skin['demo_url'] ) ? esc_url( $skin['demo_url'] ) : JUIZ_SPS_PLUGIN_URL . 'skins/' . $slug . '/demo.png';
+			$demo_src_2x  = isset( $skin['demo_url_2x'] ) ? esc_url( $skin['demo_url_2x'] ) : null;
 
-			// Print the themes.
+			// Print the skins.
 			echo '<p class="juiz_sps_styles_options">
-					<input id="jsps_style_' . esc_attr( $slug ) . '" value="' . esc_attr( $slug ) . '" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_style]" type="radio" ' . ( intval( $current_theme ) === $slug ? ' checked="checked"' : '' ) . ' />
+					<input id="jsps_style_' . esc_attr( $slug ) . '" value="' . esc_attr( $slug ) . '" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_style]" type="radio" ' . ( intval( $current_skin ) === $slug ? ' checked="checked"' : '' ) . ' />
 					<label for="jsps_style_' . esc_attr( $slug ) . '">
 						<span class="juiz_sps_demo_styles">
-							<img src="' . $demo_src . '" srcset="' . $demo_src_2x . ' 2x">
+							<img src="' . $demo_src . '"' . ( isset( $demo_src_2x ) ? ' srcset="' . $demo_src_2x . ' 2x"' : '' ) . '>
 						</span>
-						<span class="juiz_sps_style_name">' . $theme_name . '</span>
+						<span class="juiz_sps_style_name">' . $skin_name . '</span>
 					</label>
 				</p>';
 		}

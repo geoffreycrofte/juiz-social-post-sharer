@@ -2,14 +2,17 @@
 	die( 'Cheatin&#8217; uh?' );
 }
 
-/**
- * Enqueue & Dequeue scripts and styles needed.
- *
- * @return void
- * @since  1.0
- * @author Geoffrey Crofte
- */
 if ( ! function_exists('jsps_enqueue_scripts') ) {
+
+	/**
+	 * Enqueue & Dequeue scripts function (prepare).
+	 *
+	 * @return void
+	 *
+	 * @since  1.0
+	 * @version Updated: 1.5.0
+	 * @author Geoffrey Crofte
+	 */
 	function jsps_enqueue_scripts() {
 		$prefix = ( defined('WP_DEBUG') && WP_DEBUG === true ) ? '' : '.min';
 
@@ -45,6 +48,16 @@ if ( ! function_exists('jsps_enqueue_scripts') ) {
 
 if ( ! function_exists( 'juiz_sps_style_and_script' ) ) {
 
+	/**
+	 * Enqueue & Dequeue scripts and styles needed
+	 * depending on the theme and options selected.
+	 *
+	 * @return void
+	 *
+	 * @since  1.0
+	 * @version Updated: 1.5.0
+	 * @author Geoffrey Crofte
+	 */
 	function juiz_sps_style_and_script() {
 
 		$juiz_sps_options = jsps_get_option();
@@ -56,12 +69,12 @@ if ( ! function_exists( 'juiz_sps_style_and_script' ) ) {
 			// CSS to add to queue.
 			if ( isset( $juiz_sps_options['juiz_sps_style'] ) && apply_filters( 'juiz_sps_use_default_css', true ) ) {
 
-				$core_themes   = jsps_get_core_themes();
-				$custom_themes = jsps_get_custom_themes();
-				$all_themes    = $core_themes + $custom_themes;
+				$core_skins   = jsps_get_core_skins();
+				$custom_skins = jsps_get_custom_skins();
+				$all_skins    = $core_skins + $custom_skins;
 				$current_slug  = $juiz_sps_options['juiz_sps_style'];
 
-				$css_file = isset( $all_themes[ $current_slug ]['css_url'] ) ? $all_themes[ $current_slug ]['css_url'] : JUIZ_SPS_THEMES_FOLDER . $current_slug . '/style' . $prefix . '.css';
+				$css_file = isset( $all_skins[ $current_slug ]['css_url'] ) ? $all_skins[ $current_slug ]['css_url'] : JUIZ_SPS_SKINS_FOLDER . $current_slug . '/style' . $prefix . '.css';
 
 				// The CSS file for theme.
 				wp_enqueue_style( 'juiz_sps_styles', $css_file, false, JUIZ_SPS_VERSION, 'all' );

@@ -58,3 +58,15 @@ if ( ! function_exists('juiz_sps_get_notification_markup') ) {
 		<?php
 	}
 }
+
+if ( ! function_exists('juiz_sps_get_skin_css_name') ) {
+	function juiz_sps_get_skin_css_name() {
+		return 'styles.css';
+	}
+}
+
+if ( ! function_exists('juiz_sps_get_skin_img_name') ) {
+	function juiz_sps_get_skin_img_name() {
+		return 'screenshot.png';
+	}
+}
