@@ -115,6 +115,8 @@ function jsps_register_current_template_skins( $custom_skins ) {
 	}
 
 	// Let's use some info about the current theme to describe the Buttons' skin.
+	// Should I use https://developer.wordpress.org/reference/functions/get_file_data/ ?
+	// get_file_data() to get style.css info
 	$themeinf  = wp_get_theme();
 	$auth      = apply_filters( 'juiz_sps_custom_skin_author', $themeinf->get('Author'), $skins );
 	$authurl   = apply_filters( 'juiz_sps_custom_skin_author_url', $themeinf->get('AuthorURI'), $skins );

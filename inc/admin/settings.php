@@ -84,6 +84,7 @@ add_filter( 'admin_init', 'add_juiz_sps_plugin_options' );
 function juiz_sps_sanitize( $options ) {
 	
 	// Normal option update only send an array with visible networks. array('twitter', 'facebook')
+	// TODO: use something else to validate the visible items to avoid listing those line 97.
 	// AJAX Update send complete network array.
 	// if $options['juiz_sps_networks']['twitter'] is set, it's an AJAX Request
 	if ( is_array( $options['juiz_sps_networks'] ) && ! isset( $options['juiz_sps_networks']['twitter'] ) ) {
@@ -173,7 +174,7 @@ if ( ! function_exists( 'juiz_sps_section_text' ) ) {
 if ( ! function_exists( 'juiz_sps_setting_radio_style_choice' ) ) {
 function juiz_sps_setting_radio_style_choice() {
 
-	$options       = jsps_get_option();
+	$options      = jsps_get_option();
 	$core_skins   = jsps_get_core_skins();
 	$custom_skins = jsps_get_custom_skins();
 
@@ -193,7 +194,7 @@ function juiz_sps_setting_radio_style_choice() {
 
 			// Print the skins.
 			echo '<p class="juiz_sps_styles_options">
-					<input id="jsps_style_' . esc_attr( $slug ) . '" value="' . esc_attr( $slug ) . '" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_style]" type="radio" ' . ( intval( $current_skin ) === $slug ? ' checked="checked"' : '' ) . ' />
+					<input id="jsps_style_' . esc_attr( $slug ) . '" value="' . esc_attr( $slug ) . '" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_style]" type="radio" ' . ( $current_skin === $slug ? ' checked="checked"' : '' ) . ' />
 					<label for="jsps_style_' . esc_attr( $slug ) . '">
 						<span class="juiz_sps_demo_styles">
 							<img src="' . $demo_src . '"' . ( isset( $demo_src_2x ) ? ' srcset="' . $demo_src_2x . ' 2x"' : '' ) . '>
