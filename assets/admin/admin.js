@@ -160,7 +160,7 @@ jQuery( document ).ready( function( $ ){
 							// Remove notification after a delay
 							setTimeout(function(){
 								notif.classList.remove('is-visible');
-								notif.removeAttribut('aria-live');
+								notif.removeAttribute('aria-live');
 								notif.removeAttribute('role');
 							}, delay);
 
