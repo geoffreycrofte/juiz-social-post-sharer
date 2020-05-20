@@ -19,7 +19,6 @@ function juiz_sps_AJAX_order_networks() {
 		$jsps_options['juiz_sps_order'] = $_POST['order'];
 
 		$updated = jsps_update_option( $jsps_options );
-		$jsps_options_new = jsps_get_option();
 
 		if ( $updated ) {
 			$data['message'] = esc_html__( 'New order saved!', 'juiz-social-post-sharer' ); 

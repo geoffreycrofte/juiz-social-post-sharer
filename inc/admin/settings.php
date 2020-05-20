@@ -82,44 +82,24 @@ add_filter( 'admin_init', 'add_juiz_sps_plugin_options' );
 
 // sanitize posted data
 function juiz_sps_sanitize( $options ) {
+
+	$newoptions = array();
 	
 	// Normal option update only send an array with visible networks. array('twitter', 'facebook')
-	// TODO: use something else to validate the visible items to avoid listing those line 97.
 	// AJAX Update send complete network array.
 	// if $options['juiz_sps_networks']['twitter'] is set, it's an AJAX Request
-	if ( is_array( $options['juiz_sps_networks'] ) && ! isset( $options['juiz_sps_networks']['twitter'] ) ) {
-		
+	if ( is_array( $options['juiz_sps_networks'] ) && ! $options['juiz_sps_networks']['twitter'] ) {
+
 		$juiz_sps_opt = jsps_get_option();
+		
+		$temp_array = array();
 
-		// All the following to add new networks alongside the versionning
-		// a bit overkill
-		// TODO: find another way to sanitize and update this option.
-		$temp_array = array( 'facebook' => 0, 'twitter' => 0, 'google' => 0, 'pinterest' => 0, 'viadeo' => 0, 'linkedin' => 0, 'digg' => 0, 'stumbleupon' => 0, 'weibo' => 0, 'mail' => 0, 'vk' => 0 );
-
-		// new option (1.2.0)
-		if ( ! in_array( 'weibo', $juiz_sps_opt['juiz_sps_networks'] ) ) {
-			$juiz_sps_opt['juiz_sps_networks']['weibo'] = array( 0, __( 'Weibo', 'juiz-social-post-sharer' ) );
-		}
-		// new option (1.3.0)
-		if ( ! in_array( 'vk', $juiz_sps_opt['juiz_sps_networks'] ) ) {
-			$juiz_sps_opt['juiz_sps_networks']['vk'] = array( 0, __( 'VKontakte', 'juiz-social-post-sharer' ) );
-		}
-		// new option (1.4.1)
-		if ( ! in_array( 'tumblr', $juiz_sps_opt['juiz_sps_networks'] ) ) {
-			$juiz_sps_opt['juiz_sps_networks']['tumblr'] = array( 0, __( 'Tumblr', 'juiz-social-post-sharer' ) );
-			$juiz_sps_opt['juiz_sps_networks']['delicious'] = array( 0, __( 'Delicious', 'juiz-social-post-sharer' ) );
-			$juiz_sps_opt['juiz_sps_networks']['reddit'] = array( 0, __( 'Reddit', 'juiz-social-post-sharer' ) );
-		}
-		// new option (1.4.2)
-		if ( ! in_array( 'bookmark', $juiz_sps_opt['juiz_sps_networks'] ) ) {
-			$juiz_sps_opt['juiz_sps_networks']['bookmark'] = array( 0, __( 'Bookmark', 'juiz-social-post-sharer' ) );
-			$juiz_sps_opt['juiz_sps_networks']['print'] = array( 0, __( 'Print', 'juiz-social-post-sharer' ) );
+		// fill an array with 0 and 1 for visibility
+		foreach ( $options['juiz_sps_order'] as $nw ) {
+			$temp_array[ $nw ] = in_array( $nw, $options['juiz_sps_networks'] ) ? 1 : 0;
 		}
 
-		foreach ( $options['juiz_sps_networks'] as $nw ) {
-			$temp_array[ $nw ] = 1;
-		}
-
+		// complete the original array formatting with the new visbility values
 		foreach ( $temp_array as $k => $v ) {
 			$juiz_sps_opt['juiz_sps_networks'][ $k ][0] = (int) $v;
 		}
@@ -148,8 +128,8 @@ function juiz_sps_sanitize( $options ) {
 		wp_redirect( admin_url( 'options-general.php?page=' . JUIZ_SPS_SLUG . '&message=1337' ) );
 		exit;
 	}
+
 	$newoptions['juiz_sps_display_where'] = in_array( $options['juiz_sps_display_where'], array( 'bottom', 'top', 'both', 'nowhere' ) ) ? $options['juiz_sps_display_where'] : 'bottom';
-	
 
 	// new options (1.2.5)
 	$newoptions['juiz_sps_force_pinterest_snif'] = (int) $options['juiz_sps_force_pinterest_snif'] == 1 ? 1 : 0;
@@ -157,7 +137,7 @@ function juiz_sps_sanitize( $options ) {
 	// new options (1.3.3.7)
 	$newoptions['juiz_sps_counter_option'] = in_array( $options['juiz_sps_counter_option'], array( 'both', 'total', 'subtotal' ) ) ? $options['juiz_sps_counter_option'] : 'both';
 
-	// new options (1.5.0)
+	// new options (2.0.0)
 	$newoptions['juiz_sps_order'] = is_array( $options['juiz_sps_order'] ) ? $options['juiz_sps_order'] : array();
 	
 	return $newoptions;
@@ -218,7 +198,7 @@ function juiz_sps_setting_checkbox_network_selection() {
 				<div id="jsps-draggable-networks">
 					<div class="juiz-sps-squared-options">';
 
-		jsps_update_option($options);
+		//jsps_update_option($options);
 
 		$networks = juiz_sps_get_ordered_networks( $options['juiz_sps_order'], $options['juiz_sps_networks']);
 
