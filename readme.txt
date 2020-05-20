@@ -101,7 +101,7 @@ You can use one of both method :
 
 == Frequently Asked Questions ==
 
-Find a complete documentation on <a href="http://creativejuiz.fr/blog/doc/juiz-social-post-sharer-documentation.html">this official documentation</a>
+Find a complete documentation on <a href="https://www.creativejuiz.fr/blog/doc/juiz-social-post-sharer-documentation.html">this official documentation</a>
 
 = Twitter counter doesn't appear OR the count seems to be not exact =
 Yep, sorry about that, but <a href="https://twittercommunity.com/t/a-new-design-for-tweet-and-follow-buttons/52791">Twitter decided to shut down counter</a>.
@@ -144,12 +144,14 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
 
 == Changelog ==
 
-= 1.5 =
-* Tested on WordPress 5
+= 2.0.0 =
+* Tested on WordPress 5.4.1
 * *Admin*
  * Administration interface redesign
- * Script and Styles in external files (force refresh if you have bugs)
+ * Script and Styles in external files (force refresh if you bugs occure)
 * *New feature*
+ * Add or remove more easily custom buttons (Network API)
+ * Create your own button skin easily with the starter kit and this doc (TODO), do it in your theme or in a separate plugin.
  * Remove LinkedIn counter because LinkedIn doesn't offer a count anymore. (@see https://developer.linkedin.com/blog/posts/2018/deprecating-the-inshare-counter)
  * Remove Twitter counter because Twitter doesn't offer a count anymore. (@see https://twittercommunity.com/t/a-new-design-for-tweet-and-follow-buttons/52791)
  * Email button has now an option to open a little form in lightbox instead of mailto: protocole
@@ -157,19 +159,12 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
  * New button: 
  * New button: 
  * New button: 
-* *Plugin structure*
- * Assets (img/css/js/fonts) are now inside a folder named `assets`
- * Admin files are now inside a folder named `inc/admin`
- * `admin/jsps-admin.inc.php` renamed `inc/admin/settings.php`
- * Remove the file `inc/admin/jsps-admin-styles-scrips.php` (now external asset files)
- * Move metaboxes to `inc/admin/metaboxes.php`
- * Move shortcodes to `inc/front/shortcode.php`
- * Move button rendering functions to `inc/front/buttons.php`
+* *All new brand plugin files structure*
 * *New hooks*: see revamped documentation.html file inside the plugin folder.
 * *Fixes*
  * Fav/bookmark button JS error on Firefox (`chrome is undefined`)
  * Buttons are not printed if you use your browser print function (or the JSPS print button)
-* *Thanks*
+* *Thanks for their help*
  * To [jeherve](https://github.com/geoffreycrofte/juiz-social-post-sharer/pull/12)
  * To [sebastienserre](https://github.com/geoffreycrofte/juiz-social-post-sharer/pull/14)
  * To [MarieComet](https://github.com/geoffreycrofte/juiz-social-post-sharer/pull/10)
