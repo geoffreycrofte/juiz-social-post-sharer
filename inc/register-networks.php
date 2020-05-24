@@ -75,8 +75,8 @@ function jsps_register_core_networks( $core_networks ) {
 			'visible' => 0,
 		),
 		'print'       => array(
-			'visible' => 0,
 			'name'    => __( 'Print', 'juiz-social-post-sharer' ),
+			'visible' => 0,
 		),
 	);
 

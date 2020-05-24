@@ -81,3 +81,12 @@ if ( ! function_exists('juiz_sps_remove_old_networks') ) {
 		return $networks;
 	}
 }
+
+if ( ! function_exists( 'jsps_get_all_registered_networks' ) ) {
+	function jsps_get_all_registered_networks() {
+		$custom_networks = jsps_get_custom_networks();
+		$core_networks   = jsps_get_core_networks();
+
+		return array_merge( $custom_networks, $core_networks );
+	}
+}

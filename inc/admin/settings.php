@@ -88,28 +88,21 @@ function juiz_sps_sanitize( $options ) {
 	// Normal option update only send an array with visible networks. array('twitter', 'facebook')
 	// AJAX Update send complete network array.
 	// if $options['juiz_sps_networks']['twitter'] is set, it's an AJAX Request
-	if ( is_array( $options['juiz_sps_networks'] ) && ! $options['juiz_sps_networks']['twitter'] ) {
+	if ( is_array( $options['juiz_sps_networks'] ) && ! isset( $options['juiz_sps_networks']['twitter'] ) ) {
 
-		$juiz_sps_opt = jsps_get_option();
+		//$juiz_sps_opt = jsps_get_option();
+		$all_networks = jsps_get_all_registered_networks();
 		
-		$temp_array = array();
-
-		// fill an array with 0 and 1 for visibility
-		foreach ( $options['juiz_sps_order'] as $nw ) {
-			$temp_array[ $nw ] = in_array( $nw, $options['juiz_sps_networks'] ) ? 1 : 0;
+		// Change de visibility of a network if found in the juiz_sps_networks option sent.
+		foreach ( $all_networks as $k => $v ) {
+			$all_networks[ $k ]['visible'] = in_array( $k, $options['juiz_sps_networks'] ) ? 1 : 0;
 		}
 
-		// complete the original array formatting with the new visbility values
-		foreach ( $temp_array as $k => $v ) {
-			$juiz_sps_opt['juiz_sps_networks'][ $k ][0] = (int) $v;
-		}
-
-		$newoptions['juiz_sps_networks'] = $juiz_sps_opt['juiz_sps_networks'];
+		$newoptions['juiz_sps_networks'] = $all_networks;
 
 	} else {
 		$newoptions['juiz_sps_networks'] = $options['juiz_sps_networks'];
 	}
-
 
 	$newoptions['juiz_sps_style'] = esc_attr( $options['juiz_sps_style'] );
 	$newoptions['juiz_sps_hide_social_name'] = (int) $options['juiz_sps_hide_social_name'] == 1 ? 1 : 0;
@@ -139,6 +132,8 @@ function juiz_sps_sanitize( $options ) {
 
 	// new options (2.0.0)
 	$newoptions['juiz_sps_order'] = is_array( $options['juiz_sps_order'] ) ? $options['juiz_sps_order'] : array();
+
+	$newoptions['juiz_sps_version'] = JUIZ_SPS_VERSION;
 	
 	return $newoptions;
 }
@@ -217,6 +212,11 @@ function juiz_sps_setting_checkbox_network_selection() {
 
 		// Merge Custom and Core Networks, Core has the priority here.
 		$merged_networks = array_merge( $custom_networks, $core_networks );
+
+		// Merge Options registered by user woth complete list
+		if ( ! isset( $options['juiz_sps_networks']['delicious'] ) ) {
+			$merged_networks = array_merge( $merged_networks, $options['juiz_sps_networks'] );
+		}
 
 		$networks = juiz_sps_get_ordered_networks( $options['juiz_sps_order'], $merged_networks );
 		$networks = juiz_sps_remove_old_networks( $networks );
@@ -528,7 +528,7 @@ if ( ! function_exists( 'juiz_sps_settings_page' ) ) {
 					<?php _e( 'Example with all the networks available:', 'juiz-social-post-sharer'); ?>
 
 					<?php
-					$networks = array_merge( jsps_get_custom_networks(), jsps_get_core_networks() );
+					$networks = jsps_get_all_registered_networks();
 					$nws = '';
 					
 					foreach( $networks as $k => $v ) {
