@@ -8,42 +8,42 @@
 function jsps_register_core_networks( $core_networks ) {
 
 	$core_networks = array(
-		'delicious'   => array(
-			'name'    => __( 'Delicious', 'juiz-social-post-sharer' ),
+		'diigo'    => array(
+			'name'    => __( 'Diigo', 'juiz-social-post-sharer' ),
 			'visible' => 0,
 		),
-		'digg'        => array(
-			'name'    => __( 'Digg', 'juiz-social-post-sharer' ),
+		'evernote'    => array(
+			'name'    => __( 'Evernote', 'juiz-social-post-sharer' ),
 			'visible' => 0,
 		),
 		'facebook'    => array(
 			'name'    => __( 'Facebook', 'juiz-social-post-sharer' ),
 			'visible' => 1,
-		), 
-		'google'      => array(
-			'name'    => __( 'Google+', 'juiz-social-post-sharer' ),
-			'visible' => 0,
 		),
 		'linkedin'    => array(
 			'name'    => __( 'LinkedIn', 'juiz-social-post-sharer' ),
+			'visible' => 0,
+		),
+		'mix'    => array(
+			'name'    => __( 'Mix', 'juiz-social-post-sharer' ),
 			'visible' => 0,
 		),
 		'pinterest'   => array(
 			'name'    => __( 'Pinterest', 'juiz-social-post-sharer' ),
 			'visible' => 0,
 		),
-		'reddit'      => array(
-			'name'    => __( 'Reddit', 'juiz-social-post-sharer' ),
+		'pocket'   => array(
+			'name'    => __( 'Pocket', 'juiz-social-post-sharer' ),
 			'visible' => 0,
 		),
-		'stumbleupon' => array(
-			'name'    => __( 'StumbleUpon', 'juiz-social-post-sharer' ),
+		'reddit'      => array(
+			'name'    => __( 'Reddit', 'juiz-social-post-sharer' ),
 			'visible' => 0,
 		),
 		'twitter'     => array(
 			'name'    => __( 'Twitter', 'juiz-social-post-sharer' ),
 			'visible' => 1,
-		), 
+		),
 		'tumblr'      => array(
 			'name'    => __( 'Tumblr', 'juiz-social-post-sharer' ),
 			'visible' => 0,
@@ -60,6 +60,12 @@ function jsps_register_core_networks( $core_networks ) {
 			'name'    => __( 'Weibo', 'juiz-social-post-sharer' ),
 			'visible' => 0,
 		),
+		'whatsapp'       => array(
+			'name'    => __( 'WhatsApp', 'juiz-social-post-sharer' ),
+			'visible' => 0,
+		),
+
+		// Some utilities
 		'mail'        => array(
 			'name'    => __( 'Email', 'juiz-social-post-sharer' ),
 			'visible' => 1,

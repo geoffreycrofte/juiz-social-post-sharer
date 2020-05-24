@@ -70,3 +70,14 @@ if ( ! function_exists('juiz_sps_get_skin_img_name') ) {
 		return 'screenshot.png';
 	}
 }
+
+if ( ! function_exists('juiz_sps_remove_old_networks') ) {
+	function juiz_sps_remove_old_networks( $networks ) {
+		unset( $networks['delicious']   );
+		unset( $networks['digg']        );
+		unset( $networks['stumbleupon'] );
+		unset( $networks['google']      );
+
+		return $networks;
+	}
+}
