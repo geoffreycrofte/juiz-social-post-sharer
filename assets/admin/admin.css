@@ -1,11 +1,9 @@
 @font-face{
 	font-family: 'jsps-icon';
-	src: url('../../skins/common/fonts/jsps.eot?150');
-	src: url('../../skins/common/fonts/jsps.eot?#iefix150') format('embedded-opentype'),
-		 url('../../skins/common/fonts/jsps.woff2?150') format('woff2'),
-		 url('../../skins/common/fonts/jsps.woff?150') format('woff'),
-		 url('../../skins/common/fonts/jsps.ttf?150') format('truetype'),
-		 url('../../skins/common/fonts/jsps.svg?150#jsps') format('svg');
+	src: url('../../skins/common/fonts/jsps.woff2?200') format('woff2'),
+		 url('../../skins/common/fonts/jsps.woff?200' ) format('woff'),
+		 url('../../skins/common/fonts/jsps.ttf?200'  ) format('truetype'),
+		 url('../../skins/common/fonts/jsps.svg?200'  ) format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -24,62 +22,59 @@
 	font-size: 1em;
 }
 
-.jsps-icon-print:before {
-	content: "\e903";
-}
 .jsps-icon-bookmark:before {
-	content: "\e904";
+  content: "\e900";
 }
-.jsps-icon-star:before {
-	content: "\e905";
+.jsps-icon-diigo:before {
+  content: "\e901";
 }
-.jsps-icon-share:before {
-	content: "\e906";
-}
-.jsps-icon-share2:before {
-	content: "\e907";
-}
-.jsps-icon-tumblr:before {
-	content: "\e900";
-}
-.jsps-icon-reddit:before {
-	content: "\e901";
-}
-.jsps-icon-delicious:before {
-	content: "\e902";
-}
-.jsps-icon-viadeo:before {
-	content: "\e603";
-}
-.jsps-icon-digg:before {
-	content: "\e601";
-}
-.jsps-icon-stumbleupon:before {
-	content: "\e602";
-}
-.jsps-icon-vk:before {
-	content: "\e606";
-}
-.jsps-icon-weibo:before {
-	content: "\e604";
-}
-.jsps-icon-mail:before {
-	content: "\e600";
-}
-.jsps-icon-google:before {
-	content: "\ea88";
+.jsps-icon-evernote:before {
+  content: "\e902";
 }
 .jsps-icon-facebook:before {
-	content: "\ea8c";
-}
-.jsps-icon-twitter:before {
-	content: "\ea91";
+  content: "\e903";
 }
 .jsps-icon-linkedin:before {
-	content: "\eac9";
+  content: "\e904";
+}
+.jsps-icon-mail:before {
+  content: "\e905";
+}
+.jsps-icon-mix:before {
+  content: "\e906";
 }
 .jsps-icon-pinterest:before {
-	content: "\ead0";
+  content: "\e907";
+}
+.jsps-icon-pocket:before {
+  content: "\e908";
+}
+.jsps-icon-print:before {
+  content: "\e909";
+}
+.jsps-icon-reddit:before {
+  content: "\e90a";
+}
+.jsps-icon-share:before {
+  content: "\e90b";
+}
+.jsps-icon-tumblr:before {
+  content: "\e90c";
+}
+.jsps-icon-twitter:before {
+  content: "\e90d";
+}
+.jsps-icon-viadeo:before {
+  content: "\e90e";
+}
+.jsps-icon-vk:before {
+  content: "\e90f";
+}
+.jsps-icon-weibo:before {
+  content: "\e910";
+}
+.jsps-icon-whatsapp:before {
+  content: "\e911";
 }
 
 /* Header */
@@ -464,7 +459,7 @@
 
 .jsps_demo_icon {
 	display: inline-block;
-	margin-right: 5px;
+	margin-right: 0;
 	font-size: 2em;
 	color: #777;
 }
@@ -494,67 +489,71 @@
 }
 
 :checked + label .jsps-icon-twitter {
-	color: #55acee;
-}
-
-:checked + label .jsps-icon-google {
-	color: #dd4b39;
+	color: #1DA1F2;
 }
 
 :checked + label .jsps-icon-facebook {
-	color: #3b5998;
-}
-
-:checked + label .jsps-icon-mail {
-	color: #000;
+	color: #0A66C2;
 }
 
 :checked + label .jsps-icon-pinterest {
-	color: #cc2127;
+	color: #E60023;
 }
 
 :checked + label .jsps-icon-viadeo {
-	color: #ec7500;
+	color: #F07355;
 }
 
 :checked + label .jsps-icon-linkedin {
-	color: #0976b4;
-}
-
-:checked + label .jsps-icon-digg {
-	color: #000;
-}
-
-:checked + label .jsps-icon-stumbleupon {
-	color: #eb4723;
+	color: #0A66C2;
 }
 
 :checked + label .jsps-icon-weibo {
-	color: #EC5452;
+	color: #D52A2C;
 }
 
 :checked + label .jsps-icon-vk {
-	color: #45668e;
+	color: #4680C2;
 }
 
 :checked + label .jsps-icon-reddit {
-	color: #5F99CF;
-}
-
-:checked + label .jsps-icon-delicious {
-	color: #222;
+	color: #FF4500;
 }
 
 :checked + label .jsps-icon-tumblr {
-	color: #35465c;
+	color: #001935;
 }
 
-:checked + label .jsps-icon-bookmark {
-	color: #af0818;
+:checked + label .jsps-icon-diigo {
+	color: #368BFF;
+}
+
+:checked + label .jsps-icon-evernote {
+	color: #00A82D;
+}
+
+:checked + label .jsps-icon-pocket {
+	color: #EF4056;
+}
+
+:checked + label .jsps-icon-pocket {
+	color: #EF4056;
+}
+
+:checked + label .jsps-icon-mix {
+	color: #FF8126;
+}
+
+:checked + label .jsps-icon-whatsapp {
+	color: #128C7E;
 }
 
 :checked + label .jsps-icon-print {
-	color: #2b835d;
+	color: #333C45;
+}
+
+:checked + label .jsps-icon-mail {
+	color: #333C45;
 }
 
 input[type="checkbox"]:checked + label {
