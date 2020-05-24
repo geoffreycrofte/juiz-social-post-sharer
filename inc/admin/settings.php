@@ -193,20 +193,44 @@ function juiz_sps_setting_checkbox_network_selection() {
 	$y = $n = '';
 	$options = jsps_get_option();
 	if ( is_array( $options ) ) {
-		
+
+		//jsps_update_option($options);
+		$core_networks   = jsps_get_core_networks();
+		$custom_networks = jsps_get_custom_networks();
+
+		// Backward compatibility / Conversion
+		$reformated_old_list = array();
+		if ( isset( $options['juiz_sps_networks']['delicious'] ) ) {
+			foreach ( $options['juiz_sps_networks'] as $k => $v ) {
+				$reformated_old_list[ $k ] = array(
+					'name' => $v[1],
+					'visible' => $v[0],
+				);
+			}
+			
+			$reformated_old_list = juiz_sps_remove_old_networks( $reformated_old_list );
+		}
+
+		// Merge old list with the new registered core networks
+		// To keep options of the users.
+		$merged_core_networks = array_replace( $core_networks, $reformated_old_list );
+
+		// Merge Custom and Core Networks, Core has the priority here.
+		$merged_networks = array_merge( $custom_networks, $core_networks );
+
+		$networks = juiz_sps_get_ordered_networks( $options['juiz_sps_order'], $merged_networks );
+		$networks = juiz_sps_remove_old_networks( $networks );
+
+		// Start the admin markup
 		echo '<div class="jsps-drag-container">
 				<div id="jsps-draggable-networks">
 					<div class="juiz-sps-squared-options">';
 
-		//jsps_update_option($options);
-
-		$networks = juiz_sps_get_ordered_networks( $options['juiz_sps_order'], $options['juiz_sps_networks']);
-
 		foreach ( $networks as $k => $v ) {
 
-			$is_checked = ( $v[0] == 1 ) ? ' checked="checked"' : '';
+			$is_checked = ( $v['visible'] == 1 ) ? ' checked="checked"' : '';
 			$is_js_test = ( $k == 'pinterest' ) ? ' <em>(' . __( 'uses JavaScript to work', 'juiz-social-post-sharer' ) . ')</em>' : '';
-			$network_name = isset( $v[1] ) ? $v[1] : $k;
+			$network_name = isset( $v['name'] ) ? $v['name'] : $k;
 
 			echo '<p class="juiz_sps_options_p" data-network="' . esc_attr( $k ) . '">
 					<input id="jsps_network_selection_' . esc_attr( $k ) . '" value="' . esc_attr( $k ) . '" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_networks][]" type="checkbox"
@@ -220,10 +244,6 @@ function juiz_sps_setting_checkbox_network_selection() {
 			  		<input type="hidden" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_order][]" value=' . esc_attr( $k ) . '>
 			  		<span class="juiz-sps-handle"></span>
 			  	</p>';
-		}
-
-		if ( ! is_array( $options['juiz_sps_networks']['weibo'] ) ) {
-			echo '<p class="juiz_sps_options_p" data-network="weibo"><input id="jsps_network_selection_weibo" value="weibo" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_networks][]" type="checkbox"> <label for="jsps_network_selection_weibo"><span class="jsps_demo_icon jsps_demo_icon_weibo"></span>Weibo</label> <!--em class="jsps_new">(' . __( 'New social network!', 'juiz-social-post-sharer' ) . ')</em--></p>';
 		}
 
 		echo '</div></div></div>';
@@ -506,7 +526,16 @@ if ( ! function_exists( 'juiz_sps_settings_page' ) ) {
 					<?php echo sprintf( __( 'You can use %s[juiz_sps]%s or %s[juiz_social]%s shortcode with an optional attribute "buttons" listing the social networks you want.', 'juiz-social-post-sharer' ), '<code>','</code>', '<code>','</code>' ); ?>
 					<br />
 					<?php _e( 'Example with all the networks available:', 'juiz-social-post-sharer'); ?>
-					<code>[juiz_sps buttons="facebook, twitter, google, pinterest, digg, weibo, linkedin, viadeo, stumbleupon, vk, tumblr, reddit, delicious, mail, bookmark, print"]</code>
+
+					<?php
+					$networks = array_merge( jsps_get_custom_networks(), jsps_get_core_networks() );
+					$nws = '';
+					
+					foreach( $networks as $k => $v ) {
+						$nws .= $k . ', ';
+					}
+					?>
+					<code>[juiz_sps buttons="<?php echo trim( $nws, ', ' ); ?>"]</code>
 				</p>
 			</div><!-- .jsps-main-body -->
 		</div><!-- .jsps-main-content -->

@@ -38,6 +38,7 @@ function jsps_get_custom_networks( $custom_networks = array() ) {
 			'api_url'    => 'https://geoffrey.crofte.fr/en/',
 			'icon'       => 'css-classname' || 'path/to/image.svg', // optional
 			'title'      => __( 'Share on Netwok Name', 'textdomain' ), // optional
+			'color'      => '#bada55', // optional
 		);
 	 */
 	$custom_networks = apply_filters( 'jsps_register_custom_network', $custom_networks );
