@@ -134,6 +134,7 @@ function juiz_sps_sanitize( $options ) {
 	$newoptions['juiz_sps_order'] = is_array( $options['juiz_sps_order'] ) ? $options['juiz_sps_order'] : array();
 
 	$newoptions['juiz_sps_version'] = JUIZ_SPS_VERSION;
+
 	
 	return $newoptions;
 }
@@ -169,7 +170,7 @@ function juiz_sps_setting_radio_style_choice() {
 
 			// Print the skins.
 			echo '<p class="juiz_sps_styles_options">
-					<input id="jsps_style_' . esc_attr( $slug ) . '" value="' . esc_attr( $slug ) . '" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_style]" type="radio" ' . ( $current_skin === $slug ? ' checked="checked"' : '' ) . ' />
+					<input id="jsps_style_' . esc_attr( $slug ) . '" value="' . esc_attr( $slug ) . '" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_style]" type="radio" ' . ( $current_skin === (string) $slug ? ' checked="checked"' : '' ) . ' />
 					<label for="jsps_style_' . esc_attr( $slug ) . '">
 						<span class="juiz_sps_demo_styles">
 							<img src="' . $demo_src . '"' . ( isset( $demo_src_2x ) ? ' srcset="' . $demo_src_2x . ' 2x"' : '' ) . '>
@@ -189,37 +190,7 @@ function juiz_sps_setting_checkbox_network_selection() {
 	$options = jsps_get_option();
 	if ( is_array( $options ) ) {
 
-		//jsps_update_option($options);
-		$core_networks   = jsps_get_core_networks();
-		$custom_networks = jsps_get_custom_networks();
-
-		// Backward compatibility / Conversion
-		$reformated_old_list = array();
-		if ( isset( $options['juiz_sps_networks']['delicious'] ) ) {
-			foreach ( $options['juiz_sps_networks'] as $k => $v ) {
-				$reformated_old_list[ $k ] = array(
-					'name' => $v[1],
-					'visible' => $v[0],
-				);
-			}
-			
-			$reformated_old_list = juiz_sps_remove_old_networks( $reformated_old_list );
-		}
-
-		// Merge old list with the new registered core networks
-		// To keep options of the users.
-		$merged_core_networks = array_replace( $core_networks, $reformated_old_list );
-
-		// Merge Custom and Core Networks, Core has the priority here.
-		$merged_networks = array_merge( $custom_networks, $core_networks );
-
-		// Merge Options registered by user woth complete list
-		if ( ! isset( $options['juiz_sps_networks']['delicious'] ) ) {
-			$merged_networks = array_merge( $merged_networks, $options['juiz_sps_networks'] );
-		}
-
-		$networks = juiz_sps_get_ordered_networks( $options['juiz_sps_order'], $merged_networks );
-		$networks = juiz_sps_remove_old_networks( $networks );
+		$networks = jsps_get_displayable_networks( $options['juiz_sps_networks'], $options['juiz_sps_order'] );
 
 		// Start the admin markup
 		echo '<div class="jsps-drag-container">

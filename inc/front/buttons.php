@@ -45,9 +45,11 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 		}
 
 		// Texts, URL and Image to share
-		$text = wp_strip_all_tags( esc_attr( rawurlencode( $post->post_title ) ) );
-		$url  = $post ? get_permalink() : juiz_sf_get_current_url( 'raw' );
-		$url  = ( $url_needed_by_user == false ) ? $url : $url_needed_by_user;
+		$text    = wp_strip_all_tags( esc_attr( rawurlencode( $post->post_title ) ) );
+		$excerpt = rawurlencode( wp_strip_all_tags( $post->post_excerpt ) );
+		$excerpt = empty( $excerpt ) ? rawurlencode( juiz_get_excerpt( $post ) . '…' ) : $excerpt;
+		$url     = $post ? get_permalink() : juiz_sf_get_current_url( 'raw' );
+		$url     = ( $url_needed_by_user == false ) ? $url : $url_needed_by_user;
 
 		if ( $is_current_page_url &&  $url_needed_by_user == false ) {
 			$url = juiz_sf_get_current_url( 'raw' );
@@ -99,137 +101,147 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 		$juiz_sps_content .= "\n\t" . '<' . $ul . ' class="juiz_sps_links_list' . esc_attr( $juiz_sps_hidden_name_class ) . '">';
 		$juiz_sps_content .= $before_first_i;
 
-		// networks to display
+
+		// Networks to display
 		// 2 differents results by: 
 		// -- using hook (options from admin panel)
 		// -- using shortcode/template-function (the array $networks in parameter of this function)
 		$juiz_sps_networks = array();
+		$all_networks = jsps_get_all_registered_networks();
 
 		if ( ! empty( $networks ) ) {
-			// compare $juiz_sps_options['juiz_sps_networks'] array and $networks array and conserve from the first one all that correspond to the second one's keys
-			foreach( $juiz_sps_options['juiz_sps_networks'] as $k => $v ) {
-				if ( in_array( $k, $networks ) ) {
-					$juiz_sps_networks[ $k ] = $v;
-					$juiz_sps_networks[ $k ][0] = 1; // set its visible value to 1 (visible)
-				}
+			foreach( $all_networks as $k => $v ) {
+				$juiz_sps_networks[ $k ] = $v;
+				$juiz_sps_networks[ $k ]['visible'] = (int) in_array( $k, $networks ); // set its visible value to 1 (visible)
 			}
-
 		} else {
 			$juiz_sps_networks = $juiz_sps_options['juiz_sps_networks'];
 		}
 
 		// Set network order
 		$order = ! empty( $networks ) ? $networks : $juiz_sps_options['juiz_sps_order'];
-		$sorted_networks = juiz_sps_get_ordered_networks( $order, $juiz_sps_networks);
+		
+		// Get displayable (not necessarily displayed) Buttons
+		$sorted_networks = jsps_get_displayable_networks( $juiz_sps_networks, $order );
 
 
 		// Each links (come from options or manual array)
 		foreach( $sorted_networks as $k => $v ) {
-			if ( $v[0] == 1 ) {
-				$api_link     = $api_text = '';
-				$url          = apply_filters( 'juiz_sps_the_shared_permalink_for_' . $k, $url );
-				$network_name = isset( $v[1] ) ? $v[1] : $k;
-				$network_name = apply_filters( 'juiz_sps_share_name_for_' . $k, $network_name );
-				$api_text     = apply_filters( 'juiz_sps_share_text_for_' . $k, sprintf( __( 'Share this article on %s', 'juiz-social-post-sharer' ), $network_name ) );
-
-				$more_attr = $juiz_sps_target_link;
-
-				switch ( $k ) {
-					case 'twitter' :
-						$twitter_user = $juiz_sps_options['juiz_sps_twitter_user'] != '' ? '&amp;related=' . apply_filters( 'juiz_sps_twitter_nickname', $juiz_sps_options['juiz_sps_twitter_user'] ) . '&amp;via=' . apply_filters( 'juiz_sps_twitter_nickname', $juiz_sps_options['juiz_sps_twitter_user'] ) : '';
-						$api_link = 'https://twitter.com/intent/tweet?source=webclient&amp;original_referer=' . $url . '&amp;text=' . $text . '&amp;url=' . $url . $twitter_user;
-						break;
-
-					case 'facebook' :
-						$api_link = 'https://www.facebook.com/sharer/sharer.php?u=' . $url;
-						break;
-
-					case 'google' :
-						$api_link = 'https://plus.google.com/share?url=' . $url;
-						break;
-
-					case 'pinterest' :
-						if ( $image != '' && $force_pinterest_snif == 0 ) {
-							$api_link = 'https://pinterest.com/pin/create/bookmarklet/?media=' . $image[0] . '&amp;url=' . $url . '&amp;title=' . get_the_title() . '&amp;description=' . $post->post_excerpt;
-						}
-						else {
-							$api_link = "javascript:void((function(){var%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','//assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)})());";
-							$more_attr = '';
-						}
-						$api_text = apply_filters( 'juiz_sps_share_text_for_' . $k, __( 'Share an image of this article on Pinterest', 'juiz-social-post-sharer' ) );
-						break;
-
-					case 'viadeo' :
-						$api_link = 'https://www.viadeo.com/?url=' . $url . '&amp;title=' . $text;
-						break;
-
-					case 'linkedin':
-						$api_link = 'https://www.linkedin.com/shareArticle?mini=true&amp;ro=true&amp;trk=JuizSocialPostSharer&amp;title=' . $text . '&amp;url=' . $url;
-						break;
-
-					case 'digg':
-						$api_link = 'https://digg.com/submit?phase=2%20&amp;url=' . $url . '&amp;title=' . $text;
-						break;
-
-					case 'stumbleupon':
-						$api_link = 'https://www.stumbleupon.com/badge/?url=' . $url;
-						break;
-
-					case 'tumblr':
-						$api_link = 'https://www.tumblr.com/widgets/share/tool?canonicalUrl=' . $url;
-						break;
-
-					case 'reddit':
-						$api_link = 'https://www.reddit.com/submit?url=' . $url . '&amp;title=' . $text;
-						break;
-
-					case 'delicious':
-						$api_link = 'https://delicious.com/save?v=5&amp;provider=JSPS&amp;url=' . $url . '&amp;title=' . $text;
-						break;
-
-					case 'weibo':
-						// title tips by Aili (thank you ;p)
-						$simplecontent = $text . esc_attr( urlencode( " : " . mb_substr( strip_tags( $post->post_content ), 0, 90, 'utf-8') ) );
-						$api_link = 'http://service.weibo.com/share/share.php?title=' . $simplecontent . '&amp;url=' . $url;
-						break;
-
-					case 'vk':
-						$api_link = 'https://vkontakte.ru/share.php?url=' . $url;
-						break;
-
-					case 'mail' :
-						if ( strpos( $juiz_sps_options['juiz_sps_mail_body'], '%%' ) || strpos( $juiz_sps_options['juiz_sps_mail_subject'], '%%' ) ) {
-							$api_link = 'mailto:?subject=' . $juiz_sps_options['juiz_sps_mail_subject'] . '&amp;body=' . $juiz_sps_options['juiz_sps_mail_body'];
-							$api_link = preg_replace( array('#%%title%%#', '#%%siteurl%%#', '#%%permalink%%#', '#%%url%%#'), array( get_the_title(), get_site_url(), get_permalink(), $url ), $api_link );
-						}
-						else {
-							$api_link = 'mailto:?subject=' . $juiz_sps_options['juiz_sps_mail_subject'] . '&amp;body=' . $juiz_sps_options['juiz_sps_mail_body'] . ":" . $url;
-						}
-						$api_text = apply_filters( 'juiz_sps_share_text_for_' . $k, __( 'Share this article with a friend (email)', 'juiz-social-post-sharer') );
-						break;
-
-					case 'bookmark' :
-						$api_link = $url;
-						$api_text = apply_filters( 'juiz_sps_share_text_for_' . $k, __( 'Bookmark this article (on your browser)', 'juiz-social-post-sharer') );
-						$more_attr = ' data-alert="' . esc_attr( __( 'Press %s to bookmark this page.', 'juiz-social-post-sharer' ) ) . '"';
-						break;
-
-					case 'print' :
-						$api_link = '#';
-						$api_text = apply_filters( 'juiz_sps_share_text_for_' . $k, __( 'Print this page', 'juiz-social-post-sharer') );
-						$more_attr = '';
-						break;
-				}
-
-				$future_link_content = '<' . $li . ' class="juiz_sps_item juiz_sps_link_' . esc_attr( $k ) . '"><a href="' . wp_strip_all_tags( esc_attr( $api_link ) ) . '" ' . $rel_nofollow . '' . $more_attr . ' title="' . esc_attr( $api_text ) . '"><span class="juiz_sps_icon jsps-' . esc_attr( $k ) . '"></span><span class="juiz_sps_network_name">' . esc_html( $network_name ) . '</span></a></' . $li . '>';
-
-				apply_filters( 'juiz_sps_after_each_network_item', $future_link_content, $k, $network_name );
-				apply_filters( 'juiz_sps_after_' . $k . '_network_item', $future_link_content, $k, $network_name );
-
-				$juiz_sps_content .= $future_link_content;
-
+			
+			// If not visible, got to next item.
+			if ( ! isset( $v['visible'] ) || ( isset( $v['visible'] ) && $v['visible'] === 0 ) ) {
+				continue;
 			}
-		}
+
+			$api_link = $api_text = '';
+			$url      = apply_filters( 'juiz_sps_the_shared_permalink_for_' . $k, $url );
+			$nw_name  = isset( $v['name'] ) ? $v['name'] : $k;
+			$nw_name  = apply_filters( 'juiz_sps_share_name_for_' . $k, $nw_name );
+			$more_att = $juiz_sps_target_link;
+			$api_text = apply_filters( 'juiz_sps_share_text_for_' . $k, sprintf( __( 'Share this article on %s', 'juiz-social-post-sharer' ), $nw_name ) );
+
+
+			switch ( $k ) {
+				case 'twitter' :
+					$twitter_user = $juiz_sps_options['juiz_sps_twitter_user'] != '' ? '&amp;related=' . apply_filters( 'juiz_sps_twitter_nickname', $juiz_sps_options['juiz_sps_twitter_user'] ) . '&amp;via=' . apply_filters( 'juiz_sps_twitter_nickname', $juiz_sps_options['juiz_sps_twitter_user'] ) : '';
+					$api_link = 'https://twitter.com/intent/tweet?source=webclient&amp;original_referer=' . $url . '&amp;text=' . $text . '&amp;url=' . $url . $twitter_user;
+					break;
+
+				case 'facebook' :
+					$api_link = 'https://www.facebook.com/sharer/sharer.php?u=' . $url;
+					break;
+
+				case 'pinterest' :
+					if ( $image != '' && $force_pinterest_snif == 0 ) {
+						$api_link = 'https://pinterest.com/pin/create/bookmarklet/?media=' . $image[0] . '&amp;url=' . $url . '&amp;title=' . get_the_title() . '&amp;description=' . $post->post_excerpt;
+					}
+					else {
+						$api_link = "javascript:void((function(){var%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','//assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)})());";
+						$more_att = '';
+					}
+					$api_text = apply_filters( 'juiz_sps_share_text_for_' . $k, __( 'Share an image of this article on Pinterest', 'juiz-social-post-sharer' ) );
+					break;
+
+				case 'viadeo' :
+					$api_link = 'https://www.viadeo.com/en/widgets/share/preview?url=' . $url . '&amp;comment=' . $text;
+					break;
+
+				case 'linkedin':
+					$api_link = 'https://www.linkedin.com/shareArticle?mini=true&amp;ro=true&amp;trk=JuizSocialPostSharer&amp;title=' . $text . '&amp;url=' . $url;
+					break;
+
+				case 'tumblr':
+					$api_link = 'https://www.tumblr.com/widgets/share/tool?canonicalUrl=' . $url;
+					break;
+
+				case 'reddit':
+					$api_link = 'https://www.reddit.com/submit?url=' . $url . '&amp;title=' . $text;
+					break;
+				
+				case 'mix':
+					$api_link = 'https://mix.com/mixit?su=juiz-social-post-sharer&amp;url=' . urlencode( $url );
+					break;
+
+				case 'whatsapp':
+					$api_link = 'https://wa.me/?text=' . urlencode( '"' ) . $text . urlencode( '": ' . $url );
+					break;
+
+				case 'pocket':
+					$api_link = 'https://getpocket.com/edit?url=' . urlencode( $url );
+					break;
+
+				case 'evernote':
+					$api_link = 'https://www.addtoany.com/add_to/evernote?linkurl=' . urlencode( $url ) . '&amp;linkname=' . $text . '&amp;linknote=' . $excerpt;
+					break;
+
+				case 'diigo':
+					$api_link = 'https://www.diigo.com/post?url=' . urlencode( $url ) . '&amp;title='. $text .'&amp;desc=' . $excerpt . '&amp;client=juis-social-post-sharer'; // client=simplelet
+					break;
+
+				// END TODO
+
+				case 'weibo':
+					// title tips by Aili (thank you ;p)
+					$simplecontent = $text . esc_attr( urlencode( " : " . mb_substr( strip_tags( $post->post_content ), 0, 90, 'utf-8') ) );
+					$api_link = 'http://service.weibo.com/share/share.php?title=' . $simplecontent . '&amp;url=' . $url;
+					break;
+
+				case 'vk':
+					$api_link = 'https://vkontakte.ru/share.php?url=' . $url;
+					break;
+
+				case 'mail' :
+					if ( strpos( $juiz_sps_options['juiz_sps_mail_body'], '%%' ) || strpos( $juiz_sps_options['juiz_sps_mail_subject'], '%%' ) ) {
+						$api_link = 'mailto:?subject=' . $juiz_sps_options['juiz_sps_mail_subject'] . '&amp;body=' . $juiz_sps_options['juiz_sps_mail_body'];
+						$api_link = preg_replace( array('#%%title%%#', '#%%siteurl%%#', '#%%permalink%%#', '#%%url%%#'), array( get_the_title(), get_site_url(), get_permalink(), $url ), $api_link );
+					}
+					else {
+						$api_link = 'mailto:?subject=' . $juiz_sps_options['juiz_sps_mail_subject'] . '&amp;body=' . $juiz_sps_options['juiz_sps_mail_body'] . ":" . $url;
+					}
+					$api_text = apply_filters( 'juiz_sps_share_text_for_' . $k, __( 'Share this article with a friend (email)', 'juiz-social-post-sharer') );
+					break;
+
+				case 'bookmark' :
+					$api_link = $url;
+					$api_text = apply_filters( 'juiz_sps_share_text_for_' . $k, __( 'Bookmark this article (on your browser)', 'juiz-social-post-sharer') );
+					$more_att = ' data-alert="' . esc_attr( __( 'Press %s to bookmark this page.', 'juiz-social-post-sharer' ) ) . '"';
+					break;
+
+				case 'print' :
+					$api_link = '#';
+					$api_text = apply_filters( 'juiz_sps_share_text_for_' . $k, __( 'Print this page', 'juiz-social-post-sharer') );
+					$more_att = '';
+					break;
+			}
+
+			$future_link_content = '<' . $li . ' class="juiz_sps_item juiz_sps_link_' . esc_attr( $k ) . '"><a href="' . wp_strip_all_tags( esc_attr( $api_link ) ) . '" ' . $rel_nofollow . '' . $more_att . ' title="' . esc_attr( $api_text ) . '"><span class="juiz_sps_icon jsps-' . esc_attr( $k ) . '"></span><span class="juiz_sps_network_name">' . esc_html( $nw_name ) . '</span></a></' . $li . '>';
+
+			apply_filters( 'juiz_sps_after_each_network_item', $future_link_content, $k, $nw_name );
+			apply_filters( 'juiz_sps_after_' . $k . '_network_item', $future_link_content, $k, $nw_name );
+
+			$juiz_sps_content .= $future_link_content;
+
+		} // end of FOREACH
 
 		$general_counters = ( isset( $juiz_sps_options['juiz_sps_counter'] ) && $juiz_sps_options['juiz_sps_counter'] == 1 ) ? 1 : 0;
 

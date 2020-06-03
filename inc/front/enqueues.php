@@ -87,11 +87,19 @@ if ( ! function_exists( 'juiz_sps_style_and_script' ) ) {
 			if (
 				( is_numeric ( $juiz_sps_options['juiz_sps_counter'] ) && $juiz_sps_options['juiz_sps_counter'] == 1 )
 				||
-				( isset( $juiz_sps_options['juiz_sps_networks']['print'] ) && $juiz_sps_options['juiz_sps_networks']['print'][0] === 1 )
+				( isset( $juiz_sps_options['juiz_sps_networks']['print'] ) && isset( $juiz_sps_options['juiz_sps_networks']['print'][0] ) && $juiz_sps_options['juiz_sps_networks']['print'][0] === 1 )
 				||
-				( isset( $juiz_sps_options['juiz_sps_networks']['bookmark'] ) && $juiz_sps_options['juiz_sps_networks']['bookmark'][0] === 1 )
+				( isset( $juiz_sps_options['juiz_sps_networks']['bookmark'] ) && isset( $juiz_sps_options['juiz_sps_networks']['bookmark'][0] ) && $juiz_sps_options['juiz_sps_networks']['bookmark'][0] === 1 )
 				||
-				( isset( $juiz_sps_options['juiz_sps_networks']['mail'] ) && $juiz_sps_options['juiz_sps_networks']['mail'][0] === 1 )
+				( isset( $juiz_sps_options['juiz_sps_networks']['mail'] ) && isset( $juiz_sps_options['juiz_sps_networks']['mail'][0] ) && $juiz_sps_options['juiz_sps_networks']['mail'][0] === 1 )
+
+				// version 2.0.0 new format
+				||
+				( isset( $juiz_sps_options['juiz_sps_networks']['print'] ) && isset( $juiz_sps_options['juiz_sps_networks']['print']['visible'] ) && $juiz_sps_options['juiz_sps_networks']['print']['visible'] === 1 )
+				||
+				( isset( $juiz_sps_options['juiz_sps_networks']['bookmark'] ) && isset( $juiz_sps_options['juiz_sps_networks']['bookmark']['visible'] ) && $juiz_sps_options['juiz_sps_networks']['bookmark']['visible'] === 1 )
+				||
+				( isset( $juiz_sps_options['juiz_sps_networks']['mail'] ) && isset( $juiz_sps_options['juiz_sps_networks']['mail']['visible'] ) && $juiz_sps_options['juiz_sps_networks']['mail']['visible'] === 1 )
 			) {
 				jsps_enqueue_scripts();
 			}
