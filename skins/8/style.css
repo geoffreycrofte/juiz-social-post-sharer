@@ -179,7 +179,8 @@
 
 .juiz_sps_links .juiz_sps_item a {
 	--link-padding: 8px 16px 8px 12px;
-
+	
+	align-items: center;
 	padding: var(--link-padding);
 	border: 0;
 	font-size: 18px;
