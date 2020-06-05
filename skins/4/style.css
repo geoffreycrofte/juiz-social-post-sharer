@@ -148,9 +148,9 @@ Version: Styles v4 - Dark Metro Style
 	margin-right: 0.25em;
 }
 
-.juiz_sps_links a:hover,
-.juiz_sps_links a:focus {
-	color: #F2F2F2!important;
+.juiz_sps_links .juiz_sps_item a:hover,
+.juiz_sps_links .juiz_sps_item a:focus {
+	color: #F2F2F2;
 	background-color: #666;
 	transform: scale(0.99) scaleZ(0.9) rotateX(6deg) rotateY(6deg);
 }
