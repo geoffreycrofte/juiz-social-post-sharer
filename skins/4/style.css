@@ -2,22 +2,22 @@
 Plugin Name: Juiz Social Post Sharer
 Plugin URI: http://creativejuiz.fr
 Author: Geoffrey Crofte
-Version: Styles v4
+Version: Styles v4 - Dark Metro Style
 */
+
 @font-face{
-	font-family: 'jsps';
-	src: url('../common/fonts/jsps.eot?142');
-	src: url('../common/fonts/jsps.eot?#iefix142') format('embedded-opentype'),
-		 url('../common/fonts/jsps.woff?142') format('woff'),
-		 url('../common/fonts/jsps.ttf?142') format('truetype'),
-		 url('../common/fonts/jsps.svg?142#jsps') format('svg');
+	font-family: 'jsps-icons';
+	src: url('../common/fonts/jsps.woff2?200') format('woff2'),
+	     url('../common/fonts/jsps.woff?200') format('woff'),
+		 url('../common/fonts/jsps.ttf?200') format('truetype'),
+		 url('../common/fonts/jsps.svg?200') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
-[class^="jsps-"],
-[class*=" jsps-"]{
-	font-family: 'jsps'!important;
-	speak: none;
+
+.juiz_sps_icon{
+	font-family: 'jsps-icons'!important;
+	speak: never;
 	font-style: normal;
 	font-weight: normal;
 	font-variant: normal;
@@ -25,77 +25,62 @@ Version: Styles v4
 	line-height: 1;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	font-size: 1.5em;
+	font-size: 28px;
 }
-.jsps-print:before {
-	content: "\e903";
-	font-size: 0.95em;
-}
+
 .jsps-bookmark:before {
-	content: "\e904";
-	font-size: 0.9em;
+  content: "\e900";
 }
-.jsps-star:before {
-	content: "\e905";
+.jsps-diigo:before {
+  content: "\e901";
 }
-.jsps-share:before {
-	content: "\e906";
-}
-.jsps-share2:before {
-	content: "\e907";
-}
-.jsps-tumblr:before {
-	content: "\e900";
-	font-size: 0.85em;
-	vertical-align: 0.1em;
-}
-.jsps-reddit:before {
-	content: "\e901";
-	vertical-align: 0.1em;
-}
-.jsps-delicious:before {
-	content: "\e902";
-	font-size: 0.85em;
-	vertical-align: 0.1em;
-}
-.jsps-viadeo:before {
-	content: "\e603";
-}
-.jsps-digg:before {
-	content: "\e601";
-}
-.jsps-stumbleupon:before {
-	content: "\e602";
-}
-.jsps-vk:before {
-	content: "\e606";
-}
-.jsps-weibo:before {
-	content: "\e604";
-}
-.jsps-mail:before {
-	content: "\e600";
-}
-.jsps-google:before {
-	content: "\ea88";
-	vertical-align:-0.1em;
+.jsps-evernote:before {
+  content: "\e902";
 }
 .jsps-facebook:before {
-	position: relative;
-	left: -.05em;
-	content: "\ea8c";
-	vertical-align: 0.11em;
-}
-.jsps-twitter:before {
-	content: "\ea91";
+  content: "\e903";
 }
 .jsps-linkedin:before {
-	content: "\eac9";
-	font-size: 0.85em;
-	vertical-align: 0.2em;
+  content: "\e904";
+}
+.jsps-mail:before {
+  content: "\e905";
+}
+.jsps-mix:before {
+  content: "\e906";
 }
 .jsps-pinterest:before {
-	content: "\ead0";
+  content: "\e907";
+}
+.jsps-pocket:before {
+  content: "\e908";
+}
+.jsps-print:before {
+  content: "\e909";
+}
+.jsps-reddit:before {
+  content: "\e90a";
+}
+.jsps-share:before {
+  content: "\e90b";
+}
+.jsps-tumblr:before {
+  content: "\e90c";
+}
+.jsps-twitter:before {
+  content: "\e90d";
+}
+.jsps-viadeo:before {
+  content: "\e90e";
+}
+.jsps-vk:before {
+  content: "\e90f";
+}
+.jsps-weibo:before {
+  content: "\e910";
+}
+.jsps-whatsapp:before {
+  content: "\e911";
 }
 
 .juiz_sps_links {
@@ -103,89 +88,92 @@ Version: Styles v4
 	clear: both;
 	margin: 1em 0;
 }
+
 .juiz_sps_maybe_hidden_text {
 	position: absolute;
 	left: -9999px;
 	text-indent: -9999px;
 }
+
 [dir="rtl"] .juiz_sps_maybe_hidden_text {
 	position: absolute;
 	right: -9999em;
 }
+
 .juiz_sps_links ul,
 .juiz_sps_links .juiz_sps_item  { 
-	padding:0!important;
-	margin:0!important;
+	padding: 0!important;
+	margin: 0!important;
 	list-style: none!important;
 }
+
 .juiz_sps_links .juiz_sps_item,
 .juiz_sps_links .juiz_sps_item a,
+.juiz_sps_links .juiz_sps_item a .juiz_sps_network_name,
 .juiz_sps_links .juiz_sps_item a .juiz_sps_icon { 
 	display: inline-block;
+	vertical-align: middle;
 }
+
 .juiz_sps_links_list .juiz_sps_item {
-	display: inline-table;
-	vertical-align: top;
-	margin-right: 5px!important;
-	min-height: 50px;
+	margin: 4px!important;
 }
-.juiz_sps_links_list .juiz_sps_item > * {
-	display: table-cell;
-	vertical-align: top;
-	min-height: 40px;
-}
+
 .juiz_sps_links .juiz_sps_item a { 
-	padding: 6px 15px 6px 10px;
+	padding: 8px 15px 8px 10px;
 	margin: 0;
 	background-color: #999;
 	color: #fff;
 	text-decoration: none;
 	border: 0 none;
+	font-weight: 500;
 	font-size: 14px;
-	font-family: "Segoe WP", "Segoe UI", Helvetica, Arial, sans-serif;
+	font-family: "Segoe WP", "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	
-	-webkit-transition: color .2s, background-color .2s;
-	-moz-transition: color .2s, background-color .2s;
-	-o-transition: color .2s, background-color .2s;
-	transition: color .2s, background-color .2s;
+	-webkit-transition: color .2s, background-color .2s, transform .2s;
+	-moz-transition: color .2s, background-color .2s, transform .2s;
+	-o-transition: color .2s, background-color .2s, transform .2s;
+	transition: color .2s, background-color .2s, transform .2s;
+
+	transform-origin: 100% 100%;
+	perspective: 2000;
+	perspective-origin: 50% 50%;
 }
+
 .juiz_sps_links .juiz_sps_item:last-child a {
 	margin-right: 0;
 }
 
-.juiz_sps_links .juiz_sps_network_name {
-	display: inline-block;
-	vertical-align: sub;
-}
 .juiz_sps_links .juiz_sps_icon {
-	margin-right: 0.4em;
-	vertical-align: -.3em;
+	margin-right: 0.25em;
 }
 
 .juiz_sps_links a:hover,
 .juiz_sps_links a:focus {
 	color: #F2F2F2!important;
 	background-color: #666;
+	transform: scale(0.99) scaleZ(0.9) rotateX(6deg) rotateY(6deg);
 }
 
 /* special if names are hidden */
 .juiz_sps_hide_name .juiz_sps_item a {
 	padding: 5px 10px 6px 10px;
 }
+
 .juiz_sps_hide_name a .juiz_sps_icon,
 .juiz_sps_hide_name a .juiz_sps_network_name {
-	display:inline-block;
-	vertical-align:middle;
 	-webkit-transition: max-width .3s, margin .3s;
 	-moz-transition: max-width .3s, margin .3s;
 	-o-transition: max-width .3s, margin .3s;
 	transition: max-width .3s, margin .3s;
 }
+
 .juiz_sps_hide_name a .juiz_sps_network_name {
 	max-width:0;
 	white-space: nowrap!important;
 	overflow: hidden;
 }
+
 .juiz_sps_hide_name a .juiz_sps_icon {
 	margin-right: 0;
 }
@@ -204,19 +192,16 @@ Version: Styles v4
 .juiz_sps_totalcount {
 	position: relative;
 	display: inline-block;
-	margin-top: 2px;
 	padding: 6px 6px 8px;
 	border: 1px solid #aaa;
 	border-right-width: 0;
-	vertical-align: top;
+	vertical-align: middle;
 	font-size: 14px;
 	color: #888;
 	background: #fff;
 	border-radius: 3px 0 0 3px;
 }
-.juiz_sps_totalcount {
-	margin-top: -3px;
-}
+
 .juiz_sps_counter:after {
 	content: "";
 	position: absolute;
