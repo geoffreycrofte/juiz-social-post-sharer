@@ -153,7 +153,7 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 
 				case 'pinterest' :
 					if ( $image != '' && $force_pinterest_snif == 0 ) {
-						$api_link = 'https://pinterest.com/pin/create/bookmarklet/?media=' . $image[0] . '&amp;url=' . $url . '&amp;title=' . get_the_title() . '&amp;description=' . $post->post_excerpt;
+						$api_link = 'https://pinterest.com/pin/create/button/?media=' . $image[0] . '&amp;url=' . $url . '&amp;title=' . get_the_title() . '&amp;description=' . $excerpt;
 					}
 					else {
 						$api_link = "javascript:void((function(){var%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','//assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)})());";
