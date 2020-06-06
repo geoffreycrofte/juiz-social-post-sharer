@@ -180,15 +180,109 @@ if ( ! function_exists( 'jsps_get_displayable_networks' ) ) {
 		// Merge Custom and Core Networks, Core has the priority here.
 		$merged_networks = array_merge( $custom_networks, $core_networks );
 
-		// Merge Options registered by user woth complete list
+		// Merge Options registered by user with complete list
 		if ( ! isset( $networks['google'] ) ) {
 			$merged_networks = array_merge( $merged_networks, $networks );
 		}
 
-		$networks = juiz_sps_get_ordered_networks( $merged_networks, $order );
-		$networks = juiz_sps_remove_old_networks( $networks );
+		$new_networks = juiz_sps_get_ordered_networks( $merged_networks, $order );
+		$new_networks = juiz_sps_remove_old_networks( $new_networks );
 
-		return $networks;
+		return apply_filters( 'jsps_get_displayable_networks', $new_networks, $networks, $order );
+	}
+}
+
+if ( ! function_exists('jsps_get_excerpt') ) {
+	/**
+	 * Get an excerpt from the post_content
+	 * @param  (object) $post   The WP Post object.
+	 * @param  (int)    $count  The number of letter needed.
+	 * @return (string)         The excerpt.
+	 *
+	 * @author Geoffrey Crofte
+	 * @since  2.0.0
+	 */
+	function jsps_get_excerpt( $post, $count = 80 ) {
+
+		do_action( 'jsps_before_get_excerpt', $post, $count );
+
+		$count = apply_filters( 'jsps_get_excerpt_letter_count', $count );
+		$text  = wordwrap( wp_strip_all_tags( $post->post_content ), (int) $count, "***", true );
+		$tcut  = explode("***", $text);
+
+		return apply_filters( 'jsps_get_excerpt', $tcut[0], $count );
+	}
+}
+
+if ( ! function_exists('jsps_get_network_html_icon') ) {
+	/**
+	 * Get the HTML code for the icon. Used in admin and front.
+	 *
+	 * @param  (string)  $slug         The network shortname (e.i `twitter`).
+	 * @param  (array)   $network_info The info regarding the network.
+	 * @param  (boolean) $is_front     Is it used for front or admin? (default: false)
+	 * @return (string)                Return void if front and not custom network. Return default admin icon `<i>` tag, or `<svg>` icon if custom network with file, return `<i>` with custom class if it's a custom network with class.
+	 *
+	 * @author Geoffrey Crofte
+	 * @since  2.0.0
+	 */
+	function jsps_get_network_html_icon($slug, $network_info, $is_front = false) {
+		
+		if ( $is_front && ! isset( $network_info['icon'] ) ) return;
+
+		$icon = '<i class="jsps-icon-' . esc_attr( $slug ) . '" role="presentation"></i>';
+		
+		if ( ! isset( $network_info['icon'] ) ) return $icon;
+			
+		if ( filter_var( $network_info['icon'], FILTER_VALIDATE_URL ) ) {
+			$svg_file = file_get_contents( $network_info['icon'] );
+			$svg_file = substr( $svg_file, strpos( $svg_file, '<svg' ) );
+
+
+			$icon = $is_front ? $svg_file : '<i>' . $svg_file . '</i>';
+		} else {
+			$icon = '<i class="jsps-icon-' . esc_attr( $slug ) . ' ' . esc_attr( $network_info['icon'] ) . '" role="presentation"></i>';
+		}
+
+		return apply_filters( 'jsps_get_network_html_icon', $icon, $slug, $network_info, $is_front );
+	}
+}
+
+if ( ! function_exists( 'jsps_render_api_link' ) ) {
+	/**
+	 * Format the custom network API link for front usage.
+	 * %%title%%, %%excerpt%% and %%url%% variables within the API URL will be replaced by correspondig post-to-be-shared element.
+	 * 
+	 * @param  (array)  $infos Information about the post and network (api, url, title, desc)
+	 * @return (string)        Return the formatted URL.
+	 *
+	 * @author Geoffrey Crofte
+	 * @since  2.0.0
+	 */
+	function jsps_render_api_link( $infos ) {
+
+		// Need at least the API and URL infos.
+		if ( ! isset( $infos['api'], $infos['url'] ) ) return;
+
+		// If we don't find %% within the API URL, return it like it is.
+		if ( ! strpos( $infos['api'], '%%' ) ) return $infos['api'];
+
+		// Otherwise replace %% variables.
+		$url = preg_replace(
+			array(
+				'#%%title%%#',
+				'#%%excerpt%%#',
+				'#%%url%%#'
+			),
+			array(
+				isset( $infos['title'] ) ? $infos['title'] : '',
+				isset( $infos['desc'] )  ? $infos['desc']  : '',
+				isset( $infos['url'] )   ? $infos['url']   : ''
+			),
+			$infos['api']
+		);
+
+		return apply_filters( 'jsps_render_api_link', $url, $infos );
 	}
 }
 
@@ -220,23 +314,4 @@ function jsps_get_old_network_array() {
 		'bookmark'		=>	array( 0, 'Bookmark' ), // new 1.4.2
 		'print'			=>	array( 0, 'Print' ) // new 1.4.2
 	);
-}
-
-if ( ! function_exists('juiz_get_excerpt') ) {
-	/**
-	 * Get an excerpt from the post_content
-	 * @param  (object) $post   The WP Post object.
-	 * @param  (int)    $count  The number of letter needed.
-	 * @return (string)         The excerpt.
-	 *
-	 * @author Geoffrey Crofte
-	 * @since  2.0.0
-	 */
-	function juiz_get_excerpt( $post, $count = 80 ) {
-		$count = apply_filters( 'juiz_get_excerpt_letter_count', $count );
-		$text  = wordwrap( wp_strip_all_tags( $post->post_content ), (int) $count, "***", true );
-		$tcut  = explode("***", $text);
-
-		return $tcut[0];
-	}
 }

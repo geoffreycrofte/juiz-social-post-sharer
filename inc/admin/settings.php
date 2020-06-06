@@ -188,9 +188,19 @@ if ( ! function_exists( 'juiz_sps_setting_checkbox_network_selection' ) ) {
 function juiz_sps_setting_checkbox_network_selection() {
 	$y = $n = '';
 	$options = jsps_get_option();
+
 	if ( is_array( $options ) ) {
 
-		$networks = jsps_get_displayable_networks( $options['juiz_sps_networks'], $options['juiz_sps_order'] );
+		$all_networks = jsps_get_all_registered_networks();
+
+		// Set the visibility value to the all_networks array from juiz_sps_networks option.
+		foreach( $all_networks as $k => $v ) {
+			if ( isset( $options['juiz_sps_networks'][ $k ] ) ) {
+				$all_networks[ $k ]['visible'] = $options['juiz_sps_networks'][ $k ]['visible'];
+			}
+		}
+
+		$networks = jsps_get_displayable_networks( $all_networks, $options['juiz_sps_order'] );
 
 		// Start the admin markup
 		echo '<div class="jsps-drag-container">
@@ -198,17 +208,17 @@ function juiz_sps_setting_checkbox_network_selection() {
 					<div class="juiz-sps-squared-options">';
 
 		foreach ( $networks as $k => $v ) {
-
-			$is_checked = ( $v['visible'] == 1 ) ? ' checked="checked"' : '';
-			$is_js_test = ( $k == 'pinterest' ) ? ' <em>(' . __( 'uses JavaScript to work', 'juiz-social-post-sharer' ) . ')</em>' : '';
+			$icon         = jsps_get_network_html_icon($k, $v);
 			$network_name = isset( $v['name'] ) ? $v['name'] : $k;
+			$is_checked   = ( $v['visible'] == 1 ) ? ' checked="checked"' : '';
+			$is_js_test   = ( $k == 'pinterest' ) ? ' <em>(' . __( 'uses JavaScript to work', 'juiz-social-post-sharer' ) . ')</em>' : '';
 
 			echo '<p class="juiz_sps_options_p" data-network="' . esc_attr( $k ) . '">
 					<input id="jsps_network_selection_' . esc_attr( $k ) . '" value="' . esc_attr( $k ) . '" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_networks][]" type="checkbox"
 				' . $is_checked . ' />
-			  		<label for="jsps_network_selection_' . esc_attr( $k ) . '">
+			  		<label for="jsps_network_selection_' . esc_attr( $k ) . '"' . ( isset( $v['color'] ) ? ' style="--custom-color: ' . esc_attr( $v['color'] ) . '"' : '' ) . '>
 			  			<span class="jsps_demo_icon">
-			  				<i class="jsps-icon-' . esc_attr( $k ) . '" aria-hidden="true"></i>
+			  				' . $icon . '
 			  			</span>
 			  			<span class="jsps_demo_name">' . esc_html( $network_name ) . '' . $is_js_test . '</span>
 			  		</label>
@@ -523,7 +533,7 @@ if ( ! function_exists( 'juiz_sps_settings_page' ) ) {
 				
 				<a class="juiz_btn_link juiz_twitter" target="_blank" href="https://twitter.com/intent/tweet?source=webclient&amp;hastags=WordPress,Plugin&amp;text=Juiz%20Social%20Post%20Sharer%20is%20an%20awesome%20WordPress%20plugin%20to%20share%20content!%20Try%20it!&amp;url=http://wordpress.org/extend/plugins/juiz-social-post-sharer/&amp;related=geoffrey_crofte&amp;via=geoffrey_crofte"><i class="dashicons dashicons-twitter" aria-hidden="true"></i>&nbsp;<?php _e( 'Tweet it', 'juiz-social-post-sharer' ); ?></a>
 
-				<a class="juiz_btn_link juiz_rate" target="_blank" href="http://wordpress.org/support/view/plugin-reviews/juiz-social-post-sharer"><i class="dashicons dashicons-star-filled" aria-hidden="true"></i>&nbsp;<?php _e( 'Rate it', 'juiz-social-post-sharer' ); ?></a>
+				<a class="juiz_btn_link juiz_rate" target="_blank" href="https://wordpress.org/support/plugin/juiz-social-post-sharer/reviews/?rate=5#new-post"><i class="dashicons dashicons-star-filled" aria-hidden="true"></i>&nbsp;<?php _e( 'Rate it', 'juiz-social-post-sharer' ); ?></a>
 
 				<em><?php _e( 'Want to customize everything? Take a look at the documentation.', 'juiz-social-post-sharer' ); ?></em>
 
