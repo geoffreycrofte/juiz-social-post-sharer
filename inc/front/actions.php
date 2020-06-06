@@ -3,7 +3,10 @@
 defined( 'ABSPATH' ) or die( 'Cheatin&#8217; uh?' );
 
 /**
- * Admin AJAX for Email To a Friend action
+ * Admin AJAX for Email To a Friend action.
+ *
+ * @since  2.0.0
+ * @author Geoffrey Crofte
  */
 
 add_action( 'wp_ajax_nopriv_jsps-email-friend', 'jsps_ajax_email_friend' );

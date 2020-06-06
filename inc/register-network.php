@@ -8,6 +8,9 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @param  (array) $core_networks The networks array.
  * @return (array)                The new array of networks.
+ *
+ * @author Geoffrey Crofte
+ * @since  2.0.0
  */
 function jsps_get_core_networks( $core_networks = array() ) {
 	/**
@@ -28,6 +31,9 @@ function jsps_get_core_networks( $core_networks = array() ) {
  *
  * @param  (array)  $custom_networks The networks array.
  * @return (array)                   The new array of networks.
+ *
+ * @author Geoffrey Crofte
+ * @since  2.0.0
  */
 function jsps_get_custom_networks( $custom_networks = array() ) {
 	/**

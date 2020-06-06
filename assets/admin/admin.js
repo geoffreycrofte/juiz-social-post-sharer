@@ -1,5 +1,14 @@
 ;
 /**
+ * Admin.js
+ *
+ * Admin JS file for Juiz Social Post Sharer
+ * 
+ * @since 2.0.0
+ * @author Geoffrey Crofte
+ */
+
+/**
  * LMDD Drag & Drop Script
  * @see: https://supraniti.github.io/Lean-Mean-Drag-and-Drop/
  */
@@ -34,7 +43,7 @@ v),window.addEventListener("touchmove",v,{passive:!1}),window.addEventListener("
 jQuery( document ).ready( function( $ ){
 	/**
 	 * On big screen create tabs for the options.
-	 * @since 1.5
+	 * @since 2.0.0
 	 * @author Geoffrey Crofte
 	 */
 	function juiz_maybe_build_tabs() {
@@ -191,7 +200,7 @@ jQuery( document ).ready( function( $ ){
 
 	/**
 	 * Return the current tab index.
-	 * @since  1.5
+	 * @since  2.0.0
 	 */
 	function jsps_get_current_tab_selected() {
 		if ( typeof( Storage ) === "undefined") {
@@ -207,7 +216,7 @@ jQuery( document ).ready( function( $ ){
 
 	/**
 	 * Set the current tab index.
-	 * @since  1.5
+	 * @since  2.0.0
 	 */
 	function jsps_set_current_tab( value ) {
 		if ( typeof( Storage ) !== "undefined") {
@@ -218,7 +227,7 @@ jQuery( document ).ready( function( $ ){
 	/**
 	 * Other scripts I don't remember what I do with.
 	 * @since  1.0
-	 * @lastupdate 1.5
+	 * @lastupdate 2.0.0
 	 */
 
 	$('input[disabled]').closest('tr').addClass('juiz_disabled');

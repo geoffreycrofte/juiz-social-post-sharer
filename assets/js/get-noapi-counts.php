@@ -1,4 +1,9 @@
 <?php
+	/**
+	 * Should not be used anymore in 2.0.0
+	 * since all the supported counter are
+	 * shut down.
+	 */
 	header('content-type: application/json');
 
 	// parse() function
@@ -42,7 +47,7 @@
 	}
 
 
-	// get counters
+	// Get counters.
 
 	$json = array('url'=>'','count'=>0);
 	$url = $_GET['url'];

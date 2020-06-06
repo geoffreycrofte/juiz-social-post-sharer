@@ -5,8 +5,16 @@
 // Activation hook
 register_activation_hook( JUIZ_SPS_FILE, 'juiz_sps_activation' );
 
+/**
+ * Set things at plugin activation.
+ *
+ * @return void
+ * @author Geoffrey Crofte
+ *
+ * @since   1.0.0
+ * @version 2.0.0
+ */
 function juiz_sps_activation() {
-
 	$juiz_sps_options = jsps_get_option();
 
 	if ( ! is_array( $juiz_sps_options ) ) {
@@ -28,9 +36,9 @@ function juiz_sps_activation() {
 			'juiz_sps_mail_body'		=> __( 'Hi, I found this information for you : "%%title%%"! This is the direct link: %%permalink%% Have a nice day :)', 'juiz-social-post-sharer' ),
 			'juiz_sps_force_pinterest_snif' => 0,
 			'juiz_sps_colors' 			=> array(
-					'bg_color'	=> '', 
-					'txt_color' => ''
-				)
+				'bg_color'	=> '', 
+				'txt_color' => ''
+			)
 		);
 		
 		jsps_update_option( $default_options );

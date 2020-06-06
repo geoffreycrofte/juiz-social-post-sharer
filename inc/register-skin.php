@@ -4,10 +4,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Get the custom array of skins.
+ * Get the core array of skins.
  * 
  * @param  (array) $core_skins The skins array.
- * @return (array)              The new array of skins.
+ * @return (array)             Filtered new array of Core Skins.
+ *
+ * @since  2.0.0
+ * @author Geoffrey Crofte
  */
 function jsps_get_core_skins( $core_skins = array() ) {
 	/**
@@ -23,9 +26,12 @@ function jsps_get_core_skins( $core_skins = array() ) {
 
 /**
  * Get the custom array of skins.
+ * 
+ * @param  (array) $custom_skins The custom skins array.
+ * @return (array)               Filtered new array of Custom Skins.
  *
- * @param  (array) $custom_skins The skins array.
- * @return (array)                The new array of skins.
+ * @since  2.0.0
+ * @author Geoffrey Crofte
  */
 function jsps_get_custom_skins( $custom_skins = array() ) {
 	/**

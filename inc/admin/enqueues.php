@@ -7,7 +7,7 @@ if ( ! function_exists( 'jsps_load_custom_wp_admin_assets' ) ) {
 	 * Include Admin dedicated scripts.
 	 * @return void
 	 * @author Geoffrey Crofte
-	 * @since 1.5
+	 * @since 2.0.0
 	 */
 	function jsps_load_custom_wp_admin_assets() {
 		global $current_screen;

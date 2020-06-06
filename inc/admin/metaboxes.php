@@ -6,10 +6,14 @@
  * Section for Metabox
  */
 if ( ! function_exists( 'juiz_sps_metaboxes' ) ) {
-
-	add_action( 'add_meta_boxes', 'juiz_sps_metaboxes' );
+	/**
+	 * Add Metaboxes to allow user to choose to display buttons on certain post.
+	 * 
+	 * @return void
+	 * @author Geoffrey Crofte
+	 * @since  1.3.0
+	 */
 	function juiz_sps_metaboxes(){
-
 		$options = jsps_get_option();
 		$pts	 = get_post_types( array( 'public'=> true, 'show_ui' => true, '_builtin' => true ) );
 		$cpts	 = get_post_types( array( 'public'=> true, 'show_ui' => true, '_builtin' => false ) );
@@ -27,6 +31,7 @@ if ( ! function_exists( 'juiz_sps_metaboxes' ) ) {
 			}
 		}
 	}
+	add_action( 'add_meta_boxes', 'juiz_sps_metaboxes' );
 }
 // build the metabox
 if ( ! function_exists( 'jsps_hide_buttons_f' ) ) {

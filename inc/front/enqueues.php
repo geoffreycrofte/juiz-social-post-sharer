@@ -10,7 +10,7 @@ if ( ! function_exists('jsps_enqueue_scripts') ) {
 	 * @return void
 	 *
 	 * @since  1.0
-	 * @version Updated: 1.5.0
+	 * @version Updated: 2.0.0
 	 * @author Geoffrey Crofte
 	 */
 	function jsps_enqueue_scripts() {
@@ -54,9 +54,9 @@ if ( ! function_exists( 'juiz_sps_style_and_script' ) ) {
 	 *
 	 * @return void
 	 *
-	 * @since  1.0
-	 * @version Updated: 1.5.0
-	 * @author Geoffrey Crofte
+	 * @since   1.0
+	 * @version 2.0.0
+	 * @author  Geoffrey Crofte
 	 */
 	function juiz_sps_style_and_script() {
 

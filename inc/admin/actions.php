@@ -6,7 +6,7 @@
  * Action on Network ordering in theming you buttons bar.
  *
  * @return void
- * @since  1.5
+ * @since  2.0.0
  * @author Geoffrey Crofte
  */
 

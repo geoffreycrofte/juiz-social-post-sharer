@@ -1,3 +1,11 @@
+/**
+ * Admin.css
+ *
+ * Admin CSS file for Juiz Social Post Sharer
+ * 
+ * @since 2.0.0
+ * @author Geoffrey Crofte
+ */
 @font-face{
 	font-family: 'jsps-icon';
 	src: url('../../skins/common/fonts/jsps.woff2?200') format('woff2'),
@@ -20,6 +28,10 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	font-size: 1em;
+}
+
+:root {
+	--jsps-brand-color: #43AFD2;
 }
 
 .jsps-icon-bookmark:before {
@@ -87,7 +99,7 @@
 }
 
 .jsps-links-header {
-	padding: 15px 35px 18px;
+	padding: 15px 35px;
 }
 
 .jsps-main-header > *,
@@ -110,9 +122,9 @@
 	font-size: 0.6em;
 }
 
-.jsps-main-header h1 .dashicons,
+.jsps-main-header h1 i,
 .jsps-links-header .dashicons {
-	color: #43AFD2;
+	color: var(--jsps-brand-color);
 	margin-right: 8px;
 	font-size: 24px;
 	vertical-align: -4px;
@@ -193,7 +205,7 @@
 	bottom: 0;
 	left: 0;
 	width: 5px;
-	background: #43AFD2;
+	background: var(--jsps-brand-color);
 	opacity: 0;
 }
 .jsps-tabs a::after {
@@ -312,7 +324,7 @@
 
 .juiz_bottom_links_p {
 	margin: 0;
-	padding: 20px 35px;
+	padding: 16px 24px;
 }
 
 [id="juiz-sps"] .error {
@@ -377,10 +389,15 @@
 	font-weight: bold;
 }
 
-[id="juiz-sps"] th em {
+[id="juiz-sps"] th em,
+.jsps-emphasis {
 	font-weight: normal;
 	font-style: italic;
 	color: #777;
+}
+
+em.jsps-emphasis.jsps-emphasis {
+	font-style: normal;
 }
 
 .juiz-sps-squared-options {
@@ -905,7 +922,7 @@ input[type="checkbox"]:checked + label em {
 	font-size: 32px;
 	width: 1em;
 	height: 1em;
-	color: #43AFD2;
+	color: var(--jsps-brand-color);
 }
 
 .juiz-sps-notif-text.juiz-sps-notif-text {

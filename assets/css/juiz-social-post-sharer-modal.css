@@ -1,8 +1,9 @@
-/*
-Plugin Name: Juiz Social Post Sharer
-Plugin URI: http://creativejuiz.fr
-Author: Geoffrey Crofte
-*/
+/**
+ * Plugin Name: Juiz Social Post Sharer
+ * Plugin URI: https://www.creativejuiz.fr/blog/en/?s=social%20post%20sharer
+ *
+ * @author: Geoffrey Crofte
+ */
 
 .juiz-sps-modal {
 	position: fixed;

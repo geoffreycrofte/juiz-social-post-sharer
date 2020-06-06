@@ -7,11 +7,11 @@ if ( ! function_exists( 'juiz_sf_get_current_url' ) ) {
 	/**
 	 * Get the real current page URL.
 	 *
-	 * @param (string) $mode The mode of the URL.
-	 * @return (string) The current page URL.
+	 * @param  (string) $mode  The mode of the URL.
+	 * @return (string)        The current page URL.
 	 *
-	 * @since 1.5
-	 * @author  BoiteAWeb.fr, Geoffrey Crofte
+	 * @since  2.0.0
+	 * @author BoiteAWeb.fr, Geoffrey Crofte
 	 * @see http://boiteaweb.fr/sf_get_current_url-obtenir-url-courante-fonction-semaine-5-6765.html
 	 */
 	function juiz_sf_get_current_url( $mode = 'base' ) {
@@ -199,8 +199,8 @@ if ( ! function_exists('jsps_get_excerpt') ) {
 	 * @param  (int)    $count  The number of letter needed.
 	 * @return (string)         The excerpt.
 	 *
-	 * @author Geoffrey Crofte
 	 * @since  2.0.0
+	 * @author Geoffrey Crofte
 	 */
 	function jsps_get_excerpt( $post, $count = 80 ) {
 
@@ -223,8 +223,8 @@ if ( ! function_exists('jsps_get_network_html_icon') ) {
 	 * @param  (boolean) $is_front     Is it used for front or admin? (default: false)
 	 * @return (string)                Return void if front and not custom network. Return default admin icon `<i>` tag, or `<svg>` icon if custom network with file, return `<i>` with custom class if it's a custom network with class.
 	 *
-	 * @author Geoffrey Crofte
 	 * @since  2.0.0
+	 * @author Geoffrey Crofte
 	 */
 	function jsps_get_network_html_icon($slug, $network_info, $is_front = false) {
 		
@@ -256,8 +256,8 @@ if ( ! function_exists( 'jsps_render_api_link' ) ) {
 	 * @param  (array)  $infos Information about the post and network (api, url, title, desc)
 	 * @return (string)        Return the formatted URL.
 	 *
-	 * @author Geoffrey Crofte
 	 * @since  2.0.0
+	 * @author Geoffrey Crofte
 	 */
 	function jsps_render_api_link( $infos ) {
 
@@ -292,8 +292,8 @@ if ( ! function_exists( 'jsps_render_api_link' ) ) {
  *
  * @return (array) The old array of network options
  * 
- * @author  Geoffrey Crofte
  * @since  2.0.0
+ * @author Geoffrey Crofte
  */
 function jsps_get_old_network_array() {
 	return array(

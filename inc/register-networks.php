@@ -4,6 +4,12 @@
 
 /**
  * Register default networks.
+ * 
+ * @param  (array) $core_networks Empty Array of initial Core Networks
+ * @return (array)                Filtered array of Core Networks
+ *
+ * @since  2.0.0
+ * @author  Geoffrey Crofte
  */
 function jsps_register_core_networks( $core_networks ) {
 

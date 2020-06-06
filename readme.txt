@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJ
 Tags: social, twitter, google, facebook, digg, stumbleupon, linkedin, pinterest, viadeo, weibo, vkontakte, post, share
 Requires at least: 3.3
 Tested up to: 4.9.8
-Stable tag: 1.5
+Stable tag: 2.0.0
 
 Add smart designed buttons after/before your posts to allow visitors sharing your content (includes no JavaScript mode & counters). Totally GDPR compliant.
 
@@ -25,44 +25,47 @@ Display an optional sharings counter.
 
 Social networks supported:
 
-* Delicious
-* Digg
+* Diigo
+* Evernote
 * Facebook 
-* Google+
 * LinkedIn
+* Mix
 * Pinterest
+* Pocket
 * Reddit
-* StumbleUpon
 * Tumblr
 * Twitter
 * Viadeo
 * Weibo
+* WhatsApp
 * VKontakte
+
 
 Other actions supported:
 
 * Send by Mail (mailto:)
-* Print
+* Print (buttons are not printed 😜)
 * Add to bookmark
 
-Options plugin:
+Plugin Options:
 
 * 8 graphic templates available
 * Choose from all available networks
 * Open links in a new window (deactivated by default)
 * Choose to display only the social network icon
-* Add your Twitter account name to add "via" during a share
-* Choose to display buttons only on certain type of post
+* Add your Twitter account name to add "via" while sharing
+* Choose to display buttons only on certain type of post (compatible with Custom Post Type)
 * Choose to hide buttons only on certain posts directly in the edit page (metabox).
-* Choose to display buttons at the bottom, the top of the content, or both (or just with shortcode)
+* Choose to display buttons at the bottom, the top of the content, or both (or just with shortcode or template function)
 * Customize mail texts (subject and body)
-* Display a sharings counter (optional and in beta)
-* Some hooks are available for markup customization (or add some things)
-* A hook is available and offer you the opportunity to add the bouton you need
+* Display a sharings counter (optional, recommend not to use it since Brands are shutting down all the counters)
 * Use shortcode <code>[juiz_sps]</code> or <code>[juiz_social]</code> where you want
-* Use template function <code>juiz_sps()</code> or <code>get_juiz_sps()</code> in your code
+* For developers: A lot of hooks are available for markup customization (or add some things)
+  * A hook is available and offers you the opportunity to add the buttons you need
+  * Use template function <code>juiz_sps()</code> or <code>get_juiz_sps()</code> in your code
+  * Contribute by creating you own button Skins
 
-Languages available:
+Available Languages:
 
 * Deutsch (thank to [Dennis Schmitz](http://compcardinmotion.de "Dennis Schmitz's website")!)
 * English
@@ -106,7 +109,7 @@ Find a complete documentation on <a href="https://www.creativejuiz.fr/blog/doc/j
 = Twitter counter doesn't appear OR the count seems to be not exact =
 Yep, sorry about that, but <a href="https://twittercommunity.com/t/a-new-design-for-tweet-and-follow-buttons/52791">Twitter decided to shut down counter</a>.
 
-Use the version 1.4.3 or more of this plugin to get an alternative of the native counter. But, keep in mind that alternative is not 100% precise, but better than nothing, I guess.
+Use the version 1.4.3 or above of this plugin to get an alternative of the native counter. But, keep in mind that alternative is not 100% precise, but better than nothing, I guess.
 
 = The text shared by default is very ugly, something like "Share the post "YOUR POST TITLE" FacebookTwitterGoogle+E-mail [SOME OTHER WORDS]"? =
 You certainly activated the buttons in the top of your post. It's your choice, but in this case, you need to improve by yourself the SEO-description of your article/page. You can try using the <a href="https://wordpress.org/plugins/wordpress-seo/">WordPress SEO plugin by Yoast</a>. 
@@ -116,26 +119,26 @@ Yes, but not with the page options of this plugin. You need to use a hook to add
 See the `juiz_sps_before_first_item` or `juiz_sps_after_last_item` hook in <a href="http://creativejuiz.fr/blog/doc/juiz-social-post-sharer-documentation.html">the documentation</a>. 
 
 = I have a fatal error or a 500 server error since update to 1.2.3 =
-Yes, you surely use pinterest button. It's a bug, update to 1.2.4.
+Yes, you surely use pinterest button. It's a bug, update to 1.2.4 or above.
 Thank you.
 
 = I can't just use shortcode by deactivating all the checkbox display option in admin option page? since 1.2.0 =
-Yes, it's a bug, please, use the plugin version 1.2.2. 
+Yes, it's a bug, please, use the plugin version 1.2.2 or above. 
 
 = New style is not visible? =
-Please update to 1.1.3
+Please update to 1.1.3 or above
 
 = Some options are not visible (if it's not the first installation, but an update of the plugin) =
-Deactivate and reactivate the plugin to force the options rebuild.
+Deactivate and reactivate the plugin to force the rebuild of the options.
 
 
 == Screenshots ==
 
-1. Themes available
+1. Default Themes available
 2. After a post
 3. The new 1.3.0 Black theme and sharings counter
 4. The metabox to hide buttons on a post
-5. Both new themes: Brands Colors & Material Design
+5. New themes: Brands Colors & Material Design
 
 == Other plugins ==
 
@@ -150,15 +153,16 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
  * Administration interface redesign
  * Script and Styles in external files (force refresh if you bugs occure)
 * *New feature*
- * Add or remove more easily custom buttons (Network API)
- * Create your own button skin easily with the starter kit and this doc (TODO), do it in your theme or in a separate plugin.
- * Remove LinkedIn counter because LinkedIn doesn't offer a count anymore. (@see https://developer.linkedin.com/blog/posts/2018/deprecating-the-inshare-counter)
- * Remove Twitter counter because Twitter doesn't offer a count anymore. (@see https://twittercommunity.com/t/a-new-design-for-tweet-and-follow-buttons/52791)
- * Email button has now an option to open a little form in lightbox instead of mailto: protocole
+ * Add or remove more easily custom buttons (Network API - Documentation TODO)
+ * Create your own buttons Skin with the starter kit and this documentation (TODO). Do it in your theme or in a separate plugin.
+ * Removes LinkedIn counter because LinkedIn doesn't offer a count anymore. (@see https://developer.linkedin.com/blog/posts/2018/deprecating-the-inshare-counter)
+ * Removes Twitter counter because Twitter doesn't offer a count anymore. (@see https://twittercommunity.com/t/a-new-design-for-tweet-and-follow-buttons/52791)
+ * Email button has now an option to open a little form in a lightbox instead of mailto: protocole
  * New button: Evernote
- * New button: 
- * New button: 
- * New button: 
+ * New button: Mix (replace Stumbleuppon)
+ * New button: WhatsApp
+ * New button: Diigo
+ * New button: Pocket
 * *All new brand plugin files structure*
 * *New hooks*: see revamped documentation.html file inside the plugin folder.
 * *Fixes*

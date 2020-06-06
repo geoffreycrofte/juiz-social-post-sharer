@@ -5,11 +5,11 @@
 /**
  * Register the Core Skins being used in the admin/front
  * 
- * @param  (array) $core_skins An array of the core skins.
- * @return (array)              The filtered array of core skins.
+ * @param  (array) $core_skins  An array of the Core Skins.
+ * @return (array)              The filtered array of Core Skins.
  *
- * @since  1.5.0
- * @author  Geoffrey Crofte
+ * @since  2.0.0
+ * @author Geoffrey Crofte
  */
 function jsps_register_core_skins( $core_skins ) {
 
@@ -64,13 +64,13 @@ add_filter( 'jsps_register_core_skin', 'jsps_register_core_skins' );
 /**
  * Register the current theme buttons' skin(s) if found.
  * 
- * @param  (array) $custom_skins An array of the custom button skins.
- * @return (array)                The filtered array of custom skins.
+ * @param  (array) $custom_skins  An array of the Custom button Skins.
+ * @return (array)                The filtered array of Custom Skins.
  *
  * @see    register-skin.php jsps_get_custom_skins() function desc for array composition.
  *
- * @since  1.5.0
- * @author  Geoffrey Crofte
+ * @since  2.0.0
+ * @author Geoffrey Crofte
  */
 
 function jsps_register_current_template_skins( $custom_skins ) {

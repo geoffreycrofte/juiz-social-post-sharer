@@ -6,8 +6,9 @@
  * Getting options from the right place.
  * Multisite compatibility.
  *
- * @author Marie Comet, Geoffrey Crofte
- * @since 1.4.7
+ * @author  Marie Comet, Geoffrey Crofte
+ * @since   1.4.7
+ * @version 2.0.0
  */
 function jsps_get_option( $option_name = '' ) {
 
@@ -39,8 +40,9 @@ function jsps_get_option( $option_name = '' ) {
  * Updating options to the right place.
  * Multisite compatibility.
  *
- * @author Marie Comet, Geoffrey Crofte
- * @since 1.4.7
+ * @author  Marie Comet, Geoffrey Crofte
+ * @since   1.4.7
+ * @version 2.0.0
  */
 function jsps_update_option( $options ) {
 

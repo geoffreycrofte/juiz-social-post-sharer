@@ -9,9 +9,9 @@ if ( ! function_exists( 'juiz_sps_plugin_action_links' ) ) {
 	 * @param  string $file  File root.
 	 * @return array         New array of links.
 	 *
-	 * @since 1.0.0
-	 * @updated 1.5.0
-	 * @author Geoffrey Crofte
+	 * @since   1.0.0
+	 * @version 2.0.0
+	 * @author  Geoffrey Crofte
 	 */
 	function juiz_sps_plugin_action_links( $links, $file ) {
 		$links[] = '<a href="' . admin_url( 'options-general.php?page=' . JUIZ_SPS_SLUG ) . '">' . __( 'Settings' ) . '</a>';
@@ -23,8 +23,9 @@ if ( ! function_exists( 'juiz_sps_plugin_action_links' ) ) {
 if ( ! function_exists( 'add_juiz_sps_settings_page' ) ) {
 	/**
 	 * Create a page of options
-	 * @since  1.0.0
-	 * @updated 1.5.0
+	 *
+	 * @since   1.0.0
+	 * @version 2.0.0
 	 * @author  Geoffrey Crofte
 	 */
 	function add_juiz_sps_settings_page() {
@@ -485,7 +486,7 @@ if ( ! function_exists( 'juiz_sps_settings_page' ) ) {
 	<div id="juiz-sps" class="wrap">
 		<div class="jsps-main-content">
 			<div class="jsps-main-header">
-				<h1><i class="dashicons dashicons-share" aria-hidden="true"></i>&nbsp;<?php echo JUIZ_SPS_PLUGIN_NAME; ?>&nbsp;<small>v.&nbsp;<?php echo JUIZ_SPS_VERSION; ?></small></h1>
+				<h1><i class="jsps-icon-share" role="presentation"></i>&nbsp;<?php echo JUIZ_SPS_PLUGIN_NAME; ?>&nbsp;<small>v.&nbsp;<?php echo JUIZ_SPS_VERSION; ?></small></h1>
 			</div>
 
 			<div class="jsps-main-body">
@@ -523,10 +524,10 @@ if ( ! function_exists( 'juiz_sps_settings_page' ) ) {
 
 		<div class="juiz_bottom_links">
 			<div class="jsps-links-header">
-				<p><i class="dashicons dashicons-format-status" aria-hidden="true"></i>&nbsp;<?php esc_html_e( 'Hey!', 'juiz-social-post-sharer' ); ?></p>
+				<p><i class="dashicons dashicons-format-status" aria-hidden="true"></i>&nbsp;<?php esc_html_e( 'Thanks!', 'juiz-social-post-sharer' ); ?></p>
 			</div>
 			<p class="juiz_bottom_links_p">
-				<em><?php _e( 'Like it? Support this plugin! Thank you.', 'juiz-social-post-sharer' ); ?></em>
+				<em class="jsps-emphasis"><?php _e( 'Like it? Support this plugin! Thank you 😊', 'juiz-social-post-sharer' ); ?></em>
 				<a class="juiz_btn_link juiz_paypal" target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=P39NJPCWVXGDY&amp;lc=FR&amp;item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&amp;item_number=%23wp%2djsps&amp;currency_code=EUR&amp;bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted"><i class="dashicons dashicons-money" aria-hidden="true"></i>&nbsp;<?php _e( 'Donate', 'juiz-social-post-sharer' ); ?></a>
 
 				<a class="juiz_btn_link juiz_flattr" href="https://flattr.com/submit/auto?user_id=CreativeJuiz&amp;url=http://wordpress.org/plugins/juiz-social-post-sharer/&amp;title=Juiz%20Social%20Post%20Sharer%20-%20WordPress%20Plugin&amp;description=Awesome%20WordPress%20Plugin%20helping%20you%20to%20add%20buttons%20at%20the%20beginning%20or%20the%20end%20of%20your%20WordPress%20contents%20easily&amp;tags=WordPress,Social,Share,Buttons,Network,Twitter,Facebook,Linkedin&amp;category=software" lang="en" hreflang="en"><i class="dashicons dashicons-thumbs-up" aria-hidden="true"></i>&nbsp;<?php _e( 'Flattr this!', 'juiz-social-post-sharer' ); ?></a>
@@ -535,9 +536,9 @@ if ( ! function_exists( 'juiz_sps_settings_page' ) ) {
 
 				<a class="juiz_btn_link juiz_rate" target="_blank" href="https://wordpress.org/support/plugin/juiz-social-post-sharer/reviews/?rate=5#new-post"><i class="dashicons dashicons-star-filled" aria-hidden="true"></i>&nbsp;<?php _e( 'Rate it', 'juiz-social-post-sharer' ); ?></a>
 
-				<em><?php _e( 'Want to customize everything? Take a look at the documentation.', 'juiz-social-post-sharer' ); ?></em>
+				<em class="jsps-emphasis"><?php _e( 'Want to customize everything? Look at the documentation.', 'juiz-social-post-sharer' ); ?></em>
 
-				<a class="juiz_btn_link juiz_doc" target="_blank" href="<?php echo JUIZ_SPS_PLUGIN_URL; ?>documentation.html"><i class="dashicons dashicons-welcome-learn-more" aria-hidden="true"></i>&nbsp;<?php _e( 'Doc', 'juiz-social-post-sharer' ); ?> (en)</a>
+				<a class="juiz_btn_link juiz_doc" target="_blank" href="<?php echo JUIZ_SPS_PLUGIN_URL; ?>documentation.html"><i class="dashicons dashicons-welcome-learn-more" aria-hidden="true"></i>&nbsp;<?php esc_html_e( 'Documentation', 'juiz-social-post-sharer' ); ?></a>
 			</p>
 		</div><!-- . juiz_bottom_links -->
 	</div><!-- .wrap -->

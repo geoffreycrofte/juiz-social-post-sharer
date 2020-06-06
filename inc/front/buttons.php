@@ -14,8 +14,9 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 	 * @param  string  $url_to_share        'permalink' | 'siteurl' | <custom_url>
 	 * @return string                       Return the markup for the buttons.
 	 *
-	 * @author Geoffrey Crofte
-	 * @since  1.0
+	 * @author  Geoffrey Crofte
+	 * @since   1.0
+	 * @version 2.0.0
 	 */
 	function get_juiz_sps( $networks = array(), $counters = 0, $is_current_page_url = 0, $is_shortcode = 0, $url_to_share = NULL ) {
 		global $post;
