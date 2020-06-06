@@ -130,7 +130,6 @@ Version: Styles v1
 }
 .juiz_sps_links .juiz_sps_item,
 .juiz_sps_links .juiz_sps_item a,
-.juiz_sps_links .juiz_sps_item a .juiz_sps_icon,
 .juiz_sps_links .juiz_sps_item a .juiz_sps_network_name { 
 	display: inline-block;
 	vertical-align: middle;
@@ -142,7 +141,7 @@ Version: Styles v1
 	border: 1px solid #ddd!important;
 	background-color: var(--bg);
 	background-image: linear-gradient(rgba(255,255,255,.9),rgba(255,255,255,0));
-	color: var(--color);
+	color: var(--jsps-custom-hover-color, var(--color));
 	text-decoration: none;
 	font-size: 12px;
 	border-radius: 4px;
@@ -159,9 +158,18 @@ Version: Styles v1
 }
 
 .juiz_sps_links .juiz_sps_icon {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	vertical-align: middle;
 	width: 16px;
 	height: 16px;
 	margin-right: 5px;
+}
+
+.juiz_sps_links .juiz_sps_icon svg {
+	width: calc(100% - 5px);
+	height: calc(100% - 5px);
 }
 
 .juiz_sps_links .juiz_sps_item a:hover .juiz_sps_icon {
@@ -170,7 +178,7 @@ Version: Styles v1
 
 .juiz_sps_links .juiz_sps_item a:hover,
 .juiz_sps_links .juiz_sps_item a:focus {
-	color: var(--color);
+	color: var(--neutraldark);
 }
 
 @keyframes roll {
@@ -246,7 +254,7 @@ Version: Styles v1
 
 .juiz_sps_links .juiz_sps_link_mail a,
 .juiz_sps_links .juiz_sps_link_print a,
-.juiz_sps_links .juiz_sps_link_mail a {
+.juiz_sps_links .juiz_sps_link_bookmark a {
 	color: var(--neutral);
 }
 

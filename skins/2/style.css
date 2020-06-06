@@ -130,7 +130,6 @@ Version: Styles v2
 }
 .juiz_sps_links .juiz_sps_item,
 .juiz_sps_links .juiz_sps_item a,
-.juiz_sps_links .juiz_sps_item a .juiz_sps_icon,
 .juiz_sps_links .juiz_sps_item a .juiz_sps_network_name { 
 	display: inline-block;
 	vertical-align: middle;
@@ -159,9 +158,23 @@ Version: Styles v2
 }
 
 .juiz_sps_links .juiz_sps_icon {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	vertical-align: middle;
 	width: 16px;
 	height: 16px;
 	margin-right: 5px;
+}
+
+.juiz_sps_links .juiz_sps_icon svg {
+	width: calc(100% - 5px);
+	height: calc(100% - 5px);
+}
+
+.juiz_sps_links .juiz_sps_item a:hover,
+.juiz_sps_links .juiz_sps_item a:focus {
+	color: var(--jsps-custom-hover-color, var(--neutral));
 }
 
 .juiz_sps_links .juiz_sps_item a:hover .juiz_sps_icon {
@@ -251,15 +264,6 @@ Version: Styles v2
 .juiz_sps_links .juiz_sps_link_tumblr a:hover,
 .juiz_sps_links .juiz_sps_link_tumblr a:focus {
 	color: var(--tumblr);
-}
-
-.juiz_sps_links .juiz_sps_link_mail a:hover,
-.juiz_sps_links .juiz_sps_link_bookmark a:hover,
-.juiz_sps_links .juiz_sps_link_print a:hover,
-.juiz_sps_links .juiz_sps_link_mail a:focus,
-.juiz_sps_links .juiz_sps_link_bookmark a:focus,
-.juiz_sps_links .juiz_sps_link_print a:focus {
-	color: var(--neutral);
 }
 
 /* special if names are hidden */

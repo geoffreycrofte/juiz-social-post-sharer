@@ -187,7 +187,7 @@
 	color: #FFF;
 	text-decoration: none;
 	text-shadow: none;
-	background: var(--neutral);
+	background: var(--jsps-custom-color, var(--neutral));
 	-webkit-background-clip: padding-box;
 	-moz-background-clip: padding;
 	background-clip: padding-box;
@@ -211,6 +211,7 @@
 .juiz_sps_links .juiz_sps_item a:focus {
 	box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2);
 	transition-delay: 0s;
+	background: var(--jsps-custom-hover-color, var(--neutraldark));
 }
 
 .juiz_sps_links .juiz_sps_item a:active {
@@ -221,12 +222,17 @@
 	margin-right: 8px;
 	width: 1em;
 	height: 1em;
+	text-align: center; /* for custom links with SVG */
+}
+
+.juiz_sps_links .juiz_sps_icon svg {
+	width: calc(100% - 6px);
+	height: calc(100% - 6px);
 }
 
 /**
  * Color Application
  */
-
 .juiz_sps_links .juiz_sps_link_twitter a {
 	background-color: var(--twitter);
 }

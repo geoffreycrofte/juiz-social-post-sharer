@@ -194,12 +194,23 @@ Version: Styles v6 (Design and CSS by Fandia - http://fandia.w.pw)
 }
 
 .juiz_sps_links .juiz_sps_icon {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	margin-right: 0.25em;
+	width: 1em;
+	height: 1em;
+}
+
+.juiz_sps_links .juiz_sps_icon svg {
+	width: calc(100% - 6px);
+	height: calc(100% - 6px);
 }
 
 .juiz_sps_links .juiz_sps_item a:hover,
 .juiz_sps_links .juiz_sps_item a:focus {
 	color: #FFF;
+	background-color: var(--jsps-custom-hover-color, var(--neutral));
 }
 
 .juiz_sps_links .juiz_sps_link_twitter a:hover,

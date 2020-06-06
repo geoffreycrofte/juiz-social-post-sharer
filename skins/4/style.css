@@ -108,8 +108,7 @@ Version: Styles v4 - Dark Metro Style
 
 .juiz_sps_links .juiz_sps_item,
 .juiz_sps_links .juiz_sps_item a,
-.juiz_sps_links .juiz_sps_item a .juiz_sps_network_name,
-.juiz_sps_links .juiz_sps_item a .juiz_sps_icon { 
+.juiz_sps_links .juiz_sps_item a .juiz_sps_network_name { 
 	display: inline-block;
 	vertical-align: middle;
 }
@@ -128,12 +127,7 @@ Version: Styles v4 - Dark Metro Style
 	font-weight: 500;
 	font-size: 14px;
 	font-family: "Segoe WP", "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
-	
-	-webkit-transition: color .2s, background-color .2s, transform .2s;
-	-moz-transition: color .2s, background-color .2s, transform .2s;
-	-o-transition: color .2s, background-color .2s, transform .2s;
 	transition: color .2s, background-color .2s, transform .2s;
-
 	transform-origin: 100% 100%;
 	perspective: 2000;
 	perspective-origin: 50% 50%;
@@ -144,7 +138,18 @@ Version: Styles v4 - Dark Metro Style
 }
 
 .juiz_sps_links .juiz_sps_icon {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	width: 1em;
+	height: 1em;
+	vertical-align: middle;
 	margin-right: 0.25em;
+}
+
+.juiz_sps_links .juiz_sps_icon svg {
+	width: calc(100% - 6px);
+	height: calc(100% - 6px);
 }
 
 .juiz_sps_links .juiz_sps_item a:hover,
@@ -161,9 +166,6 @@ Version: Styles v4 - Dark Metro Style
 
 .juiz_sps_hide_name a .juiz_sps_icon,
 .juiz_sps_hide_name a .juiz_sps_network_name {
-	-webkit-transition: max-width .3s, margin .3s;
-	-moz-transition: max-width .3s, margin .3s;
-	-o-transition: max-width .3s, margin .3s;
 	transition: max-width .3s, margin .3s;
 }
 
@@ -211,6 +213,7 @@ Version: Styles v4 - Dark Metro Style
 	border-bottom: 6px solid transparent;
 	border-top: 6px solid transparent;
 }
+
 .juiz_sps_totalcount {
 	border-right-width: 1px;
 	border-radius: 3px 3px;
