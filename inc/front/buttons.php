@@ -47,7 +47,7 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 		// Texts, URL and Image to share
 		$text    = wp_strip_all_tags( esc_attr( rawurlencode( $post->post_title ) ) );
 		$excerpt = rawurlencode( wp_strip_all_tags( $post->post_excerpt ) );
-		$excerpt = empty( $excerpt ) ? rawurlencode( juiz_get_excerpt( $post ) . '…' ) : $excerpt;
+		$excerpt = empty( $excerpt ) ? rawurlencode( jsps_get_excerpt( $post ) . '…' ) : $excerpt;
 		$url     = $post ? get_permalink() : juiz_sf_get_current_url( 'raw' );
 		$url     = ( $url_needed_by_user == false ) ? $url : $url_needed_by_user;
 
@@ -232,12 +232,25 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 					$api_text = apply_filters( 'juiz_sps_share_text_for_' . $k, __( 'Print this page', 'juiz-social-post-sharer') );
 					$more_att = '';
 					break;
+
+				default:
+					if ( ! isset( $v['api_url'] ) ) break;
+					
+					$api_link = jsps_render_api_link( array(
+						'api'   => $v['api_url'],
+						'desc'  => $excerpt,
+						'title' => $text,
+						'url'   => $url
+					) );
+
+					$api_text = isset( $v['title'] ) ? $v['title'] : '';
 			}
 
-			$future_link_content = '<' . $li . ' class="juiz_sps_item juiz_sps_link_' . esc_attr( $k ) . '"><a href="' . wp_strip_all_tags( esc_attr( $api_link ) ) . '" ' . $rel_nofollow . '' . $more_att . ' title="' . esc_attr( $api_text ) . '"><span class="juiz_sps_icon jsps-' . esc_attr( $k ) . '"></span><span class="juiz_sps_network_name">' . esc_html( $nw_name ) . '</span></a></' . $li . '>';
 
-			apply_filters( 'juiz_sps_after_each_network_item', $future_link_content, $k, $nw_name );
-			apply_filters( 'juiz_sps_after_' . $k . '_network_item', $future_link_content, $k, $nw_name );
+			$future_link_content = '<' . $li . ' class="juiz_sps_item juiz_sps_link_' . esc_attr( $k ) . '"' . ( isset( $v['color'] ) ? ' style="--jsps-custom-color:' . esc_attr( $v['color'] ) . ';' . ( isset( $v['hcolor'] ) ? '--jsps-custom-hover-color:' . esc_attr( $v['hcolor'] ) . ';' : '' ) . '"' : '' ) . '><a href="' . wp_strip_all_tags( esc_attr( $api_link ) ) . '" ' . $rel_nofollow . '' . $more_att . ' title="' . esc_attr( $api_text ) . '"><span class="juiz_sps_icon jsps-' . esc_attr( $k ) . '">' . jsps_get_network_html_icon( $k, $v, true ) . '</span><span class="juiz_sps_network_name">' . esc_html( $nw_name ) . '</span></a></' . $li . '>';
+
+			apply_filters( 'juiz_sps_after_each_network_item', $future_link_content, $k, $nw_name, $v );
+			apply_filters( 'juiz_sps_after_' . $k . '_network_item', $future_link_content, $k, $nw_name, $v );
 
 			$juiz_sps_content .= $future_link_content;
 
