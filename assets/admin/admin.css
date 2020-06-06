@@ -445,6 +445,7 @@
 	text-align: center;
 	margin-bottom: 12px;
 	font-size: 12px;
+	color: inherit;
 }
 
 .jsps_demo_icon::before {
@@ -461,12 +462,18 @@
 	display: inline-block;
 	margin-right: 0;
 	font-size: 2em;
-	color: #777;
+	color: inherit;
 }
 
 .jsps_demo_icon i {
 	position: relative;
 	transition: all .275s;
+}
+
+/* For custom network with image */
+.jsps_demo_icon i svg {
+	width: calc(1em - 4px);
+	height: calc(1em - 4px);
 }
 
 .jsps_demo_icon i::after {
@@ -488,77 +495,78 @@
 	transform: translate(-50%, -38%) scale(1);
 }
 
-:checked + label .jsps-icon-twitter {
+[value="twitter"]:checked + label {
 	color: #1DA1F2;
 }
 
-:checked + label .jsps-icon-facebook {
+[value="facebook"]:checked + label {
 	color: #0A66C2;
 }
 
-:checked + label .jsps-icon-pinterest {
+[value="pinterest"]:checked + label {
 	color: #E60023;
 }
 
-:checked + label .jsps-icon-viadeo {
+[value="viadeo"]:checked + label {
 	color: #F07355;
 }
 
-:checked + label .jsps-icon-linkedin {
+[value="linkedin"]:checked + label {
 	color: #0A66C2;
 }
 
-:checked + label .jsps-icon-weibo {
+[value="weibo"]:checked + label {
 	color: #D52A2C;
 }
 
-:checked + label .jsps-icon-vk {
+[value="vk"]:checked + label {
 	color: #4680C2;
 }
 
-:checked + label .jsps-icon-reddit {
+[value="reddit"]:checked + label {
 	color: #FF4500;
 }
 
-:checked + label .jsps-icon-tumblr {
+[value="tumblr"]:checked + label {
 	color: #001935;
 }
 
-:checked + label .jsps-icon-diigo {
+[value="diigo"]:checked + label {
 	color: #368BFF;
 }
 
-:checked + label .jsps-icon-evernote {
+[value="evernote"]:checked + label {
 	color: #00A82D;
 }
 
-:checked + label .jsps-icon-pocket {
+[value="pocket"]:checked + label {
 	color: #EF4056;
 }
 
-:checked + label .jsps-icon-pocket {
-	color: #EF4056;
-}
-
-:checked + label .jsps-icon-mix {
+[value="mix"]:checked + label {
 	color: #FF8126;
 }
 
-:checked + label .jsps-icon-whatsapp {
+[value="whatsapp"]:checked + label {
 	color: #128C7E;
 }
 
-:checked + label .jsps-icon-print {
+[value="print"]:checked + label,
+[value="bookmark"]:checked + label,
+[value="mail"]:checked + label {
 	color: #333C45;
 }
 
-:checked + label .jsps-icon-mail {
-	color: #333C45;
+[value="pinterest"]:checked + label {
+	color: #E60023;
+}
+
+.juiz_sps_options_p[data-network] :checked + label[style] {
+	color: var(--custom-color, currentColor);
 }
 
 input[type="checkbox"]:checked + label {
 	font-weight: bold;
-	color: #333;
 }
 
 input[type="checkbox"]:checked + label em {
