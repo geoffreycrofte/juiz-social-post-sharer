@@ -1,5 +1,26 @@
-<?php if ( ! defined( 'ABSPATH' ) ) {
-	die( 'Cheatin&#8217; uh?' );
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Source: utilities.php - Juiz Social Post Sharer Documentation</title>
+       
+        <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+        <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+    </head>
+
+    <body>
+        <div class="app">
+            <section role="main" id="main">
+
+                <h1 class="page-title">Source: utilities.php</h1>
+
+                
+
+
+    
+    <section role="main">
+        <pre class="prettyprint source linenums"><code>&lt;?php if ( ! defined( 'ABSPATH' ) ) {
+	die( 'Cheatin&amp;#8217; uh?' );
 }
 
 
@@ -48,7 +69,7 @@ if ( ! function_exists( 'juiz_sps_get_ordered_networks') ) {
 	 * @author Geoffrey Crofte
 	 */
 	function juiz_sps_get_ordered_networks( $networks, $order ) {
-		$order = isset( $order ) && is_array( $order ) ? $order : null;
+		$order = isset( $order ) &amp;&amp; is_array( $order ) ? $order : null;
 
 		// Sort networks by user choice order.
 		// @see: https://stackoverflow.com/questions/348410/sort-an-array-by-keys-based-on-another-array/9098675#9098675
@@ -68,14 +89,14 @@ if ( ! function_exists('juiz_sps_get_notification_markup') ) {
 	function juiz_sps_get_notification_markup() {
 		?>
 
-		<div class="juiz-sps-notif">
-			<div class="juiz-sps-notif-icon">
-				<i class="dashicons" role="presentation"></i>
-			</div>
-			<p class="juiz-sps-notif-text"></p>
-		</div>
+		&lt;div class="juiz-sps-notif">
+			&lt;div class="juiz-sps-notif-icon">
+				&lt;i class="dashicons" role="presentation">&lt;/i>
+			&lt;/div>
+			&lt;p class="juiz-sps-notif-text">&lt;/p>
+		&lt;/div>
 
-		<?php
+		&lt;?php
 	}
 }
 
@@ -274,27 +295,27 @@ if ( ! function_exists('jsps_get_network_html_icon') ) {
 	 * @param  (string)  $slug         The network shortname (e.i `twitter`).
 	 * @param  (array)   $network_info The info regarding the network.
 	 * @param  (boolean) $is_front     Is it used for front or admin? (default: false)
-	 * @return (string)                Return void if front and not custom network. Return default admin icon `<i>` tag, or `<svg>` icon if custom network with file, return `<i>` with custom class if it's a custom network with class.
+	 * @return (string)                Return void if front and not custom network. Return default admin icon `&lt;i>` tag, or `&lt;svg>` icon if custom network with file, return `&lt;i>` with custom class if it's a custom network with class.
 	 *
 	 * @since  2.0.0
 	 * @author Geoffrey Crofte
 	 */
 	function jsps_get_network_html_icon($slug, $network_info, $is_front = false) {
 		
-		if ( $is_front && ! isset( $network_info['icon'] ) ) return;
+		if ( $is_front &amp;&amp; ! isset( $network_info['icon'] ) ) return;
 
-		$icon = '<i class="jsps-icon-' . esc_attr( $slug ) . '" role="presentation"></i>';
+		$icon = '&lt;i class="jsps-icon-' . esc_attr( $slug ) . '" role="presentation">&lt;/i>';
 		
 		if ( ! isset( $network_info['icon'] ) ) return $icon;
 			
 		if ( filter_var( $network_info['icon'], FILTER_VALIDATE_URL ) ) {
 			$svg_file = file_get_contents( $network_info['icon'] );
-			$svg_file = substr( $svg_file, strpos( $svg_file, '<svg' ) );
+			$svg_file = substr( $svg_file, strpos( $svg_file, '&lt;svg' ) );
 
 
-			$icon = $is_front ? $svg_file : '<i>' . $svg_file . '</i>';
+			$icon = $is_front ? $svg_file : '&lt;i>' . $svg_file . '&lt;/i>';
 		} else {
-			$icon = '<i class="jsps-icon-' . esc_attr( $slug ) . ' ' . esc_attr( $network_info['icon'] ) . '" role="presentation"></i>';
+			$icon = '&lt;i class="jsps-icon-' . esc_attr( $slug ) . ' ' . esc_attr( $network_info['icon'] ) . '" role="presentation">&lt;/i>';
 		}
 
 		return apply_filters( 'jsps_get_network_html_icon', $icon, $slug, $network_info, $is_front );
@@ -367,4 +388,45 @@ function jsps_get_old_network_array() {
 		'bookmark'		=>	array( 0, 'Bookmark' ), // new 1.4.2
 		'print'			=>	array( 0, 'Print' ) // new 1.4.2
 	);
-}
+}</code></pre>
+    </section>
+
+
+
+
+            </section>
+            <nav role="navigation">
+                <ul>
+					<li class="nav-item-home"><a href="index.html"><img src="images/social-post-sharer-logo-horiz.svg" width="248" height="48" alt="Home - Social Post Sharer Doc."></a></li>
+					<li class="nav-item-actions">
+						<span class="sub-item"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 12H15.82C15.65 12.7 15.38 13.35 15.01 13.93L16.55 15.47L14.45 17.57L12.91 16.03C12.33 16.39 11.68 16.66 11 16.82V19H8V16.82C7.32 16.66 6.67 16.39 6.09 16.03L4.55 17.57L2.43 15.45L3.97 13.91C3.61 13.33 3.34 12.68 3.18 12H1V9.03H3.17C3.33 8.33 3.61 7.68 3.97 7.09L2.43 5.55L4.53 3.45L6.07 4.99C6.65 4.62 7.31 4.35 8 4.18V2H11V4.18C11.68 4.34 12.33 4.61 12.91 4.97L14.45 3.43L16.57 5.55L15.03 7.09C15.39 7.68 15.67 8.33 15.83 9.03H18V12ZM9.5 13.5C11.16 13.5 12.5 12.16 12.5 10.5C12.5 8.84 11.16 7.5 9.5 7.5C7.84 7.5 6.5 8.84 6.5 10.5C6.5 12.16 7.84 13.5 9.5 13.5Z" fill="currentColor"/></svg>Actions</span>
+						<ul>
+							<li class="here-2-jsps_before_get_excerpt-[object Object]"><a href="jsps_before_get_excerpt.html">jsps_before_get_excerpt</a></li>
+						</ul>
+					</li>
+					<li class="nav-item-filters">
+						<span class="sub-item"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 4.5V2.5C3 2.5 6.34 1.5 10 1.5C13.66 1.5 17 2.5 17 2.5V4.5L12 11.53V18.5C12 18.5 10.78 18.41 9.75 17.91C8.72 17.41 8 16.5 8 16.5V11.53L3 4.5Z" fill="currentColor"/></svg>Filters</span>
+						<ul>
+							<li class="here-2-jsps_get_displayable_networks-[object Object]"><a href="jsps_get_displayable_networks.html">jsps_get_displayable_networks</a></li>
+								<li class="here-2-jsps_get_excerpt-[object Object]"><a href="jsps_get_excerpt.html">jsps_get_excerpt</a></li>
+						</ul>
+					</li>
+				</ul>
+            </nav>
+        </div>
+        
+        <script src="scripts/juiz.js" defer></script>
+        <script src="scripts/prettify/prettify.js" defer></script>
+        <script src="scripts/prettify/lang-css.js" defer></script>
+        <script>
+            let launch = setInterval(function(){
+                if (typeof prettyPrint === 'function' ) {
+                    prettyPrint();
+                    clearInterval(launch);
+                    launch = null;
+                }
+            }, 50);
+        </script>
+        <script src="scripts/linenumber.js" defer></script>
+    </body>
+</html>

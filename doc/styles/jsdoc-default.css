@@ -1,0 +1,503 @@
+@font-face {
+    font-family: 'Fira Sans';
+    src: url("../fonts/FiraSans-Bold.woff2") format("woff2"),
+         url("../fonts/FiraSans-Bold.woff") format("woff"),
+         url("../fonts/FiraSans-Bold.ttf") format("opentype");
+    font-style: normal;
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'Fira Sans';
+    src: url("../fonts/FiraSans-Regular.woff2") format("woff2"),
+         url("../fonts/FiraSans-Regular.woff") format("woff"),
+         url("../fonts/FiraSans-Regular.ttf") format("opentype");
+    font-style: normal;
+    font-weight: 400;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --light     : #F1F1F1;
+    --darkblue  : #242B31;
+
+    /* Purple Theme */
+    --dark      : #2B2B43;;
+    --darklight : #363651;
+
+    --brand        : #A346FF;
+    --branddark    : #7039ad;
+    --brand-code   : #6e497b;
+    --brand-code-bg: #f8f0ff;
+    --brand-code-light: #ad7fd2; /* signature */
+
+    /* Green Theme */
+    --dark: #152F35;
+    --darklight: #1B3940;
+
+    --brand: #34E1C9;
+    --branddark: #298679;
+    --brand-code: #298679;
+    --brand-code-bg: #eaf7f5;
+    --brand-code-light: #77ccbf;
+
+    /* Blue Theme */
+    --dark: #0A2933;
+    --darklight: #103744;
+
+    --brand: #43AFD2;
+    --branddark: #176B86;
+    --brand-code: #0E627D;
+    --brand-code-bg: #E9F8FD;
+    --brand-code-light: #6CB7D0;
+
+    --padding-lat: 24px;
+    
+}
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    font-family: 'Fira Sans', sans-serif;
+    background-color: var(--light);
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--darklight);
+}
+
+a,
+button {
+    transition: all .275s;
+}
+
+a,
+a:visited,
+a:active {
+    color: var(--brand);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+header {
+    display: block;
+    padding: 0px 4px;
+}
+
+tt, code, kbd, samp {
+    font-family: Consolas, Monaco, 'Andale Mono', monospace;
+}
+
+.class-description {
+    font-size: 130%;
+    line-height: 140%;
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+
+.class-description:empty {
+    margin: 0;
+}
+
+/**
+ * Main Layout
+ */
+.app {
+    display: flex;
+    min-height: 100%;
+}
+
+.app [id="main"] {
+    flex-basis: 100%;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.app nav {
+    order: -1;
+    flex-basis: 320px;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+nav {
+    background: var(--dark);
+    color: var(--light);
+}
+
+nav ul,
+nav li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+nav a,
+nav .sub-item {
+    display: block;
+    padding: 8px 16px;
+}
+
+nav .sub-item {
+    display: flex;
+    align-items: center;
+    color: var(--brand);
+}
+
+.sub-item svg {
+    margin-right: 8px;
+    color: var(--branddark);
+}
+
+nav a:hover,
+nav a:focus {
+    color: #FFF;
+    background: var(--darkblue);
+    text-decoration: none;
+}
+
+nav .sub-item,
+nav .nav-item-home {
+    font-weight: 700;
+    font-size: 1.2em;
+}
+
+[class^="nav-item-"] {
+    margin-top: 24px;
+}
+
+.nav-item-home {
+    margin-top: 0;
+    text-align: center;
+    line-height: 0;
+}
+
+nav .nav-item-actions a,
+nav .nav-item-filters a {
+    font-family: Consolas, Monaco, 'Andale Mono', monospace;
+    line-height: 18px;
+    color: inherit;
+}
+
+nav ul ul {
+    background: var(--darklight);
+}
+
+nav ul ul a:hover,
+nav ul ul a:focus {
+    background: rgba(255,255,255,.2);
+}
+
+/**
+ * Headings
+ */
+
+h1, h2, h3, h4 {
+    font-weight: 400;
+    margin: 0;
+}
+
+h1 {
+    color: var(--darklight);
+    font-size: 2.24em;
+    margin: 12px var(--padding-lat) 20px;
+}
+
+h2, h3.subsection-title {
+    color: var(--branddark);
+    font-size: 1.75em;
+    font-weight: 500;
+    margin: 2em 0 .5em;
+}
+
+h3 {
+    color: var(--branddark);
+    font-size: 24px;
+    letter-spacing: -0.5px;
+    margin-bottom: 12px;
+}
+
+h5,
+.container-overview .subsection-title {
+    font-size: 120%;
+    font-weight: bold;
+    letter-spacing: -0.01em;
+    margin: 8px 0 3px 0;
+}
+
+h6 {
+    font-size: 100%;
+    letter-spacing: -0.01em;
+    margin: 6px 0 3px 0;
+    font-style: italic;
+}
+
+/**
+ * Blocks
+ */
+section,
+h1 + article {
+    display: block;
+    background-color: #fff;
+    padding: 16px var(--padding-lat);
+}
+
+article dl {
+    margin-bottom: 40px;
+}
+
+.variation {
+    display: none;
+}
+
+.signature-attributes {
+    font-size: 60%;
+    color: var(--brand-code-light);
+    font-weight: 400;
+}
+
+footer {
+    display: block;
+    padding: 6px;
+    margin-top: 12px;
+    font-size: 90%;
+}
+
+table {
+    border-spacing: 0;
+    border: 0;
+    border-collapse: collapse;
+}
+
+table table {
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid var(--brand-code-bg);
+    margin: 0px;
+    text-align: left;
+    vertical-align: top;
+    padding: 8px 10px;
+}
+
+thead tr,
+.sub-param-text {
+    font-weight: bold;
+    font-size: 0.75em;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--branddark);
+}
+
+.sub-param-text {
+    margin-bottom: .25em;
+    color: var(--darklight);
+}
+
+thead th {
+    background-color: var(--brand-code-bg);
+    border-right: 1px solid var(--brand-code-bg);
+}
+
+.ancestors { color: #999; }
+.ancestors a {
+    color: #999 !important;
+    text-decoration: none;
+}
+
+.clear {
+    clear: both;
+}
+
+.important {
+    font-weight: bold;
+    color: #950B02;
+}
+
+.yes-def {
+    text-indent: -1000px;
+}
+
+.type-signature {
+    color: var(--brand-code-light);
+}
+
+.name,
+.signature {
+    font-family: Consolas, Monaco, 'Andale Mono', monospace;
+}
+
+pre.name {
+    font-size: 20px;
+    letter-spacing: -0.33px;
+    margin-bottom: 16px;
+    color: var(--brand-code);
+    background: var(--brand-code-bg);
+    padding: 16px;
+    border-left: 4px solid var(--brand);
+}
+
+.details {
+    --padding-top: 16px;
+
+    margin-top: var(--padding-top);
+    padding-bottom: var(--padding-top);
+    border-left: 4px solid var(--brand-code-bg);
+}
+
+.details dt {
+    width: 120px;
+    float: left;
+    font-weight: bold;
+    padding-left: 16px; 
+    padding-top: var(--padding-top);
+}
+
+.details dd {
+    margin-left: 70px;
+}
+
+.details ul {
+    margin: 0;
+}
+
+.details ul {
+    list-style-type: none;
+}
+
+.details li,
+.details dd .param-type {
+    margin-left: 30px;
+    padding-top: var(--padding-top);
+}
+.details dd .param-type {
+    display: block;
+}
+
+.details pre.prettyprint {
+    margin: 0;
+}
+
+.details .object-value {
+    padding-top: 0;
+}
+
+.description {
+    margin-bottom: 1.5em;
+    margin-top: 1.5em;
+}
+
+.code-caption {
+    font-style: italic;
+    font-size: 107%;
+    margin: 0;
+}
+
+.prettyprint {
+    border: 1px solid #ddd;
+    width: 80%;
+    overflow: auto;
+}
+
+.prettyprint.source {
+    width: inherit;
+}
+
+pre {
+    white-space: pre-wrap;
+}
+
+.prettyprint code {
+    font-size: 100%;
+    line-height: 18px;
+    min-height: 1.65em; /* Form empty lines */
+    display: block;
+    padding: 4px 12px;
+    margin: 0;
+    background-color: #fff;
+    color: #4D4E53;
+    -moz-tab-size: 4;
+    tab-size: 4;
+}
+
+.prettyprint code span.line {
+  display: inline-block;
+}
+
+.prettyprint.linenums {
+  padding-left: 70px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.prettyprint.linenums ol {
+  padding-left: 0;
+}
+
+.prettyprint.linenums li {
+  border-left: 3px #ddd solid;
+}
+
+.prettyprint.linenums li.selected,
+.prettyprint.linenums li.selected * {
+  background-color: lightyellow;
+}
+
+.prettyprint.linenums li * {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+.params .name, .props .name, .name code {
+    font-family: Consolas, Monaco, 'Andale Mono', monospace;
+    font-size: 100%;
+    color: var(--brand-code);
+}
+
+.name code,
+code {
+    background: var(--brand-code-bg);
+    color: var(--brand-code);
+}
+
+.params td.description > p:first-child,
+.props td.description > p:first-child {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.params td.description > p:last-child,
+.props td.description > p:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.disabled {
+    color: #454545;
+}
+
+.quick-reference {
+	background: #f9f9f9;
+    padding: 15px 25px;
+    border-left: 3px solid #4d4e53;
+    list-style: none;
+    line-height: 1.7;
+}
+
+h3.subsection-title {
+    background: #4d4e53;
+    color: white;
+    padding: 5px 10px;
+}

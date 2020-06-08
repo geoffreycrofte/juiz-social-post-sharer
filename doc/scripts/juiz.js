@@ -1,0 +1,6 @@
+/**
+ * Global Document adjustment
+ */
+(function() {
+	
+})();

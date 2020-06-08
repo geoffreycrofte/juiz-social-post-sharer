@@ -1,0 +1,13 @@
+{
+    "opts": {
+        "destination": "doc",
+        "template": "documentation/template",
+        "recurse": true
+    },
+    "source": {
+        "includePattern": ".+\\.(php|inc)?$"
+    },
+    "plugins": [
+        "node_modules/wp-hookdoc/plugin/"
+    ]
+}

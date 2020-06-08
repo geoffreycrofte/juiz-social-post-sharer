@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Filter: jsps_get_excerpt - Juiz Social Post Sharer Documentation</title>
+       
+        <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+        <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+    </head>
+
+    <body>
+        <div class="app">
+            <section role="main" id="main">
+
+                <h1 class="page-title">Filter: jsps_get_excerpt</h1>
+
+                
+
+
+
+<article class="container-tmpl">
+
+
+
+
+    <div class="container-overview">
+
+    
+        
+
+    
+
+    <pre class="name method-tmpl" id="jsps_get_excerpt">apply_filters( '<span class="hook-name">jsps_get_excerpt</span>', $<span class="signature">$content, $count<span class="signature-attributes">opt</span>, employees )</span><span class="type-signature"> &rarr; {string}</span></pre>
+
+    
+
+
+
+<div class="description method-tmpl">
+    
+    Gets an excerpt from the <code>$post->post_content</code> based on the number of letter requested (<code>$count</code>), mostly used for Share APIs that use long text.
+</div>
+
+
+
+
+
+
+
+    <h2 class="h2-like method-tmpl">Parameters:</h2>
+    
+
+<table class="params params-tmpl">
+    <thead>
+    <tr>
+        
+        <th class="param-name">Name</th>
+        
+
+        <th class="param-type">Type</th>
+
+        
+        <th class="param-attributes">Attributes</th>
+        
+
+        
+        <th class="param-default">Default</th>
+        
+
+        <th class="param-description last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr id="content">
+            
+                <td class="param-name name"><code>$content</code></td>
+            
+
+            <td class="param-type type">
+            
+                
+	
+	<span class="param-type">object</span>
+	
+
+
+            
+            </td>
+
+            
+                <td class="param-attributes attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="param-default default">
+                
+                </td>
+            
+
+            <td class="param-description last">
+                
+                The post_content shortened.
+
+                </td>
+        </tr>
+
+    
+
+        <tr id="count">
+            
+                <td class="param-name name"><code>$count</code></td>
+            
+
+            <td class="param-type type">
+            
+                
+	
+	<span class="param-type">int</span>
+	
+
+
+            
+            </td>
+
+            
+                <td class="param-attributes attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="param-default default">
+                
+                    80
+                
+                </td>
+            
+
+            <td class="param-description last">
+                
+                The number of letters requested.
+
+                </td>
+        </tr>
+
+    
+
+        <tr id="employees">
+            
+                <td class="param-name name"><code>$employees</code></td>
+            
+
+            <td class="param-type type">
+            
+                
+	
+	<span class="param-type">object</span>
+	
+
+
+            
+            </td>
+
+            
+                <td class="param-attributes attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="param-default default">
+                
+                </td>
+            
+
+            <td class="param-description last">
+                
+                The employees who are responsible for the project.
+
+                
+                
+                    <p class="sub-param-text">Properties</p>
+                    
+
+<table class="params params-tmpl">
+    <thead>
+    <tr>
+        
+        <th class="param-name">Name</th>
+        
+
+        <th class="param-type">Type</th>
+
+        
+
+        
+
+        <th class="param-description last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr id="name">
+            
+                <td class="param-name name"><code>$employees->name</code></td>
+            
+
+            <td class="param-type type">
+            
+                
+	
+	<span class="param-type">string</span>
+	
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="param-description last">
+                
+                The name of an employee.
+
+                </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+                </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details details-tmpl">
+
+    
+
+    
+    <dt class="tag-since">Since:</dt>
+    <dd class="tag-since"><ul class="dummy"><li>2.0.0 First version</li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-author">Author:</dt>
+    <dd class="tag-author">
+        <ul>
+            <li><a href="https://twitter.com/geoffreycrofte">Geoffrey Crofte</a></li>
+        </ul>
+    </dd>
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="utilities.php.html">utilities.php</a>, <a href="utilities.php.html#line250">line 250</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 class="h2-like method-tmpl">Returns:</h2>
+
+        
+<div class="param-description return-desc returns-tmpl">
+    The shortened content used as excerpt
+</div>
+
+
+
+<dl class="details details-return">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+	
+	<span class="param-type">string</span>
+	
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+    
+
+    </div>
+
+    
+
+</article>
+
+
+
+
+            </section>
+            <nav role="navigation">
+                <ul>
+					<li class="nav-item-home"><a href="index.html"><img src="images/social-post-sharer-logo-horiz.svg" width="248" height="48" alt="Home - Social Post Sharer Doc."></a></li>
+					<li class="nav-item-actions">
+						<span class="sub-item"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 12H15.82C15.65 12.7 15.38 13.35 15.01 13.93L16.55 15.47L14.45 17.57L12.91 16.03C12.33 16.39 11.68 16.66 11 16.82V19H8V16.82C7.32 16.66 6.67 16.39 6.09 16.03L4.55 17.57L2.43 15.45L3.97 13.91C3.61 13.33 3.34 12.68 3.18 12H1V9.03H3.17C3.33 8.33 3.61 7.68 3.97 7.09L2.43 5.55L4.53 3.45L6.07 4.99C6.65 4.62 7.31 4.35 8 4.18V2H11V4.18C11.68 4.34 12.33 4.61 12.91 4.97L14.45 3.43L16.57 5.55L15.03 7.09C15.39 7.68 15.67 8.33 15.83 9.03H18V12ZM9.5 13.5C11.16 13.5 12.5 12.16 12.5 10.5C12.5 8.84 11.16 7.5 9.5 7.5C7.84 7.5 6.5 8.84 6.5 10.5C6.5 12.16 7.84 13.5 9.5 13.5Z" fill="currentColor"/></svg>Actions</span>
+						<ul>
+							<li class="here-2-jsps_before_get_excerpt-[object Object]"><a href="jsps_before_get_excerpt.html">jsps_before_get_excerpt</a></li>
+						</ul>
+					</li>
+					<li class="nav-item-filters">
+						<span class="sub-item"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 4.5V2.5C3 2.5 6.34 1.5 10 1.5C13.66 1.5 17 2.5 17 2.5V4.5L12 11.53V18.5C12 18.5 10.78 18.41 9.75 17.91C8.72 17.41 8 16.5 8 16.5V11.53L3 4.5Z" fill="currentColor"/></svg>Filters</span>
+						<ul>
+							<li class="here-2-jsps_get_displayable_networks-[object Object]"><a href="jsps_get_displayable_networks.html">jsps_get_displayable_networks</a></li>
+								<li class="here-2-jsps_get_excerpt-[object Object]"><a href="jsps_get_excerpt.html">jsps_get_excerpt</a></li>
+						</ul>
+					</li>
+				</ul>
+            </nav>
+        </div>
+        
+        <script src="scripts/juiz.js" defer></script>
+        <script src="scripts/prettify/prettify.js" defer></script>
+        <script src="scripts/prettify/lang-css.js" defer></script>
+        <script>
+            let launch = setInterval(function(){
+                if (typeof prettyPrint === 'function' ) {
+                    prettyPrint();
+                    clearInterval(launch);
+                    launch = null;
+                }
+            }, 50);
+        </script>
+        <script src="scripts/linenumber.js" defer></script>
+    </body>
+</html>

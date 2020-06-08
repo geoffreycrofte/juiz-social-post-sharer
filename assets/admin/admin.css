@@ -31,7 +31,9 @@
 }
 
 :root {
-	--jsps-brand-color: #43AFD2;
+	--jsps-brand-color: #A346FF;
+	--jsps-brand-dark: #2B2B43;
+	--jsps-brand-darklight: #363651;
 }
 
 .jsps-icon-bookmark:before {
@@ -93,7 +95,7 @@
 .jsps-main-header,
 .jsps-links-header {
 	padding: 15px 35px 18px;
-	background: #23282D;
+	background: var(--jsps-brand-dark);
 	color: #F2F2F2;
 	font-size: 1.4em;
 }
@@ -155,7 +157,7 @@
 	left: 0; right: 0;
 	margin-bottom: -24px;
 	height: 24px;
-	background: #23282D;
+	background: var(--jsps-brand-dark);
 }
 
 .jsps-tabs ul,
@@ -170,7 +172,7 @@
 	flex-basis: 192px;
 	flex-shrink: 0;
 	margin-left: -36px;
-	background: #23282D;
+	background: var(--jsps-brand-dark);
 }
 
 .jsps-tabs ul {
@@ -179,7 +181,7 @@
 }
 
 .jsps-tabs li {
-	border-top: 1px solid rgba(255, 255, 255, .1);
+	border-top: 1px solid rgba(255, 255, 255, .07);
 }
 
 .jsps-tabs a {
@@ -190,7 +192,7 @@
 	font-weight: 600;
 	color: #FFF;
 	text-decoration: none;
-	background: #23282D;
+	background: var(--jsps-brand-dark);
 	transition: all .275s;
 }
 .jsps-tabs a::before,
@@ -231,7 +233,7 @@
 .jsps-tabs [aria-selected="true"],
 .jsps-tabs a:hover,
 .jsps-tabs a:focus {
-	background: #34393E;
+	background: var(--jsps-brand-darklight);
 	outline: none;
 	box-shadow: none;
 }
