@@ -225,6 +225,23 @@ jQuery( document ).ready( function( $ ){
 	}
 
 	/**
+	 * False Placeholder removal on Promo banner
+	 */
+	if ( document.querySelector('#mce-EMAIL') ) {
+		var label = document.querySelector('[for="mce-EMAIL"] span'),
+			input = document.querySelector('#mce-EMAIL');
+
+		input.addEventListener('keyup', function(e){
+			if ( input.value.length === 0 ) {
+				label.style.display = 'block';
+			}
+			if ( input.value.length > 0 ) {
+				label.style.display = 'none';
+			}
+		});
+	}
+
+	/**
 	 * Other scripts I don't remember what I do with.
 	 * @since  1.0
 	 * @lastupdate 2.0.0

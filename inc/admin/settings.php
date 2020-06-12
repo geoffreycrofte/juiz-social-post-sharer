@@ -181,6 +181,62 @@ function juiz_sps_setting_radio_style_choice() {
 				</p>';
 		}
 	}
+
+	/**
+	 * Decides if it displays promotion sections within the admin, or not.
+	 * 
+	 * @hook jsps_admin_show_promotion
+	 * 
+	 * @since  2.0.0 First version
+	 * 
+	 * @param  {boolean} $show_promo=true   `true` or `false` weither you want to display promo or not
+	 * @return {boolean}                    Returns the value of `$show_promo`
+	 *
+	 */
+	if ( apply_filters( 'jsps_admin_show_promotion', true ) ) {
+	?>
+	
+	<div id="jsps-shop-promotion" class="jsps-shop-promotion">
+		<p class="jsps-shop-promo-text">
+			<span class="jsps-promo-big-text">New Skin Shop</span>
+			<span class="jsps-promo-text">Free &amp; Premium Button Skins</span>
+		</p>
+		<div class="jsps-shop-promo-form">
+			<!-- Begin Mailchimp Signup Form -->
+			<div id="mc_embed_signup">
+				<!-- form -->
+				<div id="mc_embed_signup_scroll">
+					<div class="mc-field-group">
+						<label for="mce-EMAIL" form="mc-embedded-subscribe-form">
+							Soon! Be the first to know
+							<span>Email Address</span>
+						</label>
+						<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" form="mc-embedded-subscribe-form">
+					</div>
+
+					<div id="mce-responses" class="clear">
+						<div class="response" id="mce-error-response" style="display:none"></div>
+						<div class="response" id="mce-success-response" style="display:none"></div>
+					</div>
+
+					<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+					<div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_5339b8dfa2b000a82251effc3_c9c0f762f1" tabindex="-1" value=""></div>
+
+					<div class="mc-submit">
+						<input type="hidden" value="Admin-Skin-Shop" name="CAMPAIGN" id="mce-CAMPAIGN">
+						<button form="mc-embedded-subscribe-form" type="submit" name="subscribe" id="mc-embedded-subscribe" class="button"><img src="<?php echo JUIZ_SPS_PLUGIN_ASSETS; ?>img/icon-send.svg" alt="Subscribe" title="Subscribe" width="24" height="24" /></button>
+					</div>
+				</div>
+				<!-- /form -->
+			</div>
+			<!--End mc_embed_signup-->
+
+		</div>
+	</div>
+
+	<?php
+	}
+
 }
 }
 
@@ -265,6 +321,7 @@ function juiz_sps_setting_checkbox_content_type() {
 	$options = jsps_get_option();
 	$all_lists_icon = '<span class="dashicons-before dashicons-editor-ul"></span>';
 	$all_lists_selected = '';
+
 	if ( is_array( $options['juiz_sps_display_in_types'] ) ) {
 		$all_lists_selected = in_array( 'all_lists', $options['juiz_sps_display_in_types'] ) ? 'checked="checked"' : '';
 	}
@@ -294,7 +351,7 @@ function juiz_sps_setting_checkbox_content_type() {
 			echo '<p class="juiz_sps_options_p"><input type="checkbox" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_display_in_types][]" id="' . $pt . '" value="' . $pt . '" ' . $selected . '> <label for="' . $pt . '"><span class="' . $icon . '"></span> ' . $wp_post_types[ $pt ]->label . '</label></p>';
 		}
 
-		// custom post types listing
+		// Custom post types listing
 		if ( is_array( $cpts ) && ! empty( $cpts ) ) {
 			foreach ( $cpts as $cpt ) {
 
@@ -496,7 +553,13 @@ if ( ! function_exists( 'juiz_sps_settings_page' ) ) {
 						<strong><?php echo sprintf( __( 'You must chose at least one %stype of content%s.', 'juiz-social-post-sharer' ), '<a href="#post">', '</a>' ); ?></strong><br>
 						<em><?php _e( 'Is you don\'t want to use this plugin more longer, go to Plugins section and deactivate it.', 'juiz-social-post-sharer' ); ?></em></p>
 				</div>
-				<?php } ?>
+				<?php }
+
+				// Put the form of Mailchimp here to avoid form > form
+				// Hoping the form attribute is working.
+				?>
+				<form action="https://gmail.us10.list-manage.com/subscribe/post?u=5339b8dfa2b000a82251effc3&amp;id=c9c0f762f1" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate></form>
+
 				<form method="post" action="options.php">
 					<?php
 						settings_fields( JUIZ_SPS_SETTING_NAME );
@@ -528,14 +591,19 @@ if ( ! function_exists( 'juiz_sps_settings_page' ) ) {
 			</div>
 			<p class="juiz_bottom_links_p">
 				<em class="jsps-emphasis"><?php _e( 'Like it? Support this plugin! Thank you 😊', 'juiz-social-post-sharer' ); ?></em>
+			</p>
+
+			<div class="juiz_btns_set">
 				<a class="juiz_btn_link juiz_paypal" target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=P39NJPCWVXGDY&amp;lc=FR&amp;item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&amp;item_number=%23wp%2djsps&amp;currency_code=EUR&amp;bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted"><i class="dashicons dashicons-money" aria-hidden="true"></i>&nbsp;<?php _e( 'Donate', 'juiz-social-post-sharer' ); ?></a>
 
-				<a class="juiz_btn_link juiz_flattr" href="https://flattr.com/submit/auto?user_id=CreativeJuiz&amp;url=http://wordpress.org/plugins/juiz-social-post-sharer/&amp;title=Juiz%20Social%20Post%20Sharer%20-%20WordPress%20Plugin&amp;description=Awesome%20WordPress%20Plugin%20helping%20you%20to%20add%20buttons%20at%20the%20beginning%20or%20the%20end%20of%20your%20WordPress%20contents%20easily&amp;tags=WordPress,Social,Share,Buttons,Network,Twitter,Facebook,Linkedin&amp;category=software" lang="en" hreflang="en"><i class="dashicons dashicons-thumbs-up" aria-hidden="true"></i>&nbsp;<?php _e( 'Flattr this!', 'juiz-social-post-sharer' ); ?></a>
+				<a class="juiz_btn_link juiz_flattr" href="https://flattr.com/submit/auto?user_id=CreativeJuiz&amp;url=http://wordpress.org/plugins/juiz-social-post-sharer/&amp;title=Juiz%20Social%20Post%20Sharer%20-%20WordPress%20Plugin&amp;description=Awesome%20WordPress%20Plugin%20helping%20you%20to%20add%20buttons%20at%20the%20beginning%20or%20the%20end%20of%20your%20WordPress%20contents%20easily&amp;tags=WordPress,Social,Share,Buttons,Network,Twitter,Facebook,Linkedin&amp;category=software" lang="en" hreflang="en"><i class="dashicons dashicons-thumbs-up" aria-hidden="true"></i>&nbsp;<?php _e( 'Flattr', 'juiz-social-post-sharer' ); ?></a>
 				
 				<a class="juiz_btn_link juiz_twitter" target="_blank" href="https://twitter.com/intent/tweet?source=webclient&amp;hastags=WordPress,Plugin&amp;text=Juiz%20Social%20Post%20Sharer%20is%20an%20awesome%20WordPress%20plugin%20to%20share%20content!%20Try%20it!&amp;url=http://wordpress.org/extend/plugins/juiz-social-post-sharer/&amp;related=geoffrey_crofte&amp;via=geoffrey_crofte"><i class="dashicons dashicons-twitter" aria-hidden="true"></i>&nbsp;<?php _e( 'Tweet it', 'juiz-social-post-sharer' ); ?></a>
 
 				<a class="juiz_btn_link juiz_rate" target="_blank" href="https://wordpress.org/support/plugin/juiz-social-post-sharer/reviews/?rate=5#new-post"><i class="dashicons dashicons-star-filled" aria-hidden="true"></i>&nbsp;<?php _e( 'Rate it', 'juiz-social-post-sharer' ); ?></a>
-
+			</div>
+			
+			<p class="juiz_bottom_links_p">
 				<em class="jsps-emphasis"><?php _e( 'Want to customize everything? Look at the documentation.', 'juiz-social-post-sharer' ); ?></em>
 
 				<a class="juiz_btn_link juiz_doc" target="_blank" href="<?php echo JUIZ_SPS_PLUGIN_URL; ?>documentation.html"><i class="dashicons dashicons-welcome-learn-more" aria-hidden="true"></i>&nbsp;<?php esc_html_e( 'Documentation', 'juiz-social-post-sharer' ); ?></a>
