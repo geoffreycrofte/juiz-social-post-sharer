@@ -1,104 +1,104 @@
 /* JSDoc prettify.js theme */
 
 /* plain text */
-.pln {
+.pln.pln.pln.pln.pln {
   color: #000000;
   font-weight: normal;
   font-style: normal;
 }
 
 /* string content */
-.str {
+.str.str.str.str.str {
   color: #006400;
   font-weight: normal;
   font-style: normal;
 }
 
 /* a keyword */
-.kwd {
+.kwd.kwd.kwd.kwd.kwd {
   color: #000000;
   font-weight: bold;
   font-style: normal;
 }
 
 /* a comment */
-.com {
+.com.com.com.com.com {
   font-weight: normal;
   font-style: italic;
 }
 
 /* a type name */
-.typ {
+.typ.typ.typ.typ.typ {
   color: #000000;
   font-weight: normal;
   font-style: normal;
 }
 
 /* a literal value */
-.lit {
+.lit.lit.lit.lit.lit {
   color: #006400;
   font-weight: normal;
   font-style: normal;
 }
 
 /* punctuation */
-.pun {
+.pun.pun.pun.pun.pun {
   color: #000000;
   font-weight: bold;
   font-style: normal;
 }
 
 /* lisp open bracket */
-.opn {
+.opn.opn.opn.opn.opn {
   color: #000000;
   font-weight: bold;
   font-style: normal;
 }
 
 /* lisp close bracket */
-.clo {
+.clo.clo.clo.clo.clo {
   color: #000000;
   font-weight: bold;
   font-style: normal;
 }
 
 /* a markup tag name */
-.tag {
+.tag.tag.tag.tag.tag {
   color: #006400;
   font-weight: normal;
   font-style: normal;
 }
 
 /* a markup attribute name */
-.atn {
+.atn.atn.atn.atn.atn {
   color: #006400;
   font-weight: normal;
   font-style: normal;
 }
 
 /* a markup attribute value */
-.atv {
+.atv.atv.atv.atv.atv {
   color: #006400;
   font-weight: normal;
   font-style: normal;
 }
 
 /* a declaration */
-.dec {
+.dec.dec.dec.dec.dec {
   color: #000000;
   font-weight: bold;
   font-style: normal;
 }
 
 /* a variable name */
-.var {
+.var.var.var.var.var {
   color: #000000;
   font-weight: normal;
   font-style: normal;
 }
 
 /* a function name */
-.fun {
+.fun.fun.fun.fun.fun {
   color: #000000;
   font-weight: bold;
   font-style: normal;

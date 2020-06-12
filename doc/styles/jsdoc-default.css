@@ -403,7 +403,9 @@ pre.name {
 
 .prettyprint {
     border: 1px solid #ddd;
-    width: 80%;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    width: 100%;
     overflow: auto;
 }
 
@@ -450,7 +452,9 @@ pre {
 
 .prettyprint.linenums li.selected,
 .prettyprint.linenums li.selected * {
-  background-color: lightyellow;
+  color: var(--brand);
+  background-color: var(--brand-code-bg);
+  font-weight: bold;
 }
 
 .prettyprint.linenums li * {
