@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Filter: jsps_get_excerpt - Juiz Social Post Sharer Documentation</title>
+        <title>Filter: juiz_sps_the_shared_permalink - Juiz Social Post Sharer Documentation</title>
        
         <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
         <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
@@ -12,7 +12,7 @@
         <div class="app">
             <section role="main" id="main">
 
-                <h1 class="page-title">Filter: jsps_get_excerpt</h1>
+                <h1 class="page-title">Filter: juiz_sps_the_shared_permalink</h1>
 
                 
 
@@ -30,7 +30,7 @@
 
     
 
-    <pre class="name method-tmpl" id="jsps_get_excerpt">apply_filters( '<span class="hook-name">jsps_get_excerpt</span>', <span class="signature"><span class="sign-item">$content</span>, <span class="sign-item">$count</span> )<span class="type-signature"> &rarr; {string}</span></span></pre>
+    <pre class="name method-tmpl" id="juiz_sps_the_shared_permalink">apply_filters( '<span class="hook-name">juiz_sps_the_shared_permalink</span>', <span class="signature"><span class="sign-item">$url</span>, <span class="sign-item">$is_current_page_url</span>, <span class="sign-item">$url_to_share</span> )<span class="type-signature"> &rarr; {string}</span></span></pre>
 
     
 
@@ -38,7 +38,8 @@
 
 <div class="description method-tmpl">
     
-    Gets an excerpt from the <code>$post->post_content</code> based on the number of letter requested (<code>$count</code>), mostly used for Share APIs that use long text.
+    Sets the URL to be shared on all the networks activated.
+Another hook arrives later for each specific network called <code>juiz_sps_the_shared_permalink_for_*</code> where * is the network Slug.
 </div>
 
 
@@ -62,8 +63,6 @@
         
 
         
-        <th class="param-default">Default</th>
-        
 
         <th class="param-description last">Description</th>
     </tr>
@@ -72,16 +71,16 @@
     <tbody>
     
 
-        <tr id="content">
+        <tr id="url">
             
-                <td class="param-name name"><code>$content</code></td>
+                <td class="param-name name"><code>$url</code></td>
             
 
             <td class="param-type type">
             
                 
 	
-	<span class="param-type">object</span>
+	<span class="param-type">string</span>
 	
 
 
@@ -91,23 +90,19 @@
             
 
             
-                <td class="param-default default">
-                
-                </td>
-            
 
             <td class="param-description last">
                 
-                The post_content shortened.
+                The shared URL.
 
                 </td>
         </tr>
 
     
 
-        <tr id="count">
+        <tr id="is_current_page_url">
             
-                <td class="param-name name"><code>$count</code></td>
+                <td class="param-name name"><code>$is_current_page_url</code></td>
             
 
             <td class="param-type type">
@@ -124,16 +119,39 @@
             
 
             
-                <td class="param-default default">
+
+            <td class="param-description last">
                 
-                    80
-                
+                Is the current page or custom to share?
+
                 </td>
+        </tr>
+
+    
+
+        <tr id="url_to_share">
+            
+                <td class="param-name name"><code>$url_to_share</code></td>
+            
+
+            <td class="param-type type">
+            
+                
+	
+	<span class="param-type">string</span>
+	
+
+
+            
+            </td>
+
+            
+
             
 
             <td class="param-description last">
                 
-                The number of letters requested.
+                <code>permalink</code> | <code>siteurl</code> | &lt;custom_url&gt;
 
                 </td>
         </tr>
@@ -153,7 +171,7 @@
 
     
     <dt class="tag-since">Since:</dt>
-    <dd class="tag-since"><ul class="dummy"><li>2.0.0 First version</li></ul></dd>
+    <dd class="tag-since"><ul class="dummy"><li>1.0.0 First version</li></ul></dd>
     
 
     
@@ -186,7 +204,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="utilities.php.html">utilities.php</a>, <a href="utilities.php.html#line250">line 250</a>
+        <a href="front_buttons.php.html">front/buttons.php</a>, <a href="front_buttons.php.html#line53">line 53</a>
     </li></ul></dd>
     
 
@@ -213,7 +231,7 @@
 
         
 <div class="param-description return-desc returns-tmpl">
-    The shortened content used as excerpt
+    The URL to be shared. You don't need to sanitize or urlencode it, it'll be done later in the process.
 </div>
 
 

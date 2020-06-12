@@ -1,5 +1,26 @@
-<?php if ( ! defined( 'ABSPATH' ) ) {
-	die( 'Cheatin&#8217; uh?' );
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Source: front/buttons.php - Juiz Social Post Sharer Documentation</title>
+       
+        <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+        <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+    </head>
+
+    <body>
+        <div class="app">
+            <section role="main" id="main">
+
+                <h1 class="page-title">Source: front/buttons.php</h1>
+
+                
+
+
+    
+    <section role="main">
+        <pre class="prettyprint source linenums"><code>&lt;?php if ( ! defined( 'ABSPATH' ) ) {
+	die( 'Cheatin&amp;#8217; uh?' );
 }
 
 if ( ! function_exists( 'get_juiz_sps' ) ) {
@@ -11,7 +32,7 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 	 * @param  integer $counters            Should counter be displayed?
 	 * @param  integer $is_current_page_url Is the current page or custom to share?
 	 * @param  integer $is_shortcode        Is the shortcode calling this function?
-	 * @param  string  $url_to_share        'permalink' | 'siteurl' | &lt;custom_url&gt;
+	 * @param  string  $url_to_share        'permalink' | 'siteurl' | &amp;lt;custom_url&amp;gt;
 	 * @return string                       Return the markup for the buttons.
 	 *
 	 * @author  Geoffrey Crofte
@@ -46,7 +67,7 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 		$url = $post ? get_permalink() : juiz_sf_get_current_url( 'raw' );
 		$url = ( $url_needed_by_user == false ) ? $url : $url_needed_by_user;
 
-		if ( $is_current_page_url &&  $url_needed_by_user == false ) {
+		if ( $is_current_page_url &amp;&amp;  $url_needed_by_user == false ) {
 			$url = juiz_sf_get_current_url( 'raw' );
 		}
 
@@ -60,7 +81,7 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 	 	 * 
 	 	 * @param  {string}  $url                  The shared URL.
 	 	 * @param  {int}     $is_current_page_url  Is the current page or custom to share?
-	 	 * @param  {string}  $url_to_share         `permalink` | `siteurl` | &lt;custom_url&gt;
+	 	 * @param  {string}  $url_to_share         `permalink` | `siteurl` | &amp;lt;custom_url&amp;gt;
 	 	 *
 	 	 * 
 	 	 * @return {string} The URL to be shared. You don't need to sanitize or urlencode it, it'll be done later in the process.
@@ -252,8 +273,8 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 		$juiz_sps_options = jsps_get_option();
 
 		// Classes and attributes options.
-		$juiz_sps_target_link = ( isset( $juiz_sps_options['juiz_sps_target_link'] ) && $juiz_sps_options['juiz_sps_target_link'] == 1 ) ? ' target="_blank"' : '';
-		$juiz_sps_hidden_name_class = ( isset( $juiz_sps_options['juiz_sps_hide_social_name'] ) && $juiz_sps_options['juiz_sps_hide_social_name'] == 1 ) ? ' juiz_sps_hide_name' : '';
+		$juiz_sps_target_link = ( isset( $juiz_sps_options['juiz_sps_target_link'] ) &amp;&amp; $juiz_sps_options['juiz_sps_target_link'] == 1 ) ? ' target="_blank"' : '';
+		$juiz_sps_hidden_name_class = ( isset( $juiz_sps_options['juiz_sps_hide_social_name'] ) &amp;&amp; $juiz_sps_options['juiz_sps_hide_social_name'] == 1 ) ? ' juiz_sps_hide_name' : '';
 		$container_classes .= ( intval( $counters ) == 1 ) ? ' juiz_sps_counters' : '';
 		$container_classes .= ( isset( $juiz_sps_options['juiz_sps_counter_option'] ) ) ? ' counters_' . $juiz_sps_options['juiz_sps_counter_option'] : ' counters_both';
 
@@ -263,10 +284,10 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 
 		// Starting markup.
 		$juiz_sps_content = $before_the_sps_content;
-		$juiz_sps_content .= "\n" . '<' . $div . ' class="juiz_sps_links ' . esc_attr( $container_classes ) . ' juiz_sps_displayed_' . $juiz_sps_display_where . '" data-post-id="' . $post -> ID . '">';
-		$juiz_sps_content .= $hide_intro_phrase ? '' : "\n" . '<' . $p . ' class="screen-reader-text juiz_sps_maybe_hidden_text">' . $share_the_post_sentence . ' "' . wp_strip_all_tags( get_the_title() ) . '"</' . $p . '>' . "\n";
+		$juiz_sps_content .= "\n" . '&lt;' . $div . ' class="juiz_sps_links ' . esc_attr( $container_classes ) . ' juiz_sps_displayed_' . $juiz_sps_display_where . '" data-post-id="' . $post -> ID . '">';
+		$juiz_sps_content .= $hide_intro_phrase ? '' : "\n" . '&lt;' . $p . ' class="screen-reader-text juiz_sps_maybe_hidden_text">' . $share_the_post_sentence . ' "' . wp_strip_all_tags( get_the_title() ) . '"&lt;/' . $p . '>' . "\n";
 		$juiz_sps_content .= $before_the_list;
-		$juiz_sps_content .= "\n\t" . '<' . $ul . ' class="juiz_sps_links_list' . esc_attr( $juiz_sps_hidden_name_class ) . '">';
+		$juiz_sps_content .= "\n\t" . '&lt;' . $ul . ' class="juiz_sps_links_list' . esc_attr( $juiz_sps_hidden_name_class ) . '">';
 		$juiz_sps_content .= $before_first_i;
 
 
@@ -297,7 +318,7 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 		foreach( $sorted_networks as $k => $v ) {
 			
 			// If not visible, got to next item.
-			if ( ! isset( $v['visible'] ) || ( isset( $v['visible'] ) && $v['visible'] === 0 ) ) {
+			if ( ! isset( $v['visible'] ) || ( isset( $v['visible'] ) &amp;&amp; $v['visible'] === 0 ) ) {
 				continue;
 			}
 
@@ -311,8 +332,8 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 
 			switch ( $k ) {
 				case 'twitter' :
-					$twitter_user = $juiz_sps_options['juiz_sps_twitter_user'] != '' ? '&amp;related=' . apply_filters( 'juiz_sps_twitter_nickname', $juiz_sps_options['juiz_sps_twitter_user'] ) . '&amp;via=' . apply_filters( 'juiz_sps_twitter_nickname', $juiz_sps_options['juiz_sps_twitter_user'] ) : '';
-					$api_link = 'https://twitter.com/intent/tweet?source=webclient&amp;original_referer=' . $url . '&amp;text=' . $text . '&amp;url=' . $url . $twitter_user;
+					$twitter_user = $juiz_sps_options['juiz_sps_twitter_user'] != '' ? '&amp;amp;related=' . apply_filters( 'juiz_sps_twitter_nickname', $juiz_sps_options['juiz_sps_twitter_user'] ) . '&amp;amp;via=' . apply_filters( 'juiz_sps_twitter_nickname', $juiz_sps_options['juiz_sps_twitter_user'] ) : '';
+					$api_link = 'https://twitter.com/intent/tweet?source=webclient&amp;amp;original_referer=' . $url . '&amp;amp;text=' . $text . '&amp;amp;url=' . $url . $twitter_user;
 					break;
 
 				case 'facebook' :
@@ -320,8 +341,8 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 					break;
 
 				case 'pinterest' :
-					if ( $image != '' && $force_pinterest_snif == 0 ) {
-						$api_link = 'https://pinterest.com/pin/create/button/?media=' . $image[0] . '&amp;url=' . $url . '&amp;title=' . get_the_title() . '&amp;description=' . $excerpt;
+					if ( $image != '' &amp;&amp; $force_pinterest_snif == 0 ) {
+						$api_link = 'https://pinterest.com/pin/create/button/?media=' . $image[0] . '&amp;amp;url=' . $url . '&amp;amp;title=' . get_the_title() . '&amp;amp;description=' . $excerpt;
 					}
 					else {
 						$api_link = "javascript:void((function(){var%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','//assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)})());";
@@ -331,11 +352,11 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 					break;
 
 				case 'viadeo' :
-					$api_link = 'https://www.viadeo.com/en/widgets/share/preview?url=' . $url . '&amp;comment=' . $text;
+					$api_link = 'https://www.viadeo.com/en/widgets/share/preview?url=' . $url . '&amp;amp;comment=' . $text;
 					break;
 
 				case 'linkedin':
-					$api_link = 'https://www.linkedin.com/shareArticle?mini=true&amp;ro=true&amp;trk=JuizSocialPostSharer&amp;title=' . $text . '&amp;url=' . $url;
+					$api_link = 'https://www.linkedin.com/shareArticle?mini=true&amp;amp;ro=true&amp;amp;trk=JuizSocialPostSharer&amp;amp;title=' . $text . '&amp;amp;url=' . $url;
 					break;
 
 				case 'tumblr':
@@ -343,11 +364,11 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 					break;
 
 				case 'reddit':
-					$api_link = 'https://www.reddit.com/submit?url=' . $url . '&amp;title=' . $text;
+					$api_link = 'https://www.reddit.com/submit?url=' . $url . '&amp;amp;title=' . $text;
 					break;
 				
 				case 'mix':
-					$api_link = 'https://mix.com/mixit?su=juiz-social-post-sharer&amp;url=' . urlencode( $url );
+					$api_link = 'https://mix.com/mixit?su=juiz-social-post-sharer&amp;amp;url=' . urlencode( $url );
 					break;
 
 				case 'whatsapp':
@@ -359,11 +380,11 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 					break;
 
 				case 'evernote':
-					$api_link = 'https://www.addtoany.com/add_to/evernote?linkurl=' . urlencode( $url ) . '&amp;linkname=' . $text . '&amp;linknote=' . $excerpt;
+					$api_link = 'https://www.addtoany.com/add_to/evernote?linkurl=' . urlencode( $url ) . '&amp;amp;linkname=' . $text . '&amp;amp;linknote=' . $excerpt;
 					break;
 
 				case 'diigo':
-					$api_link = 'https://www.diigo.com/post?url=' . urlencode( $url ) . '&amp;title='. $text .'&amp;desc=' . $excerpt . '&amp;client=juis-social-post-sharer'; // client=simplelet
+					$api_link = 'https://www.diigo.com/post?url=' . urlencode( $url ) . '&amp;amp;title='. $text .'&amp;amp;desc=' . $excerpt . '&amp;amp;client=juis-social-post-sharer'; // client=simplelet
 					break;
 
 				// END TODO
@@ -371,7 +392,7 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 				case 'weibo':
 					// title tips by Aili (thank you ;p)
 					$simplecontent = $text . esc_attr( urlencode( " : " . mb_substr( strip_tags( $post->post_content ), 0, 90, 'utf-8') ) );
-					$api_link = 'http://service.weibo.com/share/share.php?title=' . $simplecontent . '&amp;url=' . $url;
+					$api_link = 'http://service.weibo.com/share/share.php?title=' . $simplecontent . '&amp;amp;url=' . $url;
 					break;
 
 				case 'vk':
@@ -380,11 +401,11 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 
 				case 'mail' :
 					if ( strpos( $juiz_sps_options['juiz_sps_mail_body'], '%%' ) || strpos( $juiz_sps_options['juiz_sps_mail_subject'], '%%' ) ) {
-						$api_link = 'mailto:?subject=' . $juiz_sps_options['juiz_sps_mail_subject'] . '&amp;body=' . $juiz_sps_options['juiz_sps_mail_body'];
+						$api_link = 'mailto:?subject=' . $juiz_sps_options['juiz_sps_mail_subject'] . '&amp;amp;body=' . $juiz_sps_options['juiz_sps_mail_body'];
 						$api_link = preg_replace( array('#%%title%%#', '#%%siteurl%%#', '#%%permalink%%#', '#%%url%%#'), array( get_the_title(), get_site_url(), get_permalink(), $url ), $api_link );
 					}
 					else {
-						$api_link = 'mailto:?subject=' . $juiz_sps_options['juiz_sps_mail_subject'] . '&amp;body=' . $juiz_sps_options['juiz_sps_mail_body'] . ":" . $url;
+						$api_link = 'mailto:?subject=' . $juiz_sps_options['juiz_sps_mail_subject'] . '&amp;amp;body=' . $juiz_sps_options['juiz_sps_mail_body'] . ":" . $url;
 					}
 					$api_text = apply_filters( 'juiz_sps_share_text_for_' . $k, __( 'Share this article with a friend (email)', 'juiz-social-post-sharer') );
 					break;
@@ -415,7 +436,7 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 			}
 
 
-			$future_link_content = '<' . $li . ' class="juiz_sps_item juiz_sps_link_' . esc_attr( $k ) . '"' . ( isset( $v['color'] ) ? ' style="--jsps-custom-color:' . esc_attr( $v['color'] ) . ';' . ( isset( $v['hcolor'] ) ? '--jsps-custom-hover-color:' . esc_attr( $v['hcolor'] ) . ';' : '' ) . '"' : '' ) . '><a href="' . wp_strip_all_tags( esc_attr( $api_link ) ) . '" ' . $rel_nofollow . '' . $more_att . ' title="' . esc_attr( $api_text ) . '"><span class="juiz_sps_icon jsps-' . esc_attr( $k ) . '">' . jsps_get_network_html_icon( $k, $v, true ) . '</span><span class="juiz_sps_network_name">' . esc_html( $nw_name ) . '</span></a></' . $li . '>';
+			$future_link_content = '&lt;' . $li . ' class="juiz_sps_item juiz_sps_link_' . esc_attr( $k ) . '"' . ( isset( $v['color'] ) ? ' style="--jsps-custom-color:' . esc_attr( $v['color'] ) . ';' . ( isset( $v['hcolor'] ) ? '--jsps-custom-hover-color:' . esc_attr( $v['hcolor'] ) . ';' : '' ) . '"' : '' ) . '>&lt;a href="' . wp_strip_all_tags( esc_attr( $api_link ) ) . '" ' . $rel_nofollow . '' . $more_att . ' title="' . esc_attr( $api_text ) . '">&lt;span class="juiz_sps_icon jsps-' . esc_attr( $k ) . '">' . jsps_get_network_html_icon( $k, $v, true ) . '&lt;/span>&lt;span class="juiz_sps_network_name">' . esc_html( $nw_name ) . '&lt;/span>&lt;/a>&lt;/' . $li . '>';
 
 			apply_filters( 'juiz_sps_after_each_network_item', $future_link_content, $k, $nw_name, $v );
 			apply_filters( 'juiz_sps_after_' . $k . '_network_item', $future_link_content, $k, $nw_name, $v );
@@ -424,10 +445,10 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 
 		} // end of FOREACH
 
-		$general_counters = ( isset( $juiz_sps_options['juiz_sps_counter'] ) && $juiz_sps_options['juiz_sps_counter'] == 1 ) ? 1 : 0;
+		$general_counters = ( isset( $juiz_sps_options['juiz_sps_counter'] ) &amp;&amp; $juiz_sps_options['juiz_sps_counter'] == 1 ) ? 1 : 0;
 
 		// no data-* attribute if user markup is not HTML5 :/
-		$hidden_info = '<input type="hidden" class="juiz_sps_info_plugin_url" value="' . JUIZ_SPS_PLUGIN_URL . '" /><input type="hidden" class="juiz_sps_info_permalink" value="' . $url . '" />';
+		$hidden_info = '&lt;input type="hidden" class="juiz_sps_info_plugin_url" value="' . JUIZ_SPS_PLUGIN_URL . '" />&lt;input type="hidden" class="juiz_sps_info_permalink" value="' . $url . '" />';
 
 		$juiz_sps_content .= $after_last_i;
 
@@ -435,19 +456,19 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 		if ( isset( $juiz_sps_options['juiz_sps_counter_option'] ) ) {
 			if ( $juiz_sps_options['juiz_sps_counter_option'] == 'both' || $juiz_sps_options['juiz_sps_counter_option'] == 'total' ) {
 				$juiz_sps_content .= ( 
-										( $general_counters == 1 && intval( $counters ) == 1)
+										( $general_counters == 1 &amp;&amp; intval( $counters ) == 1)
 										||
-										( $general_counters == 0 && intval( $counters ) == 1 )
+										( $general_counters == 0 &amp;&amp; intval( $counters ) == 1 )
 									 )
 									 ?
-									 '<' . $li . ' class="juiz_sps_item juiz_sps_totalcount_item"><span class="juiz_sps_totalcount" title="' . esc_attr( $total_word ) . '"><span class="juiz_sps_t_nb"></span></span></' . $li . '>'
+									 '&lt;' . $li . ' class="juiz_sps_item juiz_sps_totalcount_item">&lt;span class="juiz_sps_totalcount" title="' . esc_attr( $total_word ) . '">&lt;span class="juiz_sps_t_nb">&lt;/span>&lt;/span>&lt;/' . $li . '>'
 									 : '';
 			}
 		}
-		$juiz_sps_content .= '</' . $ul . '>' . "\n\t";
+		$juiz_sps_content .= '&lt;/' . $ul . '>' . "\n\t";
 		$juiz_sps_content .= $after_the_list;
-		$juiz_sps_content .= ( ( $general_counters == 1 && intval( $counters ) == 1 ) || ( $general_counters == 0 && intval( $counters ) == 1 ) )  ? $hidden_info : '';
-		$juiz_sps_content .= '</' . $div . '>' . "\n\n";
+		$juiz_sps_content .= ( ( $general_counters == 1 &amp;&amp; intval( $counters ) == 1 ) || ( $general_counters == 0 &amp;&amp; intval( $counters ) == 1 ) )  ? $hidden_info : '';
+		$juiz_sps_content .= '&lt;/' . $div . '>' . "\n\n";
 		$juiz_sps_content .= $after_the_sps_content;
 
 		// final markup
@@ -484,7 +505,7 @@ if ( ! function_exists( 'juiz_sps_print_links' ) ) {
 			$singular_options = $juiz_sps_options['juiz_sps_display_in_types'];
 			unset( $singular_options['all_lists'] );
 
-			$is_lists_authorized = ( is_archive() || is_front_page() || is_search() || is_tag() || is_post_type_archive() || is_home()) && $is_all_lists ? true : false;
+			$is_lists_authorized = ( is_archive() || is_front_page() || is_search() || is_tag() || is_post_type_archive() || is_home()) &amp;&amp; $is_all_lists ? true : false;
 			$is_singular = is_singular( $singular_options );
 
 			if ( $is_singular || $is_lists_authorized ) {
@@ -516,3 +537,64 @@ if ( ! function_exists( 'juiz_sps_print_links' ) ) {
 
 	} // end function
 } // end if function exists
+</code></pre>
+    </section>
+
+
+
+
+            </section>
+            <nav role="navigation">
+                <ul>
+					<li class="nav-item-home"><a href="index.html"><img src="images/social-post-sharer-logo-horiz.svg" width="248" height="48" alt="Home - Social Post Sharer Doc."></a></li>
+					<li class="nav-item-actions">
+						<span class="sub-item"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 12H15.82C15.65 12.7 15.38 13.35 15.01 13.93L16.55 15.47L14.45 17.57L12.91 16.03C12.33 16.39 11.68 16.66 11 16.82V19H8V16.82C7.32 16.66 6.67 16.39 6.09 16.03L4.55 17.57L2.43 15.45L3.97 13.91C3.61 13.33 3.34 12.68 3.18 12H1V9.03H3.17C3.33 8.33 3.61 7.68 3.97 7.09L2.43 5.55L4.53 3.45L6.07 4.99C6.65 4.62 7.31 4.35 8 4.18V2H11V4.18C11.68 4.34 12.33 4.61 12.91 4.97L14.45 3.43L16.57 5.55L15.03 7.09C15.39 7.68 15.67 8.33 15.83 9.03H18V12ZM9.5 13.5C11.16 13.5 12.5 12.16 12.5 10.5C12.5 8.84 11.16 7.5 9.5 7.5C7.84 7.5 6.5 8.84 6.5 10.5C6.5 12.16 7.84 13.5 9.5 13.5Z" fill="currentColor"/></svg>Actions</span>
+						<ul>
+							<li class="here-2-jsps_before_get_excerpt-[object Object]"><a href="jsps_before_get_excerpt.html">jsps_before_get_excerpt</a></li>
+						</ul>
+					</li>
+					<li class="nav-item-filters">
+						<span class="sub-item"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 4.5V2.5C3 2.5 6.34 1.5 10 1.5C13.66 1.5 17 2.5 17 2.5V4.5L12 11.53V18.5C12 18.5 10.78 18.41 9.75 17.91C8.72 17.41 8 16.5 8 16.5V11.53L3 4.5Z" fill="currentColor"/></svg>Filters</span>
+						<ul>
+							<li class="here-2-jsps_admin_show_promotion-[object Object]"><a href="jsps_admin_show_promotion.html">jsps_admin_show_promotion</a></li>
+								<li class="here-2-jsps_get_displayable_networks-[object Object]"><a href="jsps_get_displayable_networks.html">jsps_get_displayable_networks</a></li>
+								<li class="here-2-jsps_get_excerpt-[object Object]"><a href="jsps_get_excerpt.html">jsps_get_excerpt</a></li>
+								<li class="here-2-jsps_get_network_html_icon-[object Object]"><a href="jsps_get_network_html_icon.html">jsps_get_network_html_icon</a></li>
+								<li class="here-2-jsps_render_api_link-[object Object]"><a href="jsps_render_api_link.html">jsps_render_api_link</a></li>
+								<li class="here-2-juiz_sps_after_last_item-[object Object]"><a href="juiz_sps_after_last_item.html">juiz_sps_after_last_item</a></li>
+								<li class="here-2-juiz_sps_after_the_list-[object Object]"><a href="juiz_sps_after_the_list.html">juiz_sps_after_the_list</a></li>
+								<li class="here-2-juiz_sps_after_the_sps-[object Object]"><a href="juiz_sps_after_the_sps.html">juiz_sps_after_the_sps</a></li>
+								<li class="here-2-juiz_sps_before_first_item-[object Object]"><a href="juiz_sps_before_first_item.html">juiz_sps_before_first_item</a></li>
+								<li class="here-2-juiz_sps_before_the_list-[object Object]"><a href="juiz_sps_before_the_list.html">juiz_sps_before_the_list</a></li>
+								<li class="here-2-juiz_sps_before_the_sps-[object Object]"><a href="juiz_sps_before_the_sps.html">juiz_sps_before_the_sps</a></li>
+								<li class="here-2-juiz_sps_container_classes-[object Object]"><a href="juiz_sps_container_classes.html">juiz_sps_container_classes</a></li>
+								<li class="here-2-juiz_sps_container_tag-[object Object]"><a href="juiz_sps_container_tag.html">juiz_sps_container_tag</a></li>
+								<li class="here-2-juiz_sps_hide_intro-[object Object]"><a href="juiz_sps_hide_intro.html">juiz_sps_hide_intro</a></li>
+								<li class="here-2-juiz_sps_intro_phrase_text-[object Object]"><a href="juiz_sps_intro_phrase_text.html">juiz_sps_intro_phrase_text</a></li>
+								<li class="here-2-juiz_sps_links_nofollow-[object Object]"><a href="juiz_sps_links_nofollow.html">juiz_sps_links_nofollow</a></li>
+								<li class="here-2-juiz_sps_list_container_tag-[object Object]"><a href="juiz_sps_list_container_tag.html">juiz_sps_list_container_tag</a></li>
+								<li class="here-2-juiz_sps_list_of_item_tag-[object Object]"><a href="juiz_sps_list_of_item_tag.html">juiz_sps_list_of_item_tag</a></li>
+								<li class="here-2-juiz_sps_phrase_tag-[object Object]"><a href="juiz_sps_phrase_tag.html">juiz_sps_phrase_tag</a></li>
+								<li class="here-2-juiz_sps_the_shared_permalink-[object Object]"><a href="juiz_sps_the_shared_permalink.html">juiz_sps_the_shared_permalink</a></li>
+								<li class="here-2-juiz_sps_total_count_word-[object Object]"><a href="juiz_sps_total_count_word.html">juiz_sps_total_count_word</a></li>
+						</ul>
+					</li>
+				</ul>
+            </nav>
+        </div>
+        
+        <script src="scripts/juiz.js" defer></script>
+        <script src="scripts/prettify/prettify.js" defer></script>
+        <script src="scripts/prettify/lang-css.js" defer></script>
+        <script>
+            let launch = setInterval(function(){
+                if (typeof prettyPrint === 'function' ) {
+                    prettyPrint();
+                    clearInterval(launch);
+                    launch = null;
+                }
+            }, 50);
+        </script>
+        <script src="scripts/linenumber.js" defer></script>
+    </body>
+</html>

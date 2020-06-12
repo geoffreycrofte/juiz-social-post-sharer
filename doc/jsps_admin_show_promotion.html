@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Filter: jsps_get_excerpt - Juiz Social Post Sharer Documentation</title>
+        <title>Filter: jsps_admin_show_promotion - Juiz Social Post Sharer Documentation</title>
        
         <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
         <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
@@ -12,7 +12,7 @@
         <div class="app">
             <section role="main" id="main">
 
-                <h1 class="page-title">Filter: jsps_get_excerpt</h1>
+                <h1 class="page-title">Filter: jsps_admin_show_promotion</h1>
 
                 
 
@@ -30,7 +30,7 @@
 
     
 
-    <pre class="name method-tmpl" id="jsps_get_excerpt">apply_filters( '<span class="hook-name">jsps_get_excerpt</span>', <span class="signature"><span class="sign-item">$content</span>, <span class="sign-item">$count</span> )<span class="type-signature"> &rarr; {string}</span></span></pre>
+    <pre class="name method-tmpl" id="jsps_admin_show_promotion">apply_filters( '<span class="hook-name">jsps_admin_show_promotion</span>', <span class="signature"><span class="sign-item">$show_promo</span> )<span class="type-signature"> &rarr; {boolean}</span></span></pre>
 
     
 
@@ -38,7 +38,7 @@
 
 <div class="description method-tmpl">
     
-    Gets an excerpt from the <code>$post->post_content</code> based on the number of letter requested (<code>$count</code>), mostly used for Share APIs that use long text.
+    Decides if it displays promotion sections within the admin, or not.
 </div>
 
 
@@ -72,16 +72,16 @@
     <tbody>
     
 
-        <tr id="content">
+        <tr id="show_promo">
             
-                <td class="param-name name"><code>$content</code></td>
+                <td class="param-name name"><code>$show_promo</code></td>
             
 
             <td class="param-type type">
             
                 
 	
-	<span class="param-type">object</span>
+	<span class="param-type">boolean</span>
 	
 
 
@@ -93,47 +93,14 @@
             
                 <td class="param-default default">
                 
-                </td>
-            
-
-            <td class="param-description last">
-                
-                The post_content shortened.
-
-                </td>
-        </tr>
-
-    
-
-        <tr id="count">
-            
-                <td class="param-name name"><code>$count</code></td>
-            
-
-            <td class="param-type type">
-            
-                
-	
-	<span class="param-type">int</span>
-	
-
-
-            
-            </td>
-
-            
-
-            
-                <td class="param-default default">
-                
-                    80
+                    true
                 
                 </td>
             
 
             <td class="param-description last">
                 
-                The number of letters requested.
+                <code>true</code> or <code>false</code> weither you want to display promo or not
 
                 </td>
         </tr>
@@ -186,7 +153,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="utilities.php.html">utilities.php</a>, <a href="utilities.php.html#line250">line 250</a>
+        <a href="admin_settings.php.html">admin/settings.php</a>, <a href="admin_settings.php.html#line185">line 185</a>
     </li></ul></dd>
     
 
@@ -213,7 +180,7 @@
 
         
 <div class="param-description return-desc returns-tmpl">
-    The shortened content used as excerpt
+    Returns the value of `$show_promo`
 </div>
 
 
@@ -225,7 +192,7 @@
     <dd>
         
 	
-	<span class="param-type">string</span>
+	<span class="param-type">boolean</span>
 	
 
 

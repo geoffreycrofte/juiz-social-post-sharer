@@ -310,8 +310,9 @@ if ( ! function_exists('jsps_get_network_html_icon') ) {
 			$svg_file = file_get_contents( $network_info['icon'] );
 			$svg_file = substr( $svg_file, strpos( $svg_file, '&lt;svg' ) );
 
+			// focusable="false" prevents double focus on SVG elements on IE.
+			$icon = $is_front ? $svg_file : '&lt;i>' . preg_replace( '#&lt;svg#', '&lt;svg focusable="false"', $svg_file ) . '&lt;/i>';
 
-			$icon = $is_front ? $svg_file : '&lt;i>' . $svg_file . '&lt;/i>';
 		} else {
 			$icon = '&lt;i class="jsps-icon-' . esc_attr( $slug ) . ' ' . esc_attr( $network_info['icon'] ) . '" role="presentation">&lt;/i>';
 		}
@@ -442,10 +443,27 @@ function jsps_get_old_network_array() {
 					<li class="nav-item-filters">
 						<span class="sub-item"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 4.5V2.5C3 2.5 6.34 1.5 10 1.5C13.66 1.5 17 2.5 17 2.5V4.5L12 11.53V18.5C12 18.5 10.78 18.41 9.75 17.91C8.72 17.41 8 16.5 8 16.5V11.53L3 4.5Z" fill="currentColor"/></svg>Filters</span>
 						<ul>
-							<li class="here-2-jsps_get_displayable_networks-[object Object]"><a href="jsps_get_displayable_networks.html">jsps_get_displayable_networks</a></li>
+							<li class="here-2-jsps_admin_show_promotion-[object Object]"><a href="jsps_admin_show_promotion.html">jsps_admin_show_promotion</a></li>
+								<li class="here-2-jsps_get_displayable_networks-[object Object]"><a href="jsps_get_displayable_networks.html">jsps_get_displayable_networks</a></li>
 								<li class="here-2-jsps_get_excerpt-[object Object]"><a href="jsps_get_excerpt.html">jsps_get_excerpt</a></li>
 								<li class="here-2-jsps_get_network_html_icon-[object Object]"><a href="jsps_get_network_html_icon.html">jsps_get_network_html_icon</a></li>
 								<li class="here-2-jsps_render_api_link-[object Object]"><a href="jsps_render_api_link.html">jsps_render_api_link</a></li>
+								<li class="here-2-juiz_sps_after_last_item-[object Object]"><a href="juiz_sps_after_last_item.html">juiz_sps_after_last_item</a></li>
+								<li class="here-2-juiz_sps_after_the_list-[object Object]"><a href="juiz_sps_after_the_list.html">juiz_sps_after_the_list</a></li>
+								<li class="here-2-juiz_sps_after_the_sps-[object Object]"><a href="juiz_sps_after_the_sps.html">juiz_sps_after_the_sps</a></li>
+								<li class="here-2-juiz_sps_before_first_item-[object Object]"><a href="juiz_sps_before_first_item.html">juiz_sps_before_first_item</a></li>
+								<li class="here-2-juiz_sps_before_the_list-[object Object]"><a href="juiz_sps_before_the_list.html">juiz_sps_before_the_list</a></li>
+								<li class="here-2-juiz_sps_before_the_sps-[object Object]"><a href="juiz_sps_before_the_sps.html">juiz_sps_before_the_sps</a></li>
+								<li class="here-2-juiz_sps_container_classes-[object Object]"><a href="juiz_sps_container_classes.html">juiz_sps_container_classes</a></li>
+								<li class="here-2-juiz_sps_container_tag-[object Object]"><a href="juiz_sps_container_tag.html">juiz_sps_container_tag</a></li>
+								<li class="here-2-juiz_sps_hide_intro-[object Object]"><a href="juiz_sps_hide_intro.html">juiz_sps_hide_intro</a></li>
+								<li class="here-2-juiz_sps_intro_phrase_text-[object Object]"><a href="juiz_sps_intro_phrase_text.html">juiz_sps_intro_phrase_text</a></li>
+								<li class="here-2-juiz_sps_links_nofollow-[object Object]"><a href="juiz_sps_links_nofollow.html">juiz_sps_links_nofollow</a></li>
+								<li class="here-2-juiz_sps_list_container_tag-[object Object]"><a href="juiz_sps_list_container_tag.html">juiz_sps_list_container_tag</a></li>
+								<li class="here-2-juiz_sps_list_of_item_tag-[object Object]"><a href="juiz_sps_list_of_item_tag.html">juiz_sps_list_of_item_tag</a></li>
+								<li class="here-2-juiz_sps_phrase_tag-[object Object]"><a href="juiz_sps_phrase_tag.html">juiz_sps_phrase_tag</a></li>
+								<li class="here-2-juiz_sps_the_shared_permalink-[object Object]"><a href="juiz_sps_the_shared_permalink.html">juiz_sps_the_shared_permalink</a></li>
+								<li class="here-2-juiz_sps_total_count_word-[object Object]"><a href="juiz_sps_total_count_word.html">juiz_sps_total_count_word</a></li>
 						</ul>
 					</li>
 				</ul>

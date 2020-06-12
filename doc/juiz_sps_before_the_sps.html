@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Filter: jsps_get_excerpt - Juiz Social Post Sharer Documentation</title>
+        <title>Filter: juiz_sps_before_the_sps - Juiz Social Post Sharer Documentation</title>
        
         <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
         <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
@@ -12,7 +12,7 @@
         <div class="app">
             <section role="main" id="main">
 
-                <h1 class="page-title">Filter: jsps_get_excerpt</h1>
+                <h1 class="page-title">Filter: juiz_sps_before_the_sps</h1>
 
                 
 
@@ -30,7 +30,7 @@
 
     
 
-    <pre class="name method-tmpl" id="jsps_get_excerpt">apply_filters( '<span class="hook-name">jsps_get_excerpt</span>', <span class="signature"><span class="sign-item">$content</span>, <span class="sign-item">$count</span> )<span class="type-signature"> &rarr; {string}</span></span></pre>
+    <pre class="name method-tmpl" id="juiz_sps_before_the_sps">apply_filters( '<span class="hook-name">juiz_sps_before_the_sps</span>', <span class="signature"><span class="sign-item">$text</span> )<span class="type-signature"> &rarr; {string}</span></span></pre>
 
     
 
@@ -38,7 +38,8 @@
 
 <div class="description method-tmpl">
     
-    Gets an excerpt from the <code>$post->post_content</code> based on the number of letter requested (<code>$count</code>), mostly used for Share APIs that use long text.
+    Prints something before the <code>.juiz_sps_links</code> element.
+This is not an action hook ;)
 </div>
 
 
@@ -72,16 +73,16 @@
     <tbody>
     
 
-        <tr id="content">
+        <tr id="text">
             
-                <td class="param-name name"><code>$content</code></td>
+                <td class="param-name name"><code>$text</code></td>
             
 
             <td class="param-type type">
             
                 
 	
-	<span class="param-type">object</span>
+	<span class="param-type">string</span>
 	
 
 
@@ -93,47 +94,14 @@
             
                 <td class="param-default default">
                 
-                </td>
-            
-
-            <td class="param-description last">
-                
-                The post_content shortened.
-
-                </td>
-        </tr>
-
-    
-
-        <tr id="count">
-            
-                <td class="param-name name"><code>$count</code></td>
-            
-
-            <td class="param-type type">
-            
-                
-	
-	<span class="param-type">int</span>
-	
-
-
-            
-            </td>
-
-            
-
-            
-                <td class="param-default default">
-                
-                    80
+                    ""
                 
                 </td>
             
 
             <td class="param-description last">
                 
-                The number of letters requested.
+                The text or HTML code printed before the content.
 
                 </td>
         </tr>
@@ -153,7 +121,7 @@
 
     
     <dt class="tag-since">Since:</dt>
-    <dd class="tag-since"><ul class="dummy"><li>2.0.0 First version</li></ul></dd>
+    <dd class="tag-since"><ul class="dummy"><li>1.0.0 First version</li></ul></dd>
     
 
     
@@ -186,7 +154,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="utilities.php.html">utilities.php</a>, <a href="utilities.php.html#line250">line 250</a>
+        <a href="front_buttons.php.html">front/buttons.php</a>, <a href="front_buttons.php.html#line111">line 111</a>
     </li></ul></dd>
     
 
@@ -213,7 +181,7 @@
 
         
 <div class="param-description return-desc returns-tmpl">
-    The shortened content used as excerpt
+    The text or HTML code printed before the content.
 </div>
 
 
