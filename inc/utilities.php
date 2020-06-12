@@ -289,8 +289,9 @@ if ( ! function_exists('jsps_get_network_html_icon') ) {
 			$svg_file = file_get_contents( $network_info['icon'] );
 			$svg_file = substr( $svg_file, strpos( $svg_file, '<svg' ) );
 
+			// focusable="false" prevents double focus on SVG elements on IE.
+			$icon = $is_front ? $svg_file : '<i>' . preg_replace( '#<svg#', '<svg focusable="false"', $svg_file ) . '</i>';
 
-			$icon = $is_front ? $svg_file : '<i>' . $svg_file . '</i>';
 		} else {
 			$icon = '<i class="jsps-icon-' . esc_attr( $slug ) . ' ' . esc_attr( $network_info['icon'] ) . '" role="presentation"></i>';
 		}
