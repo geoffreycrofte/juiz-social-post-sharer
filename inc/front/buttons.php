@@ -302,16 +302,66 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 			}
 
 			$api_link = $api_text = '';
-			$url      = urlencode( esc_url( apply_filters( 'juiz_sps_the_shared_permalink_for_' . $k, $url ) ) );
+
+			/**
+			 * Sets the URL to be shared on a specific network, where `*` is the network shortname.
+			 * 
+			 * @hook juiz_sps_the_shared_permalink_for_*
+			 * 
+		 	 * @since  2.0.0 Adds `$is_current_page_url` and `$url_to_share` arguments.
+		 	 * @since  1.0.0 First version
+		 	 * 
+		 	 * @param  {string}  $url                  The shared URL.
+		 	 * @param  {int}     $is_current_page_url  Is the current page or custom to share?
+		 	 * @param  {string}  $url_to_share         `permalink` | `siteurl` | &lt;custom_url&gt;
+		 	 *
+		 	 * 
+		 	 * @return {string} The URL to be shared on the specific network. You don't need to sanitize or urlencode it, the after that.
+		 	 *
+			 */
+			$url = urlencode( esc_url( apply_filters( 'juiz_sps_the_shared_permalink_for_' . $k, $url, $is_current_page_url, $url_to_share ) ) );
+
 			$nw_name  = isset( $v['name'] ) ? $v['name'] : $k;
+
+			/**
+			 * The name of a specific network display on the button.
+			 * 
+			 * @hook juiz_sps_share_name_for_*
+			 * 
+		 	 * @since  1.0.0 First version
+		 	 * @param  {string}  $nw_name  The original name of the network.
+		 	 * @return {string}  The string returned after the renaming.
+			 */
 			$nw_name  = apply_filters( 'juiz_sps_share_name_for_' . $k, $nw_name );
 			$more_att = $juiz_sps_target_link;
+
+			/**
+			 * The tooltip for a specific network. Default one is `Share this on %s`.
+			 * 
+			 * @hook juiz_sps_share_text_for_*
+			 * 
+		 	 * @since  1.0.0 First version
+		 	 * @param  {string}  $text      The original text in the tooltip.
+		 	 * @param  {string}  $nw_name   The original name (or modified name if you filtered `juiz_sps_share_name_for_*`) of the network.
+		 	 * @return {string}  The string returned text in the tooltip for this specific network.
+			 */
 			$api_text = apply_filters( 'juiz_sps_share_text_for_' . $k, sprintf( __( 'Share this article on %s', 'juiz-social-post-sharer' ), $nw_name ) );
 
 
 			switch ( $k ) {
 				case 'twitter' :
-					$twitter_user = $juiz_sps_options['juiz_sps_twitter_user'] != '' ? '&amp;related=' . apply_filters( 'juiz_sps_twitter_nickname', $juiz_sps_options['juiz_sps_twitter_user'] ) . '&amp;via=' . apply_filters( 'juiz_sps_twitter_nickname', $juiz_sps_options['juiz_sps_twitter_user'] ) : '';
+					/**
+					 * Edits the default Twitter nickname mentionned in the URL (via option) and override the option in the admin.<br>
+					 * **The option have to not to be empty in the admin for the hook to work.**
+					 * 
+					 * @hook juiz_sps_twitter_user
+					 * 
+				 	 * @since  1.4.9 First version
+				 	 * @param  {string}  $text      The Twitter nickname set in the admin option.
+				 	 * @return {string}  The new Twitter nickname to be mentionned.
+					 */
+					$twitter_user = isset( $juiz_sps_options['juiz_sps_twitter_user'] ) && $juiz_sps_options['juiz_sps_twitter_user'] != '' ? '&amp;related=' . apply_filters( 'juiz_sps_twitter_nickname', $juiz_sps_options['juiz_sps_twitter_user'] ) . '&amp;via=' . apply_filters( 'juiz_sps_twitter_nickname', $juiz_sps_options['juiz_sps_twitter_user'] ) : '';
+
 					$api_link = 'https://twitter.com/intent/tweet?source=webclient&amp;original_referer=' . $url . '&amp;text=' . $text . '&amp;url=' . $url . $twitter_user;
 					break;
 
@@ -366,8 +416,6 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 					$api_link = 'https://www.diigo.com/post?url=' . urlencode( $url ) . '&amp;title='. $text .'&amp;desc=' . $excerpt . '&amp;client=juis-social-post-sharer'; // client=simplelet
 					break;
 
-				// END TODO
-
 				case 'weibo':
 					// title tips by Aili (thank you ;p)
 					$simplecontent = $text . esc_attr( urlencode( " : " . mb_substr( strip_tags( $post->post_content ), 0, 90, 'utf-8') ) );
@@ -414,9 +462,38 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 					$api_text = isset( $v['title'] ) ? $v['title'] : '';
 			}
 
+			/**
+			 * Edits the API URL at the end. You can use it to add parameters like UTM.
+			 * <br> To edit a specific API URL, see <a href="juiz_sps__url_params.html">juiz_sps_*_url_params</a>
+			 * 
+			 * @hook juiz_sps_url_params
+			 * 
+		 	 * @since  2.0.0 First version
+		 	 * @param  {string}  $params=''   Empty by default.
+		 	 * @return {string}  The new parameters you added. To forget to start with a `&amp;amp;`
+			 */
+			/**
+			 * Edits the specific API URL at the end. You can use it to add parameters like UTM.
+			 * 
+			 * @hook juiz_sps_*_url_params
+			 * 
+		 	 * @since  2.0.0 First version
+		 	 * @param  {string}  $params=''   Empty by default.
+		 	 * @return {string}  The new parameters you added. To forget to start with a `&amp;amp;`
+			 */
+			$api_link = $api_link . apply_filters( 'juiz_sps_' . $k . '_url_params', apply_filters( 'juiz_sps_url_params', '' ) );
 
 			$future_link_content = '<' . $li . ' class="juiz_sps_item juiz_sps_link_' . esc_attr( $k ) . '"' . ( isset( $v['color'] ) ? ' style="--jsps-custom-color:' . esc_attr( $v['color'] ) . ';' . ( isset( $v['hcolor'] ) ? '--jsps-custom-hover-color:' . esc_attr( $v['hcolor'] ) . ';' : '' ) . '"' : '' ) . '><a href="' . wp_strip_all_tags( esc_attr( $api_link ) ) . '" ' . $rel_nofollow . '' . $more_att . ' title="' . esc_attr( $api_text ) . '"><span class="juiz_sps_icon jsps-' . esc_attr( $k ) . '">' . jsps_get_network_html_icon( $k, $v, true ) . '</span><span class="juiz_sps_network_name">' . esc_html( $nw_name ) . '</span></a></' . $li . '>';
 
+			/**
+			 * Edits the API URL at the end. You can use it to add parameters like UTM.
+			 * 
+			 * @hook juiz_sps_after_each_network_item
+			 * 
+		 	 * @since  2.0.0 First version
+		 	 * @param  {string}  $params=   Empty by default.
+		 	 * @return {string}  The new parameters you added. To forget to start with a`&amp;`
+			 */
 			apply_filters( 'juiz_sps_after_each_network_item', $future_link_content, $k, $nw_name, $v );
 			apply_filters( 'juiz_sps_after_' . $k . '_network_item', $future_link_content, $k, $nw_name, $v );
 
