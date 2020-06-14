@@ -1,7 +1,10 @@
 {
     "opts": {
-        "destination": "doc",
-        "template": "documentation/template",
+        "destination"   : "doc",
+        "template"      : "documentation/template",
+        "readme"        : "documentation/README.md",
+        "tutorials"     : "documentation/tutorials",
+        "mainpagetitle" : "Juiz Social Post Sharer Documentation",
         "recurse": true
     },
     "source": {

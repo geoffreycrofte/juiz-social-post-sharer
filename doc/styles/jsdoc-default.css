@@ -115,6 +115,8 @@ tt, code, kbd, samp {
 }
 
 .app [id="main"] {
+    display: flex;
+    flex-direction: column;
     flex-basis: 100%;
     flex-grow: 1;
     flex-shrink: 1;
@@ -139,6 +141,13 @@ nav li {
     list-style: none;
 }
 
+nav .version {
+    opacity: .5;
+    text-align: center;
+    font-weight: bold;
+    font-size: .875em;
+}
+
 nav a,
 nav .sub-item {
     display: block;
@@ -154,6 +163,10 @@ nav .sub-item {
 .sub-item svg {
     margin-right: 8px;
     color: var(--branddark);
+}
+
+nav a {
+    color: #FFF;
 }
 
 nav a:hover,
@@ -193,6 +206,128 @@ nav ul ul {
 nav ul ul a:hover,
 nav ul ul a:focus {
     background: rgba(255,255,255,.2);
+}
+
+section .copyright {
+    margin-top: auto;
+    opacity: .5;
+    text-align: center;
+    font-size: .875em;
+}
+
+/**
+ * Responsive nav
+ */
+.off-canvas-menu nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    transform: translateX(-100%);
+    transition: all .4s;
+    z-index: 1;
+}
+
+.off-canvas-menu nav.is-open {
+    transform: translateX(0);
+}
+
+.off-canvas-menu .menu-btn {
+    position: absolute;
+    top: 32px;
+    right: 0;
+    padding: 8px;
+    z-index: 1;
+    transform: translateX(calc(100% + 16px ));
+    background: 0;
+    border: 0;
+    text-transform: uppercase;
+    font-size: 8px;
+    letter-spacing: .5px;
+    font-weight: bold;
+}
+
+.off-canvas-menu .menu-icon {
+    position: relative;
+    display: block;
+    height: 2px;
+    width: 24px;
+    margin: 0 auto 10px auto;
+    background: var(--brand);
+    border-radius: 2px;
+    transition: all .4s;
+}
+
+.off-canvas-menu .menu-icon::before,
+.off-canvas-menu .menu-icon::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--brand);
+    transition: all .4s;
+}
+
+.off-canvas-menu .menu-btn.is-open {
+    color: #FFF;
+}
+
+.off-canvas-menu.menu-is-open .menu-icon::before,
+.off-canvas-menu.menu-is-open .menu-icon::after {
+   background: #FFF; 
+}
+
+.off-canvas-menu .menu-icon::before {
+    transform: translateY(-6px);
+}
+
+.off-canvas-menu .menu-icon::after {
+    transform: translateY(6px);
+}
+
+.off-canvas-menu.menu-is-open .menu-icon {
+    background: transparent;
+}
+
+.off-canvas-menu.menu-is-open .menu-icon::before {
+    transform: translateY(-1px) rotate(45deg);
+}
+
+.off-canvas-menu.menu-is-open .menu-icon::after {
+    transform: translateY(-1px) rotate(-45deg);
+}
+
+.off-canvas-menu #main {
+    transition: all .4s;
+}
+
+.off-canvas-menu.menu-is-open #main {
+    transform: scale(.8) translateX(10%);
+}
+
+.off-canvas-menu nav > ul {
+    height: 92vh;
+    overflow: auto;
+}
+
+body.off-canvas-menu .app::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    right: 100%;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    background: var(--dark);
+    transition: opacity .4s;
+    z-index: 1;
+}
+
+body.off-canvas-menu.menu-is-open .app::before {
+    right: 0;
+    opacity: .6;
 }
 
 /**
@@ -237,6 +372,26 @@ h6 {
     letter-spacing: -0.01em;
     margin: 6px 0 3px 0;
     font-style: italic;
+}
+
+.page-title {
+    font-size: 2em;
+}
+
+.page-title + article {
+    padding: 0 var(--padding-lat);
+}
+
+.off-canvas-menu .page-title {
+    padding-left: 48px;
+}
+
+p.subtitle {
+    margin: 0 calc( var(--padding-lat) * -2) 2.5em;
+    padding: var(--padding-lat) calc( var(--padding-lat) * 2);
+    background: var(--brand-code-bg);
+    color: var(--branddark);
+    font-size: 1.2em;
 }
 
 /**
@@ -504,4 +659,31 @@ h3.subsection-title {
     background: #4d4e53;
     color: white;
     padding: 5px 10px;
+}
+
+
+@media (max-width: 600px) {
+    :root {
+        --padding-lat: 8px;
+    }
+
+    h1.page-title {
+        font-size: 1.6em;
+    }
+
+    pre.name {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 400px) {
+
+    .off-canvas-menu .menu-btn.is-open {
+        top: 16px;
+        transform: translateX(-16px);
+    }
+
+    li.nav-item-home {
+        text-align: left;
+    }
 }
