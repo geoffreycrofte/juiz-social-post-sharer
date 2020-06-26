@@ -246,11 +246,11 @@ Version: Styles v7 inspired from Brand and Material Design
 }
 
 .juiz_sps_links .juiz_sps_link_reddit a {
-	background-color: #5F99CF;
+	background-color: #ff4500;
 }
 .juiz_sps_links .juiz_sps_link_reddit a:hover,
 .juiz_sps_links .juiz_sps_link_reddit a:focus { 
-	background-color: #497DAA;
+	background-color: #cc3700;
 }
 
 .juiz_sps_links .juiz_sps_link_delicious a {
