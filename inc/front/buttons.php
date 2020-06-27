@@ -483,21 +483,41 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 			 */
 			$api_link = $api_link . apply_filters( 'juiz_sps_' . $k . '_url_params', apply_filters( 'juiz_sps_url_params', '' ) );
 
-			$future_link_content = '<' . $li . ' class="juiz_sps_item juiz_sps_link_' . esc_attr( $k ) . '"' . ( isset( $v['color'] ) ? ' style="--jsps-custom-color:' . esc_attr( $v['color'] ) . ';' . ( isset( $v['hcolor'] ) ? '--jsps-custom-hover-color:' . esc_attr( $v['hcolor'] ) . ';' : '' ) . '"' : '' ) . '><a href="' . wp_strip_all_tags( esc_attr( $api_link ) ) . '" ' . $rel_nofollow . '' . $more_att . ' title="' . esc_attr( $api_text ) . '"><span class="juiz_sps_icon jsps-' . esc_attr( $k ) . '">' . jsps_get_network_html_icon( $k, $v, true ) . '</span><span class="juiz_sps_network_name">' . esc_html( $nw_name ) . '</span></a></' . $li . '>';
+			$item_content = '<' . $li . ' class="juiz_sps_item juiz_sps_link_' . esc_attr( $k ) . '"' . ( isset( $v['color'] ) ? ' style="--jsps-custom-color:' . esc_attr( $v['color'] ) . ';' . ( isset( $v['hcolor'] ) ? '--jsps-custom-hover-color:' . esc_attr( $v['hcolor'] ) . ';' : '' ) . '"' : '' ) . '><a href="' . wp_strip_all_tags( esc_attr( $api_link ) ) . '" ' . $rel_nofollow . '' . $more_att . ' title="' . esc_attr( $api_text ) . '"><span class="juiz_sps_icon jsps-' . esc_attr( $k ) . '">' . jsps_get_network_html_icon( $k, $v, true ) . '</span><span class="juiz_sps_network_name">' . esc_html( $nw_name ) . '</span></a></' . $li . '>';
 
 			/**
-			 * Edits the API URL at the end. You can use it to add parameters like UTM.
+			 * Edits the HTML code for every item including the LI and A elements
 			 * 
 			 * @hook juiz_sps_after_each_network_item
 			 * 
-		 	 * @since  2.0.0 First version
-		 	 * @param  {string}  $params=   Empty by default.
-		 	 * @return {string}  The new parameters you added. To forget to start with a`&amp;`
+		 	 * @since  1.4.3 First version
+		 	 *
+		 	 * @param  {string}  $item_content  The link content.
+		 	 * @param  {string}  $k  			The network shortname.
+		 	 * @param  {string}  $nw_name		The display-name of the network.
+		 	 * @param  {array}   $v				The information relative for a specific network.
+		 	 *
+		 	 * @return {string}  The modified HTML code.
 			 */
-			apply_filters( 'juiz_sps_after_each_network_item', $future_link_content, $k, $nw_name, $v );
-			apply_filters( 'juiz_sps_after_' . $k . '_network_item', $future_link_content, $k, $nw_name, $v );
+			$item_content = apply_filters( 'juiz_sps_after_each_network_item', $item_content, $k, $nw_name, $v );
 
-			$juiz_sps_content .= $future_link_content;
+			/**
+			 * Edits the HTML code for a specific network item including the LI and A elements
+			 * 
+			 * @hook juiz_sps_after_*_network_item
+			 * 
+		 	 * @since  1.4.3 First version
+		 	 *
+		 	 * @param  {string}  $item_content  The link content.
+		 	 * @param  {string}  $k  			The network shortname.
+		 	 * @param  {string}  $nw_name		The display-name of the network.
+		 	 * @param  {array}   $v				The information relative for a specific network.
+		 	 *
+		 	 * @return {string}  The modified HTML code.
+			 */
+			$item_content = apply_filters( 'juiz_sps_after_' . $k . '_network_item', $item_content, $k, $nw_name, $v );
+
+			$juiz_sps_content .= $item_content;
 
 		} // end of FOREACH
 
@@ -512,13 +532,13 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 		if ( isset( $juiz_sps_options['juiz_sps_counter_option'] ) ) {
 			if ( $juiz_sps_options['juiz_sps_counter_option'] == 'both' || $juiz_sps_options['juiz_sps_counter_option'] == 'total' ) {
 				$juiz_sps_content .= ( 
-										( $general_counters == 1 && intval( $counters ) == 1)
-										||
-										( $general_counters == 0 && intval( $counters ) == 1 )
-									 )
-									 ?
-									 '<' . $li . ' class="juiz_sps_item juiz_sps_totalcount_item"><span class="juiz_sps_totalcount" title="' . esc_attr( $total_word ) . '"><span class="juiz_sps_t_nb"></span></span></' . $li . '>'
-									 : '';
+					( $general_counters == 1 && intval( $counters ) == 1)
+					||
+					( $general_counters == 0 && intval( $counters ) == 1 )
+				 )
+				 ?
+				 '<' . $li . ' class="juiz_sps_item juiz_sps_totalcount_item"><span class="juiz_sps_totalcount" title="' . esc_attr( $total_word ) . '"><span class="juiz_sps_t_nb"></span></span></' . $li . '>'
+				 : '';
 			}
 		}
 		$juiz_sps_content .= '</' . $ul . '>' . "\n\t";
@@ -527,7 +547,20 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 		$juiz_sps_content .= '</' . $div . '>' . "\n\n";
 		$juiz_sps_content .= $after_the_sps_content;
 
-		// final markup
+		// Final markup
+		/**
+		 * The overall HTML content used to display everything in front.
+		 * Use it if no other hook works for you and you want to edit its HTML.
+		 * 
+		 * @hook juiz_sps_content
+		 * 
+	 	 * @since  1.4.3 First version
+	 	 *
+	 	 * @param  {string}  $juiz_sps_content  The HTML Content.
+	 	 * @param  {array}   $juiz_sps_options  All the plugin options to avoid a request ;p
+	 	 *
+	 	 * @return {string}  The new HTML code.
+		 */
 		return apply_filters( 'juiz_sps_content', $juiz_sps_content, $juiz_sps_options );
 
 	}
@@ -545,6 +578,16 @@ if ( ! function_exists( 'juiz_sps' ) ) {
 // write buttons in content
 add_filter( 'the_content', 'juiz_sps_print_links', 10, 1 );
 
+/**
+ * By default the buttons are display only into the content, not the excerpts.
+ * Set to `true` if you want to change this behavior. 
+ * 
+ * @hook juiz_sps_buttons_in_excerpt
+ * 
+ * @since  1.3.3.7 First version
+ * @param  {boolean}  $in_excerpt=false  Set to true if you want buttons in excerpt. 
+ * @return Void. 
+ */
 if ( apply_filters( 'juiz_sps_buttons_in_excerpt', false ) ) {
 	add_filter( 'the_excerpt', 'juiz_sps_print_links', 10, 1 );
 }
@@ -572,7 +615,18 @@ if ( ! function_exists( 'juiz_sps_print_links' ) ) {
 
 				$juiz_sps_display_where = isset( $juiz_sps_options['juiz_sps_display_where'] ) ? $juiz_sps_options['juiz_sps_display_where'] : '';
 
-				do_action( 'juiz_sps_before_content_contatenation', $jsps_links, $juiz_sps_display_where, $juiz_sps_options );
+				/**
+				 * Allows you to do something before the concatenation with the post content. 
+				 * 
+				 * @hook juiz_sps_before_content_concat
+				 *
+				 * @since  2.0.0 First version
+				 *
+				 * @param  {string} $jsps_links              The HTML for all the front buttons.
+				 * @param  {string} $juiz_sps_display_where  A keyword among `top`, `bottom` and `both`.
+				 * @param  {string} $juiz_sps_options        All the plugin's options.
+				 */
+				do_action( 'juiz_sps_before_content_concat', $jsps_links, $juiz_sps_display_where, $juiz_sps_options );
 
 				if ( 'top' == $juiz_sps_display_where || 'both' == $juiz_sps_display_where ) {
 					$content = $jsps_links . $content;
