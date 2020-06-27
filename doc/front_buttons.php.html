@@ -504,21 +504,41 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 			 */
 			$api_link = $api_link . apply_filters( 'juiz_sps_' . $k . '_url_params', apply_filters( 'juiz_sps_url_params', '' ) );
 
-			$future_link_content = '&lt;' . $li . ' class="juiz_sps_item juiz_sps_link_' . esc_attr( $k ) . '"' . ( isset( $v['color'] ) ? ' style="--jsps-custom-color:' . esc_attr( $v['color'] ) . ';' . ( isset( $v['hcolor'] ) ? '--jsps-custom-hover-color:' . esc_attr( $v['hcolor'] ) . ';' : '' ) . '"' : '' ) . '>&lt;a href="' . wp_strip_all_tags( esc_attr( $api_link ) ) . '" ' . $rel_nofollow . '' . $more_att . ' title="' . esc_attr( $api_text ) . '">&lt;span class="juiz_sps_icon jsps-' . esc_attr( $k ) . '">' . jsps_get_network_html_icon( $k, $v, true ) . '&lt;/span>&lt;span class="juiz_sps_network_name">' . esc_html( $nw_name ) . '&lt;/span>&lt;/a>&lt;/' . $li . '>';
+			$item_content = '&lt;' . $li . ' class="juiz_sps_item juiz_sps_link_' . esc_attr( $k ) . '"' . ( isset( $v['color'] ) ? ' style="--jsps-custom-color:' . esc_attr( $v['color'] ) . ';' . ( isset( $v['hcolor'] ) ? '--jsps-custom-hover-color:' . esc_attr( $v['hcolor'] ) . ';' : '' ) . '"' : '' ) . '>&lt;a href="' . wp_strip_all_tags( esc_attr( $api_link ) ) . '" ' . $rel_nofollow . '' . $more_att . ' title="' . esc_attr( $api_text ) . '">&lt;span class="juiz_sps_icon jsps-' . esc_attr( $k ) . '">' . jsps_get_network_html_icon( $k, $v, true ) . '&lt;/span>&lt;span class="juiz_sps_network_name">' . esc_html( $nw_name ) . '&lt;/span>&lt;/a>&lt;/' . $li . '>';
 
 			/**
-			 * Edits the API URL at the end. You can use it to add parameters like UTM.
+			 * Edits the HTML code for every item including the LI and A elements
 			 * 
 			 * @hook juiz_sps_after_each_network_item
 			 * 
-		 	 * @since  2.0.0 First version
-		 	 * @param  {string}  $params=   Empty by default.
-		 	 * @return {string}  The new parameters you added. To forget to start with a`&amp;amp;`
+		 	 * @since  1.4.3 First version
+		 	 *
+		 	 * @param  {string}  $item_content  The link content.
+		 	 * @param  {string}  $k  			The network shortname.
+		 	 * @param  {string}  $nw_name		The display-name of the network.
+		 	 * @param  {array}   $v				The information relative for a specific network.
+		 	 *
+		 	 * @return {string}  The modified HTML code.
 			 */
-			apply_filters( 'juiz_sps_after_each_network_item', $future_link_content, $k, $nw_name, $v );
-			apply_filters( 'juiz_sps_after_' . $k . '_network_item', $future_link_content, $k, $nw_name, $v );
+			$item_content = apply_filters( 'juiz_sps_after_each_network_item', $item_content, $k, $nw_name, $v );
 
-			$juiz_sps_content .= $future_link_content;
+			/**
+			 * Edits the HTML code for a specific network item including the LI and A elements
+			 * 
+			 * @hook juiz_sps_after_*_network_item
+			 * 
+		 	 * @since  1.4.3 First version
+		 	 *
+		 	 * @param  {string}  $item_content  The link content.
+		 	 * @param  {string}  $k  			The network shortname.
+		 	 * @param  {string}  $nw_name		The display-name of the network.
+		 	 * @param  {array}   $v				The information relative for a specific network.
+		 	 *
+		 	 * @return {string}  The modified HTML code.
+			 */
+			$item_content = apply_filters( 'juiz_sps_after_' . $k . '_network_item', $item_content, $k, $nw_name, $v );
+
+			$juiz_sps_content .= $item_content;
 
 		} // end of FOREACH
 
@@ -533,13 +553,13 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 		if ( isset( $juiz_sps_options['juiz_sps_counter_option'] ) ) {
 			if ( $juiz_sps_options['juiz_sps_counter_option'] == 'both' || $juiz_sps_options['juiz_sps_counter_option'] == 'total' ) {
 				$juiz_sps_content .= ( 
-										( $general_counters == 1 &amp;&amp; intval( $counters ) == 1)
-										||
-										( $general_counters == 0 &amp;&amp; intval( $counters ) == 1 )
-									 )
-									 ?
-									 '&lt;' . $li . ' class="juiz_sps_item juiz_sps_totalcount_item">&lt;span class="juiz_sps_totalcount" title="' . esc_attr( $total_word ) . '">&lt;span class="juiz_sps_t_nb">&lt;/span>&lt;/span>&lt;/' . $li . '>'
-									 : '';
+					( $general_counters == 1 &amp;&amp; intval( $counters ) == 1)
+					||
+					( $general_counters == 0 &amp;&amp; intval( $counters ) == 1 )
+				 )
+				 ?
+				 '&lt;' . $li . ' class="juiz_sps_item juiz_sps_totalcount_item">&lt;span class="juiz_sps_totalcount" title="' . esc_attr( $total_word ) . '">&lt;span class="juiz_sps_t_nb">&lt;/span>&lt;/span>&lt;/' . $li . '>'
+				 : '';
 			}
 		}
 		$juiz_sps_content .= '&lt;/' . $ul . '>' . "\n\t";
@@ -548,7 +568,20 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 		$juiz_sps_content .= '&lt;/' . $div . '>' . "\n\n";
 		$juiz_sps_content .= $after_the_sps_content;
 
-		// final markup
+		// Final markup
+		/**
+		 * The overall HTML content used to display everything in front.
+		 * Use it if no other hook works for you and you want to edit its HTML.
+		 * 
+		 * @hook juiz_sps_content
+		 * 
+	 	 * @since  1.4.3 First version
+	 	 *
+	 	 * @param  {string}  $juiz_sps_content  The HTML Content.
+	 	 * @param  {array}   $juiz_sps_options  All the plugin options to avoid a request ;p
+	 	 *
+	 	 * @return {string}  The new HTML code.
+		 */
 		return apply_filters( 'juiz_sps_content', $juiz_sps_content, $juiz_sps_options );
 
 	}
@@ -566,6 +599,16 @@ if ( ! function_exists( 'juiz_sps' ) ) {
 // write buttons in content
 add_filter( 'the_content', 'juiz_sps_print_links', 10, 1 );
 
+/**
+ * By default the buttons are display only into the content, not the excerpts.
+ * Set to `true` if you want to change this behavior. 
+ * 
+ * @hook juiz_sps_buttons_in_excerpt
+ * 
+ * @since  1.3.3.7 First version
+ * @param  {boolean}  $in_excerpt=false  Set to true if you want buttons in excerpt. 
+ * @return Void. 
+ */
 if ( apply_filters( 'juiz_sps_buttons_in_excerpt', false ) ) {
 	add_filter( 'the_excerpt', 'juiz_sps_print_links', 10, 1 );
 }
@@ -593,7 +636,18 @@ if ( ! function_exists( 'juiz_sps_print_links' ) ) {
 
 				$juiz_sps_display_where = isset( $juiz_sps_options['juiz_sps_display_where'] ) ? $juiz_sps_options['juiz_sps_display_where'] : '';
 
-				do_action( 'juiz_sps_before_content_contatenation', $jsps_links, $juiz_sps_display_where, $juiz_sps_options );
+				/**
+				 * Allows you to do something before the concatenation with the post content. 
+				 * 
+				 * @hook juiz_sps_before_content_concat
+				 *
+				 * @since  2.0.0 First version
+				 *
+				 * @param  {string} $jsps_links              The HTML for all the front buttons.
+				 * @param  {string} $juiz_sps_display_where  A keyword among `top`, `bottom` and `both`.
+				 * @param  {string} $juiz_sps_options        All the plugin's options.
+				 */
+				do_action( 'juiz_sps_before_content_concat', $jsps_links, $juiz_sps_display_where, $juiz_sps_options );
 
 				if ( 'top' == $juiz_sps_display_where || 'both' == $juiz_sps_display_where ) {
 					$content = $jsps_links . $content;
@@ -642,6 +696,7 @@ if ( ! function_exists( 'juiz_sps_print_links' ) ) {
 								<li class="here-2-jsps_get_network_html_icon"><a href="jsps_get_network_html_icon.html">jsps_get_network_html_icon</a></li>
 								<li class="here-2-jsps_render_api_link"><a href="jsps_render_api_link.html">jsps_render_api_link</a></li>
 								<li class="here-2-juiz_sps_*_url_params"><a href="juiz_sps___url_params.html">juiz_sps_*_url_params</a></li>
+								<li class="here-2-juiz_sps_after_*_network_item"><a href="juiz_sps_after___network_item.html">juiz_sps_after_*_network_item</a></li>
 								<li class="here-2-juiz_sps_after_each_network_item"><a href="juiz_sps_after_each_network_item.html">juiz_sps_after_each_network_item</a></li>
 								<li class="here-2-juiz_sps_after_last_item"><a href="juiz_sps_after_last_item.html">juiz_sps_after_last_item</a></li>
 								<li class="here-2-juiz_sps_after_the_list"><a href="juiz_sps_after_the_list.html">juiz_sps_after_the_list</a></li>
@@ -649,8 +704,10 @@ if ( ! function_exists( 'juiz_sps_print_links' ) ) {
 								<li class="here-2-juiz_sps_before_first_item"><a href="juiz_sps_before_first_item.html">juiz_sps_before_first_item</a></li>
 								<li class="here-2-juiz_sps_before_the_list"><a href="juiz_sps_before_the_list.html">juiz_sps_before_the_list</a></li>
 								<li class="here-2-juiz_sps_before_the_sps"><a href="juiz_sps_before_the_sps.html">juiz_sps_before_the_sps</a></li>
+								<li class="here-2-juiz_sps_buttons_in_excerpt"><a href="juiz_sps_buttons_in_excerpt.html">juiz_sps_buttons_in_excerpt</a></li>
 								<li class="here-2-juiz_sps_container_classes"><a href="juiz_sps_container_classes.html">juiz_sps_container_classes</a></li>
 								<li class="here-2-juiz_sps_container_tag"><a href="juiz_sps_container_tag.html">juiz_sps_container_tag</a></li>
+								<li class="here-2-juiz_sps_content"><a href="juiz_sps_content.html">juiz_sps_content</a></li>
 								<li class="here-2-juiz_sps_hide_intro"><a href="juiz_sps_hide_intro.html">juiz_sps_hide_intro</a></li>
 								<li class="here-2-juiz_sps_intro_phrase_text"><a href="juiz_sps_intro_phrase_text.html">juiz_sps_intro_phrase_text</a></li>
 								<li class="here-2-juiz_sps_links_nofollow"><a href="juiz_sps_links_nofollow.html">juiz_sps_links_nofollow</a></li>
@@ -670,6 +727,7 @@ if ( ! function_exists( 'juiz_sps_print_links' ) ) {
 						<span class="sub-item"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 12H15.82C15.65 12.7 15.38 13.35 15.01 13.93L16.55 15.47L14.45 17.57L12.91 16.03C12.33 16.39 11.68 16.66 11 16.82V19H8V16.82C7.32 16.66 6.67 16.39 6.09 16.03L4.55 17.57L2.43 15.45L3.97 13.91C3.61 13.33 3.34 12.68 3.18 12H1V9.03H3.17C3.33 8.33 3.61 7.68 3.97 7.09L2.43 5.55L4.53 3.45L6.07 4.99C6.65 4.62 7.31 4.35 8 4.18V2H11V4.18C11.68 4.34 12.33 4.61 12.91 4.97L14.45 3.43L16.57 5.55L15.03 7.09C15.39 7.68 15.67 8.33 15.83 9.03H18V12ZM9.5 13.5C11.16 13.5 12.5 12.16 12.5 10.5C12.5 8.84 11.16 7.5 9.5 7.5C7.84 7.5 6.5 8.84 6.5 10.5C6.5 12.16 7.84 13.5 9.5 13.5Z" fill="currentColor"/></svg>Actions</span>
 						<ul>
 							<li class="here-2-jsps_before_get_excerpt"><a href="jsps_before_get_excerpt.html">jsps_before_get_excerpt</a></li>
+								<li class="here-2-juiz_sps_before_content_concat"><a href="juiz_sps_before_content_concat.html">juiz_sps_before_content_concat</a></li>
 						</ul>
 					</li>
 				</ul>
