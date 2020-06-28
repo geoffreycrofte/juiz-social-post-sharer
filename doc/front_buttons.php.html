@@ -73,7 +73,7 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 
 		/**
 		 * Sets the URL to be shared on all the networks activated.
-		 * Another hook arrives later for each specific network called `juiz_sps_the_shared_permalink_for_*` where * is the network Slug.
+		 * Another hook arrives later for each specific network called {@link juiz_sps_the_shared_permalink_for_*} where * is the network Slug.
 		 * 
 		 * @hook juiz_sps_the_shared_permalink
 		 * 
@@ -363,7 +363,7 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 			 * 
 		 	 * @since  1.0.0 First version
 		 	 * @param  {string}  $text      The original text in the tooltip.
-		 	 * @param  {string}  $nw_name   The original name (or modified name if you filtered `juiz_sps_share_name_for_*`) of the network.
+		 	 * @param  {string}  $nw_name   The original name —or modified name if you filtered {@link juiz_sps_share_name_for_*}— of the network.
 		 	 * @return {string}  The string returned text in the tooltip for this specific network.
 			 */
 			$api_text = apply_filters( 'juiz_sps_share_text_for_' . $k, sprintf( __( 'Share this article on %s', 'juiz-social-post-sharer' ), $nw_name ) );
@@ -485,7 +485,7 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 
 			/**
 			 * Edits the API URL at the end. You can use it to add parameters like UTM.
-			 * &lt;br> To edit a specific API URL, see &lt;a href="juiz_sps__url_params.html">juiz_sps_*_url_params&lt;/a>
+			 * &lt;br> To edit a specific API URL, see {@link juiz_sps_*_url_params}
 			 * 
 			 * @hook juiz_sps_url_params
 			 * 
@@ -507,7 +507,8 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 			$item_content = '&lt;' . $li . ' class="juiz_sps_item juiz_sps_link_' . esc_attr( $k ) . '"' . ( isset( $v['color'] ) ? ' style="--jsps-custom-color:' . esc_attr( $v['color'] ) . ';' . ( isset( $v['hcolor'] ) ? '--jsps-custom-hover-color:' . esc_attr( $v['hcolor'] ) . ';' : '' ) . '"' : '' ) . '>&lt;a href="' . wp_strip_all_tags( esc_attr( $api_link ) ) . '" ' . $rel_nofollow . '' . $more_att . ' title="' . esc_attr( $api_text ) . '">&lt;span class="juiz_sps_icon jsps-' . esc_attr( $k ) . '">' . jsps_get_network_html_icon( $k, $v, true ) . '&lt;/span>&lt;span class="juiz_sps_network_name">' . esc_html( $nw_name ) . '&lt;/span>&lt;/a>&lt;/' . $li . '>';
 
 			/**
-			 * Edits the HTML code for every item including the LI and A elements
+			 * Edits the HTML code for every item including the LI and A elements.
+			 * &lt;br> To edit the same code for a specific network, prefer the hook {@link juiz_sps_after_*_network_item}
 			 * 
 			 * @hook juiz_sps_after_each_network_item
 			 * 
@@ -695,6 +696,7 @@ if ( ! function_exists( 'juiz_sps_print_links' ) ) {
 								<li class="here-2-jsps_get_excerpt"><a href="jsps_get_excerpt.html">jsps_get_excerpt</a></li>
 								<li class="here-2-jsps_get_network_html_icon"><a href="jsps_get_network_html_icon.html">jsps_get_network_html_icon</a></li>
 								<li class="here-2-jsps_render_api_link"><a href="jsps_render_api_link.html">jsps_render_api_link</a></li>
+								<li class="here-2-jsps_show_modal_footer"><a href="jsps_show_modal_footer.html">jsps_show_modal_footer</a></li>
 								<li class="here-2-juiz_sps_*_url_params"><a href="juiz_sps___url_params.html">juiz_sps_*_url_params</a></li>
 								<li class="here-2-juiz_sps_after_*_network_item"><a href="juiz_sps_after___network_item.html">juiz_sps_after_*_network_item</a></li>
 								<li class="here-2-juiz_sps_after_each_network_item"><a href="juiz_sps_after_each_network_item.html">juiz_sps_after_each_network_item</a></li>
@@ -721,6 +723,7 @@ if ( ! function_exists( 'juiz_sps_print_links' ) ) {
 								<li class="here-2-juiz_sps_total_count_word"><a href="juiz_sps_total_count_word.html">juiz_sps_total_count_word</a></li>
 								<li class="here-2-juiz_sps_twitter_user"><a href="juiz_sps_twitter_user.html">juiz_sps_twitter_user</a></li>
 								<li class="here-2-juiz_sps_url_params"><a href="juiz_sps_url_params.html">juiz_sps_url_params</a></li>
+								<li class="here-2-juiz_sps_use_default_css"><a href="juiz_sps_use_default_css.html">juiz_sps_use_default_css</a></li>
 						</ul>
 					</li>
 					<li class="nav-item-actions">

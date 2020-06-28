@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Filter: juiz_sps_after_the_list - Juiz Social Post Sharer Documentation</title>
+        <title>Filter: jsps_show_modal_footer - Juiz Social Post Sharer Documentation</title>
        
         <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
         <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
@@ -12,7 +12,7 @@
         <div class="app">
             <section role="main" id="main">
 
-                <h1 class="page-title">Filter: juiz_sps_after_the_list</h1>
+                <h1 class="page-title">Filter: jsps_show_modal_footer</h1>
 
                 
 
@@ -30,7 +30,7 @@
 
     
 
-    <pre class="name method-tmpl" id="juiz_sps_after_the_list">apply_filters( '<span class="hook-name">juiz_sps_after_the_list</span>', <span class="signature"><span class="sign-item">$text</span> )<span class="type-signature"> &rarr; {string}</span></span></pre>
+    <pre class="name method-tmpl" id="jsps_show_modal_footer">apply_filters( '<span class="hook-name">jsps_show_modal_footer</span>', <span class="signature"><span class="sign-item">$is_shown</span> )<span class="type-signature"> &rarr; {boolean}</span></span></pre>
 
     
 
@@ -38,8 +38,7 @@
 
 <div class="description method-tmpl">
     
-    Prints something just after the <code>.juiz_sps_links_list</code> element.
-This is not an action hook ;)
+    Displays the <code>Service proposed by Social Post Sharer</code> footer in the email modal.
 </div>
 
 
@@ -73,16 +72,16 @@ This is not an action hook ;)
     <tbody>
     
 
-        <tr id="text">
+        <tr id="is_shown">
             
-                <td class="param-name name"><code>$text</code></td>
+                <td class="param-name name"><code>$is_shown</code></td>
             
 
             <td class="param-type type">
             
                 
 	
-	<span class="param-type">string</span>
+	<span class="param-type">boolean</span>
 	
 
 
@@ -94,14 +93,14 @@ This is not an action hook ;)
             
                 <td class="param-default default">
                 
-                    ""
+                    true
                 
                 </td>
             
 
             <td class="param-description last">
                 
-                The text or HTML code printed after the content.
+                <code>true</code> to display it, <code>false</code> to hide it.
 
                 </td>
         </tr>
@@ -121,7 +120,7 @@ This is not an action hook ;)
 
     
     <dt class="tag-since">Since:</dt>
-    <dd class="tag-since"><ul class="dummy"><li>1.0.0 First version</li></ul></dd>
+    <dd class="tag-since"><ul class="dummy"><li>2.0.0 First version</li></ul></dd>
     
 
     
@@ -154,7 +153,7 @@ This is not an action hook ;)
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="front_buttons.php.html">front/buttons.php</a>, <a href="front_buttons.php.html#line147">line 147</a>
+        <a href="front_enqueues.php.html">front/enqueues.php</a>, <a href="front_enqueues.php.html#line43">line 43</a>
     </li></ul></dd>
     
 
@@ -181,7 +180,7 @@ This is not an action hook ;)
 
         
 <div class="param-description return-desc returns-tmpl">
-    The text or HTML code printed after the content.
+    <code>true</code> to display it, <code>false</code> to hide it, your choice 😊
 </div>
 
 
@@ -193,7 +192,7 @@ This is not an action hook ;)
     <dd>
         
 	
-	<span class="param-type">string</span>
+	<span class="param-type">boolean</span>
 	
 
 

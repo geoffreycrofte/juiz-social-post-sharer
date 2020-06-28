@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Filter: juiz_sps_after_the_list - Juiz Social Post Sharer Documentation</title>
+        <title>Filter: juiz_sps_use_default_css - Juiz Social Post Sharer Documentation</title>
        
         <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
         <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
@@ -12,7 +12,7 @@
         <div class="app">
             <section role="main" id="main">
 
-                <h1 class="page-title">Filter: juiz_sps_after_the_list</h1>
+                <h1 class="page-title">Filter: juiz_sps_use_default_css</h1>
 
                 
 
@@ -30,7 +30,7 @@
 
     
 
-    <pre class="name method-tmpl" id="juiz_sps_after_the_list">apply_filters( '<span class="hook-name">juiz_sps_after_the_list</span>', <span class="signature"><span class="sign-item">$text</span> )<span class="type-signature"> &rarr; {string}</span></span></pre>
+    <pre class="name method-tmpl" id="juiz_sps_use_default_css">apply_filters( '<span class="hook-name">juiz_sps_use_default_css</span>', <span class="signature"><span class="sign-item">$is_used</span> )<span class="type-signature"> &rarr; {boolean}</span></span></pre>
 
     
 
@@ -38,8 +38,7 @@
 
 <div class="description method-tmpl">
     
-    Prints something just after the <code>.juiz_sps_links_list</code> element.
-This is not an action hook ;)
+    Adds to the <code>wp_enqueue_style()</code> the JSPS CSS.
 </div>
 
 
@@ -73,16 +72,16 @@ This is not an action hook ;)
     <tbody>
     
 
-        <tr id="text">
+        <tr id="is_used">
             
-                <td class="param-name name"><code>$text</code></td>
+                <td class="param-name name"><code>$is_used</code></td>
             
 
             <td class="param-type type">
             
                 
 	
-	<span class="param-type">string</span>
+	<span class="param-type">boolean</span>
 	
 
 
@@ -94,14 +93,14 @@ This is not an action hook ;)
             
                 <td class="param-default default">
                 
-                    ""
+                    true
                 
                 </td>
             
 
             <td class="param-description last">
                 
-                The text or HTML code printed after the content.
+                <code>true</code> to use the CSS, <code>false</code> remove it.
 
                 </td>
         </tr>
@@ -121,7 +120,7 @@ This is not an action hook ;)
 
     
     <dt class="tag-since">Since:</dt>
-    <dd class="tag-since"><ul class="dummy"><li>1.0.0 First version</li></ul></dd>
+    <dd class="tag-since"><ul class="dummy"><li>1.3.3.7 First version</li></ul></dd>
     
 
     
@@ -154,10 +153,17 @@ This is not an action hook ;)
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="front_buttons.php.html">front/buttons.php</a>, <a href="front_buttons.php.html#line147">line 147</a>
+        <a href="front_enqueues.php.html">front/enqueues.php</a>, <a href="front_enqueues.php.html#line79">line 79</a>
     </li></ul></dd>
     
 
+    
+    <dt class="tag-tutorial">Tutorials:</dt>
+    <dd class="tag-tutorial">
+        <ul>
+            <li><a href="tutorial-create-buttons-skin.html">Create Buttons Skin</a></li>
+        </ul>
+    </dd>
     
 
     
@@ -181,7 +187,7 @@ This is not an action hook ;)
 
         
 <div class="param-description return-desc returns-tmpl">
-    The text or HTML code printed after the content.
+    <code>true</code> to use the CSS, <code>false</code> to remove it, and use CSS in your own way. Know that your can create a folder <code>juiz-sps/</code> in your WP Theme to add the button's skin into the available skins within the administration. See the tutorial "<a href="tutorial-create-buttons-skin.html">Create Buttons Skin</a>"
 </div>
 
 
@@ -193,7 +199,7 @@ This is not an action hook ;)
     <dd>
         
 	
-	<span class="param-type">string</span>
+	<span class="param-type">boolean</span>
 	
 
 
