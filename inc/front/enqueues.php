@@ -20,7 +20,7 @@ if ( ! function_exists('jsps_enqueue_scripts') ) {
 		wp_enqueue_script(
 			'juiz_sps_scripts',
 			JUIZ_SPS_PLUGIN_ASSETS . 'js/' . JUIZ_SPS_SLUG . $prefix . '.js',
-			array( 'jquery' ),
+			array( 'jquery' ), // TODO: remove dependency. (rewrite JS)
 			JUIZ_SPS_VERSION,
 			true
 		);
@@ -39,6 +39,16 @@ if ( ! function_exists('jsps_enqueue_scripts') ) {
 			'modalEmailOptional'		=> esc_html__( 'optional', 'juiz-social-post-sharer' ),
 			'modalEmailMsgInfo'		=> esc_html__( 'A link to this post will be automatically included in your message.', 'juiz-social-post-sharer' ),
 			'modalEmailSubmit'		=> esc_html__( 'Send this article', 'juiz-social-post-sharer' ),
+
+			/**
+			 * Displays the `Service proposed by Social Post Sharer` footer in the email modal.
+			 * 
+			 * @hook jsps_show_modal_footer
+			 * 
+		 	 * @since  2.0.0 First version
+		 	 * @param  {boolean}  $is_shown=true `true` to display it, `false` to hide it.
+		 	 * @return {boolean} `true` to display it, `false` to hide it, your choice 😊
+			 */
 			'modalEmailFooter'		=> apply_filters( 'jsps_show_modal_footer', true) ? sprintf( __( 'Service proposed by %sSocial Post Sharer%s', 'juiz-social-post-sharer' ), '<a href="https://wordpress.org/plugins/juiz-social-post-sharer/" target="_blank">', '</a>' ) : '',
 			'modalClose'			=> esc_html__( 'Close', 'juiz-social-post-sharer' ),
 			'modalErrorGeneric'		=> esc_html__( 'Sorry. It looks like we\'ve got an error on our side.', 'juiz-social-post-sharer' )
@@ -54,8 +64,8 @@ if ( ! function_exists( 'juiz_sps_style_and_script' ) ) {
 	 *
 	 * @return void
 	 *
+	 * @since   2.0.0 Revamp the core/custom skins.
 	 * @since   1.0
-	 * @version 2.0.0
 	 * @author  Geoffrey Crofte
 	 */
 	function juiz_sps_style_and_script() {
@@ -66,7 +76,16 @@ if ( ! function_exists( 'juiz_sps_style_and_script' ) ) {
 
 			$prefix = ( defined('WP_DEBUG') && WP_DEBUG === true ) ? '' : '.min';
 
-			// CSS to add to queue.
+			/**
+			 * Adds to the `wp_enqueue_style()` the JSPS CSS. 
+			 * 
+			 * @hook juiz_sps_use_default_css
+			 * 
+		 	 * @since  1.3.3.7 First version
+		 	 * @param  {boolean}  $is_used=true `true` to use the CSS, `false` remove it.
+		 	 * @return {boolean} `true` to use the CSS, `false` to remove it, and use CSS in your own way. Know that your can create a folder `juiz-sps/` in your WP Theme to add the button's skin into the available skins within the administration. See the tutorial "{@tutorial create-buttons-skin}"
+		 	 * @tutorial create-buttons-skin
+			 */
 			if ( isset( $juiz_sps_options['juiz_sps_style'] ) && apply_filters( 'juiz_sps_use_default_css', true ) ) {
 
 				$core_skins   = jsps_get_core_skins();
