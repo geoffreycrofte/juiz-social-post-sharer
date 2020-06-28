@@ -52,7 +52,7 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 
 		/**
 		 * Sets the URL to be shared on all the networks activated.
-		 * Another hook arrives later for each specific network called `juiz_sps_the_shared_permalink_for_*` where * is the network Slug.
+		 * Another hook arrives later for each specific network called {@link juiz_sps_the_shared_permalink_for_*} where * is the network Slug.
 		 * 
 		 * @hook juiz_sps_the_shared_permalink
 		 * 
@@ -342,7 +342,7 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 			 * 
 		 	 * @since  1.0.0 First version
 		 	 * @param  {string}  $text      The original text in the tooltip.
-		 	 * @param  {string}  $nw_name   The original name (or modified name if you filtered `juiz_sps_share_name_for_*`) of the network.
+		 	 * @param  {string}  $nw_name   The original name —or modified name if you filtered {@link juiz_sps_share_name_for_*}— of the network.
 		 	 * @return {string}  The string returned text in the tooltip for this specific network.
 			 */
 			$api_text = apply_filters( 'juiz_sps_share_text_for_' . $k, sprintf( __( 'Share this article on %s', 'juiz-social-post-sharer' ), $nw_name ) );
@@ -464,7 +464,7 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 
 			/**
 			 * Edits the API URL at the end. You can use it to add parameters like UTM.
-			 * <br> To edit a specific API URL, see <a href="juiz_sps__url_params.html">juiz_sps_*_url_params</a>
+			 * <br> To edit a specific API URL, see {@link juiz_sps_*_url_params}
 			 * 
 			 * @hook juiz_sps_url_params
 			 * 
@@ -486,7 +486,8 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 			$item_content = '<' . $li . ' class="juiz_sps_item juiz_sps_link_' . esc_attr( $k ) . '"' . ( isset( $v['color'] ) ? ' style="--jsps-custom-color:' . esc_attr( $v['color'] ) . ';' . ( isset( $v['hcolor'] ) ? '--jsps-custom-hover-color:' . esc_attr( $v['hcolor'] ) . ';' : '' ) . '"' : '' ) . '><a href="' . wp_strip_all_tags( esc_attr( $api_link ) ) . '" ' . $rel_nofollow . '' . $more_att . ' title="' . esc_attr( $api_text ) . '"><span class="juiz_sps_icon jsps-' . esc_attr( $k ) . '">' . jsps_get_network_html_icon( $k, $v, true ) . '</span><span class="juiz_sps_network_name">' . esc_html( $nw_name ) . '</span></a></' . $li . '>';
 
 			/**
-			 * Edits the HTML code for every item including the LI and A elements
+			 * Edits the HTML code for every item including the LI and A elements.
+			 * <br> To edit the same code for a specific network, prefer the hook {@link juiz_sps_after_*_network_item}
 			 * 
 			 * @hook juiz_sps_after_each_network_item
 			 * 
