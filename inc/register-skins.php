@@ -57,6 +57,15 @@ function jsps_register_core_skins( $core_skins ) {
 		'demo_url_2x' => JUIZ_SPS_PLUGIN_URL . 'skins/8/demo@2x.png',
 	);
 
+	/**
+	 * Filters the list of Core Skins after populating it.
+	 * 
+	 * @hook jsps_register_core_skins
+	 *
+ 	 * @since  2.0.0 First version
+ 	 * @param  {array}  cskins=array() See {@link jsps_register_core_skin} for more details.
+ 	 * @return {array}                 The list of Core Skins populated.
+	 */
 	return apply_filters( 'jsps_register_core_skins', $core_skins );
 }
 add_filter( 'jsps_register_core_skin', 'jsps_register_core_skins' );
@@ -72,7 +81,6 @@ add_filter( 'jsps_register_core_skin', 'jsps_register_core_skins' );
  * @since  2.0.0
  * @author Geoffrey Crofte
  */
-
 function jsps_register_current_template_skins( $custom_skins ) {
 
 	$skins = array();
@@ -118,13 +126,45 @@ function jsps_register_current_template_skins( $custom_skins ) {
 	// Should I use https://developer.wordpress.org/reference/functions/get_file_data/ ?
 	// get_file_data() to get style.css info
 	$themeinf  = wp_get_theme();
+
+	/**
+	 * Filters the Button Skin(s) Author's name found in the current WP theme.
+	 * 
+	 * @hook juiz_sps_custom_skin_author
+	 *
+ 	 * @since  2.0.0 First version
+ 	 * @param  {string}  $author  The name of the author, by default the Theme author's name.
+ 	 * @param  {array}   $skins   A variable array of information about found skins.
+ 	 * @return {string}           The name of the author.
+	 */
 	$auth      = apply_filters( 'juiz_sps_custom_skin_author', $themeinf->get('Author'), $skins );
+
+	/**
+	 * Filters the Button Skin(s) Author's URL found in the current WP theme.
+	 * 
+	 * @hook juiz_sps_custom_skin_author_url
+	 *
+ 	 * @since  2.0.0 First version
+ 	 * @param  {string}  $author_url  The URL of the author, by default the Theme author.
+ 	 * @param  {array}   $skins       A variable array of information about found skins.
+ 	 * @return {string}               The URL of the author.
+	 */
 	$authurl   = apply_filters( 'juiz_sps_custom_skin_author_url', $themeinf->get('AuthorURI'), $skins );
 	$themename = $themeinf->get('Name');
 	$compname  = esc_html__( 'Button Skin', 'juiz-social-post-sharer' );
 
 	foreach ($skins as $slug => $files) {
 		$custom_skins[ $slug ] = array(
+			/**
+			 * Filters the Button Skin(s) name found in the current WP theme.
+			 * 
+			 * @hook juiz_sps_custom_skin_name
+			 *
+		 	 * @since  2.0.0 First version
+		 	 * @param  {string}  $skin_name  The name of the skin, by default a combination of the Theme's name and the skin folder's name.
+		 	 * @param  {array}   $skins      A variable array of information about found skins.
+		 	 * @return {string}               The name of the skin.
+			 */
 			'name'       => esc_html( apply_filters( 'juiz_sps_custom_skin_name', $themename . ( $slug !== 0 ? ' - ' . $slug : ' - '. $compname ), $skins ) ),
 			'author'     => esc_html( $auth ),
 			'author_url' => $authurl,
@@ -133,7 +173,16 @@ function jsps_register_current_template_skins( $custom_skins ) {
 		);
 	}
 
-	return apply_filters( 'jsps_register_current_template_skins', $custom_skins );
+	/**
+	 * Filters the list of Theme Skins after populating it. It's the list of buttons skins available in the activated WordPress Theme.
+	 * 
+	 * @hook jsps_register_curr_tmpl_skins
+	 *
+ 	 * @since  2.0.0 First version
+ 	 * @param  {array}  cskins=array() See {@link jsps_register_custom_skin} for more details.
+ 	 * @return {array}                 The list of Custom Skins populated.
+	 */
+	return apply_filters( 'jsps_register_curr_tmpl_skins', $custom_skins );
 
 }
 add_filter( 'jsps_register_custom_skin', 'jsps_register_current_template_skins', 10, 1 );
