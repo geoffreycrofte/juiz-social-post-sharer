@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Filter: jsps_get_excerpt - Juiz Social Post Sharer Documentation</title>
+        <title>Filter: jsps_register_custom_network - Juiz Social Post Sharer Documentation</title>
        
         <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
         <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
@@ -12,7 +12,7 @@
         <div class="app">
             <section role="main" id="main">
 
-                <h1 class="page-title">Filter: jsps_get_excerpt</h1>
+                <h1 class="page-title">Filter: jsps_register_custom_network</h1>
 
                 
 
@@ -30,7 +30,7 @@
 
     
 
-    <pre class="name method-tmpl" id="jsps_get_excerpt">apply_filters( '<span class="hook-name">jsps_get_excerpt</span>', <span class="signature"><span class="sign-item">$content</span>, <span class="sign-item">$count</span> )<span class="type-signature"> &rarr; {string}</span></span></pre>
+    <pre class="name method-tmpl" id="jsps_register_custom_network">apply_filters( '<span class="hook-name">jsps_register_custom_network</span>', <span class="signature"><span class="sign-item">$custnw</span> )<span class="type-signature"> &rarr; {array}</span></span></pre>
 
     
 
@@ -38,7 +38,7 @@
 
 <div class="description method-tmpl">
     
-    Gets an excerpt from the <code>$post->post_content</code> based on the number of letter requested (<code>$count</code>), mostly used for Share APIs that use long text.
+    Filters the list of Custom Networks. It's the best way to add new networks.
 </div>
 
 
@@ -62,8 +62,6 @@
         
 
         
-        <th class="param-default">Default</th>
-        
 
         <th class="param-description last">Description</th>
     </tr>
@@ -72,16 +70,16 @@
     <tbody>
     
 
-        <tr id="content">
+        <tr id="custnw">
             
-                <td class="param-name name"><code>$content</code></td>
+                <td class="param-name name"><code>$custnw</code></td>
             
 
             <td class="param-type type">
             
                 
 	
-	<span class="param-type">object</span>
+	<span class="param-type">array</span>
 	
 
 
@@ -91,23 +89,117 @@
             
 
             
-                <td class="param-default default">
+
+            <td class="param-description last">
                 
-                </td>
+                The list of Custom Networks.
+
+                
+                
+                    <p class="sub-param-text">Properties</p>
+                    
+
+<table class="params params-tmpl">
+    <thead>
+    <tr>
+        
+        <th class="param-name">Name</th>
+        
+
+        <th class="param-type">Type</th>
+
+        
+
+        
+
+        <th class="param-description last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr id="slug">
+            
+                <td class="param-name name"><code>$custnw['slug']</code></td>
+            
+
+            <td class="param-type type">
+            
+                
+	
+	<span class="param-type">array</span>
+	
+
+
+            
+            </td>
+
+            
+
             
 
             <td class="param-description last">
                 
-                The post_content shortened.
+                Info of a network where <code>slug</code> is its shortname.
+
+                
+                
+                    <p class="sub-param-text">Properties</p>
+                    
+
+<table class="params params-tmpl">
+    <thead>
+    <tr>
+        
+        <th class="param-name">Name</th>
+        
+
+        <th class="param-type">Type</th>
+
+        
+
+        
+
+        <th class="param-description last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr id="name">
+            
+                <td class="param-name name"><code>$custnw['slug']['name']</code></td>
+            
+
+            <td class="param-type type">
+            
+                
+	
+	<span class="param-type">string</span>
+	
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="param-description last">
+                
+                The visible name of your network.
 
                 </td>
         </tr>
 
     
 
-        <tr id="count">
+        <tr id="visible">
             
-                <td class="param-name name"><code>$count</code></td>
+                <td class="param-name name"><code>$custnw['slug']['visible']</code></td>
             
 
             <td class="param-type type">
@@ -124,16 +216,169 @@
             
 
             
-                <td class="param-default default">
+
+            <td class="param-description last">
                 
-                    80
-                
+                <code>1</code> to make the network visible by default.
+
                 </td>
+        </tr>
+
+    
+
+        <tr id="api_url">
+            
+                <td class="param-name name"><code>$custnw['slug']['api_url']</code></td>
+            
+
+            <td class="param-type type">
+            
+                
+	
+	<span class="param-type">string</span>
+	
+
+
+            
+            </td>
+
+            
+
             
 
             <td class="param-description last">
                 
-                The number of letters requested.
+                The API URL to make the sharing possible. Use <code>%%url%%</code> as placeholder for the URL to share, <code>%%title%%</code> and <code>%%excerpt%%</code> to replace short and long texts if the API allows it.
+
+                </td>
+        </tr>
+
+    
+
+        <tr id="icon">
+            
+                <td class="param-name name"><code>$custnw['slug']['icon']</code></td>
+            
+
+            <td class="param-type type">
+            
+                
+	
+	<span class="param-type">string</span>
+	
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="param-description last">
+                
+                A text free CSS class or a path to a SVG image.
+
+                </td>
+        </tr>
+
+    
+
+        <tr id="title">
+            
+                <td class="param-name name"><code>$custnw['slug']['title']</code></td>
+            
+
+            <td class="param-type type">
+            
+                
+	
+	<span class="param-type">string</span>
+	
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="param-description last">
+                
+                The value of the title attribute of the button.
+
+                </td>
+        </tr>
+
+    
+
+        <tr id="color">
+            
+                <td class="param-name name"><code>$custnw['slug']['color']</code></td>
+            
+
+            <td class="param-type type">
+            
+                
+	
+	<span class="param-type">string</span>
+	
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="param-description last">
+                
+                The main color value of the button.
+
+                </td>
+        </tr>
+
+    
+
+        <tr id="hcolor">
+            
+                <td class="param-name name"><code>$custnw['slug']['hcolor']</code></td>
+            
+
+            <td class="param-type type">
+            
+                
+	
+	<span class="param-type">string</span>
+	
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="param-description last">
+                
+                The :hover color value of the button.
+
+                </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+                </td>
+        </tr>
+
+    
+    </tbody>
+</table>
 
                 </td>
         </tr>
@@ -186,7 +431,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="utilities.php.html">utilities.php</a>, <a href="utilities.php.html#line250">line 250</a>
+        <a href="register-network.php.html">register-network.php</a>, <a href="register-network.php.html#line46">line 46</a>
     </li></ul></dd>
     
 
@@ -213,7 +458,7 @@
 
         
 <div class="param-description return-desc returns-tmpl">
-    The shortened content used as excerpt
+    The list of Custom Network.
 </div>
 
 
@@ -225,7 +470,7 @@
     <dd>
         
 	
-	<span class="param-type">string</span>
+	<span class="param-type">array</span>
 	
 
 

@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Filter: jsps_get_excerpt - Juiz Social Post Sharer Documentation</title>
+        <title>Source: options.php - Juiz Social Post Sharer Documentation</title>
        
         <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
         <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
@@ -12,237 +12,89 @@
         <div class="app">
             <section role="main" id="main">
 
-                <h1 class="page-title">Filter: jsps_get_excerpt</h1>
+                <h1 class="page-title">Source: options.php</h1>
 
                 
 
 
-
-<article class="container-tmpl">
-
-
-
-
-    <div class="container-overview">
-
     
-        
-
-    
-
-    <pre class="name method-tmpl" id="jsps_get_excerpt">apply_filters( '<span class="hook-name">jsps_get_excerpt</span>', <span class="signature"><span class="sign-item">$content</span>, <span class="sign-item">$count</span> )<span class="type-signature"> &rarr; {string}</span></span></pre>
-
-    
-
-
-
-<div class="description method-tmpl">
-    
-    Gets an excerpt from the <code>$post->post_content</code> based on the number of letter requested (<code>$count</code>), mostly used for Share APIs that use long text.
-</div>
-
-
-
-
-
-
-
-    <h2 class="h2-like method-tmpl">Parameters:</h2>
-    
-
-<table class="params params-tmpl">
-    <thead>
-    <tr>
-        
-        <th class="param-name">Name</th>
-        
-
-        <th class="param-type">Type</th>
-
-        
-
-        
-        <th class="param-default">Default</th>
-        
-
-        <th class="param-description last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr id="content">
-            
-                <td class="param-name name"><code>$content</code></td>
-            
-
-            <td class="param-type type">
-            
-                
-	
-	<span class="param-type">object</span>
-	
-
-
-            
-            </td>
-
-            
-
-            
-                <td class="param-default default">
-                
-                </td>
-            
-
-            <td class="param-description last">
-                
-                The post_content shortened.
-
-                </td>
-        </tr>
-
-    
-
-        <tr id="count">
-            
-                <td class="param-name name"><code>$count</code></td>
-            
-
-            <td class="param-type type">
-            
-                
-	
-	<span class="param-type">int</span>
-	
-
-
-            
-            </td>
-
-            
-
-            
-                <td class="param-default default">
-                
-                    80
-                
-                </td>
-            
-
-            <td class="param-description last">
-                
-                The number of letters requested.
-
-                </td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details details-tmpl">
-
-    
-
-    
-    <dt class="tag-since">Since:</dt>
-    <dd class="tag-since"><ul class="dummy"><li>2.0.0 First version</li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-author">Author:</dt>
-    <dd class="tag-author">
-        <ul>
-            <li><a href="https://twitter.com/geoffreycrofte">Geoffrey Crofte</a></li>
-        </ul>
-    </dd>
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="utilities.php.html">utilities.php</a>, <a href="utilities.php.html#line250">line 250</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h2 class="h2-like method-tmpl">Returns:</h2>
-
-        
-<div class="param-description return-desc returns-tmpl">
-    The shortened content used as excerpt
-</div>
-
-
-
-<dl class="details details-return">
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-	
-	<span class="param-type">string</span>
-	
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-    
-
-    </div>
-
-    
-
-</article>
+    <section role="main">
+        <pre class="prettyprint source linenums"><code>&lt;?php if ( ! defined( 'ABSPATH' ) ) {
+	die( 'Cheatin&amp;#8217; uh?' );
+}
+
+/**
+ * Getting options from the right place.
+ * Multisite compatibility.
+ *
+ * @author  Marie Comet, Geoffrey Crofte
+ * @since   1.4.7
+ * @version 2.0.0
+ */
+function jsps_get_option( $option_name = '' ) {
+
+	// When we want a precise option in a network activated website.
+	if ( ! empty( $option_name ) &amp;&amp; true === JUIZ_SPS_NETWORK_ACTIVATED ) {
+		$options = get_blog_option( get_current_blog_id(), JUIZ_SPS_SETTING_NAME );
+		return $options[ $option_name ];
+	}
+
+	// When we want all options in a network activated website.
+	else if ( empty( $option_name ) &amp;&amp; true === JUIZ_SPS_NETWORK_ACTIVATED ) {
+		return get_blog_option( get_current_blog_id(), JUIZ_SPS_SETTING_NAME );
+	}
+
+	// When we want a precise option in a simple website.
+	else if ( ! empty( $option_name ) &amp;&amp; false === JUIZ_SPS_NETWORK_ACTIVATED ) {
+		$options = get_option( JUIZ_SPS_SETTING_NAME );
+		return $options[ $option_name ];
+	}
+
+	// When we want all options in a simple website.
+	else {
+		return get_option( JUIZ_SPS_SETTING_NAME );
+	}
+
+}
+
+/**
+ * Updating options to the right place.
+ * Multisite compatibility.
+ *
+ * @author  Marie Comet, Geoffrey Crofte
+ * @since   1.4.7
+ * @version 2.0.0
+ */
+function jsps_update_option( $options ) {
+
+	if ( ! is_array( $options ) ) {
+		die( '$options has to be an array' );
+	}
+
+	/**
+	 * Add action before updating the options.
+	 * 
+	 * @hook jsps_before_update_option
+	 *
+ 	 * @since  2.0.0 First version
+ 	 * @param  {array}   $options  The plugin options in one array.
+	 */
+	do_action( 'jsps_before_update_option', $options );
+
+	// When we want to update options in a network activated website.
+	if ( true === JUIZ_SPS_NETWORK_ACTIVATED ) {
+		$options = update_blog_option( get_current_blog_id(), JUIZ_SPS_SETTING_NAME, $options );
+	}
+
+	// When we want to update options in a simple website.
+	else {
+		$options = update_option( JUIZ_SPS_SETTING_NAME, $options );
+	}
+
+	return $options;
+}
+</code></pre>
+    </section>
 
 
 

@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Filter: jsps_get_excerpt - Juiz Social Post Sharer Documentation</title>
+        <title>Action: jsps_before_update_option - Juiz Social Post Sharer Documentation</title>
        
         <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
         <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
@@ -12,7 +12,7 @@
         <div class="app">
             <section role="main" id="main">
 
-                <h1 class="page-title">Filter: jsps_get_excerpt</h1>
+                <h1 class="page-title">Action: jsps_before_update_option</h1>
 
                 
 
@@ -30,7 +30,7 @@
 
     
 
-    <pre class="name method-tmpl" id="jsps_get_excerpt">apply_filters( '<span class="hook-name">jsps_get_excerpt</span>', <span class="signature"><span class="sign-item">$content</span>, <span class="sign-item">$count</span> )<span class="type-signature"> &rarr; {string}</span></span></pre>
+    <pre class="name method-tmpl" id="jsps_before_update_option">do_action( '<span class="hook-name">jsps_before_update_option</span>', <span class="signature"><span class="sign-item">$options</span> )<span class="type-signature"></span></span></pre>
 
     
 
@@ -38,7 +38,7 @@
 
 <div class="description method-tmpl">
     
-    Gets an excerpt from the <code>$post->post_content</code> based on the number of letter requested (<code>$count</code>), mostly used for Share APIs that use long text.
+    Add action before updating the options.
 </div>
 
 
@@ -62,8 +62,6 @@
         
 
         
-        <th class="param-default">Default</th>
-        
 
         <th class="param-description last">Description</th>
     </tr>
@@ -72,16 +70,16 @@
     <tbody>
     
 
-        <tr id="content">
+        <tr id="options">
             
-                <td class="param-name name"><code>$content</code></td>
+                <td class="param-name name"><code>$options</code></td>
             
 
             <td class="param-type type">
             
                 
 	
-	<span class="param-type">object</span>
+	<span class="param-type">array</span>
 	
 
 
@@ -91,49 +89,10 @@
             
 
             
-                <td class="param-default default">
-                
-                </td>
-            
 
             <td class="param-description last">
                 
-                The post_content shortened.
-
-                </td>
-        </tr>
-
-    
-
-        <tr id="count">
-            
-                <td class="param-name name"><code>$count</code></td>
-            
-
-            <td class="param-type type">
-            
-                
-	
-	<span class="param-type">int</span>
-	
-
-
-            
-            </td>
-
-            
-
-            
-                <td class="param-default default">
-                
-                    80
-                
-                </td>
-            
-
-            <td class="param-description last">
-                
-                The number of letters requested.
+                The plugin options in one array.
 
                 </td>
         </tr>
@@ -186,7 +145,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="utilities.php.html">utilities.php</a>, <a href="utilities.php.html#line250">line 250</a>
+        <a href="options.php.html">options.php</a>, <a href="options.php.html#line53">line 53</a>
     </li></ul></dd>
     
 
@@ -209,30 +168,6 @@
 
 
 
-<h2 class="h2-like method-tmpl">Returns:</h2>
-
-        
-<div class="param-description return-desc returns-tmpl">
-    The shortened content used as excerpt
-</div>
-
-
-
-<dl class="details details-return">
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-	
-	<span class="param-type">string</span>
-	
-
-
-    </dd>
-</dl>
-
-    
 
 
 

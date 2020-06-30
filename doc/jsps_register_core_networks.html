@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Filter: jsps_get_excerpt - Juiz Social Post Sharer Documentation</title>
+        <title>Filter: jsps_register_core_networks - Juiz Social Post Sharer Documentation</title>
        
         <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
         <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
@@ -12,7 +12,7 @@
         <div class="app">
             <section role="main" id="main">
 
-                <h1 class="page-title">Filter: jsps_get_excerpt</h1>
+                <h1 class="page-title">Filter: jsps_register_core_networks</h1>
 
                 
 
@@ -30,7 +30,7 @@
 
     
 
-    <pre class="name method-tmpl" id="jsps_get_excerpt">apply_filters( '<span class="hook-name">jsps_get_excerpt</span>', <span class="signature"><span class="sign-item">$content</span>, <span class="sign-item">$count</span> )<span class="type-signature"> &rarr; {string}</span></span></pre>
+    <pre class="name method-tmpl" id="jsps_register_core_networks">apply_filters( '<span class="hook-name">jsps_register_core_networks</span>', <span class="signature"><span class="sign-item">$custnw</span> )<span class="type-signature"> &rarr; {array}</span></span></pre>
 
     
 
@@ -38,7 +38,7 @@
 
 <div class="description method-tmpl">
     
-    Gets an excerpt from the <code>$post->post_content</code> based on the number of letter requested (<code>$count</code>), mostly used for Share APIs that use long text.
+    Filters the list of Core Networks after setting those.
 </div>
 
 
@@ -62,8 +62,6 @@
         
 
         
-        <th class="param-default">Default</th>
-        
 
         <th class="param-description last">Description</th>
     </tr>
@@ -72,16 +70,16 @@
     <tbody>
     
 
-        <tr id="content">
+        <tr id="custnw">
             
-                <td class="param-name name"><code>$content</code></td>
+                <td class="param-name name"><code>$custnw</code></td>
             
 
             <td class="param-type type">
             
                 
 	
-	<span class="param-type">object</span>
+	<span class="param-type">array</span>
 	
 
 
@@ -91,49 +89,10 @@
             
 
             
-                <td class="param-default default">
-                
-                </td>
-            
 
             <td class="param-description last">
                 
-                The post_content shortened.
-
-                </td>
-        </tr>
-
-    
-
-        <tr id="count">
-            
-                <td class="param-name name"><code>$count</code></td>
-            
-
-            <td class="param-type type">
-            
-                
-	
-	<span class="param-type">int</span>
-	
-
-
-            
-            </td>
-
-            
-
-            
-                <td class="param-default default">
-                
-                    80
-                
-                </td>
-            
-
-            <td class="param-description last">
-                
-                The number of letters requested.
+                The list of Custom Networks, see <a href="jsps_register_core_network.html">jsps_register_core_network</a> for detail.
 
                 </td>
         </tr>
@@ -186,7 +145,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="utilities.php.html">utilities.php</a>, <a href="utilities.php.html#line250">line 250</a>
+        <a href="register-networks.php.html">register-networks.php</a>, <a href="register-networks.php.html#line89">line 89</a>
     </li></ul></dd>
     
 
@@ -213,7 +172,7 @@
 
         
 <div class="param-description return-desc returns-tmpl">
-    The shortened content used as excerpt
+    The default list of Core Network.
 </div>
 
 
@@ -225,7 +184,7 @@
     <dd>
         
 	
-	<span class="param-type">string</span>
+	<span class="param-type">array</span>
 	
 
 
