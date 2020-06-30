@@ -264,6 +264,16 @@ if ( ! function_exists('jsps_get_excerpt') ) {
 		 */
 		do_action( 'jsps_before_get_excerpt', $post, $count );
 
+		/**
+		 * Filters the number of letters before truncate the excerpt.
+	 	 * 
+	 	 * @hook jsps_get_excerpt_letter_count
+		 * 
+	 	 * @since  2.0.0
+		 * 
+	 	 * @param  {int} $count=80 The number of letters needed.
+	 	 * @return                 The filtered number of letters.
+		 */
 		$count = apply_filters( 'jsps_get_excerpt_letter_count', $count );
 		$text  = wordwrap( wp_strip_all_tags( $post->post_content ), (int) $count, "***", true );
 		$tcut  = explode("***", $text);
@@ -278,7 +288,6 @@ if ( ! function_exists('jsps_get_excerpt') ) {
 	 	 * @param  {object} $content The post_content shortened.
 	 	 * @param  {int}    $count=80   The number of letters requested.
 	 	 *
-	 	 * 
 	 	 * @return {string}          The shortened content used as excerpt
 	 	 *
 		 */
@@ -449,10 +458,15 @@ function jsps_get_old_network_array() {
 							<li class="here-2-jsps_admin_show_promotion"><a href="jsps_admin_show_promotion.html">jsps_admin_show_promotion</a></li>
 								<li class="here-2-jsps_get_displayable_networks"><a href="jsps_get_displayable_networks.html">jsps_get_displayable_networks</a></li>
 								<li class="here-2-jsps_get_excerpt"><a href="jsps_get_excerpt.html">jsps_get_excerpt</a></li>
+								<li class="here-2-jsps_get_excerpt_letter_count"><a href="jsps_get_excerpt_letter_count.html">jsps_get_excerpt_letter_count</a></li>
 								<li class="here-2-jsps_get_network_html_icon"><a href="jsps_get_network_html_icon.html">jsps_get_network_html_icon</a></li>
 								<li class="here-2-jsps_register_core_network"><a href="jsps_register_core_network.html">jsps_register_core_network</a></li>
 								<li class="here-2-jsps_register_core_networks"><a href="jsps_register_core_networks.html">jsps_register_core_networks</a></li>
+								<li class="here-2-jsps_register_core_skin"><a href="jsps_register_core_skin.html">jsps_register_core_skin</a></li>
+								<li class="here-2-jsps_register_core_skins"><a href="jsps_register_core_skins.html">jsps_register_core_skins</a></li>
+								<li class="here-2-jsps_register_curr_tmpl_skins"><a href="jsps_register_curr_tmpl_skins.html">jsps_register_curr_tmpl_skins</a></li>
 								<li class="here-2-jsps_register_custom_network"><a href="jsps_register_custom_network.html">jsps_register_custom_network</a></li>
+								<li class="here-2-jsps_register_custom_skin"><a href="jsps_register_custom_skin.html">jsps_register_custom_skin</a></li>
 								<li class="here-2-jsps_render_api_link"><a href="jsps_render_api_link.html">jsps_render_api_link</a></li>
 								<li class="here-2-jsps_show_modal_footer"><a href="jsps_show_modal_footer.html">jsps_show_modal_footer</a></li>
 								<li class="here-2-juiz_sps_*_url_params"><a href="juiz_sps___url_params.html">juiz_sps_*_url_params</a></li>
@@ -468,6 +482,9 @@ function jsps_get_old_network_array() {
 								<li class="here-2-juiz_sps_container_classes"><a href="juiz_sps_container_classes.html">juiz_sps_container_classes</a></li>
 								<li class="here-2-juiz_sps_container_tag"><a href="juiz_sps_container_tag.html">juiz_sps_container_tag</a></li>
 								<li class="here-2-juiz_sps_content"><a href="juiz_sps_content.html">juiz_sps_content</a></li>
+								<li class="here-2-juiz_sps_custom_skin_author"><a href="juiz_sps_custom_skin_author.html">juiz_sps_custom_skin_author</a></li>
+								<li class="here-2-juiz_sps_custom_skin_author_url"><a href="juiz_sps_custom_skin_author_url.html">juiz_sps_custom_skin_author_url</a></li>
+								<li class="here-2-juiz_sps_custom_skin_name"><a href="juiz_sps_custom_skin_name.html">juiz_sps_custom_skin_name</a></li>
 								<li class="here-2-juiz_sps_hide_intro"><a href="juiz_sps_hide_intro.html">juiz_sps_hide_intro</a></li>
 								<li class="here-2-juiz_sps_intro_phrase_text"><a href="juiz_sps_intro_phrase_text.html">juiz_sps_intro_phrase_text</a></li>
 								<li class="here-2-juiz_sps_links_nofollow"><a href="juiz_sps_links_nofollow.html">juiz_sps_links_nofollow</a></li>
