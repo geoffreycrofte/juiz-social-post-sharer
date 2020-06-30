@@ -86,6 +86,17 @@ function jsps_register_core_networks( $core_networks ) {
 		),
 	);
 
+	/**
+	 * Filters the list of Core Networks after setting those.
+	 * 
+	 * @hook jsps_register_core_networks
+	 *
+ 	 * @since  2.0.0 First version
+ 	 *
+ 	 * @param  {array}  custnw  The list of Custom Networks, see {@link jsps_register_core_network} for detail.
+ 	 *
+ 	 * @return {array}          The default list of Core Network.
+	 */
 	return apply_filters( 'jsps_register_core_networks', $core_networks );
 }
 add_filter( 'jsps_register_core_network', 'jsps_register_core_networks' );

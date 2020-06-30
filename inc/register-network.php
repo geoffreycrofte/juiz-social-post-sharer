@@ -14,12 +14,19 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function jsps_get_core_networks( $core_networks = array() ) {
 	/**
-	 * Structure of theme array.
+	 * Filters the list of Core Networks. This hook is used by the Core Plugin itself.
+	 * <br> **You shouldn't use this hook**: use {@link jsps_register_custom_network} instead.
 	 * 
-		$core_networks[ 'network-name' ] = array(
-			'name'    => __( 'Network Name', 'juiz-social-post-sharer' ),
-			'visible' => 1,
-		);
+	 * @hook jsps_register_core_network
+	 *
+ 	 * @since  2.0.0 First version
+ 	 *
+ 	 * @param  {array}  cnetw               The list of Core Networks.
+ 	 * @param  {array}  cnetw.slug          Info of a network where `slug` is its shortname.
+ 	 * @param  {string} cnetw.slug.name     The visible name of the network.
+ 	 * @param  {int}    cnetw.slug.visible  `1` to make the network visible by default.
+ 	 *
+ 	 * @return {array}                      The list of Core Networks.
 	 */
 	$core_networks = apply_filters( 'jsps_register_core_network', $core_networks );
 
@@ -37,17 +44,23 @@ function jsps_get_core_networks( $core_networks = array() ) {
  */
 function jsps_get_custom_networks( $custom_networks = array() ) {
 	/**
-	 * Structure of theme array.
+	 * Filters the list of Custom Networks. It's the best way to add new networks.
 	 * 
-	 	$custom_networks[ 'network-slug' ] = array(
-			'name'       => 'Network Name',
-			'visible'    => 1,
-			'api_url'    => 'https://geoffrey.crofte.fr/en/?text=%%title%%&amp;desc=%%excerpt%%&amp;url=%%url%%',
-			'icon'       => 'css-classname' || 'path/to/image.svg',
-			'title'      => __( 'Share on Netwok Name', 'textdomain' ), // optional
-			'color'      => '#bada55', // optional
-			'hcolor'     => '#baDD77', // optional
-		);
+	 * @hook jsps_register_custom_network
+	 *
+ 	 * @since  2.0.0 First version
+ 	 *
+ 	 * @param  {array}  custnw               The list of Custom Networks.
+ 	 * @param  {array}  custnw.slug          Info of a network where `slug` is its shortname.
+ 	 * @param  {string} custnw.slug.name     The visible name of your network.
+ 	 * @param  {int}    custnw.slug.visible  `1` to make the network visible by default.
+ 	 * @param  {string} custnw.slug.api_url  The API URL to make the sharing possible. Use `%%url%%` as placeholder for the URL to share, `%%title%%` and `%%excerpt%%` to replace short and long texts if the API allows it.
+ 	 * @param  {string} custnw.slug.icon     A text free CSS class or a path to a SVG image.
+ 	 * @param  {string} custnw.slug.title    The value of the title attribute of the button.
+ 	 * @param  {string} custnw.slug.color    The main color value of the button.
+ 	 * @param  {string} custnw.slug.hcolor   The :hover color value of the button.
+ 	 *
+ 	 * @return {array}                      The list of Custom Network.
 	 */
 	$custom_networks = apply_filters( 'jsps_register_custom_network', $custom_networks );
 
