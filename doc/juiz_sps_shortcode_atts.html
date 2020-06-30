@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Filter: juiz_sps_list_container_tag - Juiz Social Post Sharer Documentation</title>
+        <title>Filter: juiz_sps_shortcode_atts - Juiz Social Post Sharer Documentation</title>
        
         <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
         <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
@@ -12,7 +12,7 @@
         <div class="app">
             <section role="main" id="main">
 
-                <h1 class="page-title">Filter: juiz_sps_list_container_tag</h1>
+                <h1 class="page-title">Filter: juiz_sps_shortcode_atts</h1>
 
                 
 
@@ -30,7 +30,7 @@
 
     
 
-    <pre class="name method-tmpl" id="juiz_sps_list_container_tag">apply_filters( '<span class="hook-name">juiz_sps_list_container_tag</span>', <span class="signature"><span class="sign-item">$element</span> )<span class="type-signature"> &rarr; {string}</span></span></pre>
+    <pre class="name method-tmpl" id="juiz_sps_shortcode_atts">apply_filters( '<span class="hook-name">juiz_sps_shortcode_atts</span>', <span class="signature"><span class="sign-item">$atts</span> )<span class="type-signature"> &rarr; {array}</span></span></pre>
 
     
 
@@ -38,7 +38,7 @@
 
 <div class="description method-tmpl">
     
-    Marks up the list container as a UL by default.
+    Filters the attributes of the shortcode <code>juiz_social</code> or <code>juiz_sps</code>
 </div>
 
 
@@ -62,6 +62,55 @@
         
 
         
+
+        <th class="param-description last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr id="atts">
+            
+                <td class="param-name name"><code>$atts</code></td>
+            
+
+            <td class="param-type type">
+            
+                
+	
+	<span class="param-type">array</span>
+	
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="param-description last">
+                
+                The shortcode attributes.
+
+                
+                
+                    <p class="sub-param-text">Properties</p>
+                    
+
+<table class="params params-tmpl">
+    <thead>
+    <tr>
+        
+        <th class="param-name">Name</th>
+        
+
+        <th class="param-type">Type</th>
+
+        
+
+        
         <th class="param-default">Default</th>
         
 
@@ -72,9 +121,9 @@
     <tbody>
     
 
-        <tr id="element">
+        <tr id="buttons">
             
-                <td class="param-name name"><code>$element</code></td>
+                <td class="param-name name"><code>$atts['buttons']</code></td>
             
 
             <td class="param-type type">
@@ -93,14 +142,126 @@
             
                 <td class="param-default default">
                 
-                    'ul'
+                    "twitter,linkedin"
                 
                 </td>
             
 
             <td class="param-description last">
                 
-                The element name of the list container.
+                The list of network shortnames separated by a comma.
+
+                </td>
+        </tr>
+
+    
+
+        <tr id="counters">
+            
+                <td class="param-name name"><code>$atts['counters']</code></td>
+            
+
+            <td class="param-type type">
+            
+                
+	
+	<span class="param-type">int</span>
+	
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="param-default default">
+                
+                    0
+                
+                </td>
+            
+
+            <td class="param-description last">
+                
+                <code>1</code> to activate counters.
+
+                </td>
+        </tr>
+
+    
+
+        <tr id="current">
+            
+                <td class="param-name name"><code>$atts['current']</code></td>
+            
+
+            <td class="param-type type">
+            
+                
+	
+	<span class="param-type">int</span>
+	
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="param-default default">
+                
+                    1
+                
+                </td>
+            
+
+            <td class="param-description last">
+                
+                <code>0</code> to share something else than the current URL.
+
+                </td>
+        </tr>
+
+    
+
+        <tr id="url">
+            
+                <td class="param-name name"><code>$atts['url']</code></td>
+            
+
+            <td class="param-type type">
+            
+                
+	
+	<span class="param-type">string</span>
+	
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="param-default default">
+                
+                    NULL
+                
+                </td>
+            
+
+            <td class="param-description last">
+                
+                The URL to share.
+
+                </td>
+        </tr>
+
+    
+    </tbody>
+</table>
 
                 </td>
         </tr>
@@ -120,7 +281,7 @@
 
     
     <dt class="tag-since">Since:</dt>
-    <dd class="tag-since"><ul class="dummy"><li>1.0.0 First version</li></ul></dd>
+    <dd class="tag-since"><ul class="dummy"><li>2.0.0 First version</li></ul></dd>
     
 
     
@@ -153,7 +314,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="front_buttons.php.html">front/buttons.php</a>, <a href="front_buttons.php.html#line228">line 228</a>
+        <a href="front_shortcode.php.html">front/shortcode.php</a>, <a href="front_shortcode.php.html#line25">line 25</a>
     </li></ul></dd>
     
 
@@ -180,7 +341,7 @@
 
         
 <div class="param-description return-desc returns-tmpl">
-    The element name of the list container.
+    The filtered shortcode attributes.
 </div>
 
 
@@ -192,7 +353,7 @@
     <dd>
         
 	
-	<span class="param-type">string</span>
+	<span class="param-type">array</span>
 	
 
 
