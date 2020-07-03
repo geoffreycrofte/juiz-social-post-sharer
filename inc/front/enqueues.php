@@ -29,7 +29,7 @@ if ( ! function_exists('jsps_enqueue_scripts') ) {
 		wp_localize_script( 'juiz_sps_scripts', 'jsps', array(
 			'modalLoader'			=> '<img src="' . JUIZ_SPS_PLUGIN_ASSETS . 'img/loader.svg" height="22" width="22" alt="">',
 			'modalEmailTitle'		=> esc_html__( 'Share by email', 'juiz-social-post-sharer' ),
-			'modalEmailInfo'		=> esc_html__( 'We won\'t save or reuse these email addresses., we promise.', 'juiz-social-post-sharer' ),
+			'modalEmailInfo'		=> esc_html__( 'We won\'t save or reuse these email addresses, we promise.', 'juiz-social-post-sharer' ),
 			'modalEmailNonce'		=> wp_create_nonce('jsps-email-friend'),
 			'ajax_url'              => admin_url( 'admin-ajax.php' ),
 			'modalEmailName'		=> esc_html__( 'Your name', 'juiz-social-post-sharer' ),
@@ -37,7 +37,7 @@ if ( ! function_exists('jsps_enqueue_scripts') ) {
 			'modalEmailFriendEmail'	=> esc_html__( 'Recipient\'s email', 'juiz-social-post-sharer' ),
 			'modalEmailMessage'		=> esc_html__( 'Personal message', 'juiz-social-post-sharer' ),
 			'modalEmailOptional'		=> esc_html__( 'optional', 'juiz-social-post-sharer' ),
-			'modalEmailMsgInfo'		=> esc_html__( 'A link to this post will be automatically included in your message.', 'juiz-social-post-sharer' ),
+			'modalEmailMsgInfo'		=> esc_html__( 'A link to the article is automatically added in your message.', 'juiz-social-post-sharer' ),
 			'modalEmailSubmit'		=> esc_html__( 'Send this article', 'juiz-social-post-sharer' ),
 
 			/**

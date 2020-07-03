@@ -4,7 +4,7 @@
 	Description: Add buttons after (or before, or both) your posts to allow visitors share your content (includes no JavaScript mode). You can also use <code>juiz_sps($array)</code> template function or <code>[juiz_sps]</code> shortcode. For more informations see the setting page located in <strong>Settings</strong> submenu.
 	Author: Geoffrey Crofte
 	Version: 2.0.0
-	Author URI: http://geoffrey.crofte.fr/en
+	Author URI: https://geoffrey.crofte.fr/en
 	License: GPLv2 or later
 	Text Domain: juiz-social-post-sharer
 	Domain Path: /languages
@@ -74,10 +74,7 @@ if ( is_admin() ) {
 	include_once( 'inc/admin/actions.php' );
 }
 
-// Include the AJAX file when you send an Email.
-if ( defined('DOING_AJAX') && DOING_AJAX ) {
-	include_once( 'inc/front/actions.php' );
-}
+include_once( 'inc/front/actions.php' );
 
 // Things you do in front.
 if ( ! is_admin() ) {

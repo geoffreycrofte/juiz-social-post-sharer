@@ -1,6 +1,6 @@
-<?php
-
-defined( 'ABSPATH' ) or die( 'Cheatin&#8217; uh?' );
+<?php if ( ! defined( 'ABSPATH' ) ) {
+	die( 'Cheatin&#8217; uh?' );
+}
 
 /**
  * Admin AJAX for Email To a Friend action.
@@ -9,8 +9,8 @@ defined( 'ABSPATH' ) or die( 'Cheatin&#8217; uh?' );
  * @author Geoffrey Crofte
  */
 
-add_action( 'wp_ajax_nopriv_jsps-email-friend', 'jsps_ajax_email_friend' );
 add_action( 'wp_ajax_jsps-email-friend', 'jsps_ajax_email_friend' );
+add_action( 'wp_ajax_nopriv_jsps-email-friend', 'jsps_ajax_email_friend' );
 
 function jsps_ajax_email_friend() {
 
