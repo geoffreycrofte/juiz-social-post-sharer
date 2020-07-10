@@ -1,10 +1,8 @@
-/*
-Plugin Name: Juiz Social Post Sharer
-Plugin URI: http://creativejuiz.fr
-Author: Geoffrey Crofte
-*/
-
-/* Juiz SPS core */
+/**
+ * Plugin Name: Juiz Social Post Sharer
+ * Plugin URI: http://creativejuiz.fr
+ * Author: Geoffrey Crofte
+ */
 ;jQuery(document).ready(function($){
 	jQuery.fn.juiz_get_counters = function(){
 		return this.each(function(){
@@ -281,7 +279,3 @@ Author: Geoffrey Crofte
 	}
 
 });
-
-/*
-//var digg_url = "http://services.digg.com/2.0/story.getInfo?links=" + url + "&type=javascript&callback=?"; 
-*/
