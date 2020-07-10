@@ -95,6 +95,20 @@ tt, code, kbd, samp {
     font-family: Consolas, Monaco, 'Andale Mono', monospace;
 }
 
+.sr-only {
+    border: 0 !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+    -webkit-clip-path: inset(50%) !important;
+    clip-path: inset(50%) !important;
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+    white-space: nowrap !important;
+}
+
 .class-description {
     font-size: 130%;
     line-height: 140%;
@@ -356,6 +370,7 @@ h3 {
     color: var(--branddark);
     font-size: 24px;
     letter-spacing: -0.5px;
+    margin-top: 2em;
     margin-bottom: 12px;
 }
 
@@ -384,14 +399,6 @@ h6 {
 
 .off-canvas-menu .page-title {
     padding-left: 48px;
-}
-
-p.subtitle {
-    margin: 0 calc( var(--padding-lat) * -2) 2.5em;
-    padding: var(--padding-lat) calc( var(--padding-lat) * 2);
-    background: var(--brand-code-bg);
-    color: var(--branddark);
-    font-size: 1.2em;
 }
 
 /**
@@ -659,6 +666,109 @@ h3.subsection-title {
     background: #4d4e53;
     color: white;
     padding: 5px 10px;
+}
+
+/**
+ * Tutorial contents
+ */
+
+.app .tutorial-content {
+    padding-bottom: 80px;
+}
+
+.tutorial-content .subtitle {
+    order: -1;
+}
+
+.tutorial-content p,
+.tutorial-content ul,
+.tutorial-content ol,
+.tutorial-content h2,
+.tutorial-content h3 {
+    line-height: 1.7;
+}
+
+.tutorial-content p,
+.tutorial-content ul,
+.tutorial-content ol {
+    margin: 2em 0;
+}
+
+p.subtitle {
+    margin: 0 calc( var(--padding-lat) * -2) 1.5em;
+    padding: var(--padding-lat) calc( var(--padding-lat) * 2);
+    background: var(--brand-code-bg);
+    color: var(--branddark);
+    font-size: 1.2em;
+}
+
+.children-tutorials {
+    margin-top: 3em;
+    padding: 24px;
+    background: white;
+    box-shadow: 0px 3px 3px   rgba(54, 54, 81, 0.020),
+                0px 6.5px 5px rgba(54, 54, 81, 0.03), 
+                0px 13px 10px rgba(54, 54, 81, 0.035),
+                0px 22px 18px rgba(54, 54, 81, 0.042),
+                0px 42px 33px rgba(54, 54, 81, 0.050),
+                0px 60px 80px rgba(54, 54, 81, 0.07);
+}
+
+.children-tutorials p {
+    margin-bottom: 1.5em;
+    font-weight: 700;
+}
+
+.children-tutorials p,
+.children-tutorials ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+
+.tutorial-content ul {
+    padding: 0;
+    margin: 1em 0;
+    list-style: none;
+}
+
+.tutorial-content li,
+.tutorial-content li {
+    position: relative;
+    margin: 1em 0;
+    padding: 0 0 0 32px;
+}
+
+.tutorial-content ul li::before {
+    content: '';
+    position: absolute;
+    top: .75em;
+    left: 0;
+    width: 16px;
+    height: 2px;
+    background: var(--brand);
+}
+
+.tutorial-content ol,
+.tutorial-content ol li {
+    padding-left: 1em;
+}
+
+.button.button.button {
+    display: inline-block;
+    padding: 16px 24px;
+    font-weight: 700;
+    background: var(--branddark);
+    color: #FFF;
+    border-radius: 80px;
+    transition: all .275s;
+}
+
+.button.button.button:hover,
+.button.button.button:focus {
+    text-decoration: none;
+    background: var(--dark);
 }
 
 
