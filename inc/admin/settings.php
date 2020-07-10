@@ -34,7 +34,7 @@ if ( ! function_exists( 'add_juiz_sps_settings_page' ) ) {
 			__( 'Social Post Sharer', 'juiz-social-post-sharer' ),
 			__( 'Social Post Sharer', 'juiz-social-post-sharer' ),
 			'administrator',
-			JUIZ_SPS_SLUG ,
+			JUIZ_SPS_SLUG,
 			'juiz_sps_settings_page' 
 		);
 	}

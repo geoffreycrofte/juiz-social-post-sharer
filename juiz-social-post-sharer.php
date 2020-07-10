@@ -68,6 +68,7 @@ if ( is_admin() || ( defined( 'DOING_AJAX' ) && ! DOING_AJAX ) ) {
 	include_once( 'inc/admin/settings.php'          );
 	include_once( 'inc/admin/metaboxes.php'         );
 	include_once( 'inc/admin/enqueues.php'          );
+	include_once( 'inc/admin/welcome.php'          );
 }
 
 if ( is_admin() ) {

@@ -12,7 +12,10 @@ if ( ! function_exists( 'jsps_load_custom_wp_admin_assets' ) ) {
 	function jsps_load_custom_wp_admin_assets() {
 		global $current_screen;
 
-		if ( $current_screen->base !== 'settings_page_juiz-social-post-sharer' ) {
+		if ( $current_screen->base !== 'settings_page_juiz-social-post-sharer' 
+			 &&
+			 $current_screen->base !== 'settings_page_juiz-social-post-sharer-welcome' )
+		{
 			return;
 		}
 		

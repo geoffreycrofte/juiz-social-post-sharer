@@ -1043,6 +1043,69 @@ input[type="checkbox"]:checked + label em {
 }
 
 /**
+ * Welcome Page
+ */
+.welcome-page .jsps-main-header h1 {
+	text-align: center;
+}
+
+.welcome-page .jsps-main-header small {
+	display: none;
+}
+
+.welcome-page .jsps-main-body {
+	padding: 16px 32px;
+}
+.welcome-page .juiz-sps-big,
+.welcome-page .juiz-sps-subtitle {
+	margin: 0;
+	padding: 2em;
+	font-size: 4em;
+	font-weight: 200;
+	text-align: center;
+}
+
+.welcome-page .juiz-sps-big span {
+	display: block;
+	font-size: 1.5em;
+	line-height: 1;
+	font-weight: 900;
+	color: var(--jsps-brand-color);
+}
+
+.welcome-page .juiz-sps-subtitle {
+	padding-top: 0;
+	font-size: 2.5em;
+	color: var(--jsps-brand-color-dark);
+	opacity: .7;
+}
+
+.jsps-row {
+	display: flex;
+}
+
+.jsps-col {
+	flex-basis: 100%;
+	padding: 24px;
+}
+
+.jsps-col [role="heading"] {
+	text-align: center;
+}
+
+p.jsps-h2 {
+	font-size: 1.5em;
+	font-weight: 500;
+	color: var(--jsps-brand-color-dark);
+}
+
+.jsps-col .jsps-h2 + p {
+	font-size: 1.2em;
+	color: var(--jsps-brand-darklight);
+	opacity: .8;
+}
+
+/**
  * Dark mode support
  */
 .dark-mode [id="juiz-sps"] .jsps_info,
