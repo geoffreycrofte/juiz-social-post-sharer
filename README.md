@@ -82,10 +82,10 @@ Contributors
 ------------------
 
 * *Author*
- * Geoffrey Crofte ([WP Media](http://wp-media.me))
+  * Geoffrey Crofte ([WP Media](http://wp-media.me))
 * *Contributors*
- * Jean-Baptiste Audras ([Whodunit](http://www.whodunit.fr/))
- * Marie Comet ([Marie Comet](http://mariecomet.fr/))
+  * Jean-Baptiste Audras ([Whodunit](http://www.whodunit.fr/))
+  * Marie Comet ([Marie Comet](http://mariecomet.fr/))
 * *Translators*
   * [Dennis Schmitz](http://compcardinmotion.de)
   * [半月 Hangetsu](http://wp.fruit-frappe.net/)
