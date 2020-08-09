@@ -82,7 +82,7 @@ Contributors
 ------------------
 
 * *Author*
-  * Geoffrey Crofte ([WP Media](http://wp-media.me))
+  * Geoffrey Crofte ([CreativeJuiz](https://www.creativejuiz.fr/en/))
 * *Contributors*
   * Jean-Baptiste Audras ([Whodunit](http://www.whodunit.fr/))
   * Marie Comet ([Marie Comet](http://mariecomet.fr/))
