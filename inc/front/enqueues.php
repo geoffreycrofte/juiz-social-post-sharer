@@ -29,7 +29,7 @@ if ( ! function_exists('jsps_enqueue_scripts') ) {
 		wp_localize_script( 'juiz_sps_scripts', 'jsps', array(
 			'modalLoader'			=> '<img src="' . JUIZ_SPS_PLUGIN_ASSETS . 'img/loader.svg" height="22" width="22" alt="">',
 			'modalEmailTitle'		=> esc_html__( 'Share by email', 'juiz-social-post-sharer' ),
-			'modalEmailInfo'		=> esc_html__( 'We won\'t save or reuse these email addresses, we promise.', 'juiz-social-post-sharer' ),
+			'modalEmailInfo'		=> esc_html__( 'Promise, emails are not stored!', 'juiz-social-post-sharer' ),
 			'modalEmailNonce'		=> wp_create_nonce('jsps-email-friend'),
 			'ajax_url'              => admin_url( 'admin-ajax.php' ),
 			'modalEmailName'		=> esc_html__( 'Your name', 'juiz-social-post-sharer' ),
@@ -38,7 +38,8 @@ if ( ! function_exists('jsps_enqueue_scripts') ) {
 			'modalEmailMessage'		=> esc_html__( 'Personal message', 'juiz-social-post-sharer' ),
 			'modalEmailOptional'		=> esc_html__( 'optional', 'juiz-social-post-sharer' ),
 			'modalEmailMsgInfo'		=> esc_html__( 'A link to the article is automatically added in your message.', 'juiz-social-post-sharer' ),
-			'modalEmailSubmit'		=> esc_html__( 'Send this article', 'juiz-social-post-sharer' ),
+			'modalEmailSubmit'		=> esc_html__( 'Send this article', 'juiz-social-post-sharer' ),'modalRecipientNb'		=> esc_html__( '1 recipient', 'juiz-social-post-sharer' ),
+			'modalRecipientNbs'		=> sprintf( esc_html__( '%s recipients', 'juiz-social-post-sharer' ), '{number}' ),
 
 			/**
 			 * Displays the `Service proposed by Social Post Sharer` footer in the email modal.
@@ -49,7 +50,7 @@ if ( ! function_exists('jsps_enqueue_scripts') ) {
 		 	 * @param  {boolean}  $is_shown=true `true` to display it, `false` to hide it.
 		 	 * @return {boolean} `true` to display it, `false` to hide it, your choice 😊
 			 */
-			'modalEmailFooter'		=> apply_filters( 'jsps_show_modal_footer', true) ? sprintf( __( 'Service proposed by %sSocial Post Sharer%s', 'juiz-social-post-sharer' ), '<a href="https://wordpress.org/plugins/juiz-social-post-sharer/" target="_blank">', '</a>' ) : '',
+			'modalEmailFooter'		=> apply_filters( 'jsps_show_modal_footer', true) ? sprintf( __( 'Free service by %sSocial Post Sharer%s', 'juiz-social-post-sharer' ), '<a href="https://wordpress.org/plugins/juiz-social-post-sharer/" target="_blank">', '</a>' ) : '',
 			'modalClose'			=> esc_html__( 'Close', 'juiz-social-post-sharer' ),
 			'modalErrorGeneric'		=> esc_html__( 'Sorry. It looks like we\'ve got an error on our side.', 'juiz-social-post-sharer' )
 		) );
