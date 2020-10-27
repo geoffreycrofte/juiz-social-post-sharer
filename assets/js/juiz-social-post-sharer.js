@@ -86,7 +86,7 @@ jQuery(document).ready(function($) {
                     '<p id="juiz-sps-email-title" class="juiz-sps-modal-title">' + jsps.modalEmailTitle + '</p>' +
                     '</div>' +
                     '<div class="juiz-sps-modal-content">' +
-                    '<form id="jsps-email-form" name="jsps-email" action="' + jsps.modalEmailAction + '" method="post">' +
+                    '<form id="jsps-email-form" name="jsps-email" action="' + jsps.modalEmailAction + '" method="post" novalidate>' +
                     '<p class="juiz-sps-input-line">' +
                     '<label for="jsps-your-name">' + jsps.modalEmailName + '</label>' +
                     '<input type="text" id="jsps-your-name" name="jsps-your-name" aria-required="true" required="required" value="" autofocus>' +
@@ -115,7 +115,7 @@ jQuery(document).ready(function($) {
                     '<div class="juiz-sps-modal-footer"><p>' + jsps.modalEmailFooter + '</p></div>' +
                     '</div>' +
                     '</div>',
-                    isValideEmail = function(email) {
+                    isValidEmail = function(email) {
                         const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
                         return re.test(email);
                     };
@@ -132,7 +132,7 @@ jQuery(document).ready(function($) {
 
                     val = val.split(reg);
                     $(val).each(function(i) {
-                        count = isValideEmail(val[i]) ? count + 1 : count;
+                        count = isValidEmail(val[i]) ? count + 1 : count;
                     });
 
                     $('[for="jsps-friend-email"] span').remove();

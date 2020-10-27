@@ -23,7 +23,25 @@ function jsps_ajax_email_friend() {
 			if ( ! is_email( $_GET['email'] ) ) {
 				wp_send_json_error( array( 3 , esc_html__( 'Your email address is invalid.', 'juiz-social-post-sharer' ) ) );
 			}
-			if ( ! is_email( $_GET['friend'] ) ) {
+
+			if ( ! isset( $_GET['friend'] ) ) {
+				wp_send_json_error( array( 6, esc_html__( 'No recipient email address.', 'juiz-social-post-sharer' ) ) );
+			}
+
+			// check is multiple recipients
+			$recipients = false;
+			if ( preg_match( '#([,;/n])#', $_GET['friend'], $matches ) ) {
+				$recipients = explode( $matches[0], $_GET['friend'] );
+				$newrecips = array();
+
+				foreach ( $recipients as $recip ) {
+					$newrecips[] = sanitize_email( $recip );
+				}
+
+				$recipients = $newrecips;
+			}
+
+			if ( $recipients === false && ! is_email( $_GET['friend'] ) ) {
 				wp_send_json_error( array( 4, esc_html__( 'The recipient email address is invalid.', 'juiz-social-post-sharer' ) ) );
 			}
 
@@ -31,12 +49,18 @@ function jsps_ajax_email_friend() {
 			$title     = esc_html( $post -> post_title );
 			$message   = esc_html( $_GET['message'] ) . "\n\n" . $permalink;
 			$from      = isset( $_GET['name'] ) && ! empty( $_GET['name'] ) ? sanitize_text_field( $_GET['name'] ) . ' <' . sanitize_email( $_GET['email'] ) . '>' : sanitize_email( $_GET['email'] );
-			$headers   = array(
-				'From:' + $from,
-				//'Bcc:' will be multiple in BCC, later…
-			);
+			$headers   = array( 'From' => $from );
 
-			$email_sent = wp_mail( sanitize_email( $_GET['friend'] ), $title, $message, $headers );
+			if ( $recipients !== false ) {
+				$headers['Bcc'] = $recipients;
+			}
+
+			$email_sent = wp_mail( 
+				$recipients !== false ? $from : sanitize_email( $_GET['friend'] ),
+				$title,
+				$message,
+				$headers
+			);
 
 			if ( $email_sent ) {
 				// update share meta
@@ -44,9 +68,10 @@ function jsps_ajax_email_friend() {
 				update_post_meta( $post -> ID, '_jsps_email_shares', ++$nb );
 
 				// sent successful result
-				wp_send_json_success( sprintf( esc_html__( 'Post successfully sent to %s!', 'juiz-social-post-sharer' ), sanitize_email( $_GET['friend'] ) ) );
+				wp_send_json_success( esc_html__( 'Post successfully sent!', 'juiz-social-post-sharer' ) ) ;
+
 			} else {
-				wp_send_json_error( array( 5, esc_html__( 'Error trying to send your message. Sorry for that.', 'juiz-social-post-sharer' ) ) );
+				wp_send_json_error( array( 5, esc_html__( 'Error trying to send your message. Sorry for that.', 'juiz-social-post-sharer' ), $headers ) );
 			}
 		} else {
 			wp_send_json_error( array( 2, esc_html__( 'Seems like the post ID you tried to share is not good.', 'juiz-social-post-sharer' ) ) );
