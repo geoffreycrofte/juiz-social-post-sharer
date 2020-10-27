@@ -366,7 +366,7 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 					break;
 
 				case 'facebook' :
-					$api_link = 'https://www.facebook.com/sharer/sharer.php?u=' . $url;
+					$api_link = 'https://www.facebook.com/sharer.php?u=' . $url;
 					break;
 
 				case 'pinterest' :
@@ -385,7 +385,7 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 					break;
 
 				case 'linkedin':
-					$api_link = 'https://www.linkedin.com/shareArticle?mini=true&amp;ro=true&amp;trk=JuizSocialPostSharer&amp;title=' . $text . '&amp;url=' . $url;
+					$api_link = 'https://www.linkedin.com/sharing/share-offsite/?url=' . $url;
 					break;
 
 				case 'tumblr':
