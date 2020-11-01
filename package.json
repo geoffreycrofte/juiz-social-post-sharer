@@ -1,11 +1,13 @@
 {
 	"name": "juiz-social-post-sharer",
-	"description": "An API documentation generator for your WordPress actions and filters.",
+	"description": "A Social Sharing Buttons plugin for WordPress.",
 	"version": "2.0.0",
-	"homepage": "https://github.com/matzeeable/wp-hookdoc#readme",
+	"homepage": "https://github.com/geoffreycrofte/juiz-social-post-sharer/",
 	"author": {
 		"name": "Geoffrey Crofte",
-		"twitter": "https://twitter.com/geoffreycrofte"
+		"twitter": "https://twitter.com/geoffreycrofte",
+		"linkedin": "https://linkedin/in/geoffreycrofte",
+		"github": "https://github.com/geoffreycrofte/"
 	},
 	"bugs": {
 		"url": "https://github.com/geoffreycrofte/juiz-social-post-sharer/issues"
