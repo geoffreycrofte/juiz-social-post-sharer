@@ -148,11 +148,12 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
 == Changelog ==
 
 = 2.0.0 =
+
 * Tested on WordPress 5.4.1
-* *Admin*
+* **Admin**
  * Administration interface redesign
  * Script and Styles in external files (force refresh if you bugs occure)
-* *New feature*
+* **New feature**
  * Add or remove more easily custom buttons (Network API - Documentation TODO)
  * Create your own buttons Skin with the starter kit and this documentation (TODO). Do it in your theme or in a separate plugin.
  * Removes LinkedIn counter because LinkedIn doesn't offer a count anymore. (@see https://developer.linkedin.com/blog/posts/2018/deprecating-the-inshare-counter)
@@ -163,26 +164,28 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
  * New button: WhatsApp
  * New button: Diigo
  * New button: Pocket
-* *All new brand plugin files structure*
-* *New hooks*: see revamped documentation.html file inside the plugin folder.
-* *Fixes*
+* **All new brand plugin files structure**
+* **New hooks**: see revamped documentation.html file inside the plugin folder.
+* **Fixes**
  * Fav/bookmark button JS error on Firefox (`chrome is undefined`)
  * Buttons are not printed if you use your browser print function (or the JSPS print button)
-* *Thanks for their help*
+* **Thanks for their help**
  * To [jeherve](https://github.com/geoffreycrofte/juiz-social-post-sharer/pull/12)
  * To [sebastienserre](https://github.com/geoffreycrofte/juiz-social-post-sharer/pull/14)
  * To [MarieComet](https://github.com/geoffreycrofte/juiz-social-post-sharer/pull/10)
  * To [audrasjb](https://github.com/geoffreycrofte/juiz-social-post-sharer/pull/7)
 
 = 1.4.9 =
+
 * Compatible with Dark Mode plugin.
 * Tested up to WP 4.9.8
 
 = 1.4.8 =
+
 * Security Update: Fixes XSS vulnerability.
 
-
 = 1.4.7 =
+
 * Compatibility on network (multisite) thanks to Marie Comet ([Marie Comet](http://mariecomet.fr/))
 
 = 1.4.6 =
@@ -194,42 +197,42 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
 * Fixes a bug in Safari (`Chrome undefined` message)
 
 = 1.4.4 =
-* Translation
+* **Translation**
  * Error fixed with an untranslatable english string
-* Fixes
+* **Fixes**
  * Google+ and StumbleUpon counters fixed
  * CURLOPT_FOLLOWLOCATION PHP error fixed
 
 = 1.4.3 =
-* Compatibility
+* **Compatibility**
  * Tested up to WordPress 4.5 (I took advance that time!)
  * Tested up to PHP 7 (Did you try that version? The Fast And Furious version of PHP)
-* Features
+* **Features**
  * Twitter counter is back from the death thanks to NewShareCounts Services, a third-party that try to bring back your preciouuuus… counter. Golum!
 
 
 = 1.4.2 =
 * Tested in WordPress 4.4.1
-* Networks:
+* **Networks:**
  * New Fav button
  * New Print button
-* Security:
+* **Security:**
  * Better translation controls
-* Support info:
+* **Support info:**
  * No more support for this plugin version 1.1.0 (0,2% of plugin users)
 * Better URL encode (hope so)
 
 = 1.4.1 =
 * Tested in WordPress 4.4
-* Interface:
+* **Interface:**
  * Better dashicons support for your custom post types
  * Some CSS reworks on admin settings
  * "Metro", "Modern" and "Black" styles are now Retina-ready
  * Button styles CSS updated (each one)
-* Engine:
+* **Engine:**
  * Code rewrite to follow WordPress convention
  * Buttons are optionnaly added to excerpt (deactivated by default, see doc)
-* Networks :
+* **Networks:**
  * New Delicious button
  * New Tumblr button
  * New Reddit button
@@ -246,8 +249,9 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
 
 = 1.3.8 =
 * Better Viadeo support
-* Should include a better HTTPS support
- * Thanks to [evelyette](https://wordpress.org/support/topic/contributing-the-code?replies=5#post-6635057) and [Adam](https://wordpress.org/support/topic/some-counters-wont-work-under-https)
+* Should include a better HTTPS support:
+ * thank you to [evelyette](https://wordpress.org/support/topic/contributing-the-code?replies=5#post-6635057)
+ * thank you to [Adam](https://wordpress.org/support/topic/some-counters-wont-work-under-https)
 
 = 1.3.7 =
 * **Tested up to WordPress 4.1.1**
@@ -293,7 +297,7 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
 * **Improvements**
  * Add "title" parameter for Weibo API (thank you Aili!)
  * HTML tag for "total count" is customizable (it was an LI element)
- * New hook `juiz_sps_share_name_for_[network]` to adjust networks name-text ([more info](http://wordpress.org/support/topic/button-text-and-image?replies=2#post-5510471))
+ * New hook `juiz_sps_share_name_for_{network}` to adjust networks name-text ([more info](http://wordpress.org/support/topic/button-text-and-image?replies=2#post-5510471))
  * New hook `juiz_sps_use_default_css` to remove default CSS request (you can use your own CSS)
  * New in Shortcode : use the `url` parameter to share "permalink", "siteurl" or "customurl" instead of current URL
  * New in Template function : use the $url_to_share parameter to share "permalink", "siteurl" or "customurl" instead of current URL
@@ -323,12 +327,12 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
 * Translation: new Russian language (thanks to [Fandia](http://fandia.w.pw "Fandia's website")!)
 * New hook: `juiz_sps_intro_phrase_text` to help you change (see [the documentation](http://creativejuiz.fr/blog/doc/juiz-social-post-sharer-documentation.html "Official Documentation"))
 * New hook: `juiz_sps_hide_intro_phrase` (see [the documentation](http://creativejuiz.fr/blog/doc/juiz-social-post-sharer-documentation.html "Official Documentation"))
-* New hook: `juiz_sps_share_text_for_[network]` (see [the documentation](http://creativejuiz.fr/blog/doc/juiz-social-post-sharer-documentation.html "Official Documentation"))
+* New hook: `juiz_sps_share_text_for_{network}` (see [the documentation](http://creativejuiz.fr/blog/doc/juiz-social-post-sharer-documentation.html "Official Documentation"))
 
 = 1.2.4 =
 * IMPORTANT: bug fix for Pinterest button's users (thanks to <a href="http://wordpress.org/support/topic/getting-500-internal-error-on-some-pages?replies=6#post-4204030">jamesdodd</a>)
 * IMPORTANT: hook juiz_sps_the_permalink replaced by juiz_sps_the_shared_permalink
-* New hook: `juiz_sps_the_shared_permalink_for_[network]` (see [the documentation](http://creativejuiz.fr/blog/doc/juiz-social-post-sharer-documentation.html "Official Documentation"))
+* New hook: `juiz_sps_the_shared_permalink_for_{network}` (see [the documentation](http://creativejuiz.fr/blog/doc/juiz-social-post-sharer-documentation.html "Official Documentation"))
 
 = 1.2.3 =
 * Removes new Facebook API because of the complexity of use for the user (old API always works)
@@ -338,12 +342,12 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
 * New hook to remove `rel="nofollow"` on links
 * New hook to customize container element (div by default)
 * New hook to remove intro sentence, or its container tag
-* New: to perform customization, you can use %%title%% (insert the post title), %%siteurl%% (insert the site URL) or %%permalink%% (insert the post URL) variables
+* New: to perform customization, you can use `%%title%%` (insert the post title), `%%siteurl%%` (insert the site URL) or `%%permalink%%` (insert the post URL) variables
 * Bug fix: you can now use shortcode or template function only by choosing option "I'm a ninja, I want to use the shortcode only!"
 * Translation updates (French, English)
 
 = 1.2.1 =
-* [juiz_sps] shortcode added (you now have [juiz_social] and [juiz_sps])
+* `[juiz_sps]` shortcode added (you now have `[juiz_social]` and `[juiz_sps]`)
 * CSS improvement for themes not really well thought ;)
 
 = 1.2.0 =
@@ -363,9 +367,9 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
 
 = 1.1.2 =
 * New hook for developper (can now hook shared url)
-* Styles : New optionnal style for buttons (thanks to <a href="http://tonytrancard.fr">Tony</a>)
-* Styles : bug correction for Chrome
-* Styles : little margin added before and after line of buttons
+* Styles: New optionnal style for buttons (thanks to <a href="http://tonytrancard.fr">Tony</a>)
+* Styles: bug correction for Chrome
+* Styles: little margin added before and after line of buttons
 
 = 1.1.1 =
 * Styles bug correction

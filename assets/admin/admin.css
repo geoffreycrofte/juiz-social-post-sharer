@@ -41,7 +41,8 @@
 	--jsps-brand-darklight: #363651;
 	
 	/* Blue Theme */
-	--jsps-brand-color:      #43AFD2;
+	--jsps-brand-color:      #20A8D4; /* with --dark */
+	--jsps-brand-color-4w:   #067FA5; /* with white */
 	--jsps-brand-color-dark: #176B86;
 	--jsps-brand-dark:       #0A2933;
 	--jsps-brand-darklight:  #103744;
@@ -340,7 +341,6 @@
 .juiz_bottom_links {
 	margin-bottom: 0;
 	border-top: 1px solid var(--jsps-border-color);
-	background: #FFF;
 }
 
 .juiz_bottom_links_p {
@@ -795,14 +795,25 @@ input[type="checkbox"]:checked + label em {
 	transition: all .275s;
 }
 
-.juiz_btn_link.juiz_doc {
+.juiz_btn_link.juiz_full_width {
 	width: 100%;
+}
+
+.juiz_btn_link.juiz_doc {
+	margin-left: 0;
+	margin-right: 0;
 }
 
 .juiz_btn_link i {
 	margin-right: 4px;
 	opacity: 0.5;
 	transition: opacity .275s;
+}
+
+.juiz_btn_link svg {
+	width: 16px;
+	height: 16px;
+	margin-right: 4px;
 }
 
 .juiz_btn_link:hover,
@@ -821,7 +832,6 @@ input[type="checkbox"]:checked + label em {
 
 .juiz_bottom_links em {
 	display: block;
-	margin-bottom: 1em;
 	font-style: italic;
 	color: #777;
 }
@@ -866,17 +876,22 @@ input[type="checkbox"]:checked + label em {
 }
 
 @media (min-width: 1380px) {
-	.jsps-main-content {
-		margin-top: 19px;
-		margin-right: 265px;
+
+	/* Wrapper */
+	.js [id="juiz-sps"] {
+		display: grid;
+		grid-auto-flow: column;
+		gap: 16px;
 	}
 
 	.juiz_bottom_links {
-		position: fixed;
-		top: 50px;
-		right: 15px;
 		width: 255px;
 		border: 0;
+	}
+
+	.juiz_bottom_links_container {
+		position: sticky;
+		top: 42px;
 	}
 
 	.juiz_bottom_links_p,
@@ -1104,6 +1119,72 @@ p.jsps-h2 {
 	color: var(--jsps-brand-darklight);
 	opacity: .8;
 }
+
+/* Changelog section */
+.juiz-changelog-version-number {
+	position: sticky;
+	top: 32px;
+	z-index: 2;
+	margin: 0 -40px 0 -32px;
+	padding: 8px 16px 8px 32px;
+	font-size: 2em;
+	font-weight: bold;
+	color: var(--jsps-brand-darklight);
+	background: var(--jsps-brand-code-bg);
+}
+
+.juiz-changelog-version-number::before {
+	content: 'V. ';
+	opacity: .5;
+	font-size: .5em;
+}
+
+ul + .juiz-changelog-version-number {
+	margin-top: 48px;
+}
+
+.juiz-changelog-list {
+	font-size: 16px;
+	line-height: 1.55;
+	list-style: none;
+}
+
+.juiz-changelog-list-item {
+	position: relative;
+	padding-left: 24px;
+}
+
+.juiz-changelog-list-item.juiz-d1::before,
+.juiz-changelog-list-item.juiz-d2::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	border: 2px solid var(--jsps-brand-color);
+}
+
+.juiz-changelog-list-item.juiz-d1::before {
+	top: 6px;
+	width: 8px;
+	height: 8px;
+	border-radius: 16px;
+}
+
+.juiz-changelog-list-item.juiz-d2::before {
+	top: 12px;
+	width: 8px;
+	height: 0;
+	border-top: 0;
+}
+
+.juiz-changelog-list.juiz-d2 {
+	padding-left: 2px;
+	margin-top: .5em;
+	margin-bottom: 1.5em;
+}
+
+.juiz-changelog-list:last-of-type ~ h4 {
+	display: none;
+} 
 
 /**
  * Dark mode support
