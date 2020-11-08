@@ -175,7 +175,7 @@ function juiz_sps_setting_radio_style_choice() {
 
 			// Print the skins.
 			echo '<p class="juiz_sps_styles_options">
-					<input id="jsps_style_' . esc_attr( $slug ) . '" value="' . esc_attr( $slug ) . '" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_style]" type="radio" ' . ( $current_skin === (string) $slug ? ' checked="checked"' : '' ) . ' />
+					<input id="jsps_style_' . esc_attr( $slug ) . '" value="' . esc_attr( $slug ) . '" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_style]" type="radio" ' . ( (string) $current_skin === (string) $slug ? ' checked="checked"' : '' ) . ' />
 					<label for="jsps_style_' . esc_attr( $slug ) . '">
 						<span class="juiz_sps_demo_styles">
 							<img src="' . $demo_src . '"' . ( isset( $demo_src_2x ) ? ' srcset="' . $demo_src_2x . ' 2x"' : '' ) . '>
@@ -253,7 +253,8 @@ function juiz_sps_setting_checkbox_network_selection() {
 		// Set the visibility value to the all_networks array from juiz_sps_networks option.
 		foreach( $all_networks as $k => $v ) {
 			if ( isset( $options['juiz_sps_networks'][ $k ] ) ) {
-				$all_networks[ $k ]['visible'] = $options['juiz_sps_networks'][ $k ]['visible'];
+				// [ $k ][0] is retro compat from < 2.0.0
+				$all_networks[ $k ]['visible'] = isset( $options['juiz_sps_networks'][ $k ]['visible'] ) ? $options['juiz_sps_networks'][ $k ]['visible'] : $options['juiz_sps_networks'][ $k ][0];
 			}
 		}
 
