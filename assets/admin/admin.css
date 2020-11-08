@@ -1,7 +1,7 @@
 /**
  * Admin.css
  *
- * Admin CSS file for Juiz Social Post Sharer
+ * Admin CSS file for Nobs • Share Buttons
  * 
  * @since 2.0.0
  * @author Geoffrey Crofte
@@ -48,6 +48,8 @@
 	--jsps-brand-darklight:  #103744;
 	--jsps-brand-code-bg:    #E9F8FD;
     --jsps-brand-code-light: #6CB7D0;
+    --jsps-brand-grey-blue:  #618C9A;
+
 }
 
 .jsps-icon-bookmark:before {
@@ -366,6 +368,11 @@
 	margin: -34px -32px -44px -32px;
 	padding: 24px 32px;
 	background: var(--jsps-brand-code-bg);
+}
+
+.welcome-page .jsps-shop-promotion {
+	margin-top: 48px;
+	margin-bottom: 56px;
 }
 
 [id="juiz-sps"] .error em {
@@ -816,6 +823,30 @@ input[type="checkbox"]:checked + label em {
 	margin-right: 4px;
 }
 
+.jsps-welcome-grid .juiz_btn_link.juiz_paypal {
+	background: #0070BA;
+}
+
+.jsps-welcome-grid .juiz_btn_link.juiz_flattr {
+	background: #6BC76B;
+}
+
+.jsps-welcome-grid .juiz_btn_link.juiz_bmc {
+	background: #FF813F;
+}
+
+.jsps-welcome-grid .juiz_btn_link.juiz_twitter {
+	background: #1DA1F2;
+}
+
+.jsps-welcome-grid .juiz_btn_link.juiz_rate {
+	background: #FFB000;
+}
+
+.jsps-welcome-grid .juiz_btn_link.juiz_github {
+	background: #3F4041;
+}
+
 .juiz_btn_link:hover,
 .juiz_btn_link:focus {
 	color: #FFF;
@@ -900,6 +931,11 @@ input[type="checkbox"]:checked + label em {
 		margin-top: 0;
 		border-left: 1px solid var(--jsps-border-color);
 		border-right: 1px solid var(--jsps-border-color);
+	}
+
+	.jsps-col .juiz_btns_set {
+		border: 0;
+		padding: 0;
 	}
 
 	.juiz_btns_set + .juiz_bottom_links_p {
@@ -1074,7 +1110,7 @@ input[type="checkbox"]:checked + label em {
 .welcome-page .juiz-sps-big,
 .welcome-page .juiz-sps-subtitle {
 	margin: 0;
-	padding: 2em;
+	padding: 1.5em 16px;
 	font-size: 4em;
 	font-weight: 200;
 	text-align: center;
@@ -1095,23 +1131,57 @@ input[type="checkbox"]:checked + label em {
 	opacity: .7;
 }
 
-.jsps-row {
-	display: flex;
+.jsps-welcome-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 24px 48px;
 }
 
 .jsps-col {
-	flex-basis: 100%;
-	padding: 24px;
+	text-align: center;
 }
 
-.jsps-col [role="heading"] {
+.jsps-quote {
+	color: var(--jsps-brand-grey-blue);
+}
+
+.jsps-donation {
+	opacity: .2;
+}
+
+.jsps-quote p {
+	font-size: 28px;
+	margin-bottom: 0;
+	font-weight: 300;
+}
+
+.jsps-quote cite {
+	font-size: 18px;
+	font-style: italic;
+}
+
+.jsps-text-left {
+	text-align: left;
+}
+
+.jsps-text-center {
 	text-align: center;
+}
+
+.jsps-bottom-margin {
+	margin-bottom: 40px;
 }
 
 p.jsps-h2 {
 	font-size: 1.5em;
 	font-weight: 500;
 	color: var(--jsps-brand-color-dark);
+}
+
+.jsps-h2 span {
+	display: block;
+	font-size: 19px;
+	font-weight: bold;
 }
 
 .jsps-col .jsps-h2 + p {

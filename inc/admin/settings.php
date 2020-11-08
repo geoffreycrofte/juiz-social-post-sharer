@@ -14,7 +14,8 @@ if ( ! function_exists( 'juiz_sps_plugin_action_links' ) ) {
 	 * @author  Geoffrey Crofte
 	 */
 	function juiz_sps_plugin_action_links( $links, $file ) {
-		$links[] = '<a href="' . admin_url( 'options-general.php?page=' . JUIZ_SPS_SLUG ) . '">' . __( 'Settings' ) . '</a>';
+		$links[] = '<a href="' . jsps_get_settings_url() . '">' . __( 'Settings' ) . '</a>';
+		$links[] = '<a href="' . jsps_get_welcome_url() . '">' . __( 'Welcome', 'juiz-social-post-sharer' ) . '</a>';
 		return $links;
 	}
 	add_filter( 'plugin_action_links_' . plugin_basename( JUIZ_SPS_FILE ), 'juiz_sps_plugin_action_links',  10, 2 );
@@ -259,6 +260,7 @@ function juiz_sps_setting_checkbox_network_selection() {
 		$networks = jsps_get_displayable_networks( $all_networks, $options['juiz_sps_order'] );
 
 		// Start the admin markup
+		// Start the admin markup.
 		echo '<div class="jsps-drag-container">
 				<div id="jsps-draggable-networks">
 					<div class="juiz-sps-squared-options">';
@@ -538,7 +540,7 @@ function juiz_sps_setting_textarea_mail_body() {
 
 if ( ! function_exists( 'juiz_sps_section_whats_new' ) ) {
 function juiz_sps_section_whats_new() {
-	echo '<p class="juiz_sps_section_intro">' . __( 'Discover what is fresh in your favorite Social Sharing plugin to keep track of updates.', 'juiz-social-post-sharer' ) . '.<br>' . sprintf( __( 'You can also display the %sWelcome Page%s to get a quick tour of the features.', 'juiz-social-post-sharer' ), '<a href="' . get_admin_url( null, 'options-general.php?page=' . JUIZ_SPS_SLUG . '-welcome') . '">', '</a>') . '</p>';
+	echo '<p class="juiz_sps_section_intro">' . __( 'Discover what is fresh in your favorite Social Sharing plugin to keep track of updates.', 'juiz-social-post-sharer' ) . '.<br>' . sprintf( __( 'You can also display the %sWelcome Page%s to get a quick tour of the features.', 'juiz-social-post-sharer' ), '<a href="' . jsps_get_welcome_url() . '">', '</a>') . '</p>';
 }
 }
 
@@ -690,6 +692,8 @@ if ( ! function_exists( 'juiz_sps_settings_page' ) ) {
 					<a class="juiz_btn_link juiz_twitter" target="_blank" href="https://twitter.com/intent/tweet?source=webclient&amp;hastags=WordPress,Plugin&amp;text=Juiz%20Social%20Post%20Sharer%20is%20an%20awesome%20WordPress%20plugin%20to%20share%20content!%20Try%20it!&amp;url=http://wordpress.org/extend/plugins/juiz-social-post-sharer/&amp;related=geoffrey_crofte&amp;via=geoffrey_crofte"><i class="dashicons dashicons-twitter" aria-hidden="true"></i>&nbsp;<?php _e( 'Tweet it', 'juiz-social-post-sharer' ); ?></a>
 
 					<a class="juiz_btn_link juiz_rate" target="_blank" href="https://wordpress.org/support/plugin/juiz-social-post-sharer/reviews/?rate=5#new-post"><i class="dashicons dashicons-star-filled" aria-hidden="true"></i>&nbsp;<?php _e( 'Rate it', 'juiz-social-post-sharer' ); ?></a>
+
+					<a class="juiz_btn_link juiz_translation juiz_full_width" target="_blank" href="https://translate.wordpress.org/projects/wp-plugins/juiz-social-post-sharer/"><i class="dashicons dashicons-translation" aria-hidden="true"></i>&nbsp;<?php _e( 'Translate it', 'juiz-social-post-sharer' ); ?></a>
 				</div>
 				
 				<p class="juiz_bottom_links_p">

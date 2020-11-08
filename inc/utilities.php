@@ -385,6 +385,42 @@ if ( ! function_exists( 'jsps_render_api_link' ) ) {
 }
 
 /**
+ * Get the URL of Nobs plugin public website.
+ * 
+ * @param  array $utm The array of source, medium and campaing
+ *
+ * @return [type]
+ * @since  2.0.0
+ *
+ * @author  Geoffrey Crofte
+ */
+function jsps_get_public_website( $utm = array() ) {
+	$url = 'https://sharebuttons.social/';
+	if ( ! empty( $utm ) ) {
+		$url = $url . ( isset( $utm['source'] ) ? '?utm_source=' . $utm['source'] : '' );
+		$url = $url . ( isset( $utm['medium'] ) ? '&amp;utm_medium=' . $utm['medium'] : '' );
+		$url = $url . ( isset( $utm['campaign'] ) ? '&amp;utm_campaign=' . $utm['campaign'] : '' );
+	}
+	return $url;
+}
+
+function jsps_get_settings_url() {
+	return get_admin_url( null, 'options-general.php?page=' . JUIZ_SPS_SLUG );
+}
+
+function jsps_get_welcome_url() {
+	return get_admin_url( null, 'options-general.php?page=' . JUIZ_SPS_SLUG . '-welcome' );	
+}
+
+function jsps_get_roadmap_url() {
+	return 'https://github.com/geoffreycrofte/juiz-social-post-sharer/projects/1';
+}
+
+function jsps_get_github_url() {
+	return 'https://github.com/geoffreycrofte/juiz-social-post-sharer/';
+}
+
+/**
  * A function that return the old network array option (before v2.0.0)
  * Used for debug purpose.
  *
