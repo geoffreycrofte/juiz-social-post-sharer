@@ -4,15 +4,13 @@ Plugin Name: Juiz Social Post Sharer
 Plugin URI: http://wordpress.org/extend/plugins/juiz-social-post-sharer/
 Description: Add buttons after (or before, or both) your posts to allow visitors share your content (includes no JavaScript mode). You can also use <code>juiz_sps($array)</code> template function or <code>[juiz_sps]</code> shortcode. For more informations see the setting page located in <strong>Settings</strong> submenu.
 Author: Geoffrey Crofte
-Version: 1.4.10
+Version: 1.4.11
 Author URI: http://geoffrey.crofte.fr
 License: GPLv2 or later
 Text Domain: juiz-social-post-sharer
 Domain Path: /languages
 
-
-
-Copyright 2012-2017  Geoffrey Crofte  (email : support@creativejuiz.com)
+Copyright 2012  Geoffrey Crofte  (email : support@creativejuiz.com)
 
     
 This program is free software; you can redistribute it and/or
@@ -30,20 +28,13 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 */
-
 define( 'JUIZ_SPS_PLUGIN_NAME',	 'Juiz Social Post Sharer' );
-define( 'JUIZ_SPS_VERSION',		 '1.4.10' );
+define( 'JUIZ_SPS_VERSION',		 '1.4.11' );
 define( 'JUIZ_SPS_FILE',		 __FILE__ );
 define( 'JUIZ_SPS_DIRNAME',		 basename( dirname( __FILE__ ) ) );
 define( 'JUIZ_SPS_PLUGIN_URL',	 plugin_dir_url( __FILE__ ));
 define( 'JUIZ_SPS_SLUG',		 'juiz-social-post-sharer' );
 define( 'JUIZ_SPS_SETTING_NAME', 'juiz_SPS_settings' );
-
-// Checking network activation.
-$is_nw_activated = function_exists( 'is_plugin_active_for_network' ) && is_plugin_active_for_network( JUIZ_SPS_SLUG . '/' . JUIZ_SPS_SLUG . '.php' ) ? true : false;
-
-define( 'JUIZ_SPS_NETWORK_ACTIVATED', $is_nw_activated );
-
 	
 // Multilingal.
 add_action( 'init', 'make_juiz_sps_multilang' );
@@ -58,21 +49,23 @@ function make_juiz_sps_multilang() {
  * @author Marie Comet, Geoffrey Crofte
  * @since 1.4.7
  */
-function jsps_get_option( $option_name = '' ) {
+function jsps_get_option( $option_name = '', $site = null ) {
+
+	$is_network_active = function_exists( 'is_plugin_active_for_network' ) &&is_plugin_active_for_network( JUIZ_SPS_SLUG . '/' . JUIZ_SPS_SLUG . '.php' ) ? true : false;
 
 	// When we want a precise option in a network activated website.
-	if ( ! empty( $option_name ) && true === JUIZ_SPS_NETWORK_ACTIVATED ) {
-		$options = get_blog_option( get_current_blog_id(), JUIZ_SPS_SETTING_NAME );
+	if ( ! empty( $option_name ) && true === $is_network_active ) {
+		$options = get_blog_option( $site === null ? get_current_blog_id() : (int) $site, JUIZ_SPS_SETTING_NAME );
 		return $options[ $option_name ];
 	}
 
 	// When we want all options in a network activated website.
-	else if ( empty( $option_name ) && true === JUIZ_SPS_NETWORK_ACTIVATED ) {
-		return get_blog_option( get_current_blog_id(), JUIZ_SPS_SETTING_NAME );
+	else if ( empty( $option_name ) && true === $is_network_active ) {
+		return get_blog_option( $site === null ? get_current_blog_id() : (int) $site, JUIZ_SPS_SETTING_NAME );
 	}
 
 	// When we want a precise option in a simple website.
-	else if ( ! empty( $option_name ) && false === JUIZ_SPS_NETWORK_ACTIVATED ) {
+	else if ( ! empty( $option_name ) && false === $is_network_active ) {
 		$options = get_option( JUIZ_SPS_SETTING_NAME );
 		return $options[ $option_name ];
 	}
@@ -91,21 +84,47 @@ function jsps_get_option( $option_name = '' ) {
  * @author Marie Comet, Geoffrey Crofte
  * @since 1.4.7
  */
-function jsps_update_option( $options ) {
+function jsps_update_option( $options, $site = null ) {
 
 	if ( ! is_array( $options ) ) {
 		die( '$options has to be an array' );
 	}
 
+	$is_network_active = function_exists( 'is_plugin_active_for_network' ) &&is_plugin_active_for_network( JUIZ_SPS_SLUG . '/' . JUIZ_SPS_SLUG . '.php' ) ? true : false;
+
 	// When we want to update options in a network activated website.
-	if ( true === JUIZ_SPS_NETWORK_ACTIVATED ) {
-		$options = update_blog_option( get_current_blog_id(), JUIZ_SPS_SETTING_NAME, $options );
+	if ( true === $is_network_active ) {
+		$options = update_blog_option( $site === null ? get_current_blog_id() : (int) $site, JUIZ_SPS_SETTING_NAME, $options );
 		return $options;
 	}
 
 	// When we want to update options in a simple website.
 	else {
 		$options = update_option( JUIZ_SPS_SETTING_NAME, $options );
+	}
+}
+
+/**
+ * Init options for multi-sites when plugin is activated.
+ * 
+ * @param  array $init_options For a better Multisite support
+ * @return (void)
+ */
+function jsps_init_option_ms( $init_options ) {
+
+	$is_network_active = function_exists( 'is_plugin_active_for_network' ) &&is_plugin_active_for_network( JUIZ_SPS_SLUG . '/' . JUIZ_SPS_SLUG . '.php' ) ? true : false;
+	
+	if ( ! $is_network_active ) {
+		return;
+	}
+
+	$sites = get_sites( array( 'fields' => 'ids' ) );
+	foreach ($sites as $site ) {
+		$options = jsps_get_option( '', $site );
+
+		if ( ! is_array( $options) ) {
+			jsps_update_option( $init_options, $site );
+		}
 	}
 }
 
@@ -548,3 +567,85 @@ function jsps_get_network_counters() {
 }
 add_action( 'wp_ajax_nopriv_get_network_counters', 'jsps_get_network_counters' );
 add_action( 'wp_ajax_get_network_counters', 'jsps_get_network_counters' );
+
+/**
+ * Simply return a string for upgrade notice.
+ * 
+ * @return string
+ */
+function jsps_get_major_upgrade_notice() {
+	return sprintf(
+		__( 'Includes a lot of improvements. It has been tested on our side and should be ok. But WordPress is a big universe, it might be breaking changes for your specific website. If you can: double check on a safe (test) environment that everything is going to be ok for your website. Don’t forget to %sbackup your website%s.', 'juiz-social-post-sharer'),
+		'<a style="color:var(--errorbg);" href="https://wordpress.org/plugins/updraftplus/" target="_blank">',
+		'</a>'
+	);
+}
+
+/**
+ * The function to put upgrage notice into single site.
+ *
+ * @param  array $plugin_data The array of data from Readme (name, plugin_url, version, description, author, author_url, text_domain, domain_path, network, title, author_name, update)
+ * @param  object $new_data Some other info about the plugin (id, slug, new_version, url, package)
+ *
+ * @return void
+ *
+ * @author Geoffrey Crofte
+ * @since  1.4.11
+ */
+function jsps_plugin_update_message( $plugin_data, $new_data ) {
+
+	if ( ! isset( $plugin_data['new_version'] ) && ! isset( $plugin_data['Version'] ) ) {
+		return false;
+	}
+
+	var_dump( $plugin_data );
+
+	$new  = explode( '.', $plugin_data['new_version'] );
+	$curr = explode( '.', $plugin_data['Version'] );
+
+	if ( isset( $plugin_data['update'] ) && $plugin_data['update'] && $new[0] > $curr[0] ) {
+		printf(
+			'<div style="background:var(--error);padding:8px 16px;" class="jsps-warning"><style>.jsps-warning p::before{content:none;}.jsps-warning+p:empty{display:none}.jsps-warning{margin:16px 0}</style><p style="color:var(--errorbg);font-weight:bold;"><strong>%s</strong>: %s</p></div>',
+			$new_data -> new_version,
+			jsps_get_major_upgrade_notice()
+		);
+	}
+
+}
+add_action( 'in_plugin_update_message-juiz-social-post-sharer/juiz-social-post-sharer.php', 'jsps_plugin_update_message', 10, 2 );
+
+/**
+ * The function to put upgrage notice into Multi-site.
+ *
+ * @param  array $file   Don't know…
+ * @param  array $plugin Seems to be the same as $plugin_data in in_plugin_update_message hook.
+ *
+ * @return void
+ *
+ * @author Geoffrey Crofte
+ * @since  1.4.11
+ */
+function jsps_ms_plugin_update_message( $file, $plugin, $status ) {
+	if ( ! is_multisite() ) {
+		return false;
+	}
+
+	if ( $file !== 'juiz-social-post-sharer/juiz-social-post-sharer.php' ) {
+		return false;
+	}
+
+	$new  = explode( '.', $plugin['new_version'] );
+	$curr = explode( '.', $plugin['Version'] );
+
+	if ( $new[0] > $curr[0] ) {
+		$wp_list_table = _get_list_table( 'WP_Plugins_List_Table' );
+
+		printf(
+			'<tr class="plugin-update-tr"><td colspan="%s" class="plugin-update update-message notice inline notice-warning notice-alt"><div class="update-message"><h4 style="margin: 0; font-size: 14px;">%s</h4><p>%s</p></div></td></tr>',
+			$wp_list_table->get_column_count(),
+			$plugin['Name'],
+			jsps_get_major_upgrade_notice()
+		);
+	}
+}
+add_action( 'after_plugin_row', 'jsps_ms_plugin_update_message', 10, 3 );
