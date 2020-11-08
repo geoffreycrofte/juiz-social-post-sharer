@@ -2,7 +2,7 @@
 /**
  * Admin.js
  *
- * Admin JS file for Juiz Social Post Sharer
+ * Admin JS file for Nobs • Share Buttons
  * 
  * @since 2.0.0
  * @author Geoffrey Crofte

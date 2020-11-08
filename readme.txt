@@ -1,27 +1,28 @@
-﻿=== Juiz Social Post Sharer ===
+﻿=== Nobs • Share Buttons ===
 Contributors: CreativeJuiz
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJPCWVXGDY&lc=FR&item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&item_number=%23wp%2djsps&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted
-Tags: social, twitter, google, facebook, digg, stumbleupon, linkedin, pinterest, viadeo, weibo, vkontakte, post, share
+Tags: social, buttons, twitter, facebook, digg, mix, linkedin, pinterest, viadeo, weibo, vkontakte, yummly, pocket, whatsapp, diigo, post, evernote, tumblr, reddit, share, sharing
 Requires at least: 3.3
-Tested up to: 5.5.0
+Tested up to: 5.5.3
 Stable tag: 2.0.0
 
-Add smart designed buttons after/before your posts to allow visitors sharing your content (includes no JavaScript mode & counters). Totally GDPR compliant.
+Add smart designed buttons after/before your posts (or wherever you want) to allow visitors to share your content (includes no JavaScript mode & counters). Totally GDPR compliant.
 
 == Description ==
 
-Add smart designed buttons after/before your posts to allow visitors sharing your content (includes no JavaScript mode & counters). Buttons are Retina/HDPI-ready, translation-ready and come with useful options and hooks. Totally GDPR compliant.
+Add smart designed buttons after/before your posts (or wherever you want) to allow visitors to share your content (includes no JavaScript mode & counters). Buttons are Retina/HDPI-ready, translation-ready and come with useful options and hooks. Totally GDPR compliant, and accessibility and performance friendly.
 
 Select your favorites social networks among a little list.
 Display an optional sharings counter.
+You're done!
 
 **You can donate to support**
 
 * [Donate what you want with Paypal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJPCWVXGDY&lc=FR&item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&item_number=%23wp%2djsps&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted)
-* [Flattr this thing!](https://flattr.com/submit/auto?user_id=CreativeJuiz&url=http://wordpress.org/plugins/juiz-social-post-sharer/&title=Juiz%20Social%20Post%20Sharer%20-%20WordPress%20Plugin&description=Awesome%20WordPress%20Plugin%20helping%20you%20to%20add%20buttons%20at%20the%20beginning%20or%20the%20end%20of%20your%20WordPress%20contents%20easily&tags=WordPress,Social,Share,Buttons,Network,Twitter,Facebook,Linkedin&category=software)
+* [Buy Me a Coffee](https://www.buymeacoffee.com/geoffreycrofte) (you can even subscribe for exclusive content, like sneak peek, free license, exclusive info, etc.)
+* [Flattr this thing!](https://flattr.com/@CreativeJuiz)
 
-**Please, use the support forum to tell me bugs encountered, and be patient**
-
+**Please, use the support forum to tell me bugs encountered, and be patient, remember it's a free product build on my spare time**
 
 Social networks supported:
 
@@ -39,17 +40,18 @@ Social networks supported:
 * Weibo
 * WhatsApp
 * VKontakte
+* Native Share API (for mobile devices, mostly, allowing to share with your favorite applications)
 
 
 Other actions supported:
 
-* Send by Mail (mailto:)
+* Send by Mail (mailto: or multi-recipient lightbox form)
 * Print (buttons are not printed 😜)
 * Add to bookmark
 
 Plugin Options:
 
-* 8 graphic templates available
+* 8 graphic templates available (reworked)
 * Choose from all available networks
 * Open links in a new window (deactivated by default)
 * Choose to display only the social network icon
@@ -57,8 +59,8 @@ Plugin Options:
 * Choose to display buttons only on certain type of post (compatible with Custom Post Type)
 * Choose to hide buttons only on certain posts directly in the edit page (metabox).
 * Choose to display buttons at the bottom, the top of the content, or both (or just with shortcode or template function)
-* Customize mail texts (subject and body)
-* Display a sharings counter (optional, recommend not to use it since Brands are shutting down all the counters)
+* Customize mail texts (subject and body), or mail in a lightbox
+* Display a sharings counter (optional, recommend not to use it since Brands are shutting down all the counters, and counter can't be accurate)
 * Use shortcode <code>[juiz_sps]</code> or <code>[juiz_social]</code> where you want
 * For developers: A lot of hooks are available for markup customization (or add some things)
   * A hook is available and offers you the opportunity to add the buttons you need
@@ -76,11 +78,11 @@ Available Languages:
 * Spanish (thank to [Roberto Castiñeira](www.mediapartner.es "Roberto Castiñeira's website")!)
 * Turkish (thanks to [Hakaner](http://hakanertr.wordpress.com/ "His website")!)
 
-<strong>Full <a href="http://creativejuiz.fr/blog/doc/juiz-social-post-sharer-documentation.html">Documentation</a> available</strong>.
+<strong>Full <a href="https://sharebuttons.social/doc/">Documentation</a> available</strong>.
 
 
-This tool relies on third-party applications (API), so if you say "it's broken", please tell me why ;)
-Before adding a bad rating, thanks to open a support ticket to solve your issue.
+This tool relies on third-party applications (API), so if you say "it's broken", please tell me why, how, what 😊
+Before adding a bad rating, please open a support ticket to solve your issue.
 
 
 
@@ -90,7 +92,7 @@ You can use one of both method :
 
 **Installation via your Wordpress website**
 
-1. Go to the **admin menu 'Plugins' -> 'Install'** and **search** for 'Juiz Social Post Sharer'
+1. Go to the **admin menu 'Plugins' -> 'Install'** and **search** for 'Nobs • Share Buttons'
 1. **Click** 'install' and **activate it**
 1. (optional) Configure the Plugin in **Settings**
 
@@ -391,14 +393,5 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
 
 == Upgrade Notice ==
 
-= 1.3.0 =
-Major update, new features and some optimization. You need it!
-
-= 1.2.2 =
-Several bug fixes, you can update ;)
-
-= 1.1.0 =
-Some new things, update it :)
-
-= 1.0.0 =
-Try it ;)
+Version 2.0.0 includes a lot of major changes, like a complete reworked code base, but also some changes in CSS (the style of your buttons). It should improve a lot, but check the result on your website especially if you tweaked styles.
+You can help yourself by reading the <a href="https://sharebuttons.social/doc/">new documentation</a>.

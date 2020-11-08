@@ -32,8 +32,8 @@ if ( ! function_exists( 'add_juiz_sps_settings_page' ) ) {
 	function add_juiz_sps_settings_page() {
 		add_submenu_page( 
 			'options-general.php', 
-			__( 'Social Post Sharer', 'juiz-social-post-sharer' ),
-			__( 'Social Post Sharer', 'juiz-social-post-sharer' ),
+			__( 'Nobs Share Buttons', 'juiz-social-post-sharer' ),
+			__( 'Nobs Share Buttons', 'juiz-social-post-sharer' ),
 			'administrator',
 			JUIZ_SPS_SLUG,
 			'juiz_sps_settings_page' 
@@ -240,7 +240,7 @@ function juiz_sps_setting_radio_style_choice() {
 }
 }
 
-// checkboxes fields for networks
+// Checkboxes fields of networks.
 if ( ! function_exists( 'juiz_sps_setting_checkbox_network_selection' ) ) {
 function juiz_sps_setting_checkbox_network_selection() {
 	$y = $n = '';
@@ -259,7 +259,6 @@ function juiz_sps_setting_checkbox_network_selection() {
 
 		$networks = jsps_get_displayable_networks( $all_networks, $options['juiz_sps_order'] );
 
-		// Start the admin markup
 		// Start the admin markup.
 		echo '<div class="jsps-drag-container">
 				<div id="jsps-draggable-networks">

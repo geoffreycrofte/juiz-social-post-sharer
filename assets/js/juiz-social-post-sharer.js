@@ -1,5 +1,5 @@
 /**
- * Plugin Name: Juiz Social Post Sharer
+ * Plugin Name: Nobs • Share Buttons
  * Plugin URI: http://creativejuiz.fr
  * Author: Geoffrey Crofte
  */

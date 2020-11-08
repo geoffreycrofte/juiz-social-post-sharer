@@ -1,5 +1,5 @@
 <?php /*
-	Plugin Name: Juiz Social Post Sharer
+	Plugin Name: Nobs • Share Buttons
 	Plugin URI: http://wordpress.org/extend/plugins/juiz-social-post-sharer/
 	Description: Add buttons after (or before, or both) your posts to allow visitors share your content (includes no JavaScript mode). You can also use <code>juiz_sps($array)</code> template function or <code>[juiz_sps]</code> shortcode. For more informations see the setting page located in <strong>Settings</strong> submenu.
 	Author: Geoffrey Crofte
@@ -11,7 +11,7 @@
 
 
 
-	Copyright 2012-2020  Geoffrey Crofte  (email : support@creativejuiz.com)
+	Copyright 2012  Geoffrey Crofte  (email : support@creativejuiz.com)
 
 	    
 	This program is free software; you can redistribute it and/or
@@ -33,7 +33,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die( 'Cheatin&#8217; uh?' );
 }
 
-define( 'JUIZ_SPS_PLUGIN_NAME',	  'Juiz Social Post Sharer' );
+define( 'JUIZ_SPS_PLUGIN_NAME',	  'Nobs • Share Buttons' );
 define( 'JUIZ_SPS_VERSION',		  '2.0.0' );
 define( 'JUIZ_SPS_FILE',		  __FILE__ );
 define( 'JUIZ_SPS_DIRNAME',		  basename( dirname( __FILE__ ) ) );
