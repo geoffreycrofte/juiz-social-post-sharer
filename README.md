@@ -11,8 +11,11 @@ Select your favorite social networks among a list of available networks. Display
 
 **You can donate to support**
 
-* [Donate what you want with Paypal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJPCWVXGDY&lc=FR&item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&item_number=%23wp%2djsps&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted)
-* [Flattr this thing!](https://flattr.com/submit/auto?user_id=CreativeJuiz&url=http://wordpress.org/plugins/juiz-social-post-sharer/&title=Juiz%20Social%20Post%20Sharer%20-%20WordPress%20Plugin&description=Awesome%20WordPress%20Plugin%20helping%20you%20to%20add%20buttons%20at%20the%20beginning%20or%20the%20end%20of%20your%20WordPress%20contents%20easily&tags=WordPress,Social,Share,Buttons,Network,Twitter,Facebook,Linkedin&category=software)
+<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJPCWVXGDY&lc=FR&item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&item_number=%23wp%2djsps&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted"><img width="124" alt="Donate on Paypal" src="https://user-images.githubusercontent.com/452767/88225083-3241e380-cc6a-11ea-8291-3b630fec983a.png"></a>
+
+<a href="https://flattr.com/submit/auto?user_id=CreativeJuiz&url=http://wordpress.org/plugins/juiz-social-post-sharer/&title=Juiz%20Social%20Post%20Sharer%20-%20WordPress%20Plugin&description=Awesome%20WordPress%20Plugin%20helping%20you%20to%20add%20buttons%20at%20the%20beginning%20or%20the%20end%20of%20your%20WordPress%20contents%20easily&tags=WordPress,Social,Share,Buttons,Network,Twitter,Facebook,Linkedin&category=software"><img width="139" alt="Flattr This" src="https://user-images.githubusercontent.com/452767/88225832-71bcff80-cc6b-11ea-9057-5e733b9a462d.png"></a>
+
+<a href="https://www.buymeacoffee.com/geoffreycrofte" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="37" width="162" style="height:37px!important;width:162px!important;" ></a>
 
 **Please, use the <a href="https://wordpress.org/support/plugin/juiz-social-post-sharer">support forum</a> to tell me bugs encountered, or <a href="https://github.com/creativejuiz/juiz-social-post-sharer/issues">open an issue</a> right here and be patient. Please, look for existing subjects before opening a new one. I hate repeat myself :p**
 <a href="http://creativejuiz.fr/blog/doc/juiz-social-post-sharer-documentation.html">**&lt;&lt;Documentation&gt;&gt;**</a>
@@ -79,14 +82,14 @@ Contributors
 ------------------
 
 * *Author*
- * Geoffrey Crofte ([WP Media](http://wp-media.me))
+  * Geoffrey Crofte ([CreativeJuiz](https://www.creativejuiz.fr/en/))
 * *Contributors*
- * Jean-Baptiste Audras ([Whodunit](http://www.whodunit.fr/))
- * Marie Comet ([Marie Comet](http://mariecomet.fr/))
+  * Jean-Baptiste Audras ([Whodunit](http://www.whodunit.fr/))
+  * Marie Comet ([Marie Comet](http://mariecomet.fr/))
 * *Translators*
- * [Dennis Schmitz](http://compcardinmotion.de)
- * [半月 Hangetsu](http://wp.fruit-frappe.net/)
- * [Fandia](http://fandia.w.pw)
- * [Borisa Djuraskovic](http://www.webhostinghub.com)
- * [Roberto Castiñeira](www.mediapartner.es)
- * [Hakaner](http://hakanertr.wordpress.com/)
+  * [Dennis Schmitz](http://compcardinmotion.de)
+  * [半月 Hangetsu](http://wp.fruit-frappe.net/)
+  * [Fandia](http://fandia.w.pw)
+  * [Borisa Djuraskovic](http://www.webhostinghub.com)
+  * [Roberto Castiñeira](www.mediapartner.es)
+  * [Hakaner](http://hakanertr.wordpress.com/)
