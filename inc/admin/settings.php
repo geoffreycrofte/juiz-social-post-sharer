@@ -155,10 +155,29 @@ if ( ! function_exists( 'juiz_sps_section_text' ) ) {
 if ( ! function_exists( 'juiz_sps_setting_radio_style_choice' ) ) {
 function juiz_sps_setting_radio_style_choice() {
 
+	/**
+	 * Some clean up in this first form element. (TODO: could be done somewhere else)
+	 */
+	if ( isset( $_GET['action'] ) && $_GET['action'] === 'reset-options' ) {
+		jsps_delete_plugin_options();
+	}
+
 	$options      = jsps_get_option();
 	$core_skins   = jsps_get_core_skins();
 	$custom_skins = jsps_get_custom_skins();
 
+	/**
+	 * Another part of cleanup for multisite and single site.
+	 */
+	if ( ! is_array( $options ) ) {
+		if ( function_exists( 'is_plugin_active_for_network' ) &&is_plugin_active_for_network( JUIZ_SPS_SLUG . '/' . JUIZ_SPS_SLUG . '.php' ) ) {
+			jsps_init_option_ms( jsps_get_initial_settings() );
+		} else {
+			jsps_update_option( jsps_get_initial_settings() );
+		}
+	}
+
+	// Ready to start displaying options!
 	if ( is_array( $options ) && is_array( $core_skins ) ) {
 		
 		// Slug of theme activated.

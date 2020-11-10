@@ -9,8 +9,7 @@
 	Text Domain: juiz-social-post-sharer
 	Domain Path: /languages
 
-
-
+	
 	Copyright 2012  Geoffrey Crofte  (email : support@creativejuiz.com)
 
 	    
@@ -30,7 +29,7 @@
 */
 
 if ( ! defined( 'ABSPATH' ) ) {
-	die( 'Cheatin&#8217; uh?' );
+	die( 'Cheatin’ uh?' );
 }
 
 define( 'JUIZ_SPS_PLUGIN_NAME',	  'Nobs • Share Buttons' );
@@ -42,12 +41,6 @@ define( 'JUIZ_SPS_PLUGIN_ASSETS', JUIZ_SPS_PLUGIN_URL . 'assets/' );
 define( 'JUIZ_SPS_SKINS_FOLDER',  JUIZ_SPS_PLUGIN_URL . 'skins/' );
 define( 'JUIZ_SPS_SLUG',		  'juiz-social-post-sharer' );
 define( 'JUIZ_SPS_SETTING_NAME',  'juiz_SPS_settings' );
-
-// Checking network activation.
-$is_nw_activated = function_exists( 'is_plugin_active_for_network' ) && is_plugin_active_for_network( JUIZ_SPS_SLUG . '/' . JUIZ_SPS_SLUG . '.php' ) ? true : false;
-
-define( 'JUIZ_SPS_NETWORK_ACTIVATED', $is_nw_activated );
-
 	
 // Multilingal.
 add_action( 'init', 'make_juiz_sps_multilang' );
@@ -56,8 +49,8 @@ function make_juiz_sps_multilang() {
 }
 
 include_once( 'inc/options.php'               );
-include_once( 'inc/register-skin.php'        );
-include_once( 'inc/register-skins.php' );
+include_once( 'inc/register-skin.php'         );
+include_once( 'inc/register-skins.php'        );
 include_once( 'inc/register-network.php'      );
 include_once( 'inc/register-networks.php'     );
 include_once( 'inc/utilities.php'             );
@@ -68,7 +61,7 @@ if ( is_admin() || ( defined( 'DOING_AJAX' ) && ! DOING_AJAX ) ) {
 	include_once( 'inc/admin/settings.php'          );
 	include_once( 'inc/admin/metaboxes.php'         );
 	include_once( 'inc/admin/enqueues.php'          );
-	include_once( 'inc/admin/welcome.php'          );
+	include_once( 'inc/admin/welcome.php'           );
 }
 
 if ( is_admin() ) {

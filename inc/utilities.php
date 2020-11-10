@@ -449,3 +449,48 @@ function jsps_get_old_network_array() {
 		'print'			=>	array( 0, 'Print' ) // new 1.4.2
 	);
 }
+
+/**
+ * Return the initial settings for the plugin before the 2.0.0.
+ * Used for debug purpose.
+ *
+ * @since 1.4.11
+ * @since 2.0.0 Uses the jsps_get_old_network_array() function.
+ * @return (array) 
+ */
+function jsps_get_initial_old_settings() {
+	$default_settings = array(
+		'juiz_sps_version' 			=> JUIZ_SPS_VERSION,
+		'juiz_sps_style' 			=> 7,
+		'juiz_sps_networks' 		=> jsps_get_old_network_array(),
+		'juiz_sps_counter'			=> 0,
+		'juiz_sps_counter_option'	=> 'both', // new 1.3.3.7
+		'juiz_sps_hide_social_name' => 0,
+		'juiz_sps_target_link'		=> 0, // new 1.1.0
+		'juiz_sps_twitter_user'		=> 'CreativeJuiz',
+		'juiz_sps_display_in_types' => array( 'post' ),
+		'juiz_sps_display_where'	=> 'bottom',
+		'juiz_sps_write_css_in_html'=> 0,
+		'juiz_sps_mail_subject'		=> __( 'Visit this link find on %%siteurl%%', 'juiz-social-post-sharer'),
+		'juiz_sps_mail_body'		=> __( 'Hi, I found this information for you : "%%title%%"! This is the direct link: %%permalink%% Have a nice day :)', 'juiz-social-post-sharer' ),
+		'juiz_sps_force_pinterest_snif' => 0,
+		'juiz_sps_colors' 			=> array(
+			'bg_color'	=> '', 
+			'txt_color' => ''
+		)
+	);
+
+	return $default_settings;
+}
+
+/**
+ * A utility to remove existing options for Nobs plugin.
+ * Used for debugging purpose, or support purpose.
+ * (in options-general.php?page=juiz-social-post-sharer add &action=reset-options)
+ *
+ * @since 2.0.0
+ */
+function jsps_delete_plugin_options() {
+	delete_option( 'juiz_SPS_settings' );
+	delete_site_option( 'juiz_SPS_settings' );
+}

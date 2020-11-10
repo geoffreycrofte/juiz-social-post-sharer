@@ -177,6 +177,18 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
  * To [MarieComet](https://github.com/geoffreycrofte/juiz-social-post-sharer/pull/10)
  * To [audrasjb](https://github.com/geoffreycrofte/juiz-social-post-sharer/pull/7)
 
+= 1.4.11 =
+
+* Tested up to WP 5.5.3
+* Prepares the next major version: 2.0.0
+* Fixes PHP Notice (`create_function` deprecated)
+* Fixes issue in Multisite where setting were not well initiated.
+
+= 1.4.10 =
+
+* Tested up to WP 5.2.3
+* New hook `juiz_sps_twitter_nickname` to change the Twitter Username
+
 = 1.4.9 =
 
 * Compatible with Dark Mode plugin.
