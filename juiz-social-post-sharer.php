@@ -59,6 +59,7 @@ include_once( 'inc/utilities.php'             );
 if ( is_admin() || ( defined( 'DOING_AJAX' ) && ! DOING_AJAX ) ) {
 	include_once( 'inc/admin/register-settings.php' );
 	include_once( 'inc/admin/settings.php'          );
+	include_once( 'inc/admin/upgrade-notice.php'    );
 	include_once( 'inc/admin/metaboxes.php'         );
 	include_once( 'inc/admin/enqueues.php'          );
 	include_once( 'inc/admin/welcome.php'           );
