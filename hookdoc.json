@@ -4,7 +4,7 @@
         "template"      : "documentation/template",
         "readme"        : "documentation/README.md",
         "tutorials"     : "documentation/tutorials",
-        "mainpagetitle" : "Juiz Social Post Sharer Documentation",
+        "mainpagetitle" : "Nobs • Share Buttons - Documentation",
         "recurse": true
     },
     "source": {
