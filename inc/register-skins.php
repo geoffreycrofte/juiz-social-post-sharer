@@ -88,26 +88,38 @@ function jsps_register_current_template_skins( $custom_skins ) {
 	$img = juiz_sps_get_skin_img_name();
 	$dir = new DirectoryIterator( get_template_directory() );
 
+	/**
+	 * The folder name where the skins within active WordPress theme is.
+	 * 
+	 * @hook juiz_sps_custom_skin_folder
+	 *
+ 	 * @since  2.0.0 First version
+ 	 * @param  {string}  folder_name The name of the folder from the template directory.
+ 	 * @return {string}              The new name of the folder if changed (default: nobs-skins).
+ 	 * @tutorial create-buttons-skin
+	 */
+	$folder_name = apply_filters( 'juiz_sps_custom_skin_folder', 'nobs-skins' );
+
 	foreach ($dir as $fileinfo) {
-		if ($fileinfo->isDir() && $fileinfo->getFilename() === 'juiz-sps' ) {
+		if ($fileinfo->isDir() && $fileinfo->getFilename() === $folder_name ) {
 
 			// If we find the styles.css file here, don't dive deeper.
-			if ( file_exists( get_template_directory() . '/juiz-sps/styles.css') ) {
+			if ( file_exists( get_template_directory() . '/' . $folder_name . '/styles.css') ) {
 				$skins[0] = array(
-					'css' => get_template_directory_uri() . '/juiz-sps/' . $css,
-					'img' => get_template_directory_uri() . '/juiz-sps/' . $img,
+					'css' => get_template_directory_uri() . '/' . $folder_name . '/' . $css,
+					'img' => get_template_directory_uri() . '/' . $folder_name . '/' . $img,
 				);
 				break;
 			}
 
 			// Else look for styles.css file(s) in subfolders.
-			$dir = new DirectoryIterator( get_template_directory() . '/juiz-sps' );
+			$dir = new DirectoryIterator( get_template_directory() . '/' . $folder_name );
 
 			foreach ($dir as $fileinfo) {
 				// If it's a folder and not a "." or ".." folder
 				if ( $fileinfo->isDir() && !$fileinfo->isDot() ) {
 					// try to get a styles.css file
-					$baseurl = '/juiz-sps/' . $fileinfo->getFilename() . '/';
+					$baseurl = '/' . $folder_name . '/' . $fileinfo->getFilename() . '/';
 					$cssfilename = $baseurl . $css;
 					$imgfilename = $baseurl . $img;
 
@@ -136,6 +148,7 @@ function jsps_register_current_template_skins( $custom_skins ) {
  	 * @param  {string}  $author  The name of the author, by default the Theme author's name.
  	 * @param  {array}   $skins   A variable array of information about found skins.
  	 * @return {string}           The name of the author.
+ 	 * @tutorial create-buttons-skin
 	 */
 	$auth      = apply_filters( 'juiz_sps_custom_skin_author', $themeinf->get('Author'), $skins );
 
@@ -148,6 +161,7 @@ function jsps_register_current_template_skins( $custom_skins ) {
  	 * @param  {string}  $author_url  The URL of the author, by default the Theme author.
  	 * @param  {array}   $skins       A variable array of information about found skins.
  	 * @return {string}               The URL of the author.
+ 	 * @tutorial create-buttons-skin
 	 */
 	$authurl   = apply_filters( 'juiz_sps_custom_skin_author_url', $themeinf->get('AuthorURI'), $skins );
 	$themename = $themeinf->get('Name');

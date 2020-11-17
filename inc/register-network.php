@@ -47,6 +47,7 @@ function jsps_get_custom_networks( $custom_networks = array() ) {
 	 * Filters the list of Custom Networks. It's the best way to add new networks.
 	 * 
 	 * @hook jsps_register_custom_network
+	 * @tutorial create-a-custom-button
 	 *
  	 * @since  2.0.0 First version
  	 *
