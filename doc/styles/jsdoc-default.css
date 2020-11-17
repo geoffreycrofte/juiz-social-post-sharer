@@ -565,10 +565,10 @@ pre.name {
 
 .prettyprint {
     border: 1px solid #ddd;
-    padding-top: 16px;
-    padding-bottom: 16px;
+    padding: 16px;
     width: 100%;
     overflow: auto;
+    -moz-tab-size: 4;
 }
 
 .prettyprint.source {
@@ -678,6 +678,16 @@ h3.subsection-title {
 
 .tutorial-content .subtitle {
     order: -1;
+}
+
+.tutorial-content .entry {
+    width: 680px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.tutorial-page .page-title {
+    text-align: center;
 }
 
 .tutorial-content p,

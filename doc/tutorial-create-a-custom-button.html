@@ -23,11 +23,131 @@
 
 	<div class="entry hentry">
 
-		<pre class="prettify">
-.something {
-	coucou: line;
+		
+<p class="subtitle">Create a custom social network share button with Nobs • Share Buttons.</p>
+
+<p class="message notice">
+	<strong>Kind reminder:</strong>
+	This tutorial is made for the <a href="https://wordpress.org/plugins/juiz-social-post-sharer/">Nobs • Share Buttons</a> (ex-Juiz Social Post Sharer) plugin available on the WordPress repository but also <a href="https://github.com/geoffreycrofte/juiz-social-post-sharer">on Github</a>.
+</p>
+
+<p>
+	In this tutorial, you will be able to create a custom button to be added to the set of button you already activated for your website.<br>
+	Let's dive together in the steps of creating it.
+</p>
+
+<h2 id="prepare">Prepare some assets</h2>
+
+<p>
+	Before you start, try to be sure you gathered these different elements:
+</p>
+
+<ol>
+	<li>A share URL API provided by your social network.</li>
+	<li>An icon for you social network (SVG is best)</li>
+	<li>2 colors in hexadecimal, related to the <a href="https://brandcolors.net/" target="_blank">brand color</a>.</li>
+</ol>
+
+<h2 id="code">Prepare your custom plugin / theme code</h2>
+
+<p>
+	I won't go into the basic of <a href="https://developer.wordpress.org/plugins/">coding a plugin for WordPress</a>, so that the following code can be compatible with your theme or your custom plugin. You can totally add the following lines of code into your <code>functions.php</code> file within your active WordPress theme.
+</p>
+
+<p>
+	All we need here to declare our network, if this piece of code using the <a href="jsps_register_custom_network.html">jsps_register_custom_network</a> hook.
+</p>
+
+<pre class="prettyprint">&lt;?php
+/**
+ * Nobs • Share Buttons
+ * Adds Buffer sharing button via Button API of Nobs Plugin.
+ *
+ * @see https://sharebuttons.social/doc/tutorial-create-a-custom-button.html
+ *
+ * @param  array $custom_networks The array of custom networks being merged with core networks.
+ * @return array                  The completed array of network.
+ */
+function nobs_custom_new_network( $custom_networks ) {
+
+	$custom_networks[ 'buffer' ] = array(
+		'name'    => 'Buffer',
+		'visible' => 1,
+		'api_url' => 'https://buffer.com/add?text=%%title%%&amp;url=%%url%%',
+		'icon'    => get_template_directory_uri() . '/buffer-icon.svg', // optional
+		'title'   => __( 'Share on Buffer', 'textdomain' ), // optional
+		'color'   => '#bada55', // optional
+		'hcolor'  => '#a9c944', // optional
+	);
+
+	return $custom_networks;
 }
-</pre>
+add_filter( 'jsps_register_custom_network', 'nobs_custom_new_network', 10, 1 );
+?&gt;</pre>
+
+<p>
+	I added in this example a support for the Buffer API, not yet in the core plugin. (<a href="https://github.com/geoffreycrofte/juiz-social-post-sharer/issues/38" target="_blank">I'll add it soon</a>)<br>
+	Let me explain each entry of this new button entry.
+</p>
+
+<ul>
+	<li>
+		<code>name</code>: The visible name of the social network, used in the admin area but also directly on the button itself.
+	</li>
+	<li>
+		<code>visible</code>: value <code>1</code> make it visible by default in the options of the plugin so that the next time someone save the settings the button will be selected an display.
+	</li>
+	<li>
+		<code>api_url</code>: this is the URL of the network API you wanna use. This URL is given by the service, you can't invent it. You can use several placeholders being dynamically replaced by the plugin core (don't replace those by yourself):
+
+		<ul>
+			<li><strong>%%title%%</strong>: the title of the post being shared on this network (usually short)</li>
+			<li><strong>%%excerpt%%</strong>: the excerpt of the post being shared on this network (usually a bit longer). You can customize the size of the excerpt with <a href="jsps_get_excerpt_letter_count.html">jsps_get_excerpt_letter_count</a> (80 letters by default)</li>
+			<li><strong>%%url%%</strong>: the URL of the post being shared.</li>
+		</ul>
+	</li>
+	<li>
+		<code>icon</code>: (optional) the icon being used on the button, but also in the admin area. Provide with a valid URL to the icon. We strongly suggest you to use a SVG image, unless you are mastering the art of font-icon. If so, you can use the classname instead of a URL. (e.i. <code>fa-plus</code> for a Font Awesome font-icon)
+	</li>
+	<li>
+		<code>title</code>: (optional) the value of the title attribute of your button. Try to make it translatable using your own text-domain. It'll be displayed while hovering the button.
+	</li>
+	<li>
+		<code>color</code>: (optional) the color value for your button.
+	</li>
+	<li>
+		<code>hcolor</code>: (optional) the color value for your button while hovering it.
+	</li>
+</ul>
+
+<h2 id="svg">Prepare SVG Image</h2>
+
+<p>
+	I strongly recommend you to follow those lines to make the image matching the other social network icons.<br>
+	Your SVG fill must match the following criteria to be perfect.
+</p>
+
+<ul>
+	<li>being a square image (not the shape of the icon, just the dimension) for instance: 64x64 pixels</li>
+	<li>you icon must not have any inner margin, put the glyph on the edge of the image,</li>
+	<li>the background must be transparent,</li>
+	<li>after exporting the SVG with your design tool, or after downloading it elsewhere, open the SVG file with a text editor, track down all the "fill" property, and replace these values by <code>currentColor</code> respecting the case.</li>
+</ul>
+
+<p>
+	Your SVG file code should look like that:
+</p>
+
+<pre class="prettyprint">&lt;svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 64 64" width="64" height="64"&gt;&lt;path d="M.3 14.128L29.286.532c1.672-.78 3.232-.67 4.903.1L61.492 13.46c.67.334 1.45.557 1.45 1.337 0 1.003-.892 1.114-1.56 1.45l-26.2 12.257c-2.452 1.114-4.57 1.114-7.02 0L.3 15.577v-1.45zm0 34.658l5.126-2.563c2.117-1.114 4.123-.892 6.24.1l16.827 7.912c2.117 1.003 4.123 1.003 6.24 0l17.05-8.024c2.117-1.003 4.123-1.003 6.24 0 1.226.67 2.563 1.226 3.8 1.783.557.334 1.337.557 1.226 1.337 0 .67-.67 1.003-1.226 1.226L49.12 56.585 34.743 63.27c-1.894.892-3.8 1.003-5.683.1L2.094 50.792c-.557-.223-1.003-.67-1.56-1.003-.223-.223-.223-.557-.223-1.003zm0-17.273l3.9-1.894c3-1.783 5.795-1.45 8.915.1 5.238 2.675 10.587 4.903 15.824 7.466 2.006.892 3.8.892 5.683 0l16.827-7.912c2.34-1.114 4.57-1.226 6.9 0 1.226.67 2.675 1.226 3.9 1.894 1.114.67 1.003 1.337 0 2.006-.334.223-.67.334-1.003.446L34.412 46.1c-1.783.892-3.566.892-5.35 0L2.206 33.63c-.67-.334-1.226-.78-1.894-1.114v-1.003z" fill="currentColor" /&gt;&lt;/svg&gt;</pre>
+
+<p>
+	Nobs • will automatically use this icon the right size and color to make it match the existing styles applied.
+</p>
+
+<p>
+	And you are done! Congratz! 👍
+</p>
+
 
 		
 
@@ -41,11 +161,12 @@
 
             <nav role="navigation" id="navigation">
                 <ul>
-					<li class="nav-item-home"><a href="index.html"><img src="images/social-post-sharer-logo-horiz.svg" width="248" height="48" alt="Home - Social Post Sharer Doc."></a></li>
+					<li class="nav-item-home"><a href="index.html"><img src="images/nobs-logo-horiz.svg" width="269" height="48" alt="Nobs Share Plugin - Back Home"></a></li>
 					<li class="nav-item-tutorials">
 						<span class="sub-item"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 10L2.54 7.02L3 18H1L1.48 6.59L0 6L10 2L20 6L10 10ZM10 5C9.45 5 9 5.22 9 5.5C9 5.78 9.45 6 10 6C10.55 6 11 5.78 11 5.5C11 5.22 10.55 5 10 5ZM10 11L15.57 8.77C16.28 9.71 16.77 10.84 16.93 12.07C16.63 12.03 16.32 12 16 12C13.45 12 11.22 13.37 10 15.41C9.38075 14.3708 8.50224 13.5101 7.45048 12.9124C6.39872 12.3146 5.20976 12.0002 4 12C3.68 12 3.37 12.03 3.07 12.07C3.23 10.84 3.72 9.71 4.43 8.77L10 11Z" fill="currentColor"/></svg>Tutorials</span>
 						<ul>
-							<li class="here-2-customize-buttons-appearance"><a href="tutorial-customize-buttons-appearance.html">Customize Buttons Appearance</a></li>
+							<li class="here-2-create-buttons-skin"><a href="tutorial-create-buttons-skin.html">Create a Buttons Skin</a></li>
+								<li class="here-2-customize-buttons-appearance"><a href="tutorial-customize-buttons-appearance.html">Customize Buttons Appearance</a></li>
 						</ul>
 					</li>
 					<li class="nav-item-filters">
@@ -55,6 +176,7 @@
 								<li class="here-2-jsps_get_displayable_networks"><a href="jsps_get_displayable_networks.html">jsps_get_displayable_networks</a></li>
 								<li class="here-2-jsps_get_excerpt"><a href="jsps_get_excerpt.html">jsps_get_excerpt</a></li>
 								<li class="here-2-jsps_get_excerpt_letter_count"><a href="jsps_get_excerpt_letter_count.html">jsps_get_excerpt_letter_count</a></li>
+								<li class="here-2-jsps_get_initial_settings"><a href="jsps_get_initial_settings.html">jsps_get_initial_settings</a></li>
 								<li class="here-2-jsps_get_network_html_icon"><a href="jsps_get_network_html_icon.html">jsps_get_network_html_icon</a></li>
 								<li class="here-2-jsps_register_core_network"><a href="jsps_register_core_network.html">jsps_register_core_network</a></li>
 								<li class="here-2-jsps_register_core_networks"><a href="jsps_register_core_networks.html">jsps_register_core_networks</a></li>
@@ -80,6 +202,7 @@
 								<li class="here-2-juiz_sps_content"><a href="juiz_sps_content.html">juiz_sps_content</a></li>
 								<li class="here-2-juiz_sps_custom_skin_author"><a href="juiz_sps_custom_skin_author.html">juiz_sps_custom_skin_author</a></li>
 								<li class="here-2-juiz_sps_custom_skin_author_url"><a href="juiz_sps_custom_skin_author_url.html">juiz_sps_custom_skin_author_url</a></li>
+								<li class="here-2-juiz_sps_custom_skin_folder"><a href="juiz_sps_custom_skin_folder.html">juiz_sps_custom_skin_folder</a></li>
 								<li class="here-2-juiz_sps_custom_skin_name"><a href="juiz_sps_custom_skin_name.html">juiz_sps_custom_skin_name</a></li>
 								<li class="here-2-juiz_sps_hide_intro"><a href="juiz_sps_hide_intro.html">juiz_sps_hide_intro</a></li>
 								<li class="here-2-juiz_sps_intro_phrase_text"><a href="juiz_sps_intro_phrase_text.html">juiz_sps_intro_phrase_text</a></li>

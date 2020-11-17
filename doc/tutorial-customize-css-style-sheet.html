@@ -23,7 +23,390 @@
 
 	<div class="entry hentry">
 
-		<p>This this the *customize css style sheet doc*</p>
+		<p class="subtitle">Customize your buttons, or create you own theme with CSS and Nobs • Share Buttons</p>
+
+<p class="message notice">
+	<strong>Kind reminder:</strong>
+	This tutorial is made for the <a href="https://wordpress.org/plugins/juiz-social-post-sharer/">Nobs • Share Buttons</a> (ex-Juiz Social Post Sharer) plugin available on the WordPress repository but also <a href="https://github.com/geoffreycrofte/juiz-social-post-sharer">on Github</a>.
+</p>
+
+<p>
+	Before I start telling you how CSS works, you better know how HTML is structured to understand how the styles apply.
+</p>
+
+<h2>HTML Structure of Nobs • Share Buttons</h2>
+
+<p>
+	This plugin is part of the WordPress environment. As so, and to avoid any conflict with existing plugins, all the classes used are prefixed with <code>juiz_sps_</code>, the code name of the plugin, based on its old name.
+</p>
+
+<pre class="prettyprint">&lt;div class="juiz_sps_links counters_both juiz_sps_displayed_both" data-post-id="10000"&gt;
+	
+	&lt;p class="screen-reader-text juiz_sps_maybe_hidden_text"&gt;Share the post "Testing with a post"&lt;/p&gt;
+
+	&lt;ul class="juiz_sps_links_list"&gt;
+		
+		&lt;!-- Markup for a core plugin button --&gt;
+		&lt;li class="juiz_sps_item juiz_sps_link_tumblr"&gt;
+			&lt;a href="https://www.tumblr.com/widgets/share/tool?canonicalUrl={url}" rel="nofollow" title="Share this article on Tumblr"&gt;
+				&lt;span class="juiz_sps_icon jsps-tumblr"&gt;&lt;/span&gt;
+				&lt;span class="juiz_sps_network_name"&gt;Tumblr&lt;/span&gt;
+			&lt;/a&gt;
+		&lt;/li&gt;
+
+		&lt;!-- Markup for a custom button --&gt;
+		&lt;li class="juiz_sps_item juiz_sps_link_{custom-name}" style="--jsps-custom-color:#bada55;--jsps-custom-hover-color:#a9c944;"&gt;
+
+			&lt;a href="https://buffer.com/add?text={title}&amp;url={url}" rel="nofollow" title="Share on {Custom Name}"&gt;
+				&lt;span class="juiz_sps_icon jsps-{custom-name}"&gt;
+					&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64"&gt;…&lt;/svg&gt;
+				&lt;/span&gt;
+				&lt;span class="juiz_sps_network_name"&gt;Custom Name&lt;/span&gt;
+			&lt;/a&gt;
+		&lt;/li&gt;
+
+		&lt;!-- ... --&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;</pre>
+
+<p>
+	You need to know that, even if the HTML uses semantic structure like a <code>UL</code> for the list and <code>LI</code> for the list-items, you can change all of that thanks to filters. Have a look at all the filters ending by <code>_tag</code> in this documentation. For instance: <a href="juiz_sps_list_container_tag.html">juiz_sps_list_container_tag</a>
+</p>
+
+<p>
+	As you can see, custom button (see: <a href="tutorial-create-a-custom-button.html">Create a Custom Button</a>) is a little bit different, but shares a big amount of the same markup.
+</p>
+
+<h2 id="css">CSS of Nobs • Share Buttons</h2>
+
+<p>
+	Now you know more about the structure, let's give you some pieces of advice on the CSS.
+</p>
+
+<p>
+	Unfortunately, I won't be able to give you a step by step guide to create your own skin, because it relies on a lot of external parameters like: the design you want, the font you use for your theme, the knowledge you have in CSS, etc. But here are some tips and tricks for CSS developers.
+</p>
+
+<h3 id="css-weight">Classes and selector weight</h3>
+
+<p>
+	Has you may know, the way you write your CSS selectors has an impact on the way they are interpreted, and applied. For instance:
+</p>
+
+<pre class="prettyprint">.juiz_sps_links .juiz_sps_links_list {
+	display: grid;
+}
+
+.juiz_sps_links_list {
+	display: flex;
+}
+</pre>
+
+<p>
+	In this case, the winner is <code>grid</code>, because the first selector has two classes, its weight is bigger than the second selector.
+</p>
+
+<p>
+	You the default CSS files for the core skins, I tend to have strong selector to be sure your WordPress Theme doesn't break the styles, but I also tend not to have to heavy selectors. <strong>I limit those to 3 classes on purpose.</strong>
+</p>
+<p>
+	<strong>Pro-tips</strong>: if you need to make a selector really heavy to override a style applied, never use <code>!important</code> unless it's applied in the original CSS files, prefer using this trick: <code>.juiz_sps_links_list.juiz_sps_links_list.juiz_sps_links_list</code>. This code seems dumb, but it uses the double attribution of an element to make the selector heavier using the same class.
+</p>
+
+
+<h3 id="theme-conflict">WordPress Theme Conflict</h3>
+
+<p>
+	This is the most common issue with styling for a plugin, and by building a custom skin for Nobs • Share Buttons, you will encounter the same problem while doing it.
+</p>
+
+<p>Here are some pieces of advice while building your skin:</p>
+
+<ul>
+	<li>be careful of the weight of the selectors, as seen in the previous section.</li>
+
+	<li><code>!important</code> is your ennemy: bad coded theme use a lot of that at the end of there CSS properties value because those developers are not necessarily aware of how bad it is for maintenance. When you encounter these beats, you can only kill those with the same trick.<pre class="prettyprint">.juiz_sps_links {
+	display: grid!important;
+}</pre></li>
+
+	<li>be careful of the inherited styles, and in case of doubt, debug using <code>!important</code> here and there.</li>
+
+	<li>remember to target things at the lowest level, meaning that if you need to change the color of the link text, do not style the anchor <code>&lt;a&gt;</code> but prefer styling the <code>&lt;span&gt;</code> within.</li>
+
+</ul>
+
+
+<h3 id="stylesheet">Example of an empty StyleSheet</h3>
+
+<p>
+	To help you start with you CSS, here is an common example of the selectors used in some of the core themes.<br>
+	This example proposes some already written CSS properties, these ones are the ones you can keep it that way. For the colors and some other stuff, you can completely do what you want.
+</p>
+
+<p><strong>Important:</strong> You won't have a good looking skin by simply copy/pasting this code, it's almost only empty selectors to help you started.</p>
+
+<pre class="prettyprint">/**
+* Plugin Name: Nobs • Share Buttons
+* Plugin URI: https://sharebuttons.social
+* Author: Geoffrey Crofte
+* Version: Styles v8 inspired from Material Design
+*/
+
+/* Colors using CSS native variables */
+.juiz_sps_links {
+	--neutral: #333C45;
+	--neutraldark: #1A1C1E;
+
+	--twitter: #1DA1F2;
+	--twitterdark: #005FD1;
+
+	--linkedin: #0A66C2;
+	--linkedindark: #004183;
+
+	--facebook: #1778F2;
+	--facebookdark: #385898;
+
+	--viadeo: #F07355;
+	--viadeodark: #D64928;
+
+	--weibo: #D52A2C;
+	--weibodark: #AD1719;
+
+	--pinterest: #E60023;
+	--pinterestdark: #AE0719;
+
+	--vk: #4680C2;
+	--vkdark: #304186;
+
+	--tumblr: #001935;
+	--tumblrdark: #020C16;
+
+	--reddit: #FF4500;
+	--redditdark: #CF4816;
+
+	--diigo: #368BFF;
+	--diigodark: #256ED2;
+
+	--evernote: #00A82D;
+	--evernotedark: #0D862E;
+
+	--pocket: #EF4056;
+	--pocketdark: #CB3F50;
+
+	--mix: #FF8126;
+	--mixdark: #DE201D;
+
+	--whatsapp: #128C7E;
+	--whatsappdark: #075E54;
+}
+
+@font-face {
+	font-family: 'jsps-icons';
+	src: url('../common/fonts/jsps.woff2?200') format('woff2'),
+	     url('../common/fonts/jsps.woff?200') format('woff'),
+		 url('../common/fonts/jsps.ttf?200') format('truetype'),
+		 url('../common/fonts/jsps.svg?200') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.juiz_sps_icon {
+	font-family: 'jsps-icons'!important;
+	speak: never;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-size: 32px;
+}
+
+.jsps-bookmark::before {
+	content: "\e900";
+}
+.jsps-diigo::before {
+	content: "\e901";
+}
+.jsps-evernote::before {
+	content: "\e902";
+}
+.jsps-facebook::before {
+	content: "\e903";
+}
+.jsps-linkedin::before {
+	content: "\e904";
+}
+.jsps-mail::before {
+	content: "\e905";
+}
+.jsps-mix::before {
+	content: "\e906";
+}
+.jsps-pinterest::before {
+	content: "\e907";
+}
+.jsps-pocket::before {
+	content: "\e908";
+}
+.jsps-print::before {
+	content: "\e909";
+}
+.jsps-reddit::before {
+	content: "\e90a";
+}
+.jsps-share::before {
+	content: "\e90b";
+}
+.jsps-tumblr::before {
+	content: "\e90c";
+}
+.jsps-twitter::before {
+	content: "\e90d";
+}
+.jsps-viadeo::before {
+	content: "\e90e";
+}
+.jsps-vk::before {
+	content: "\e90f";
+}
+.jsps-weibo::before {
+	content: "\e910";
+}
+.jsps-whatsapp::before {
+	content: "\e911";
+}
+
+.juiz_sps_links {
+}
+
+.juiz_sps_maybe_hidden_text {
+	position: absolute;
+	left: -9999em;
+	text-indent: -9999em;
+}
+[dir="rtl"] .juiz_sps_maybe_hidden_text {
+	position: absolute;
+	right: -9999em;
+}
+
+/* List items and lists are oftentime styled by WP Templates */
+.juiz_sps_links .juiz_sps_links_list,
+.juiz_sps_links .juiz_sps_item  { 
+	padding: 0!important;
+	margin: 0!important;
+	list-style: none!important;
+}
+
+/* UL list */
+.juiz_sps_links .juiz_sps_links_list {
+}
+
+/* LI item */
+.juiz_sps_links .juiz_sps_item {
+}
+
+/* Link / Button */
+.juiz_sps_links .juiz_sps_item a {
+}
+
+/* The network name */
+.juiz_sps_links .juiz_sps_item .juiz_sps_network_name {
+}
+
+/* The icons */
+.juiz_sps_links .juiz_sps_icon {
+}
+
+.juiz_sps_links .juiz_sps_icon svg {
+	width: calc(100% - 6px); /* env. 6px, can vary */
+	height: calc(100% - 6px);
+}
+
+/* The link when hovered/focused */
+.juiz_sps_links .juiz_sps_item a:hover,
+.juiz_sps_links .juiz_sps_item a:focus {
+}
+
+/* The link when active/clicked/touched */
+.juiz_sps_links .juiz_sps_item a:active {
+}
+
+/**
+ * Color Application
+ */
+.juiz_sps_links .juiz_sps_link_twitter a {
+	background-color: var(--twitter);
+}
+
+.juiz_sps_links .juiz_sps_link_twitter a:hover,
+.juiz_sps_links .juiz_sps_link_twitter a:focus { 
+	background-color: var(--twitterdark);
+}
+
+/* ... and so on... */
+
+/* Specific: When names are hidden via the options */
+.juiz_sps_hide_name .juiz_sps_item a {
+	padding: 8px; /* override --link-padding */
+}
+
+.juiz_sps_hide_name a .juiz_sps_network_name {
+	max-width: 0;
+	white-space: nowrap!important;
+	overflow: hidden;
+}
+
+.juiz_sps_hide_name a .juiz_sps_network_name { 
+	-webkit-transition: max-width .75s;
+			transition: max-width .75s;
+}
+
+.juiz_sps_hide_name a .juiz_sps_icon {
+	margin-right:0;
+	-webkit-transition: margin .75s;
+			transition: margin .75s;
+}
+
+.juiz_sps_hide_name .juiz_sps_item a:hover,
+.juiz_sps_hide_name .juiz_sps_item a:focus {
+	padding: var(--link-padding);
+}
+
+.juiz_sps_hide_name a:hover .juiz_sps_network_name,
+.juiz_sps_hide_name a:focus .juiz_sps_network_name {
+	max-width: 8em;
+}
+
+.juiz_sps_hide_name a:hover .juiz_sps_icon,
+.juiz_sps_hide_name a:focus .juiz_sps_icon {
+	margin-right: .3em;
+}
+
+/* Specific: When the counters are activated via the options */
+.juiz_sps_counter {
+}
+
+.juiz_sps_totalcount {
+}
+
+.juiz_sps_links.counters_total .juiz_hidden_counter {
+	display: none!important;
+}
+
+/* To avoid buttons being printed when user print the page */
+@media print {
+	.juiz_sps_links {
+		display: none;
+		margin: 0;
+		padding: 0;
+		opacity: 0;
+		visibility: hidden;
+	}
+}</pre>
+
+<p>Good coding!</p>
 
 		
 
@@ -37,11 +420,12 @@
 
             <nav role="navigation" id="navigation">
                 <ul>
-					<li class="nav-item-home"><a href="index.html"><img src="images/social-post-sharer-logo-horiz.svg" width="248" height="48" alt="Home - Social Post Sharer Doc."></a></li>
+					<li class="nav-item-home"><a href="index.html"><img src="images/nobs-logo-horiz.svg" width="269" height="48" alt="Nobs Share Plugin - Back Home"></a></li>
 					<li class="nav-item-tutorials">
 						<span class="sub-item"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 10L2.54 7.02L3 18H1L1.48 6.59L0 6L10 2L20 6L10 10ZM10 5C9.45 5 9 5.22 9 5.5C9 5.78 9.45 6 10 6C10.55 6 11 5.78 11 5.5C11 5.22 10.55 5 10 5ZM10 11L15.57 8.77C16.28 9.71 16.77 10.84 16.93 12.07C16.63 12.03 16.32 12 16 12C13.45 12 11.22 13.37 10 15.41C9.38075 14.3708 8.50224 13.5101 7.45048 12.9124C6.39872 12.3146 5.20976 12.0002 4 12C3.68 12 3.37 12.03 3.07 12.07C3.23 10.84 3.72 9.71 4.43 8.77L10 11Z" fill="currentColor"/></svg>Tutorials</span>
 						<ul>
-							<li class="here-2-customize-buttons-appearance"><a href="tutorial-customize-buttons-appearance.html">Customize Buttons Appearance</a></li>
+							<li class="here-2-create-buttons-skin"><a href="tutorial-create-buttons-skin.html">Create a Buttons Skin</a></li>
+								<li class="here-2-customize-buttons-appearance"><a href="tutorial-customize-buttons-appearance.html">Customize Buttons Appearance</a></li>
 						</ul>
 					</li>
 					<li class="nav-item-filters">
@@ -51,6 +435,7 @@
 								<li class="here-2-jsps_get_displayable_networks"><a href="jsps_get_displayable_networks.html">jsps_get_displayable_networks</a></li>
 								<li class="here-2-jsps_get_excerpt"><a href="jsps_get_excerpt.html">jsps_get_excerpt</a></li>
 								<li class="here-2-jsps_get_excerpt_letter_count"><a href="jsps_get_excerpt_letter_count.html">jsps_get_excerpt_letter_count</a></li>
+								<li class="here-2-jsps_get_initial_settings"><a href="jsps_get_initial_settings.html">jsps_get_initial_settings</a></li>
 								<li class="here-2-jsps_get_network_html_icon"><a href="jsps_get_network_html_icon.html">jsps_get_network_html_icon</a></li>
 								<li class="here-2-jsps_register_core_network"><a href="jsps_register_core_network.html">jsps_register_core_network</a></li>
 								<li class="here-2-jsps_register_core_networks"><a href="jsps_register_core_networks.html">jsps_register_core_networks</a></li>
@@ -76,6 +461,7 @@
 								<li class="here-2-juiz_sps_content"><a href="juiz_sps_content.html">juiz_sps_content</a></li>
 								<li class="here-2-juiz_sps_custom_skin_author"><a href="juiz_sps_custom_skin_author.html">juiz_sps_custom_skin_author</a></li>
 								<li class="here-2-juiz_sps_custom_skin_author_url"><a href="juiz_sps_custom_skin_author_url.html">juiz_sps_custom_skin_author_url</a></li>
+								<li class="here-2-juiz_sps_custom_skin_folder"><a href="juiz_sps_custom_skin_folder.html">juiz_sps_custom_skin_folder</a></li>
 								<li class="here-2-juiz_sps_custom_skin_name"><a href="juiz_sps_custom_skin_name.html">juiz_sps_custom_skin_name</a></li>
 								<li class="here-2-juiz_sps_hide_intro"><a href="juiz_sps_hide_intro.html">juiz_sps_hide_intro</a></li>
 								<li class="here-2-juiz_sps_intro_phrase_text"><a href="juiz_sps_intro_phrase_text.html">juiz_sps_intro_phrase_text</a></li>

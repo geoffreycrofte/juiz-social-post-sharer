@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Filter: jsps_register_core_skins - Juiz Social Post Sharer Documentation</title>
+        <title>Filter: jsps_get_initial_settings - Juiz Social Post Sharer Documentation</title>
        
         <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
         <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
@@ -12,7 +12,7 @@
         <div class="app">
             <section role="main" id="main">
 
-                <h1 class="page-title">Filter: jsps_register_core_skins</h1>
+                <h1 class="page-title">Filter: jsps_get_initial_settings</h1>
 
                 
 
@@ -30,7 +30,7 @@
 
     
 
-    <pre class="name method-tmpl" id="jsps_register_core_skins">apply_filters( '<span class="hook-name">jsps_register_core_skins</span>', <span class="signature"><span class="sign-item">$cskins</span> )<span class="type-signature"> &rarr; {array}</span></span></pre>
+    <pre class="name method-tmpl" id="jsps_get_initial_settings">apply_filters( '<span class="hook-name">jsps_get_initial_settings</span>', <span class="signature"><span class="sign-item">$opts</span> )<span class="type-signature"> &rarr; {array}</span></span></pre>
 
     
 
@@ -38,7 +38,7 @@
 
 <div class="description method-tmpl">
     
-    Filters the list of Core Skins after populating it.
+    Gets the initial (sometimes empty) set of options for this plugin.
 </div>
 
 
@@ -62,8 +62,6 @@
         
 
         
-        <th class="param-default">Default</th>
-        
 
         <th class="param-description last">Description</th>
     </tr>
@@ -72,9 +70,9 @@
     <tbody>
     
 
-        <tr id="cskins">
+        <tr id="opts">
             
-                <td class="param-name name"><code>$cskins</code></td>
+                <td class="param-name name"><code>$opts</code></td>
             
 
             <td class="param-type type">
@@ -91,16 +89,644 @@
             
 
             
-                <td class="param-default default">
+
+            <td class="param-description last">
                 
-                    array()
+                The multiple used options.
+
                 
-                </td>
+                
+                    <p class="sub-param-text">Properties</p>
+                    
+
+<table class="params params-tmpl">
+    <thead>
+    <tr>
+        
+        <th class="param-name">Name</th>
+        
+
+        <th class="param-type">Type</th>
+
+        
+
+        
+
+        <th class="param-description last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr id="juiz_sps_version">
+            
+                <td class="param-name name"><code>$opts['juiz_sps_version']</code></td>
+            
+
+            <td class="param-type type">
+            
+                
+	
+	<span class="param-type">string</span>
+	
+
+
+            
+            </td>
+
+            
+
             
 
             <td class="param-description last">
                 
-                See <a href="jsps_register_core_skin.html">jsps_register_core_skin</a> for more details.
+                The version of the plugin.
+
+                </td>
+        </tr>
+
+    
+
+        <tr id="juiz_sps_style">
+            
+                <td class="param-name name"><code>$opts['juiz_sps_style']</code></td>
+            
+
+            <td class="param-type type">
+            
+                
+	
+	<span class="param-type">string</span>
+	
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="param-description last">
+                
+                The name of the style.
+
+                </td>
+        </tr>
+
+    
+
+        <tr id="juiz_sps_networks">
+            
+                <td class="param-name name"><code>$opts['juiz_sps_networks']</code></td>
+            
+
+            <td class="param-type type">
+            
+                
+	
+	<span class="param-type">array</span>
+	
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="param-description last">
+                
+                Empty array to be filled.
+
+                </td>
+        </tr>
+
+    
+
+        <tr id="juiz_sps_order">
+            
+                <td class="param-name name"><code>$opts['juiz_sps_order']</code></td>
+            
+
+            <td class="param-type type">
+            
+                
+	
+	<span class="param-type">array</span>
+	
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="param-description last">
+                
+                Empty array to be filled.
+
+                </td>
+        </tr>
+
+    
+
+        <tr id="juiz_sps_counter">
+            
+                <td class="param-name name"><code>$opts['juiz_sps_counter']</code></td>
+            
+
+            <td class="param-type type">
+            
+                
+	
+	<span class="param-type">int</span>
+	
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="param-description last">
+                
+                Show the counter? (1 = yes, 0 = no)
+
+                </td>
+        </tr>
+
+    
+
+        <tr id="juiz_sps_counter_option">
+            
+                <td class="param-name name"><code>$opts['juiz_sps_counter_option']</code></td>
+            
+
+            <td class="param-type type">
+            
+                
+	
+	<span class="param-type">string</span>
+	
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="param-description last">
+                
+                Inline or global, or both?
+
+                </td>
+        </tr>
+
+    
+
+        <tr id="juiz_sps_hide_social_name">
+            
+                <td class="param-name name"><code>$opts['juiz_sps_hide_social_name']</code></td>
+            
+
+            <td class="param-type type">
+            
+                
+	
+	<span class="param-type">int</span>
+	
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="param-description last">
+                
+                Hide the text? (1 = yes, 0 = no)
+
+                </td>
+        </tr>
+
+    
+
+        <tr id="juiz_sps_target_link">
+            
+                <td class="param-name name"><code>$opts['juiz_sps_target_link']</code></td>
+            
+
+            <td class="param-type type">
+            
+                
+	
+	<span class="param-type">int</span>
+	
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="param-description last">
+                
+                Open in new tab? (1 = yes, 0 = no)
+
+                </td>
+        </tr>
+
+    
+
+        <tr id="juiz_sps_twitter_user">
+            
+                <td class="param-name name"><code>$opts['juiz_sps_twitter_user']</code></td>
+            
+
+            <td class="param-type type">
+            
+                
+	
+	<span class="param-type">string</span>
+	
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="param-description last">
+                
+                The Twitter via option.
+
+                </td>
+        </tr>
+
+    
+
+        <tr id="juiz_sps_display_in_types">
+            
+                <td class="param-name name"><code>$opts['juiz_sps_display_in_types']</code></td>
+            
+
+            <td class="param-type type">
+            
+                
+	
+	<span class="param-type">array</span>
+	
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="param-description last">
+                
+                The post-types where to show buttons.
+
+                </td>
+        </tr>
+
+    
+
+        <tr id="juiz_sps_display_where">
+            
+                <td class="param-name name"><code>$opts['juiz_sps_display_where']</code></td>
+            
+
+            <td class="param-type type">
+            
+                
+	
+	<span class="param-type">string</span>
+	
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="param-description last">
+                
+                bottom, top, both, or none.
+
+                </td>
+        </tr>
+
+    
+
+        <tr id="juiz_sps_write_css_in_html">
+            
+                <td class="param-name name"><code>$opts['juiz_sps_write_css_in_html']</code></td>
+            
+
+            <td class="param-type type">
+            
+                
+	
+	<span class="param-type">int</span>
+	
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="param-description last">
+                
+                A performance option (not used yet)
+
+                </td>
+        </tr>
+
+    
+
+        <tr id="juiz_sps_mail_subject">
+            
+                <td class="param-name name"><code>$opts['juiz_sps_mail_subject']</code></td>
+            
+
+            <td class="param-type type">
+            
+                
+	
+	<span class="param-type">string</span>
+	
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="param-description last">
+                
+                Subject of mail to be sent.
+
+                </td>
+        </tr>
+
+    
+
+        <tr id="juiz_sps_mail_body">
+            
+                <td class="param-name name"><code>$opts['juiz_sps_mail_body']</code></td>
+            
+
+            <td class="param-type type">
+            
+                
+	
+	<span class="param-type">string</span>
+	
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="param-description last">
+                
+                Body of mail to be sent.
+
+                </td>
+        </tr>
+
+    
+
+        <tr id="juiz_sps_force_pinterest_snif">
+            
+                <td class="param-name name"><code>$opts['juiz_sps_force_pinterest_snif']</code></td>
+            
+
+            <td class="param-type type">
+            
+                
+	
+	<span class="param-type">int</span>
+	
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="param-description last">
+                
+                Force use JS for Pinterest button.
+
+                </td>
+        </tr>
+
+    
+
+        <tr id="juiz_sps_colors">
+            
+                <td class="param-name name"><code>$opts['juiz_sps_colors']</code></td>
+            
+
+            <td class="param-type type">
+            
+                
+	
+	<span class="param-type">array</span>
+	
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="param-description last">
+                
+                Array of colors for future use.
+
+                
+                
+                    <p class="sub-param-text">Properties</p>
+                    
+
+<table class="params params-tmpl">
+    <thead>
+    <tr>
+        
+        <th class="param-name">Name</th>
+        
+
+        <th class="param-type">Type</th>
+
+        
+
+        
+
+        <th class="param-description last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr id="bg_color">
+            
+                <td class="param-name name"><code>$opts['juiz_sps_colors']['bg_color']</code></td>
+            
+
+            <td class="param-type type">
+            
+                
+	
+	<span class="param-type">string</span>
+	
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="param-description last">
+                
+                A normal background color.
+
+                </td>
+        </tr>
+
+    
+
+        <tr id="bg_hcolor">
+            
+                <td class="param-name name"><code>$opts['juiz_sps_colors']['bg_hcolor']</code></td>
+            
+
+            <td class="param-type type">
+            
+                
+	
+	<span class="param-type">string</span>
+	
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="param-description last">
+                
+                A hover background color.
+
+                </td>
+        </tr>
+
+    
+
+        <tr id="txt_color">
+            
+                <td class="param-name name"><code>$opts['juiz_sps_colors']['txt_color']</code></td>
+            
+
+            <td class="param-type type">
+            
+                
+	
+	<span class="param-type">string</span>
+	
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="param-description last">
+                
+                A normal text color.
+
+                </td>
+        </tr>
+
+    
+
+        <tr id="txt_hcolor">
+            
+                <td class="param-name name"><code>$opts['juiz_sps_colors']['txt_hcolor']</code></td>
+            
+
+            <td class="param-type type">
+            
+                
+	
+	<span class="param-type">string</span>
+	
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="param-description last">
+                
+                A hover text color.
+
+                </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+                </td>
+        </tr>
+
+    
+    </tbody>
+</table>
 
                 </td>
         </tr>
@@ -120,7 +746,7 @@
 
     
     <dt class="tag-since">Since:</dt>
-    <dd class="tag-since"><ul class="dummy"><li>2.0.0 First version</li></ul></dd>
+    <dd class="tag-since"><ul class="dummy"><li>2.0.0 First version of the hook</li></ul></dd>
     
 
     
@@ -153,7 +779,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="register-skins.php.html">register-skins.php</a>, <a href="register-skins.php.html#line60">line 60</a>
+        <a href="admin_register-settings.php.html">admin/register-settings.php</a>, <a href="admin_register-settings.php.html#line56">line 56</a>
     </li></ul></dd>
     
 
@@ -180,7 +806,7 @@
 
         
 <div class="param-description return-desc returns-tmpl">
-    The list of Core Skins populated.
+    The options ready to be used to initial setting or multisite setup.
 </div>
 
 

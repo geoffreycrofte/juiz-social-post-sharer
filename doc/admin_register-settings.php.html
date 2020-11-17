@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Filter: jsps_register_core_skins - Juiz Social Post Sharer Documentation</title>
+        <title>Source: admin/register-settings.php - Juiz Social Post Sharer Documentation</title>
        
         <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
         <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
@@ -12,204 +12,129 @@
         <div class="app">
             <section role="main" id="main">
 
-                <h1 class="page-title">Filter: jsps_register_core_skins</h1>
+                <h1 class="page-title">Source: admin/register-settings.php</h1>
 
                 
 
 
-
-<article class="container-tmpl">
-
-
-
-
-    <div class="container-overview">
-
     
-        
-
-    
-
-    <pre class="name method-tmpl" id="jsps_register_core_skins">apply_filters( '<span class="hook-name">jsps_register_core_skins</span>', <span class="signature"><span class="sign-item">$cskins</span> )<span class="type-signature"> &rarr; {array}</span></span></pre>
-
-    
-
-
-
-<div class="description method-tmpl">
-    
-    Filters the list of Core Skins after populating it.
-</div>
-
-
-
-
-
-
-
-    <h2 class="h2-like method-tmpl">Parameters:</h2>
-    
-
-<table class="params params-tmpl">
-    <thead>
-    <tr>
-        
-        <th class="param-name">Name</th>
-        
-
-        <th class="param-type">Type</th>
-
-        
-
-        
-        <th class="param-default">Default</th>
-        
-
-        <th class="param-description last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr id="cskins">
-            
-                <td class="param-name name"><code>$cskins</code></td>
-            
-
-            <td class="param-type type">
-            
-                
-	
-	<span class="param-type">array</span>
-	
-
-
-            
-            </td>
-
-            
-
-            
-                <td class="param-default default">
-                
-                    array()
-                
-                </td>
-            
-
-            <td class="param-description last">
-                
-                See <a href="jsps_register_core_skin.html">jsps_register_core_skin</a> for more details.
-
-                </td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details details-tmpl">
-
-    
-
-    
-    <dt class="tag-since">Since:</dt>
-    <dd class="tag-since"><ul class="dummy"><li>2.0.0 First version</li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-author">Author:</dt>
-    <dd class="tag-author">
-        <ul>
-            <li><a href="https://twitter.com/geoffreycrofte">Geoffrey Crofte</a></li>
-        </ul>
-    </dd>
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="register-skins.php.html">register-skins.php</a>, <a href="register-skins.php.html#line60">line 60</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h2 class="h2-like method-tmpl">Returns:</h2>
-
-        
-<div class="param-description return-desc returns-tmpl">
-    The list of Core Skins populated.
-</div>
-
-
-
-<dl class="details details-return">
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-	
-	<span class="param-type">array</span>
-	
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-    
-
-    </div>
-
-    
-
-</article>
+    <section role="main">
+        <pre class="prettyprint source linenums"><code>&lt;?php if ( ! defined( 'ABSPATH' ) ) {
+	die( 'Cheatin&amp;#8217; uh?' );
+}
+
+// Activation hook
+register_activation_hook( JUIZ_SPS_FILE, 'juiz_sps_activation' );
+
+/**
+ * Set things at plugin activation.
+ *
+ * @return void
+ * @author Geoffrey Crofte
+ *
+ * @since   2.0.0  Remove old code for too far backward compatibility.
+ * @since   1.4.10 Uses jsps_get_initial_settings() to init options, and jsps_init_option_ms() for Multisite support.
+ * @since   1.0.0
+ *
+ * @version 2.0.0
+ */
+function juiz_sps_activation() {
+	$juiz_sps_options = jsps_get_option();
+
+	if ( ! is_array( $juiz_sps_options ) ) {
+		
+		$default_options = jsps_get_initial_settings();
+		
+		jsps_update_option( $default_options );
+		jsps_init_option_ms( $default_settings );
+	}
+	else {
+		// If was version under 2.0.0
+		if ( ! isset( $juiz_sps_options['juiz_sps_version'] ) || ( isset( $juiz_sps_options['juiz_sps_version'] ) &amp;&amp; version_compare( $juiz_sps_options['juiz_sps_version'], '2.0.0', '&lt;') ) ) {
+
+			$juiz_sps_options['juiz_sps_version'] = JUIZ_SPS_VERSION; // since 1.4.1
+			$juiz_sps_options['juiz_sps_order'] = array(); // since 2.0.0
+			
+			jsps_update_option( $juiz_sps_options );
+			jsps_init_option_ms( $juiz_sps_options );
+		}
+	}
+}
+
+/**
+ * Get the initial settings for this plugin.
+ *
+ * TODO: see in a next version (2.0.0+) how to do all of that without preset options.
+ *
+ * @return (array) The array of option.
+ *
+ * @since  2.0.0  Remove old options/values. Includes a filter hook.
+ * @since  1.4.11 First use.
+ *
+ * @author Geoffrey Crofte
+ */
+function jsps_get_initial_settings() {
+	/**
+	 * Gets the initial (sometimes empty) set of options for this plugin.
+	 * 
+	 * @hook jsps_get_initial_settings
+	 * 
+ 	 * @since  2.0.0 First version of the hook
+ 	 * 
+ 	 * @param  {array}   opts                               - The multiple used options.
+ 	 * @param  {string}  opts.juiz_sps_version              - The version of the plugin.
+ 	 * @param  {string}  opts.juiz_sps_style                - The name of the style.
+ 	 * @param  {array}   opts.juiz_sps_networks             - Empty array to be filled.
+ 	 * @param  {array}   opts.juiz_sps_order                - Empty array to be filled.
+ 	 * @param  {int}     opts.juiz_sps_counter              - Show the counter? (1 = yes, 0 = no)
+ 	 * @param  {string}  opts.juiz_sps_counter_option       - Inline or global, or both?
+ 	 * @param  {int}     opts.juiz_sps_hide_social_name     - Hide the text? (1 = yes, 0 = no)
+ 	 * @param  {int}     opts.juiz_sps_target_link          - Open in new tab? (1 = yes, 0 = no)
+ 	 * @param  {string}  opts.juiz_sps_twitter_user         - The Twitter via option.
+ 	 * @param  {array}   opts.juiz_sps_display_in_types     - The post-types where to show buttons.
+ 	 * @param  {string}  opts.juiz_sps_display_where        - bottom, top, both, or none.
+ 	 * @param  {int}     opts.juiz_sps_write_css_in_html    - A performance option (not used yet)
+ 	 * @param  {string}  opts.juiz_sps_mail_subject         - Subject of mail to be sent.
+ 	 * @param  {string}  opts.juiz_sps_mail_body            - Body of mail to be sent.
+ 	 * @param  {int}     opts.juiz_sps_force_pinterest_snif - Force use JS for Pinterest button.
+ 	 * @param  {array}   opts.juiz_sps_colors               - Array of colors for future use.
+ 	 * @param  {string}  opts.juiz_sps_colors.bg_color      - A normal background color.
+ 	 * @param  {string}  opts.juiz_sps_colors.bg_hcolor     - A hover background color.
+ 	 * @param  {string}  opts.juiz_sps_colors.txt_color     - A normal text color.
+ 	 * @param  {string}  opts.juiz_sps_colors.txt_hcolor    - A hover text color.
+ 	 * 
+ 	 * @return {array} The options ready to be used to initial setting or multisite setup.
+ 	 *
+	 */
+	return apply_filters(
+			'jsps_get_initial_settings',
+			array(
+				'juiz_sps_version' 			=> JUIZ_SPS_VERSION, // since 1.4.1
+				'juiz_sps_style' 			=> 7, // Can be a string
+				'juiz_sps_networks' 		=> array(), // empty since 2.0.0 (see register-networks.php)
+				'juiz_sps_order'			=> array(), // since 2.0.0
+				'juiz_sps_counter'			=> 0,
+				'juiz_sps_counter_option'	=> 'both', // since 1.3.3.7
+				'juiz_sps_hide_social_name' => 0,
+				'juiz_sps_target_link'		=> 0, // since 1.1.0
+				'juiz_sps_twitter_user'		=> 'wpsharebuttons',
+				'juiz_sps_display_in_types' => array( 'post' ),
+				'juiz_sps_display_where'	=> 'bottom',
+				'juiz_sps_write_css_in_html'=> 0,
+				'juiz_sps_mail_subject'		=> __( 'Visit this link find on %%siteurl%%', 'juiz-social-post-sharer'),
+				'juiz_sps_mail_body'		=> __( 'Hi, I found this information for you : "%%title%%"! This is the direct link: %%permalink%% Have a nice day :)', 'juiz-social-post-sharer' ),
+				'juiz_sps_force_pinterest_snif' => 0,
+				'juiz_sps_colors' 			=> array(
+					'bg_color'   => '', 
+					'bg_hcolor'  => '', 
+					'txt_color'  => '',
+					'txt_hcolor' => '',
+				)
+			)
+		);
+}
+</code></pre>
+    </section>
 
 
 

@@ -2,6 +2,18 @@
  * Global Document adjustment
  */
 (function(window, document) {
+	/**
+	 * JS HTML adjustements.
+	 */
+	
+	if ( document.querySelector('.tutorial-content') ) {
+		document.querySelector('.tutorial-content').closest('#main').classList.add('tutorial-page');
+	}
+	
+	/**
+	 * Menu button
+	 * for mobile purpose
+	 */
 	let body = document.querySelector('body'),
 		nav  = document.querySelector('nav'),
 		btn  = document.createElement('button'),

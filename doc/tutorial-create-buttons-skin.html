@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Create Buttons Skin - Juiz Social Post Sharer Documentation</title>
+        <title>Create a Buttons Skin - Juiz Social Post Sharer Documentation</title>
        
         <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
         <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
@@ -12,18 +12,74 @@
         <div class="app">
             <section role="main" id="main">
 
-                <h1 class="page-title">Create Buttons Skin</h1>
+                <h1 class="page-title">Create a Buttons Skin</h1>
 
                 <article class="tutorial-content">
 
 	<header>
 	<!--p></p-->
-		<p class="sr-only">Create Buttons Skin</p>
+		<p class="sr-only">Create a Buttons Skin</p>
 	</header>
 
 	<div class="entry hentry">
 
-		<p>This this the *create buttons skin doc*</p>
+		<p class="subtitle">Create a fresh buttons skin for you website with Nobs • Share Buttons.</p>
+
+<p class="message notice">
+	<strong>Kind reminder:</strong>
+	This tutorial is made for the <a href="https://wordpress.org/plugins/juiz-social-post-sharer/">Nobs • Share Buttons</a> (ex-Juiz Social Post Sharer) plugin available on the WordPress repository but also <a href="https://github.com/geoffreycrofte/juiz-social-post-sharer">on Github</a>.
+</p>
+
+<p>
+	To create a new skin for your website, you don't necessarily have to start from scratch. There are 3 ways to get it done, I'll show you how to do so.
+</p>
+
+<h2 id="existing">Start from an existing skin</h2>
+
+<p>
+	You've got already 8 free skins in the core of this plugin. Feel free to use one and adjust the CSS a little bit. To do so, follow this other tutorial: <a href="tutorial-customize-css-style-sheet.html">Customize CSS StyleSheet</a>
+</p>
+
+<h2 id="theme">Create a decicated theme's style</h2>
+
+<p>
+	You can build a custom theme from scratch by creating a dedicated CSS file within you active WordPress theme.
+</p>
+
+<p>
+	All you need is to put some files into a new folder named <code>nobs-skins</code> (unless you change it with <a href="juiz_sps_custom_skin_folder.html">juiz_sps_custom_skin_folder</a> ) in your current template.
+</p>
+
+<pre class="prettyprint">theme-folder
+|-- nobs-skins
+    |-- styles.css
+    |-- screenshot.png
+    |-- screenshot@2x.png
+</pre>
+
+<p>This basic structure for 1 skin can be duplicated if you need to add several skins, that's why nobs-skins folder take an S at the end 😜.</p>
+
+<pre class="prettyprint">theme-folder
+|-- nobs-skins
+    |-- skin-name-1
+        |-- styles.css
+        |-- screenshot.png
+        |-- screenshot@2x.png
+    |-- skin-name-2
+        |-- styles.css
+        |-- screenshot.png
+        |-- screenshot@2x.png
+</pre>
+
+<p>As long as you respect this structure, you can add as many skins as you need.</p>
+
+<p>Name and URL of the author are taken from the parent theme information (from the style.css file of the current WordPress Template). But if you want to change these, you can use <a href="juiz_sps_custom_skin_author.html">juiz_sps_custom_skin_author</a> and <a href="juiz_sps_custom_skin_author_url.html">juiz_sps_custom_skin_author_url</a> to customize those pieces information.</p>
+
+<h2 id="plugin">Create a Skin Extension</h2>
+
+<p>WordPress is powerful, so is Nobs • Share Buttons' plugin. Its power comes from the big amount of filters and action you can find in the core plugin, as well as in this documentation.</p>
+
+<p><em>Tutorial coming soon…</em></p>
 
 		
 
@@ -37,11 +93,12 @@
 
             <nav role="navigation" id="navigation">
                 <ul>
-					<li class="nav-item-home"><a href="index.html"><img src="images/social-post-sharer-logo-horiz.svg" width="248" height="48" alt="Home - Social Post Sharer Doc."></a></li>
+					<li class="nav-item-home"><a href="index.html"><img src="images/nobs-logo-horiz.svg" width="269" height="48" alt="Nobs Share Plugin - Back Home"></a></li>
 					<li class="nav-item-tutorials">
 						<span class="sub-item"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 10L2.54 7.02L3 18H1L1.48 6.59L0 6L10 2L20 6L10 10ZM10 5C9.45 5 9 5.22 9 5.5C9 5.78 9.45 6 10 6C10.55 6 11 5.78 11 5.5C11 5.22 10.55 5 10 5ZM10 11L15.57 8.77C16.28 9.71 16.77 10.84 16.93 12.07C16.63 12.03 16.32 12 16 12C13.45 12 11.22 13.37 10 15.41C9.38075 14.3708 8.50224 13.5101 7.45048 12.9124C6.39872 12.3146 5.20976 12.0002 4 12C3.68 12 3.37 12.03 3.07 12.07C3.23 10.84 3.72 9.71 4.43 8.77L10 11Z" fill="currentColor"/></svg>Tutorials</span>
 						<ul>
-							<li class="here-2-customize-buttons-appearance"><a href="tutorial-customize-buttons-appearance.html">Customize Buttons Appearance</a></li>
+							<li class="here-2-create-buttons-skin"><a href="tutorial-create-buttons-skin.html">Create a Buttons Skin</a></li>
+								<li class="here-2-customize-buttons-appearance"><a href="tutorial-customize-buttons-appearance.html">Customize Buttons Appearance</a></li>
 						</ul>
 					</li>
 					<li class="nav-item-filters">
@@ -51,6 +108,7 @@
 								<li class="here-2-jsps_get_displayable_networks"><a href="jsps_get_displayable_networks.html">jsps_get_displayable_networks</a></li>
 								<li class="here-2-jsps_get_excerpt"><a href="jsps_get_excerpt.html">jsps_get_excerpt</a></li>
 								<li class="here-2-jsps_get_excerpt_letter_count"><a href="jsps_get_excerpt_letter_count.html">jsps_get_excerpt_letter_count</a></li>
+								<li class="here-2-jsps_get_initial_settings"><a href="jsps_get_initial_settings.html">jsps_get_initial_settings</a></li>
 								<li class="here-2-jsps_get_network_html_icon"><a href="jsps_get_network_html_icon.html">jsps_get_network_html_icon</a></li>
 								<li class="here-2-jsps_register_core_network"><a href="jsps_register_core_network.html">jsps_register_core_network</a></li>
 								<li class="here-2-jsps_register_core_networks"><a href="jsps_register_core_networks.html">jsps_register_core_networks</a></li>
@@ -76,6 +134,7 @@
 								<li class="here-2-juiz_sps_content"><a href="juiz_sps_content.html">juiz_sps_content</a></li>
 								<li class="here-2-juiz_sps_custom_skin_author"><a href="juiz_sps_custom_skin_author.html">juiz_sps_custom_skin_author</a></li>
 								<li class="here-2-juiz_sps_custom_skin_author_url"><a href="juiz_sps_custom_skin_author_url.html">juiz_sps_custom_skin_author_url</a></li>
+								<li class="here-2-juiz_sps_custom_skin_folder"><a href="juiz_sps_custom_skin_folder.html">juiz_sps_custom_skin_folder</a></li>
 								<li class="here-2-juiz_sps_custom_skin_name"><a href="juiz_sps_custom_skin_name.html">juiz_sps_custom_skin_name</a></li>
 								<li class="here-2-juiz_sps_hide_intro"><a href="juiz_sps_hide_intro.html">juiz_sps_hide_intro</a></li>
 								<li class="here-2-juiz_sps_intro_phrase_text"><a href="juiz_sps_intro_phrase_text.html">juiz_sps_intro_phrase_text</a></li>

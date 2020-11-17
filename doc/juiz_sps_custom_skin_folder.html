@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Filter: jsps_register_core_skins - Juiz Social Post Sharer Documentation</title>
+        <title>Filter: juiz_sps_custom_skin_folder - Juiz Social Post Sharer Documentation</title>
        
         <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
         <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
@@ -12,7 +12,7 @@
         <div class="app">
             <section role="main" id="main">
 
-                <h1 class="page-title">Filter: jsps_register_core_skins</h1>
+                <h1 class="page-title">Filter: juiz_sps_custom_skin_folder</h1>
 
                 
 
@@ -30,7 +30,7 @@
 
     
 
-    <pre class="name method-tmpl" id="jsps_register_core_skins">apply_filters( '<span class="hook-name">jsps_register_core_skins</span>', <span class="signature"><span class="sign-item">$cskins</span> )<span class="type-signature"> &rarr; {array}</span></span></pre>
+    <pre class="name method-tmpl" id="juiz_sps_custom_skin_folder">apply_filters( '<span class="hook-name">juiz_sps_custom_skin_folder</span>', <span class="signature"><span class="sign-item">$folder_name</span> )<span class="type-signature"> &rarr; {string}</span></span></pre>
 
     
 
@@ -38,7 +38,7 @@
 
 <div class="description method-tmpl">
     
-    Filters the list of Core Skins after populating it.
+    The folder name where the skins within active WordPress theme is.
 </div>
 
 
@@ -62,8 +62,6 @@
         
 
         
-        <th class="param-default">Default</th>
-        
 
         <th class="param-description last">Description</th>
     </tr>
@@ -72,16 +70,16 @@
     <tbody>
     
 
-        <tr id="cskins">
+        <tr id="folder_name">
             
-                <td class="param-name name"><code>$cskins</code></td>
+                <td class="param-name name"><code>$folder_name</code></td>
             
 
             <td class="param-type type">
             
                 
 	
-	<span class="param-type">array</span>
+	<span class="param-type">string</span>
 	
 
 
@@ -91,16 +89,10 @@
             
 
             
-                <td class="param-default default">
-                
-                    array()
-                
-                </td>
-            
 
             <td class="param-description last">
                 
-                See <a href="jsps_register_core_skin.html">jsps_register_core_skin</a> for more details.
+                The name of the folder from the template directory.
 
                 </td>
         </tr>
@@ -153,10 +145,17 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="register-skins.php.html">register-skins.php</a>, <a href="register-skins.php.html#line60">line 60</a>
+        <a href="register-skins.php.html">register-skins.php</a>, <a href="register-skins.php.html#line91">line 91</a>
     </li></ul></dd>
     
 
+    
+    <dt class="tag-tutorial">Tutorials:</dt>
+    <dd class="tag-tutorial">
+        <ul>
+            <li><a href="tutorial-create-buttons-skin.html">Create a Buttons Skin</a></li>
+        </ul>
+    </dd>
     
 
     
@@ -180,7 +179,7 @@
 
         
 <div class="param-description return-desc returns-tmpl">
-    The list of Core Skins populated.
+    The new name of the folder if changed (default: nobs-skins).
 </div>
 
 
@@ -192,7 +191,7 @@
     <dd>
         
 	
-	<span class="param-type">array</span>
+	<span class="param-type">string</span>
 	
 
 
