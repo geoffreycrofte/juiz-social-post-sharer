@@ -31,7 +31,10 @@ if ( ! function_exists( 'juiz_sps_welcome_page' ) ) {
 
 		<div class="jsps-main-content">
 			<div class="jsps-main-header">
-				<h1><i class="jsps-icon-share" role="presentation"></i>&nbsp;<?php echo JUIZ_SPS_PLUGIN_NAME; ?>&nbsp;<small>v.&nbsp;<?php echo JUIZ_SPS_VERSION; ?></small></h1>
+				<h1>
+					<img src="<?php echo JUIZ_SPS_PLUGIN_ASSETS . 'admin/nobs-logo-light.svg' ?>" width="249" height="48" alt="Nobs • Share Buttons">
+					<small>v.&nbsp;<?php echo JUIZ_SPS_VERSION; ?></small>
+				</h1>
 			</div>
 
 			<div class="jsps-main-body">
@@ -272,8 +275,12 @@ if ( ! function_exists( 'juiz_sps_welcome_page' ) ) {
 				
 				<div id="jsps-shop-promotion" class="jsps-shop-promotion">
 					<p class="jsps-shop-promo-text">
-						<span class="jsps-promo-big-text">New Skin Shop</span>
-						<span class="jsps-promo-text">Free &amp; Premium Button Skins</span>
+						<span class="jsps-promo-big-text">
+							<?php _e( 'New Skin Shop', 'juiz-social-post-sharer'); ?>
+						</span>
+						<span class="jsps-promo-text">
+							<?php _e( 'Free &amp; Premium Button Skins', 'juiz-social-post-sharer' ); ?>
+						</span>
 					</p>
 					<div class="jsps-shop-promo-form">
 						<!-- Begin Mailchimp Signup Form -->
@@ -282,8 +289,8 @@ if ( ! function_exists( 'juiz_sps_welcome_page' ) ) {
 								<div id="mc_embed_signup_scroll">
 									<div class="mc-field-group">
 										<label for="mce-EMAIL" form="mc-embedded-subscribe-form">
-											Soon! Be the first to know
-											<span>Email Address</span>
+											<?php _e( 'Soon! Be the first to know', 'juiz-social-post-sharer' ); ?>
+											<span><?php _e( 'Email Address', 'juiz-social-post-sharer' ); ?></span>
 										</label>
 										<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" form="mc-embedded-subscribe-form">
 									</div>
@@ -294,7 +301,7 @@ if ( ! function_exists( 'juiz_sps_welcome_page' ) ) {
 									<div class="mc-submit">
 										<input type="hidden" value="Admin-Skin-Shop" name="CAMPAIGN" id="mce-CAMPAIGN" form="mc-embedded-subscribe-form">
 										
-										<button form="mc-embedded-subscribe-form" type="submit" name="subscribe" id="mc-embedded-subscribe" class="button"><img src="<?php echo JUIZ_SPS_PLUGIN_ASSETS; ?>img/icon-send.svg" alt="Subscribe" title="Subscribe" width="24" height="24" /></button>
+										<button form="mc-embedded-subscribe-form" type="submit" name="subscribe" id="mc-embedded-subscribe" class="button"><img src="<?php echo JUIZ_SPS_PLUGIN_ASSETS; ?>img/icon-send.svg" alt="<?php echo esc_attr( __('Subscribe', 'juiz-social-post-sharer') ); ?>" title="<?php echo esc_attr( __('Subscribe', 'juiz-social-post-sharer') ); ?>" width="24" height="24" /></button>
 									</div>
 								</div>
 							</form>
@@ -398,7 +405,7 @@ if ( ! function_exists( 'juiz_sps_welcome_page' ) ) {
 					</a>
 				</div>
 
-				<p class="juiz_bottom_links_p jsps-text-center"><a href="<?php echo jsps_get_public_website( array('source' => 'wp-plugin', 'medium' => 'sidebar', 'campaign' => 'welcome' ) ); ?>"><?php esc_html_e('Public Website', 'juiz-social-post-sharer'); ?></a></p>
+				<p class="juiz_bottom_links_p jsps-text-center"><a href="<?php echo jsps_get_public_website( null, array('source' => 'wp-plugin', 'medium' => 'sidebar', 'campaign' => 'welcome' ) ); ?>"><?php esc_html_e('Public Website', 'juiz-social-post-sharer'); ?></a></p>
 			</div><!-- .juiz_bottom_links_container -->
 		</div><!-- .juiz_bottom_links -->
 

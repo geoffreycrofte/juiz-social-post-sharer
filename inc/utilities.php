@@ -387,15 +387,17 @@ if ( ! function_exists( 'jsps_render_api_link' ) ) {
 /**
  * Get the URL of Nobs plugin public website.
  * 
- * @param  array $utm The array of source, medium and campaing
+ * @param  string $page The inner page where to point out.
+ * @param  array  $utm  The array of source, medium and campaing
  *
- * @return [type]
+ * @return string The composed URL.
  * @since  2.0.0
  *
  * @author  Geoffrey Crofte
  */
-function jsps_get_public_website( $utm = array() ) {
+function jsps_get_public_website( $page= null, $utm = array() ) {
 	$url = 'https://sharebuttons.social/';
+	$url = is_string( $page ) ? $url . ltrim( $page, '/' ) : $url;
 	if ( ! empty( $utm ) ) {
 		$url = $url . ( isset( $utm['source'] ) ? '?utm_source=' . $utm['source'] : '' );
 		$url = $url . ( isset( $utm['medium'] ) ? '&amp;utm_medium=' . $utm['medium'] : '' );
@@ -418,6 +420,10 @@ function jsps_get_roadmap_url() {
 
 function jsps_get_github_url() {
 	return 'https://github.com/geoffreycrofte/juiz-social-post-sharer/';
+}
+
+function jsps_get_issue($int = null) {
+	return jsps_get_github_url() . 'issues' . ( $int !== null ? '/' . (int) $int : '' );
 }
 
 /**

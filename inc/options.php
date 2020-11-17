@@ -107,3 +107,44 @@ function jsps_init_option_ms( $init_options ) {
 		}
 	}
 }
+
+/**
+ * Gets a specific user option, or all the user options for this plugin.
+ * 
+ * @param  string $option_name The Nobs specific option to update within the array.
+ * @return mixed  $options     The options (array) or a specific option value (mixed)
+ *
+ * @since  2.0.0
+ * @author Geoffrey Crofte
+ */
+function jsps_get_user_options( $option_name = '' ) {
+
+	if ( empty( $option_name ) ) {
+		$options = get_user_option( JUIZ_SPS_SETTING_NAME, get_current_user_id() );
+	} else {
+		$options = get_user_option( JUIZ_SPS_SETTING_NAME, get_current_user_id() );
+		$options = isset( $options[ $option_name ] ) ? $options[ $option_name ] : null;
+	}
+
+	return $options;
+}
+
+/**
+ * Updates a specific user options for a specific blog.
+ * 
+ * @param  array   $options The array of user options for this plugin.
+ * @return mixed   $options User Meta ID if the option didn't exist, true on successful update or false if something went wrong or $options isn't an array.
+ *
+ * @since  2.0.0
+ * @author Geoffrey Crofte
+ */
+function jsps_update_user_options( $options ) {
+
+	if ( is_array( $options ) ) {
+		$options = update_user_option( get_current_user_id(), JUIZ_SPS_SETTING_NAME, $options, false ); // false for blog specific and not global.
+	} else {
+		return false;
+	}
+
+	return $options;
+}
