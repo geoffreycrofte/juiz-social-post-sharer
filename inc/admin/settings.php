@@ -767,7 +767,7 @@ if ( ! function_exists( 'juiz_sps_settings_page' ) ) {
 				<p class="juiz_bottom_links_p">
 					<em class="jsps-emphasis"><?php _e( 'Want to customize everything? Look at the documentation.', 'juiz-social-post-sharer' ); ?></em>
 
-					<a class="juiz_btn_link juiz_doc juiz_full_width" target="_blank" href="<?php echo JUIZ_SPS_PLUGIN_URL; ?>documentation.html"><i class="dashicons dashicons-welcome-learn-more" aria-hidden="true"></i>&nbsp;<?php esc_html_e( 'Documentation', 'juiz-social-post-sharer' ); ?></a>
+					<a class="juiz_btn_link juiz_doc juiz_full_width" target="_blank" href="<?php echo jsps_get_public_website( 'doc/', array('source' => 'wp-plugin', 'medium' => 'sidebar', 'campaign' => 'settings' ) ); ?>"><i class="dashicons dashicons-welcome-learn-more" aria-hidden="true"></i>&nbsp;<?php esc_html_e( 'Documentation', 'juiz-social-post-sharer' ); ?></a>
 				</p>
 			</div><!-- . juiz_bottom_links_container -->
 		</div><!-- . juiz_bottom_links -->
