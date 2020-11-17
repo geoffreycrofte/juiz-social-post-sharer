@@ -306,6 +306,52 @@ function juiz_sps_setting_checkbox_network_selection() {
 
 		echo '</div></div></div>';
 
+		// List of coming network support.
+		?>
+		<div class="jsps-future-networks">
+			<p><?php 
+				printf( 
+					__( '%sYou don’t see your favorite network here?%s I might be already working on it! You can see the list of incoming network support, or suggest new ones. If you are a developer, you can also build your own one. You can also see our %sroadmap%s.', 'juiz-social-post-sharer' ),
+					'<strong>',
+					'</strong><br>',
+					'<a href="' . jsps_get_roadmap_url() . '">',
+					'</a>'
+				); ?></p>
+			<p>
+				<a href="#jsps-nw-list" class="jsps-show-networks button button-secondary">
+					<i class="dashicons dashicons-arrow-down-alt2" aria-hidden="true"></i>&nbsp;<?php _e('See what’s coming', 'juiz-social-post-sharer'); ?>
+				</a>
+				<a class="button button-secondary" href="<?php echo jsps_get_issue(); ?>">
+					<i class="dashicons dashicons-welcome-add-page" aria-hidden="true"></i>&nbsp;<?php _e('Suggest new one', 'juiz-social-post-sharer'); ?>
+				</a>
+				<a class="button button-secondary" href="<?php echo jsps_get_public_website( 'doc/tutorial-create-a-custom-button.html', array('source' => 'wp-plugin', 'medium' => 'settings', 'campaign' => 'create-your-own' ) ); ?>">
+					<i class="dashicons dashicons-welcome-learn-more" aria-hidden="true"></i>&nbsp;<?php _e('Create your own', 'juiz-social-post-sharer'); ?>
+				</a>
+			</p>
+
+			<ul id="jsps-nw-list" class="jsps-future-networks-list">
+				<?php
+					$coming_networks = array(
+						'37' => 'App.net',
+						'38' => 'Buffer',
+						'35' => 'Instagram',
+						'40' => 'Native Share API',
+						'36' => 'Plurk',
+						'39' => 'Telegram',
+						'34' => 'Yummly'
+					);
+
+					foreach ($coming_networks as $issue => $name) {
+				?>
+
+					<li><a href="<?php echo jsps_get_issue( (int) $issue ); ?>" title="<?php echo esc_attr( __('Open corresponding issue', 'juiz-social-post-sharer') ) ?>" target="_blank"><?php echo $name; ?></a></li>
+
+				<?php
+					}
+				?>
+			</ul>
+		</div>
+		<?php
 		// For AJAX notification.
 		juiz_sps_get_notification_markup();
 
@@ -643,7 +689,10 @@ if ( ! function_exists( 'juiz_sps_settings_page' ) ) {
 	<div id="juiz-sps" class="wrap">
 		<div class="jsps-main-content">
 			<div class="jsps-main-header">
-				<h1><i class="jsps-icon-share" role="presentation"></i>&nbsp;<?php echo JUIZ_SPS_PLUGIN_NAME; ?>&nbsp;<small>v.&nbsp;<?php echo JUIZ_SPS_VERSION; ?></small></h1>
+				<h1>
+					<img src="<?php echo JUIZ_SPS_PLUGIN_ASSETS . 'admin/nobs-logo-light.svg' ?>" width="249" height="48" alt="Nobs • Share Buttons">
+					<small>v.&nbsp;<?php echo JUIZ_SPS_VERSION; ?></small>
+				</h1>
 			</div>
 
 			<div class="jsps-main-body">

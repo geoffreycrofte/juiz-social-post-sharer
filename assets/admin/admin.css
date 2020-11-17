@@ -110,14 +110,14 @@
 /* Header */
 .jsps-main-header,
 .jsps-links-header {
-	padding: 15px 35px 18px;
+	padding: 4px 24px 4px;
 	background: var(--jsps-brand-dark);
 	color: #F2F2F2;
 	font-size: 1.4em;
 }
 
 .jsps-links-header {
-	padding: 15px 35px;
+	padding: 11px 24px;
 }
 
 .jsps-main-header > *,
@@ -135,9 +135,15 @@
 	color: #333;
 }
 
+.jsps-main-header h1 {
+	display: flex;
+	align-items: center;
+}
+
 .jsps-main-header h1 small {
 	opacity: 0.4;
 	font-size: 0.6em;
+	margin-left: 8px;
 }
 
 .jsps-main-header h1 i,
@@ -1020,6 +1026,7 @@ input[type="checkbox"]:checked + label em {
 .lmdd-hidden {
 	visibility: hidden;
 }
+
 /**
  * Notification system (AJAX toaster)
  */
@@ -1091,6 +1098,74 @@ input[type="checkbox"]:checked + label em {
 .jsps_info code {
 	background: var(--jsps-brand-code-bg);
 	color: var(--jsps-brand-color-dark);
+}
+
+/**
+ * Futur network section.
+ */
+.jsps-future-networks {
+	margin-top: 2em;
+	color: #777;
+}
+
+.jsps-future-networks .button.button {
+	margin-top: 8px;
+	border-width: 1px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	background: var(--jsps-brand-code-bg);
+	color: var(--jsps-brand-darklight);
+}
+
+.jsps-future-networks .button.button[aria-expanded="true"] {
+	background: var(--jsps-brand-darklight);
+	color: var(--jsps-brand-code-bg);
+}
+
+.jsps-future-networks .button[aria-expanded="true"] i {
+	transform: rotate(180deg);
+}
+
+.jsps-future-networks .button i {
+	margin-right: 4px;
+	transition: all .275s;
+}
+
+.jsps-future-networks-list {
+	transition: all .275s;
+	overflow: hidden;
+	margin: 1em 0;
+}
+
+.jsps-future-networks-list.is-hidden {
+	height: 0;
+	margin: 0;
+}
+
+.jsps-future-networks-list li {
+	position: relative;
+	padding-left: 32px;
+	font-size: 1.15em;
+	font-weight: 500;
+	margin: .5em 0;
+}
+
+.jsps-future-networks-list li::before {
+	content: '+';
+	position: absolute;
+	left: 0;
+	top: .1em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 20px;
+	height: 20px;
+	font-family: Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	background: var(--jsps-brand-color);
+	color: #FFF;
+	border-radius: 24px;
 }
 
 /**

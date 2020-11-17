@@ -242,6 +242,38 @@ jQuery( document ).ready( function( $ ){
 	}
 
 	/**
+	 * Show/Hide incoming list of networks.
+	 */
+	if ( document.querySelector('.jsps-show-networks') ) {
+		let show_btn = document.querySelector('.jsps-show-networks'),
+			showing_list = document.getElementById('jsps-nw-list'),
+			sl_height = showing_list.offsetHeight;
+
+		show_btn.setAttribute( 'aria-controls', show_btn.href.split('#')[1] );
+		show_btn.setAttribute( 'aria-expanded', 'false' );
+
+		showing_list.classList.add('is-hidden')
+
+		show_btn.addEventListener( 'click', function(e) {
+			e.preventDefault();
+
+			if ( showing_list.classList.contains( 'is-hidden' ) ) {
+				showing_list.style.height = sl_height + 'px';
+				show_btn.setAttribute( 'aria-expanded', 'true');
+				setTimeout(function(){
+					showing_list.classList.remove( 'is-hidden' );
+					showing_list.scrollIntoView({behavior: "smooth", block: "center"})
+				}, 275);
+			} else {
+				showing_list.style.height = '';
+				show_btn.setAttribute( 'aria-expanded', 'false');
+				showing_list.classList.add( 'is-hidden' );;
+			}
+			return false;
+		});
+	}
+
+	/**
 	 * Other scripts I don't remember what I do with.
 	 * @since  1.0
 	 * @lastupdate 2.0.0
