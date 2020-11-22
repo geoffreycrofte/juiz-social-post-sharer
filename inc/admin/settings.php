@@ -612,12 +612,20 @@ function juiz_sps_section_whats_new() {
 if ( ! function_exists( 'juiz_sps_setting_changelog' ) ) {
 function juiz_sps_setting_changelog() {
 
+	$output = '';
+
+	// Use transient saved to be more performant.
+	if ( $output = get_transient( JUIZ_SPS_SLUG . '-changelog' ) ) {
+		echo $output;
+		return;
+	}
+
 	$readme = file_get_contents( dirname( JUIZ_SPS_FILE ) . '/readme.txt');
 	
 	if ( preg_match( '#(.*)(==\s?Changelog\s?==)(.*)#ms', $readme, $matches ) ) {
 
-		echo '<div class="juiz_sps_changelog">';
-		echo '<h3 class="screen-reader-text">' . __( 'Changelog', 'juiz-social-post-sharer' ) . '</h3>';
+		$output .= '<div class="juiz_sps_changelog">';
+		$output .= '<h3 class="screen-reader-text">' . __( 'Changelog', 'juiz-social-post-sharer' ) . '</h3>';
 
 		//$changelog = make_clickable( esc_html( $matches[3] ) );
 		$changelog = $matches[3];
@@ -629,7 +637,7 @@ function juiz_sps_setting_changelog() {
 		// Titles
 		$changelog = preg_replace( '/= (.*?) =/', '<h4>$1</h4>', $changelog );
 
-		$sections = preg_split( '#<h4>(.*?)</h4>#', trim($changelog), -1, PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY );
+		$sections = preg_split( '#<h4>(.*?)</h4>#', trim( $changelog ), -1, PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY );
 
 		for ($i = 0; $i < count( $sections ); $i++) {
 			if ( $i % 2 ) {
@@ -637,7 +645,7 @@ function juiz_sps_setting_changelog() {
 				$reg_changes = '/(?:([\n]^\*[\S ]*){1}((?:[\n][\s]{1}\*[\S ]*)*))/m';
 				if ( preg_match_all( $reg_changes, $sections[$i], $matches, PREG_SET_ORDER, 0 ) ) {
 
-					echo '<ul class="juiz-changelog-list juiz-d1">';
+					$output .= '<ul class="juiz-changelog-list juiz-d1">';
 
 					foreach($matches as $match) {
 						// $match[0] - the whole block, subitem included
@@ -645,11 +653,11 @@ function juiz_sps_setting_changelog() {
 						// $match[2] - the items in one string depth-2 (to be split)
 						$thistring = preg_replace( '#\[(.*)\]\((([a-zA-Z0-9\.\:\/\-\_\#\?\=]*)(?: ?(\".*\"))?)?\)#', '<a href="$3" title=$4>$1</a>', substr( $match[1], 2 ) );
 									$thistring = preg_replace( '#\(?@see ((?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)[\S]*)\)#', '(@see <a href="$1">$2</a>)', $thistring );
-						echo '<li class="juiz-changelog-list-item juiz-d1">' . $thistring;
+						$output .= '<li class="juiz-changelog-list-item juiz-d1">' . $thistring;
 
 						if ( isset( $match[2] ) && ! empty( $match[2] ) ) {
 
-							echo '<ul class="juiz-changelog-list juiz-d2">';
+							$output .= '<ul class="juiz-changelog-list juiz-d2">';
 
 							$subitems = preg_split('#\s\*\s(.*)#', $match[2], -1, PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY );
 
@@ -657,27 +665,32 @@ function juiz_sps_setting_changelog() {
 								if ( $j % 2 ) {
 									$thisub = preg_replace( '#\[(.*)\]\((([a-zA-Z0-9\.\:\/\-\_\#\?\=]*)(?: ?(\".*\"))?)?\)#', '<a href="$3" title=$4>$1</a>', $subitems[$j] );
 									$thisub = preg_replace( '#\(?@see ((?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)[\S]*)\)#', '(@see <a href="$1">$2</a>)', $thisub );
-									echo '<li class="juiz-changelog-list-item juiz-d2">' . $thisub . '</li>';
+									$output .= '<li class="juiz-changelog-list-item juiz-d2">' . $thisub . '</li>';
 								}
 							}
 
-							echo '</ul><!-- depth 2 -->';
+							$output .= '</ul><!-- depth 2 -->';
 						}
 
-						echo '</li>';
+						$output .= '</li>';
 					}
 
-					echo '</ul><!-- depth 1 -->';
+					$output .= '</ul><!-- depth 1 -->';
 				}
 			} else {
 				// Version number.
-				echo '<h4 class="juiz-changelog-version-number">' . $sections[$i] . '</h4>';
+				$output .= '<h4 class="juiz-changelog-version-number">' . $sections[$i] . '</h4>';
 			}
 		}
 
-		echo '</div>';
+		$output .= '</div>';
 
 	}
+
+	echo $output;
+
+	// Save this heavy processing code for later use.
+	set_transient( JUIZ_SPS_SLUG . '-changelog', $output, 60*60*24*2 );
 }
 }
 

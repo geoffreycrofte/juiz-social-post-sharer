@@ -87,6 +87,9 @@ add_action( 'after_plugin_row', 'jsps_ms_plugin_update_message', 10, 3 );
 function jsps_admin_notice_after_update() {
 	$screen = get_current_screen();
 
+	// If you want to reset Nobs user options.
+	// jsps_update_user_options(array());
+
 	// If user doesn't has manage option rights
 	if ( ! current_user_can('manage_options') ) {
 		return;

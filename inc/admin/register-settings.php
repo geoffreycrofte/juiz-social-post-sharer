@@ -38,6 +38,9 @@ function juiz_sps_activation() {
 			jsps_init_option_ms( $juiz_sps_options );
 		}
 	}
+
+	// Clean transient on activation, always.
+	delete_transient( JUIZ_SPS_SLUG . '-changelog' );
 }
 
 /**
