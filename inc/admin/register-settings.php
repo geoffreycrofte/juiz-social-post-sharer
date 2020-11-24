@@ -41,6 +41,7 @@ function juiz_sps_activation() {
 
 	// Clean transient on activation, always.
 	delete_transient( JUIZ_SPS_SLUG . '-changelog' );
+	delete_transient( JUIZ_SPS_SLUG . '-skin-shop-markup' );
 }
 
 /**

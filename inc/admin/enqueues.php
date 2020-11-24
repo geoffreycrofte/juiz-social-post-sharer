@@ -27,10 +27,15 @@ if ( ! function_exists( 'jsps_load_custom_wp_admin_assets' ) ) {
 		$network_order_action_name = 'juiz_sps_order_networks';
 		$networkOrderNonce = wp_create_nonce( $network_order_action_name );
 
+		$skin_loading_action_name = 'juiz_sps_skin_loading';
+		$skinLoadingNonce = wp_create_nonce( $skin_loading_action_name );
+
 		wp_localize_script( 'jsps-admin-script', 'jsps', array(
 			'ajaxurl' => admin_url( 'admin-ajax.php' ),
 			'networkOrderNonce' => $networkOrderNonce,
-			'networkOrderAction' => $network_order_action_name 
+			'networkOrderAction' => $network_order_action_name, 
+			'skinLoadingNonce' => $skinLoadingNonce,
+			'skinLoadingAction' => $skin_loading_action_name, 
 		) );
 	}
 

@@ -274,6 +274,36 @@ jQuery( document ).ready( function( $ ){
 	}
 
 	/**
+	 * Display Skin List
+	 */
+	if ( document.querySelector('.jsps-tabs') ) {
+		const skin_shop_tab = document.querySelector('.jsps-tabs li:last-child');
+		const do_stuff = function(){
+			// AJAX Post action.
+			let orderdata = {
+				'action': jsps.skinLoadingAction,
+				'nonce' : jsps.skinLoadingNonce
+			};
+
+			$.post(jsps.ajaxurl, orderdata, function(response) {
+				if ( response.success === true && response.data.html ) {
+					document.getElementById('jsps-skin-list-drop').innerHTML = response.data.html;
+					console.info(response.data);
+				}
+			});
+		};
+
+		// if current tab, do the request directly.
+		if ( skin_shop_tab.querySelector('[aria-selected="true"]') ) {
+			do_stuff();
+		} else {
+			// else do the request on click.
+			skin_shop_tab.querySelector('a').addEventListener('click', do_stuff);
+		}
+
+	}
+
+	/**
 	 * Other scripts I don't remember what I do with.
 	 * @since  1.0
 	 * @lastupdate 2.0.0

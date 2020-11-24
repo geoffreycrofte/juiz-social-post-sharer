@@ -49,6 +49,9 @@ function add_juiz_sps_plugin_options() {
 	// all options in single registration as array
 	register_setting( JUIZ_SPS_SETTING_NAME, JUIZ_SPS_SETTING_NAME, 'juiz_sps_sanitize' );
 	
+	/**
+	 * Themes and Networks SECTION
+	 */
 	add_settings_section( 'juiz_sps_plugin_main', __( 'Themes &amp; Networks', 'juiz-social-post-sharer' ), 'juiz_sps_section_text', JUIZ_SPS_SLUG);
 	add_settings_field( 'juiz_sps_style_choice', __( 'Choose a style to display', 'juiz-social-post-sharer' ), 'juiz_sps_setting_radio_style_choice', JUIZ_SPS_SLUG, 'juiz_sps_plugin_main');
 	add_settings_field( 'juiz_sps_temp_submit', get_submit_button( __( 'Save Changes' ), 'secondary' ), '__return_empty_string', JUIZ_SPS_SLUG, 'juiz_sps_plugin_main' );
@@ -56,14 +59,18 @@ function add_juiz_sps_plugin_options() {
 	add_settings_field( 'juiz_sps_twitter_user', __( 'What is your Twitter user name to be mentioned?', 'juiz-social-post-sharer' ) , 'juiz_sps_setting_input_twitter_user', JUIZ_SPS_SLUG, 'juiz_sps_plugin_main' );
 	add_settings_field( 'juiz_sps_temp_submit_1', get_submit_button( __( 'Save Changes' ), 'primary' ), '__return_empty_string', JUIZ_SPS_SLUG, 'juiz_sps_plugin_main' );
 
-
+	/**
+	 * Display SECTION
+	 */
 	add_settings_section( 'juiz_sps_plugin_display_in', __( 'Display settings','juiz-social-post-sharer'), 'juiz_sps_section_text_display', JUIZ_SPS_SLUG );
 	add_settings_field( 'juiz_sps_display_in_types', __( 'What type of content must have buttons?', 'juiz-social-post-sharer' ), 'juiz_sps_setting_checkbox_content_type', JUIZ_SPS_SLUG, 'juiz_sps_plugin_display_in' );
 	add_settings_field( 'juiz_sps_display_where', __( 'Where do you want to display buttons?','juiz-social-post-sharer' ), 'juiz_sps_setting_radio_where', JUIZ_SPS_SLUG, 'juiz_sps_plugin_display_in' );
 	add_settings_field( 'juiz_sps_hide_social_name', __( 'Show only social icon?', 'juiz-social-post-sharer' ) . '<br /><em>(' . __( 'hide text, show it on mouse over or focus', 'juiz-social-post-sharer' ) . ')</em>', 'juiz_sps_setting_radio_hide_social_name', JUIZ_SPS_SLUG, 'juiz_sps_plugin_display_in' );
 	add_settings_field( 'juiz_sps_temp_submit_2', get_submit_button( __( 'Save Changes' ), 'primary' ), '__return_empty_string', JUIZ_SPS_SLUG, 'juiz_sps_plugin_display_in' );
 
-
+	/**
+	 * Advanced Settings SECTION
+	 */
 	add_settings_section( 'juiz_sps_plugin_advanced', __( 'Advanced settings','juiz-social-post-sharer' ), 'juiz_sps_section_text_advanced', JUIZ_SPS_SLUG );
 	add_settings_field( 'juiz_sps_target_link', __( 'Open links in a new window?', 'juiz-social-post-sharer' ).'<br /><em>(' . sprintf( __( 'adds a %s attribute', 'juiz-social-post-sharer' ), '<code>target="_blank"</code>' ) . ')</em>', 'juiz_sps_setting_radio_target_link', JUIZ_SPS_SLUG, 'juiz_sps_plugin_advanced');
 	add_settings_field( 'juiz_sps_force_pinterest_snif', __( 'Force Pinterest button sniffing all images of the page?', 'juiz-social-post-sharer' ) . '<br /><em>(' . __( 'need JavaScript', 'juiz-social-post-sharer' ) . ')</em>', 'juiz_sps_setting_radio_force_snif', JUIZ_SPS_SLUG, 'juiz_sps_plugin_advanced');
@@ -71,15 +78,25 @@ function add_juiz_sps_plugin_options() {
 	add_settings_field( 'juiz_sps_counter_option', __( 'For this counter, you want to display:', 'juiz-social-post-sharer' ), 'juiz_sps_setting_radio_counter_option', JUIZ_SPS_SLUG, 'juiz_sps_plugin_advanced' );
 	add_settings_field( 'juiz_sps_temp_submit_3', get_submit_button( __( 'Save Changes' ), 'primary' ), '__return_empty_string', JUIZ_SPS_SLUG, 'juiz_sps_plugin_advanced' );
 
-
+	/**
+	 * Mail customisation SECTION
+	 */
 	add_settings_section( 'juiz_sps_plugin_mail_informations', __( 'Customize mail texts', 'juiz-social-post-sharer' ), 'juiz_sps_section_text_mail', JUIZ_SPS_SLUG );
 	add_settings_field( 'juiz_sps_mail_subject', __( 'Mail subject:', 'juiz-social-post-sharer' ), 'juiz_sps_setting_input_mail_subject', JUIZ_SPS_SLUG, 'juiz_sps_plugin_mail_informations' );
 	add_settings_field( 'juiz_sps_mail_body', __( 'Mail body:', 'juiz-social-post-sharer'), 'juiz_sps_setting_textarea_mail_body', JUIZ_SPS_SLUG, 'juiz_sps_plugin_mail_informations' );
 	add_settings_field( 'juiz_sps_temp_submit_4', get_submit_button( __( 'Save Changes' ), 'primary' ), '__return_empty_string', JUIZ_SPS_SLUG, 'juiz_sps_plugin_mail_informations' );
 
-
-	add_settings_section( 'juiz_sps_plugin_whats_new', __( 'What’s new', 'juiz-social-post-sharer' ), 'juiz_sps_section_whats_new', JUIZ_SPS_SLUG );
+	/**
+	 * What's new SECTION
+	 */
+	add_settings_section( 'juiz_sps_plugin_whats_new', __( 'What’s new', 'juiz-social-post-sharer' ), 'juiz_sps_section_text_whats_new', JUIZ_SPS_SLUG );
 	add_settings_field( 'juiz_sps_readme_changelog', __( 'Changelog', 'juiz-social-post-sharer' ), 'juiz_sps_setting_changelog', JUIZ_SPS_SLUG, 'juiz_sps_plugin_whats_new' );
+
+	/**
+	 * What's new SECTION
+	 */
+	add_settings_section( 'juiz_sps_plugin_skin_shop', __( 'Skin Shop', 'juiz-social-post-sharer' ), 'juiz_sps_section_text_skin_shop', JUIZ_SPS_SLUG );
+	add_settings_field( 'juiz_sps_skin_shop', __( 'Skin Shop', 'juiz-social-post-sharer' ), 'juiz_sps_setting_skin_shop', JUIZ_SPS_SLUG, 'juiz_sps_plugin_skin_shop' );
 
 }
 add_filter( 'admin_init', 'add_juiz_sps_plugin_options' );
@@ -205,57 +222,11 @@ function juiz_sps_setting_radio_style_choice() {
 		}
 	}
 
-	/**
-	 * Decides if it displays promotion sections within the admin, or not.
-	 * 
-	 * @hook jsps_admin_show_promotion
-	 * 
-	 * @since  2.0.0 First version
-	 * 
-	 * @param  {boolean} $show_promo=true   `true` or `false` weither you want to display promo or not
-	 * @return {boolean}                    Returns the value of `$show_promo`
-	 *
-	 */
-	if ( apply_filters( 'jsps_admin_show_promotion', true ) ) {
-	?>
-	
-	<div id="jsps-shop-promotion" class="jsps-shop-promotion">
-		<p class="jsps-shop-promo-text">
-			<span class="jsps-promo-big-text">New Skin Shop</span>
-			<span class="jsps-promo-text">Free &amp; Premium Button Skins</span>
-		</p>
-		<div class="jsps-shop-promo-form">
-			<!-- Begin Mailchimp Signup Form -->
-			<div id="mc_embed_signup">
-				<!-- form -->
-				<div id="mc_embed_signup_scroll">
-					<div class="mc-field-group">
-						<label for="mce-EMAIL" form="mc-embedded-subscribe-form">
-							Soon! Be the first to know
-							<span>Email Address</span>
-						</label>
-						<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" form="mc-embedded-subscribe-form">
-					</div>
-
-					<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-					<div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_5339b8dfa2b000a82251effc3_c9c0f762f1" tabindex="-1" value=""></div>
-
-					<div class="mc-submit">
-						<input type="hidden" value="Admin-Skin-Shop" name="CAMPAIGN" id="mce-CAMPAIGN" form="mc-embedded-subscribe-form">
-						
-						<button form="mc-embedded-subscribe-form" type="submit" name="subscribe" id="mc-embedded-subscribe" class="button"><img src="<?php echo JUIZ_SPS_PLUGIN_ASSETS; ?>img/icon-send.svg" alt="Subscribe" title="Subscribe" width="24" height="24" /></button>
-					</div>
-				</div>
-				<!-- /form -->
-			</div>
-			<!--End mc_embed_signup-->
-
-		</div>
-	</div>
-
-	<?php
+	// Includes Promotion Banner.
+	include_once('partials/promo-form.php');
+	if ( function_exists( 'jsps_promo_form' ) ) {
+		jsps_promo_form();
 	}
-
 }
 }
 
@@ -603,8 +574,8 @@ function juiz_sps_setting_textarea_mail_body() {
 }
 }
 
-if ( ! function_exists( 'juiz_sps_section_whats_new' ) ) {
-function juiz_sps_section_whats_new() {
+if ( ! function_exists( 'juiz_sps_section_text_whats_new' ) ) {
+function juiz_sps_section_text_whats_new() {
 	echo '<p class="juiz_sps_section_intro">' . __( 'Discover what is fresh in your favorite Social Sharing plugin to keep track of updates.', 'juiz-social-post-sharer' ) . '.<br>' . sprintf( __( 'You can also display the %sWelcome Page%s to get a quick tour of the features.', 'juiz-social-post-sharer' ), '<a href="' . jsps_get_welcome_url() . '">', '</a>') . '</p>';
 }
 }
@@ -691,6 +662,34 @@ function juiz_sps_setting_changelog() {
 
 	// Save this heavy processing code for later use.
 	set_transient( JUIZ_SPS_SLUG . '-changelog', $output, 60*60*24*2 );
+}
+}
+
+if ( ! function_exists( 'juiz_sps_section_text_skin_shop' ) ) {
+function juiz_sps_section_text_skin_shop() {
+	echo '<p class="juiz_sps_section_intro" id="jsps-skin-shop-intro">' . __( 'I’m working on a Skin Shop to give you the most premium skin ever made with tone of choice: free skins, paid skins, new skins, colorful skins or more neutral, animated or static… just for every taste.', 'juiz-social-post-sharer' ) . '</p>';
+}
+}
+
+if ( ! function_exists( 'juiz_sps_setting_skin_shop' ) ) {
+function juiz_sps_setting_skin_shop() {
+	if ( function_exists( 'jsps_promo_form' ) ) {
+		jsps_promo_form();
+	}
+
+	echo '<section class="jsps-skins-list">
+		<h1 class="jsps-h3-like">' . esc_html__('Skin available soon', 'juiz-social-post-sharer') . '</h1>
+		<p class="juiz_sps_section_intro">' . esc_html__( 'The last finest skins directly in your WordPress Admin!', 'juiz-social-post-sharer') . '</p>
+
+		<noscript>
+			<p class="jsps-no-script-info">' . esc_html__( 'Sorry, for performance issue, this listing needs JavaScript activated.', 'juiz-social-post-sharer') . '</p>
+			<p>' . sprintf( __( 'You can still visit the %sofficial website%s for further information.', 'juiz-social-post-sharer' ), '<a href="' . jsps_get_public_website( '', array('source' => 'wp-plugin', 'medium' => 'settings', 'campaign' => 'no-js' ) ) . '">', '</a>' ) . '</p>	
+		</noscript>
+
+		<div id="jsps-skin-list-drop" aria-live="polite">
+			<span class="jsps-spinner"></span>
+		</div>
+	</section>';
 }
 }
 
