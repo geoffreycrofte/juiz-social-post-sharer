@@ -51,7 +51,8 @@ jQuery( document ).ready( function( $ ){
 			i = 0,
 			tabs = '';
 
-		if ( window.matchMedia('(min-width: 860px)').matches && $('#jsps-all-tabs').length === 0 ) {
+		// Check if tabs don't exist.
+		if ( $('#jsps-all-tabs').length === 0 ) {
 			$titles.each(function(){
 				var $siblings = $(this).nextUntil('h2'),
 					curri = jsps_get_current_tab_selected();

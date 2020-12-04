@@ -1067,7 +1067,7 @@ input[type="checkbox"]:checked + label em {
 	}
 }
 
-@media (min-width: 1380px) {
+@media (min-width: 1240px) {
 
 	/* Wrapper */
 	.js [id="juiz-sps"] {
@@ -1484,7 +1484,135 @@ ul + .juiz-changelog-version-number {
 
 .juiz-changelog-list:last-of-type ~ h4 {
 	display: none;
-} 
+}
+
+/**
+ * More responsiveness
+ */
+@media (max-width: 1240px) {
+	.juiz_btns_set {
+		--cols: 6;
+		display: grid;
+		gap: 8px;
+		grid-template-columns: repeat(var(--cols), 1fr);
+	}
+
+	.juiz_btns_set .juiz_btn_link {
+		width: 100%;
+		padding: 12px 0;
+	}
+
+	.juiz_bottom_links_p .juiz_btn_link {
+		width: auto;
+		padding: 12px 18px;
+	}
+}
+
+@media (max-width: 1240px) {
+	.juiz_btns_set {
+		--cols: 3;
+	}
+}
+
+@media (max-width: 868px) {
+	[id="jsps-all-tabs"] {
+		box-sizing: border-box;
+	}
+
+	.jsps-main-body {
+		padding-left: 0;
+	}
+	
+	.jsps-main-body form {
+		display: block;
+	}
+
+	.jsps-main-body .jsps-tabs {
+		margin-left: -1px;
+		margin-right: -1px;
+	}
+
+	.jsps-main-body .jsps-tabs::after {
+		display: none;
+		content: none;
+	}
+
+	.jsps-main-body .jsps-tabs ul {
+		display: flex;
+		overflow: auto;
+	}
+
+	.jsps-main-body .jsps-tabs a {
+		padding-left: 24px;
+		padding-right: 24px;
+		white-space: nowrap;
+	}
+
+	.jsps-main-body .jsps-tabs li + li {
+		border-left: 1px solid rgba(255,255,255, .1);
+	}
+
+	.jsps-main-body .jsps-tabs a[aria-selected="true"] {
+		background: white;
+		color: var(--jsps-brand-darklight);
+	}
+
+	.jsps-main-body .jsps-tabs a::after {
+		content: none;
+	}
+
+	.jsps-main-body .jsps-tabs a::before {
+		bottom: auto;
+		right: 0;
+		width: auto;
+		height: 5px;
+	}
+
+	.jsps-skins-list {
+		margin: -110px -10px 0 -32px;
+	}
+
+	td .jsps-shop-promotion:first-child {
+		margin-right: 24px;
+	}
+
+	[id="juiz-sps"] th .submit, .jsps-shop-promotion,
+	.jsps-shop-promotion {
+		margin-right: -10px;
+	}
+
+	.jsps-tab-container {
+		box-sizing: border-box;
+		padding-right: 32px;
+	}
+
+	.jsps-tab-container .form-table {
+		width: calc(100% + 64px);
+	}
+}
+
+@media (max-width: 640px) {
+	.juiz_btns_set {
+		--cols: 2;
+	}
+}
+
+@media (max-width: 440px) {
+	.juiz_btns_set {
+		--cols: 1;
+	}
+	.jsps-gif-demo {
+		width: 100%;
+		height: auto;
+		margin-top: 0;
+	}
+}
+
+@media (max-width: 384px) {
+	.jsps-main-header h1 img {
+		width: 174px;
+	}
+}
 
 /**
  * Dark mode support
