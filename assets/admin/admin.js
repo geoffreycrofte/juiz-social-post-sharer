@@ -42,7 +42,7 @@ v),window.addEventListener("touchmove",v,{passive:!1}),window.addEventListener("
  */
 jQuery( document ).ready( function( $ ){
 	/**
-	 * On big screen create tabs for the options.
+	 * OCreate tabs for the options.
 	 * @since 2.0.0
 	 * @author Geoffrey Crofte
 	 */
@@ -89,6 +89,12 @@ jQuery( document ).ready( function( $ ){
 				$('#jsps-tab-container-' + tindex).addClass('jsps-is-current').removeAttr('hidden')
 
 				jsps_set_current_tab( tindex );
+
+				// Do something for the hidden togglable things
+				if ( $('#jsps-tab-container-' + tindex + ' #jsps-nw-list').length ) { 
+					show_hide_incoming_networks();
+				}
+
 				return false;
 			});
 
@@ -193,12 +199,6 @@ jQuery( document ).ready( function( $ ){
 		}
 	}
 
-	juiz_maybe_build_tabs();
-
-	$(window).on('resize', function(){
-		window.requestAnimationFrame( juiz_maybe_build_tabs );
-	});
-
 	/**
 	 * Return the current tab index.
 	 * @since  2.0.0
@@ -245,34 +245,53 @@ jQuery( document ).ready( function( $ ){
 	/**
 	 * Show/Hide incoming list of networks.
 	 */
-	if ( document.querySelector('.jsps-show-networks') ) {
-		let show_btn = document.querySelector('.jsps-show-networks'),
-			showing_list = document.getElementById('jsps-nw-list'),
-			sl_height = showing_list.offsetHeight;
+	const show_btn = document.querySelector('.jsps-show-networks');
+	const showing_list = document.getElementById('jsps-nw-list');
 
-		show_btn.setAttribute( 'aria-controls', show_btn.href.split('#')[1] );
-		show_btn.setAttribute( 'aria-expanded', 'false' );
+	const show_hide_incoming_networks = function() {
+		if ( show_btn ) {
+			showing_list.classList.remove( 'is-hidden' );
 
-		showing_list.classList.add('is-hidden')
+			let sl_height = showing_list.offsetHeight;
 
-		show_btn.addEventListener( 'click', function(e) {
-			e.preventDefault();
+			showing_list.classList.add( 'is-hidden' );
+			
+			let open_close_list = function(e) {
+				e.preventDefault();
 
-			if ( showing_list.classList.contains( 'is-hidden' ) ) {
-				showing_list.style.height = sl_height + 'px';
-				show_btn.setAttribute( 'aria-expanded', 'true');
-				setTimeout(function(){
-					showing_list.classList.remove( 'is-hidden' );
-					showing_list.scrollIntoView({behavior: "smooth", block: "center"})
-				}, 275);
-			} else {
-				showing_list.style.height = '';
-				show_btn.setAttribute( 'aria-expanded', 'false');
-				showing_list.classList.add( 'is-hidden' );;
+				if ( showing_list.classList.contains( 'is-hidden' ) ) {
+					show_btn.setAttribute( 'aria-expanded', 'true');
+					setTimeout(function(){
+						showing_list.classList.remove( 'is-hidden' );
+						showing_list.scrollIntoView({behavior: "smooth", block: "center"})
+					}, 275);
+				} else {
+					show_btn.setAttribute( 'aria-expanded', 'false');
+					showing_list.classList.add( 'is-hidden' );;
+				}
+				return false;
+			};
+
+			show_btn.setAttribute( 'aria-controls', show_btn.href.split('#')[1] );
+			show_btn.setAttribute( 'aria-expanded', 'false' );
+
+			showing_list.setAttribute( 'style', '--height:' + sl_height + 'px' );
+
+
+			if ( ! show_btn.getAttribute('haslistener') ) {
+				show_btn.addEventListener( 'click', open_close_list );
+				show_btn.setAttribute( 'haslistener', 'true' );
 			}
-			return false;
-		});
+		}
 	}
+
+	// Init stuff
+	juiz_maybe_build_tabs();
+	show_hide_incoming_networks();
+
+	$(window).on('resize', function(){
+		window.requestAnimationFrame( juiz_maybe_build_tabs );
+	});
 
 	/**
 	 * Display Skin List

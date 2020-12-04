@@ -1291,6 +1291,7 @@ input[type="checkbox"]:checked + label em {
 	transition: all .275s;
 	overflow: hidden;
 	margin: 1em 0;
+	height: var(--height, auto);
 }
 
 .jsps-future-networks-list.is-hidden {
