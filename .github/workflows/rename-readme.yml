@@ -13,7 +13,6 @@ jobs:
     - name: Rename readme.txt
       run: |
         mv ./readme.txt ./README.md
-        done
     - name: Commit files
       run: |
         git config --local user.email "action@github.com"
