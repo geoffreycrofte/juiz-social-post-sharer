@@ -498,6 +498,13 @@ td .jsps-shop-promotion:first-child { /* Skin shop section */
 	color: var(--jsps-brand-color);
 }
 
+@media (max-width: 680px) {
+	.jsps-shop-promotion {
+		flex-direction: column;
+		background: var(--jsps-brand-darklight);
+	}
+}
+
 /* Mailchimp */
 [id^="mc_embed_signup_scroll"] {
 	position: relative;
@@ -611,6 +618,12 @@ td .jsps-shop-promotion:first-child { /* Skin shop section */
 	padding-top: 32px;
 	grid-template-columns: 1fr 1fr;
 	gap: 32px;
+}
+
+@media (min-width: 1740px) {
+	.jsps-skin-list {
+		grid-template-columns: 1fr 1fr 1fr;
+	}
 }
 
 .jsps-skin-list li {
@@ -901,7 +914,7 @@ input[type="checkbox"]:checked + label em {
 }
 
 .juiz_sps_styles_options.juiz_sps_styles_options {
-	display: inline-block;
+	display: block;
 	margin-bottom: 1em;
 }
 
@@ -1366,6 +1379,25 @@ input[type="checkbox"]:checked + label em {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	gap: 24px 48px;
+}
+
+@media (max-width: 1290px) {
+	.jsps-welcome-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	.jsps-welcome-grid .juiz_btns_set {
+		--cols: 2;
+	}
+}
+
+@media (max-width: 680px) {
+	.jsps-welcome-grid {
+		grid-template-columns: repeat(1, 1fr);
+	}
+
+	.jsps-col > svg {
+		max-width: 100%;
+	}
 }
 
 .jsps-col {
