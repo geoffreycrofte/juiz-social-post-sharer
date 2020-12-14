@@ -3,9 +3,10 @@ Contributors: CreativeJuiz
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJPCWVXGDY&lc=FR&item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&item_number=%23wp%2djsps&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted
 Tags: social, buttons, twitter, facebook, digg, mix, linkedin, pinterest, viadeo, weibo, vkontakte, yummly, pocket, whatsapp, diigo, post, evernote, tumblr, reddit, share, sharing
 Requires at least: 3.3
-Tested up to: 5.5.3
+Tested up to: 5.6
 Stable tag: 2.0.0
 
+Juiz Social Post Sharer becomes Nobs • Share Buttons.
 Add smart designed buttons after/before your posts (or wherever you want) to allow visitors to share your content (includes no JavaScript mode & counters). Totally GDPR compliant.
 
 == Description ==
@@ -106,7 +107,15 @@ You can use one of both method :
 
 == Frequently Asked Questions ==
 
-Find a complete documentation on <a href="https://www.creativejuiz.fr/blog/doc/juiz-social-post-sharer-documentation.html">this official documentation</a>
+Find a complete documentation on <a href="https://sharebuttons.social/doc/?utm_source=wp-org&utm_medium=readme&utm_campaign=faq">this official documentation</a>
+
+= Why "Nobs"? What does that mean? =
+Ha ha 😁 Good question.
+Nobs stand for 3 different things:
+
+1. "No BS" (AKA No Bullshit),
+1. The humble accronym "Number One Button Set for Social Sharing" (Nobsss 😅 but I truncated it).
+1. It's also a pun for "knobs", the actual buttons you find on your shirt or drawers. Thank you Myriam for the funny name.
 
 = Twitter counter doesn't appear OR the count seems to be not exact =
 Yep, sorry about that, but <a href="https://twittercommunity.com/t/a-new-design-for-tweet-and-follow-buttons/52791">Twitter decided to shut down counter</a>.
