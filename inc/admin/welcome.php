@@ -228,7 +228,7 @@ if ( ! function_exists( 'juiz_sps_welcome_page' ) ) {
 						<p class="jsps-h2" role="heading" aria-level="2"><?php esc_html_e('Rebuilt Documentation' , 'juiz-social-post-sharer') ?></p>
 
 						<p>
-							<?php printf( esc_html__( 'The whole documentation has been rebuilt to better meet the developers expectations. %sFresh tutorials are here to help!%s', 'juiz-social-post-sharer'), '<strong>', '</strong>' ); ?>
+							<?php printf( esc_html__( 'The whole %sdocumentation%s has been rebuilt to better meet the developers expectations. %sFresh tutorials are here to help!%s', 'juiz-social-post-sharer'), '<a href="' . jsps_get_public_website( 'doc/', array('source' => 'wp-plugin', 'medium' => 'content', 'campaign' => 'welcome' ) ) . '">', '</a>', '<strong>', '</strong>' ); ?>
 						</p>
 					</div>
 					<div class="jsps-col">
@@ -325,7 +325,7 @@ if ( ! function_exists( 'juiz_sps_welcome_page' ) ) {
 						</p>
 
 						<div class="juiz_btns_set">
-							<a class="juiz_btn_link juiz_paypal juiz_full_width" target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=P39NJPCWVXGDY&amp;lc=FR&amp;item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&amp;item_number=%23wp%2djsps&amp;currency_code=EUR&amp;bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted" aria-label="<?php printf( __( 'Donate with %s', 'juiz-social-post-sharer' ), 'Paypal' ); ?>">
+							<a class="juiz_btn_link juiz_paypal juiz_full_width" target="_blank" href="<?php echo jsps_get_paypal_url(); ?>" aria-label="<?php printf( __( 'Donate with %s', 'juiz-social-post-sharer' ), 'Paypal' ); ?>">
 								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Paypal" x="0px" y="0px" viewBox="0 0 16 16" xml:space="preserve"><path d="M5.444 9.488a.714.714 0 0 1 .707-.6h1.47c2.889 0 5.15-1.164 5.811-4.531.02-.1.051-.292.051-.292.188-1.246-.001-2.091-.68-2.858C12.057.362 10.707 0 8.98 0H3.968a.717.717 0 0 0-.709.6L1.172 13.731a.428.428 0 0 0 .425.493h3.094l.777-4.89-.024.154z" fill="currentColor"></path><path d="M7.621 9.772H6.303L5.319 16h2.138a.626.626 0 0 0 .62-.526l.025-.132.492-3.091.032-.17a.626.626 0 0 1 .619-.526h.391c2.527 0 4.505-1.018 5.083-3.963.232-1.182.12-2.173-.453-2.889-.718 3.315-3.009 5.069-6.645 5.069z" fill="currentColor"></path></svg><?php _e( 'Paypal', 'juiz-social-post-sharer' ); ?>
 							</a>
 

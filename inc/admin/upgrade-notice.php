@@ -111,7 +111,7 @@ function jsps_admin_notice_after_update() {
 	$removal_action_name = 'juiz_sps_notice_removal';
 	$removal_nonce = wp_create_nonce( $removal_action_name );
 	?>
-	<div class="notice notice-success is-dismissible juiz-sps-notice" data-notice="upgrade-<?php echo JUIZ_SPS_VERSION; ?>" data-nonce="<?php echo $removal_nonce; ?>">
+	<div class="notice notice-success is-dismissible juiz-sps-notice" data-notice="upgrade-2.0.0" data-nonce="<?php echo $removal_nonce; ?>">
 		<div class="jsps-notice-header">
 			<h1>
 				<img src="<?php echo JUIZ_SPS_PLUGIN_ASSETS . 'admin/nobs-logo-light.svg' ?>" width="249" height="48" alt="Nobs • Share Buttons">
@@ -174,7 +174,7 @@ function jsps_admin_notice_after_update() {
 					printf(
 						__( 'You are a developer or you have questions, visit the %sFAQ%s or doc. ', 'juiz-social-post-sharer' ),
 						'<a href="' . jsps_get_public_website(
-								'faq',
+								'faq.html',
 								array(
 									'source'   => 'wp-plugin',
 									'medium'   => 'notice',
@@ -484,6 +484,12 @@ function jsps_admin_notice_after_update() {
 			.jsps-shop-promo-form .button img {
 				position: relative;
 				left: 4px;
+			}
+
+			@media (min-width: 1620px) {
+				.jsps-notice-content {
+					gap: 80px;
+				}
 			}
 
 			@media (max-width: 1220px) {

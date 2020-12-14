@@ -422,6 +422,28 @@ function jsps_get_github_url() {
 	return 'https://github.com/geoffreycrofte/juiz-social-post-sharer/';
 }
 
+function jsps_get_paypal_url() {
+
+	$currency = 'EUR';
+
+	switch ( get_locale() ) {
+		case 'en_US':
+			$currency = 'USD';
+			break;
+		case 'en_CA':
+			$currency = 'CAD';
+			break;
+		case 'en_GB':
+			$currency = 'GBP';
+			break;
+
+		default:
+			$currency = 'EUR';
+	} 
+
+	return 'https://www.paypal.com/donate/?cmd=_donations&amp;business=P39NJPCWVXGDY&amp;lc=FR&amp;item_name=Nobs%20Share%20Buttons%20-%20WP%20Plugin&amp;item_number=%23wp-nobs&amp;currency_code=' . $currency . '&amp;bn=PP-DonationsBF%3abtn_donate_SM.gif%3aNonHosted';
+}
+
 function jsps_get_issue($int = null) {
 	return jsps_get_github_url() . 'issues' . ( $int !== null ? '/' . (int) $int : '' );
 }

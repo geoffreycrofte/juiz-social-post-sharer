@@ -103,9 +103,9 @@ function juiz_sps_AJAX_skin_loading() {
 			wp_die();
 		}
 
-		sleep(1); // just in case…
-		// TODO: change development value here.
-		$api_url = 'http://wordpress.local/api/license-manager/v1';
+		sleep(1); // Just in case…
+
+		$api_url = 'https://sharebuttons.social/api/license-manager/v1';
 		$license_manager = new Nobs_License_Manager_Client( array( 'api_url' => $api_url ) );
 		$list = $license_manager->get_all_products();
 		
