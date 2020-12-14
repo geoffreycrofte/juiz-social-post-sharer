@@ -12,7 +12,7 @@ jobs:
     - uses: actions/checkout@master
     - name: Rename readme.txt
       run: |
-        mv ./readme.txt ./README.md
+        git mv readme.txt README.md
     - name: Commit files
       run: |
         git config --local user.email "action@github.com"
