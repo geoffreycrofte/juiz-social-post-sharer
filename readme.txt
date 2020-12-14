@@ -6,7 +6,7 @@ Requires at least: 3.3
 Tested up to: 5.6
 Stable tag: 2.0.0
 
-*Juiz Social Post Sharer* is now *Nobs • Share Buttons*
+*Juiz Social Post Sharer* is now *Nobs • Share Buttons*.
 Add smart designed buttons after/before your posts (or wherever you want) to allow visitors to share your content (includes no JavaScript mode & counters). Totally GDPR compliant.
 
 == Description ==
