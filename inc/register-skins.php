@@ -62,8 +62,8 @@ function jsps_register_core_skins( $core_skins ) {
 	$core_skins['7'] = array(
 		'name'        => __( 'Brands Colors', 'juiz-social-post-sharer' ),
 		'demo_url_2x' => JUIZ_SPS_PLUGIN_URL . 'skins/7/demo@2x.png',
-		'support_compact' => false,
-		'support_hidden_name' => false,
+		'support_compact' => true,
+		'support_hidden_name' => true,
 	);
 
 	$core_skins['8'] = array(
