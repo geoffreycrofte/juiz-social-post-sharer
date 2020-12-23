@@ -86,7 +86,8 @@
 .jsps-icon-reddit:before {
   content: "\e90a";
 }
-.jsps-icon-share:before {
+.jsps-icon-share:before,
+.jsps-icon-shareapi:before {
   content: "\e90b";
 }
 .jsps-icon-tumblr:before {
@@ -860,6 +861,10 @@ td .jsps-shop-promotion:first-child { /* Skin shop section */
 
 [value="whatsapp"]:checked + label {
 	color: #128C7E;
+}
+
+[value="shareapi"]:checked + label {
+	color: #5250B1;
 }
 
 [value="print"]:checked + label,

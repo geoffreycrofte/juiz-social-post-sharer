@@ -72,6 +72,10 @@ function jsps_register_core_networks( $core_networks ) {
 		),
 
 		// Some utilities
+		'shareapi'    => array(
+			'name'    => __( 'Share…', 'juiz-social-post-sharer' ),
+			'visible' => 1,
+		),
 		'mail'        => array(
 			'name'    => __( 'Email', 'juiz-social-post-sharer' ),
 			'visible' => 1,

@@ -25,9 +25,10 @@ Version: Styles v1
 	--pocket: #EF4056;
 	--mix: #FF8126;
 	--whatsapp: #128C7E;
+	--shareapi: #5250B1;
 }
 
-@font-face{
+@font-face {
 	font-family: 'jsps-icons';
 	src: url('../common/fonts/jsps.woff2?200') format('woff2'),
 	     url('../common/fonts/jsps.woff?200') format('woff'),
@@ -37,7 +38,7 @@ Version: Styles v1
 	font-style: normal;
 }
 
-.juiz_sps_icon{
+.juiz_sps_icon {
 	font-family: 'jsps-icons'!important;
 	speak: never;
 	font-style: normal;
@@ -83,7 +84,8 @@ Version: Styles v1
 .jsps-reddit:before {
   content: "\e90a";
 }
-.jsps-share:before {
+.jsps-share:before,
+.jsps-shareapi:before {
   content: "\e90b";
 }
 .jsps-tumblr:before {
@@ -129,13 +131,13 @@ Version: Styles v1
 	list-style: none!important;
 }
 .juiz_sps_links .juiz_sps_item,
-.juiz_sps_links .juiz_sps_item a,
-.juiz_sps_links .juiz_sps_item a .juiz_sps_network_name { 
+.juiz_sps_links .juiz_sps_item .juiz_sps_button,
+.juiz_sps_links .juiz_sps_item .juiz_sps_button .juiz_sps_network_name { 
 	display: inline-block;
 	vertical-align: middle;
 }
 
-.juiz_sps_links .juiz_sps_item a {
+.juiz_sps_links .juiz_sps_item .juiz_sps_button {
 	padding: 5px 15px 5px 10px;
 	margin: 3px 5px 3px 0;
 	border: 1px solid #ddd!important;
@@ -147,13 +149,15 @@ Version: Styles v1
 	border-radius: 4px;
 	box-shadow:1px 1px 3px rgba(0, 0, 0, 0.05);
 	transition: all .4s;
+	text-transform: inherit;
+	font-family: inherit;
 }
 
-.juiz_sps_item .juiz_sps_counter + a {
+.juiz_sps_item .juiz_sps_counter + .juiz_sps_button {
 	border-radius: 0 4px 4px 0;
 }
 
-.juiz_sps_links .juiz_sps_item:last-child a {
+.juiz_sps_links .juiz_sps_item:last-child .juiz_sps_button {
 	margin-right: 0;
 }
 
@@ -172,12 +176,12 @@ Version: Styles v1
 	height: calc(100% - 5px);
 }
 
-.juiz_sps_links .juiz_sps_item a:hover .juiz_sps_icon {
+.juiz_sps_links .juiz_sps_item .juiz_sps_button:hover .juiz_sps_icon {
 	animation: roll forwards 1 .4s;
 }
 
-.juiz_sps_links .juiz_sps_item a:hover,
-.juiz_sps_links .juiz_sps_item a:focus {
+.juiz_sps_links .juiz_sps_item .juiz_sps_button:hover,
+.juiz_sps_links .juiz_sps_item .juiz_sps_button:focus {
 	color: var(--neutraldark);
 }
 
@@ -196,95 +200,99 @@ Version: Styles v1
 	}
 }
 
-.juiz_sps_links .juiz_sps_link_twitter a {
+.juiz_sps_links .juiz_sps_link_twitter .juiz_sps_button {
 	color: var(--twitter);
 }
 
-.juiz_sps_links .juiz_sps_link_diigo a {
+.juiz_sps_links .juiz_sps_link_diigo .juiz_sps_button {
 	color: var(--diigo);
 }
 
-.juiz_sps_links .juiz_sps_link_vk a {
+.juiz_sps_links .juiz_sps_link_vk .juiz_sps_button {
 	color: var(--vk);
 }
 
-.juiz_sps_links .juiz_sps_link_facebook a {
+.juiz_sps_links .juiz_sps_link_facebook .juiz_sps_button {
 	color: var(--facebook);
 }
 
-.juiz_sps_links .juiz_sps_link_linkedin a {
+.juiz_sps_links .juiz_sps_link_linkedin .juiz_sps_button {
 	color: var(--linkedin);
 }
 
-.juiz_sps_links .juiz_sps_link_mix a {
+.juiz_sps_links .juiz_sps_link_mix .juiz_sps_button {
 	color: var(--mix);
 }
 
-.juiz_sps_links .juiz_sps_link_viadeo a {
+.juiz_sps_links .juiz_sps_link_viadeo .juiz_sps_button {
 	color: var(--viadeo);
 }
 
-.juiz_sps_links .juiz_sps_link_reddit a {
+.juiz_sps_links .juiz_sps_link_reddit .juiz_sps_button {
 	color: var(--reddit);
 }
 
-.juiz_sps_links .juiz_sps_link_pocket a {
+.juiz_sps_links .juiz_sps_link_pocket .juiz_sps_button {
 	color: var(--pocket);
 }
 
-.juiz_sps_links .juiz_sps_link_pinterest a {
+.juiz_sps_links .juiz_sps_link_pinterest .juiz_sps_button {
 	color: var(--pinterest);
 }
 
-.juiz_sps_links .juiz_sps_link_weibo a {
+.juiz_sps_links .juiz_sps_link_weibo .juiz_sps_button {
 	color: var(--weibo);
 }
 
-.juiz_sps_links .juiz_sps_link_evernote a {
+.juiz_sps_links .juiz_sps_link_evernote .juiz_sps_button {
 	color: var(--evernote);
 }
 
-.juiz_sps_links .juiz_sps_link_whatsapp a {
+.juiz_sps_links .juiz_sps_link_whatsapp .juiz_sps_button {
 	color: var(--whatsapp);
 }
 
-.juiz_sps_links .juiz_sps_link_tumblr a {
+.juiz_sps_links .juiz_sps_link_tumblr .juiz_sps_button {
 	color: var(--tumblr);
 }
 
-.juiz_sps_links .juiz_sps_link_mail a,
-.juiz_sps_links .juiz_sps_link_print a,
-.juiz_sps_links .juiz_sps_link_bookmark a {
+.juiz_sps_links .juiz_sps_link_shareapi .juiz_sps_button {
+	color: var(--shareapi);
+}
+
+.juiz_sps_links .juiz_sps_link_mail .juiz_sps_button,
+.juiz_sps_links .juiz_sps_link_print .juiz_sps_button,
+.juiz_sps_links .juiz_sps_link_bookmark .juiz_sps_button {
 	color: var(--neutral);
 }
 
 /* special if names are hidden */
-.juiz_sps_hide_name .juiz_sps_item a {
+.juiz_sps_hide_name .juiz_sps_item .juiz_sps_button {
 	padding: 3px 10px 2px 10px;
 }
 
-.juiz_sps_hide_name a .juiz_sps_icon,
-.juiz_sps_hide_name a .juiz_sps_network_name {
+.juiz_sps_hide_name .juiz_sps_button .juiz_sps_icon,
+.juiz_sps_hide_name .juiz_sps_button .juiz_sps_network_name {
 	transition: max-width .45s, margin .45s;
 }
 
-.juiz_sps_hide_name a .juiz_sps_network_name {
+.juiz_sps_hide_name .juiz_sps_button .juiz_sps_network_name {
 	max-width: 0;
 	white-space: nowrap!important;
 	overflow: hidden;
 }
 
-.juiz_sps_hide_name a .juiz_sps_icon {
+.juiz_sps_hide_name .juiz_sps_button .juiz_sps_icon {
 	margin-right: 0;
 }
 
-.juiz_sps_hide_name a:hover .juiz_sps_network_name,
-.juiz_sps_hide_name a:focus .juiz_sps_network_name {
+.juiz_sps_hide_name .juiz_sps_button:hover .juiz_sps_network_name,
+.juiz_sps_hide_name .juiz_sps_button:focus .juiz_sps_network_name {
 	max-width: 80px;
 }
 
-.juiz_sps_hide_name a:hover .juiz_sps_icon,
-.juiz_sps_hide_name a:focus .juiz_sps_icon {
+.juiz_sps_hide_name .juiz_sps_button:hover .juiz_sps_icon,
+.juiz_sps_hide_name .juiz_sps_button:focus .juiz_sps_icon {
 	margin-right: 5px;
 }
 

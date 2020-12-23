@@ -51,6 +51,9 @@
 
 	--whatsapp: #128C7E;
 	--whatsappdark: #075E54;
+
+	--shareapi: #5250B1;
+	--shareapidark: #3C3B69;
 }
 
 @font-face{
@@ -109,7 +112,8 @@
 .jsps-reddit:before {
   content: "\e90a";
 }
-.jsps-share:before {
+.jsps-share:before,
+.jsps-shareapi:before {
   content: "\e90b";
 }
 .jsps-tumblr:before {
@@ -157,7 +161,7 @@
 
 .juiz_sps_links .juiz_sps_links_list,
 .juiz_sps_links .juiz_sps_item,
-.juiz_sps_links .juiz_sps_item a { 
+.juiz_sps_links .juiz_sps_item .juiz_sps_button { 
 	display: flex;
 }
 
@@ -173,11 +177,11 @@
 	margin: 4px!important;
 }
 
-.juiz_sps_links .juiz_sps_item a .juiz_sps_network_name {
+.juiz_sps_links .juiz_sps_item .juiz_sps_button .juiz_sps_network_name {
 	font-weight: bold;
 }
 
-.juiz_sps_links .juiz_sps_item a {
+.juiz_sps_links .juiz_sps_item .juiz_sps_button {
 	--link-padding: 8px 16px 8px 12px;
 	
 	align-items: center;
@@ -201,20 +205,22 @@
 			user-select: none;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
 	-webkit-touch-callout: none;
+	text-transform: inherit;
+	font-family: inherit;
 }
 
-.juiz_sps_links .juiz_sps_item a:focus {
+.juiz_sps_links .juiz_sps_item .juiz_sps_button:focus {
 	outline: 0;
 }
 
-.juiz_sps_links .juiz_sps_item a:hover,
-.juiz_sps_links .juiz_sps_item a:focus {
+.juiz_sps_links .juiz_sps_item .juiz_sps_button:hover,
+.juiz_sps_links .juiz_sps_item .juiz_sps_button:focus {
 	box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2);
 	transition-delay: 0s;
 	background: var(--jsps-custom-hover-color, var(--neutraldark));
 }
 
-.juiz_sps_links .juiz_sps_item a:active {
+.juiz_sps_links .juiz_sps_item .juiz_sps_button:active {
 	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.3);
 }
 
@@ -233,186 +239,195 @@
 /**
  * Color Application
  */
-.juiz_sps_links .juiz_sps_link_twitter a {
+.juiz_sps_links .juiz_sps_link_twitter .juiz_sps_button {
 	background-color: var(--twitter);
 }
 
-.juiz_sps_links .juiz_sps_link_twitter a:hover,
-.juiz_sps_links .juiz_sps_link_twitter a:focus { 
+.juiz_sps_links .juiz_sps_link_twitter .juiz_sps_button:hover,
+.juiz_sps_links .juiz_sps_link_twitter .juiz_sps_button:focus { 
 	background-color: var(--twitterdark);
 }
 
-.juiz_sps_links .juiz_sps_link_facebook a {
+.juiz_sps_links .juiz_sps_link_facebook .juiz_sps_button {
 	background-color: var(--facebook);
 }
 
-.juiz_sps_links .juiz_sps_link_facebook a:hover,
-.juiz_sps_links .juiz_sps_link_facebook a:focus { 
+.juiz_sps_links .juiz_sps_link_facebook .juiz_sps_button:hover,
+.juiz_sps_links .juiz_sps_link_facebook .juiz_sps_button:focus { 
 	background-color: var(--facebookdark);
 }
 
-.juiz_sps_links .juiz_sps_link_vk a {
+.juiz_sps_links .juiz_sps_link_vk .juiz_sps_button {
 	background-color: var(--vk);
 }
 
-.juiz_sps_links .juiz_sps_link_vk a:hover,
-.juiz_sps_links .juiz_sps_link_vk a:focus { 
+.juiz_sps_links .juiz_sps_link_vk .juiz_sps_button:hover,
+.juiz_sps_links .juiz_sps_link_vk .juiz_sps_button:focus { 
 	background-color: var(--vkdark);
 }
 
-.juiz_sps_links .juiz_sps_link_pinterest a {
+.juiz_sps_links .juiz_sps_link_pinterest .juiz_sps_button {
 	background-color: var(--pinterest);
 }
 
-.juiz_sps_links .juiz_sps_link_pinterest a:hover,
-.juiz_sps_links .juiz_sps_link_pinterest a:focus { 
+.juiz_sps_links .juiz_sps_link_pinterest .juiz_sps_button:hover,
+.juiz_sps_links .juiz_sps_link_pinterest .juiz_sps_button:focus { 
 	background-color: var(--pinterestdark);
 }
 
-.juiz_sps_links .juiz_sps_link_viadeo a {
+.juiz_sps_links .juiz_sps_link_viadeo .juiz_sps_button {
 	background-color: var(--viadeo);
 }
 
-.juiz_sps_links .juiz_sps_link_viadeo a:hover,
-.juiz_sps_links .juiz_sps_link_viadeo a:focus { 
+.juiz_sps_links .juiz_sps_link_viadeo .juiz_sps_button:hover,
+.juiz_sps_links .juiz_sps_link_viadeo .juiz_sps_button:focus { 
 	background-color: var(--viadeodark);
 }
 
-.juiz_sps_links .juiz_sps_link_linkedin a {
+.juiz_sps_links .juiz_sps_link_linkedin .juiz_sps_button {
 	background-color: var(--linkedin);
 }
 
-.juiz_sps_links .juiz_sps_link_linkedin a:hover,
-.juiz_sps_links .juiz_sps_link_linkedin a:focus { 
+.juiz_sps_links .juiz_sps_link_linkedin .juiz_sps_button:hover,
+.juiz_sps_links .juiz_sps_link_linkedin .juiz_sps_button:focus { 
 	background-color: var(--linkedindark);
 }
 
-.juiz_sps_links .juiz_sps_link_mix a {
+.juiz_sps_links .juiz_sps_link_mix .juiz_sps_button {
 	background-color: var(--mix);
 }
 
-.juiz_sps_links .juiz_sps_link_mix a:hover,
-.juiz_sps_links .juiz_sps_link_mix a:focus { 
+.juiz_sps_links .juiz_sps_link_mix .juiz_sps_button:hover,
+.juiz_sps_links .juiz_sps_link_mix .juiz_sps_button:focus { 
 	background-color: var(--mixdark);
 }
 
-.juiz_sps_links .juiz_sps_link_tumblr a {
+.juiz_sps_links .juiz_sps_link_tumblr .juiz_sps_button {
 	background-color: var(--tumblr);
 }
 
-.juiz_sps_links .juiz_sps_link_tumblr a:hover,
-.juiz_sps_links .juiz_sps_link_tumblr a:focus { 
+.juiz_sps_links .juiz_sps_link_tumblr .juiz_sps_button:hover,
+.juiz_sps_links .juiz_sps_link_tumblr .juiz_sps_button:focus { 
 	background-color: var(--tumblrdark);
 }
 
-.juiz_sps_links .juiz_sps_link_reddit a {
+.juiz_sps_links .juiz_sps_link_reddit .juiz_sps_button {
 	background-color: var(--reddit);
 }
 
-.juiz_sps_links .juiz_sps_link_reddit a:hover,
-.juiz_sps_links .juiz_sps_link_reddit a:focus { 
+.juiz_sps_links .juiz_sps_link_reddit .juiz_sps_button:hover,
+.juiz_sps_links .juiz_sps_link_reddit .juiz_sps_button:focus { 
 	background-color: var(--redditdark);
 }
 
-.juiz_sps_links .juiz_sps_link_evernote a {
+.juiz_sps_links .juiz_sps_link_evernote .juiz_sps_button {
 	background-color: var(--evernote);
 }
 
-.juiz_sps_links .juiz_sps_link_evernote a:hover,
-.juiz_sps_links .juiz_sps_link_evernote a:focus { 
+.juiz_sps_links .juiz_sps_link_evernote .juiz_sps_button:hover,
+.juiz_sps_links .juiz_sps_link_evernote .juiz_sps_button:focus { 
 	background-color: var(--evernotedark);
 }
 
-.juiz_sps_links .juiz_sps_link_diigo a {
+.juiz_sps_links .juiz_sps_link_diigo .juiz_sps_button {
 	background-color: var(--diigo);
 }
 
-.juiz_sps_links .juiz_sps_link_diigo a:hover,
-.juiz_sps_links .juiz_sps_link_diigo a:focus { 
+.juiz_sps_links .juiz_sps_link_diigo .juiz_sps_button:hover,
+.juiz_sps_links .juiz_sps_link_diigo .juiz_sps_button:focus { 
 	background-color: var(--diigodark);
 }
 
-.juiz_sps_links .juiz_sps_link_pocket a {
+.juiz_sps_links .juiz_sps_link_pocket .juiz_sps_button {
 	background-color: var(--pocket);
 }
 
-.juiz_sps_links .juiz_sps_link_pocket a:hover,
-.juiz_sps_links .juiz_sps_link_pocket a:focus { 
+.juiz_sps_links .juiz_sps_link_pocket .juiz_sps_button:hover,
+.juiz_sps_links .juiz_sps_link_pocket .juiz_sps_button:focus { 
 	background-color: var(--pocketdark);
 }
 
-.juiz_sps_links .juiz_sps_link_whatsapp a {
+.juiz_sps_links .juiz_sps_link_whatsapp .juiz_sps_button {
 	background-color: var(--whatsapp);
 }
 
-.juiz_sps_links .juiz_sps_link_whatsapp a:hover,
-.juiz_sps_links .juiz_sps_link_whatsapp a:focus { 
+.juiz_sps_links .juiz_sps_link_whatsapp .juiz_sps_button:hover,
+.juiz_sps_links .juiz_sps_link_whatsapp .juiz_sps_button:focus { 
 	background-color: var(--whatsappdark);
 }
 
-.juiz_sps_links .juiz_sps_link_weibo a {
+.juiz_sps_links .juiz_sps_link_weibo .juiz_sps_button {
 	background-color: var(--weibo);
 }
 
-.juiz_sps_links .juiz_sps_link_weibo a:hover,
-.juiz_sps_links .juiz_sps_link_weibo a:focus { 
+.juiz_sps_links .juiz_sps_link_weibo .juiz_sps_button:hover,
+.juiz_sps_links .juiz_sps_link_weibo .juiz_sps_button:focus { 
 	background-color: var(--weibodark);
 }
 
-.juiz_sps_links .juiz_sps_link_bookmark a,
-.juiz_sps_links .juiz_sps_link_print a,
-.juiz_sps_links .juiz_sps_link_mail a {
+.juiz_sps_links .juiz_sps_link_shareapi .juiz_sps_button {
+	background-color: var(--shareapi);
+}
+
+.juiz_sps_links .juiz_sps_link_shareapi .juiz_sps_button:hover,
+.juiz_sps_links .juiz_sps_link_shareapi .juiz_sps_button:focus { 
+	background-color: var(--shareapidark);
+}
+
+.juiz_sps_links .juiz_sps_link_bookmark .juiz_sps_button,
+.juiz_sps_links .juiz_sps_link_print .juiz_sps_button,
+.juiz_sps_links .juiz_sps_link_mail .juiz_sps_button {
 	background: var(--neutral);
 }
 
-.juiz_sps_links .juiz_sps_link_print a:hover,
-.juiz_sps_links .juiz_sps_link_print a:focus,
-.juiz_sps_links .juiz_sps_link_bookmark a:hover,
-.juiz_sps_links .juiz_sps_link_bookmark a:focus,
-.juiz_sps_links .juiz_sps_link_mail a:hover,
-.juiz_sps_links .juiz_sps_link_mail a:focus {
+.juiz_sps_links .juiz_sps_link_print .juiz_sps_button:hover,
+.juiz_sps_links .juiz_sps_link_print .juiz_sps_button:focus,
+.juiz_sps_links .juiz_sps_link_bookmark .juiz_sps_button:hover,
+.juiz_sps_links .juiz_sps_link_bookmark .juiz_sps_button:focus,
+.juiz_sps_links .juiz_sps_link_mail .juiz_sps_button:hover,
+.juiz_sps_links .juiz_sps_link_mail .juiz_sps_button:focus {
 	background: var(--neutraldark);
 }
 
-.juiz_sps_links .juiz_sps_item a:hover,
-.juiz_sps_links .juiz_sps_item a:focus {
+.juiz_sps_links .juiz_sps_item .juiz_sps_button:hover,
+.juiz_sps_links .juiz_sps_item .juiz_sps_button:focus {
 	color: #FFF;
 }
 
 /* special if names are hidden */
-.juiz_sps_hide_name .juiz_sps_item a {
+.juiz_sps_hide_name .juiz_sps_item .juiz_sps_button {
 	padding: 8px; /* override --link-padding */
 }
 
-.juiz_sps_hide_name a .juiz_sps_network_name {
+.juiz_sps_hide_name .juiz_sps_button .juiz_sps_network_name {
 	max-width: 0;
 	white-space: nowrap!important;
 	overflow: hidden;
 }
 
-.juiz_sps_hide_name a .juiz_sps_network_name { 
+.juiz_sps_hide_name .juiz_sps_button .juiz_sps_network_name { 
 	-webkit-transition: max-width .75s;
 			transition: max-width .75s;
 }
 
-.juiz_sps_hide_name a .juiz_sps_icon {
+.juiz_sps_hide_name .juiz_sps_button .juiz_sps_icon {
 	margin-right:0;
 	-webkit-transition: margin .75s;
 			transition: margin .75s;
 }
 
-.juiz_sps_hide_name .juiz_sps_item a:hover,
-.juiz_sps_hide_name .juiz_sps_item a:focus {
+.juiz_sps_hide_name .juiz_sps_item .juiz_sps_button:hover,
+.juiz_sps_hide_name .juiz_sps_item .juiz_sps_button:focus {
 	padding: var(--link-padding);
 }
 
-.juiz_sps_hide_name a:hover .juiz_sps_network_name,
-.juiz_sps_hide_name a:focus .juiz_sps_network_name {
+.juiz_sps_hide_name .juiz_sps_button:hover .juiz_sps_network_name,
+.juiz_sps_hide_name .juiz_sps_button:focus .juiz_sps_network_name {
 	max-width: 8em;
 }
 
-.juiz_sps_hide_name a:hover .juiz_sps_icon,
-.juiz_sps_hide_name a:focus .juiz_sps_icon {
+.juiz_sps_hide_name .juiz_sps_button:hover .juiz_sps_icon,
+.juiz_sps_hide_name .juiz_sps_button:focus .juiz_sps_icon {
 	margin-right:0.3em;
 }
 

@@ -51,6 +51,9 @@ Version: Styles v6 (Design and CSS by Fandia - http://fandia.w.pw)
 
 	--whatsapp: #128C7E;
 	--whatsappdark: #075E54;
+
+	--shareapi: #5250B1;
+	--shareapidark: #3C3B69;
 }
 
 @font-face{
@@ -109,6 +112,7 @@ Version: Styles v6 (Design and CSS by Fandia - http://fandia.w.pw)
 .jsps-reddit:before {
   content: "\e90a";
 }
+.jsps-shareapi:before,
 .jsps-share:before {
   content: "\e90b";
 }
@@ -130,7 +134,6 @@ Version: Styles v6 (Design and CSS by Fandia - http://fandia.w.pw)
 .jsps-whatsapp:before {
   content: "\e911";
 }
-
 
 .juiz_sps_links {
 	word-wrap: normal!important;
@@ -156,7 +159,7 @@ Version: Styles v6 (Design and CSS by Fandia - http://fandia.w.pw)
 
 .juiz_sps_links .juiz_sps_links_list,
 .juiz_sps_links .juiz_sps_item,
-.juiz_sps_links .juiz_sps_item a { 
+.juiz_sps_links .juiz_sps_item .juiz_sps_button { 
 	display: flex;
 }
 
@@ -172,7 +175,7 @@ Version: Styles v6 (Design and CSS by Fandia - http://fandia.w.pw)
 	margin: 4px!important;
 }
 
-.juiz_sps_links .juiz_sps_item a { 
+.juiz_sps_links .juiz_sps_item .juiz_sps_button { 
 	align-items: center;
 	padding: 0.5em 1.2em 0.5em 0.62em;
 	border: 0;
@@ -187,9 +190,11 @@ Version: Styles v6 (Design and CSS by Fandia - http://fandia.w.pw)
 	background-clip: padding-box;
 	-webkit-transition: background-color .5s;
 	transition: background-color .5s;
+	text-transform: inherit;
+	font-family: inherit;
 }
 
-.juiz_sps_links .juiz_sps_item:last-child a {
+.juiz_sps_links .juiz_sps_item:last-child .juiz_sps_button {
 	margin-right: 0;
 }
 
@@ -207,120 +212,126 @@ Version: Styles v6 (Design and CSS by Fandia - http://fandia.w.pw)
 	height: calc(100% - 6px);
 }
 
-.juiz_sps_links .juiz_sps_item a:hover,
-.juiz_sps_links .juiz_sps_item a:focus {
+.juiz_sps_links .juiz_sps_item .juiz_sps_button:hover,
+.juiz_sps_links .juiz_sps_item .juiz_sps_button:focus {
 	color: #FFF;
 	background-color: var(--jsps-custom-hover-color, var(--neutral));
 }
 
-.juiz_sps_links .juiz_sps_link_twitter a:hover,
-.juiz_sps_links .juiz_sps_link_twitter a:focus { 
+.juiz_sps_links .juiz_sps_link_twitter .juiz_sps_button:hover,
+.juiz_sps_links .juiz_sps_link_twitter .juiz_sps_button:focus { 
 	background-color: var(--twitter);
 }
 
-.juiz_sps_links .juiz_sps_link_facebook a:hover,
-.juiz_sps_links .juiz_sps_link_facebook a:focus { 
+.juiz_sps_links .juiz_sps_link_facebook .juiz_sps_button:hover,
+.juiz_sps_links .juiz_sps_link_facebook .juiz_sps_button:focus { 
 	background-color: var(--facebook);
 }
 
-.juiz_sps_links .juiz_sps_link_vk a:hover,
-.juiz_sps_links .juiz_sps_link_vk a:focus { 
+.juiz_sps_links .juiz_sps_link_vk .juiz_sps_button:hover,
+.juiz_sps_links .juiz_sps_link_vk .juiz_sps_button:focus { 
 	background-color: var(--vk);
 }
 
-.juiz_sps_links .juiz_sps_link_pinterest a:hover,
-.juiz_sps_links .juiz_sps_link_pinterest a:focus { 
+.juiz_sps_links .juiz_sps_link_pinterest .juiz_sps_button:hover,
+.juiz_sps_links .juiz_sps_link_pinterest .juiz_sps_button:focus { 
 	background-color: var(--pinterest);
  }
 
-.juiz_sps_links .juiz_sps_link_viadeo a:hover,
-.juiz_sps_links .juiz_sps_link_viadeo a:focus { 
+.juiz_sps_links .juiz_sps_link_viadeo .juiz_sps_button:hover,
+.juiz_sps_links .juiz_sps_link_viadeo .juiz_sps_button:focus { 
 	background-color: var(--viadeo);
  }
 
-.juiz_sps_links .juiz_sps_link_mix a:hover,
-.juiz_sps_links .juiz_sps_link_mix a:focus { 
+.juiz_sps_links .juiz_sps_link_mix .juiz_sps_button:hover,
+.juiz_sps_links .juiz_sps_link_mix .juiz_sps_button:focus { 
 	background-color: var(--mix);	
 }
 
-.juiz_sps_links .juiz_sps_link_linkedin a:hover,
-.juiz_sps_links .juiz_sps_link_linkedin a:focus { 
+.juiz_sps_links .juiz_sps_link_linkedin .juiz_sps_button:hover,
+.juiz_sps_links .juiz_sps_link_linkedin .juiz_sps_button:focus { 
 	background-color: var(--linkedin);
  }
 
-.juiz_sps_links .juiz_sps_link_diigo a:hover,
-.juiz_sps_links .juiz_sps_link_diigo a:focus { 
+.juiz_sps_links .juiz_sps_link_diigo .juiz_sps_button:hover,
+.juiz_sps_links .juiz_sps_link_diigo .juiz_sps_button:focus { 
 	background-color: var(--diigo);
  }
 
- .juiz_sps_links .juiz_sps_link_tumblr a:hover,
-.juiz_sps_links .juiz_sps_link_tumblr a:focus {
+ .juiz_sps_links .juiz_sps_link_tumblr .juiz_sps_button:hover,
+.juiz_sps_links .juiz_sps_link_tumblr .juiz_sps_button:focus {
 	background-color: var(--tumblr);
 }
 
-.juiz_sps_links .juiz_sps_link_reddit a:hover,
-.juiz_sps_links .juiz_sps_link_reddit a:focus {
+.juiz_sps_links .juiz_sps_link_reddit .juiz_sps_button:hover,
+.juiz_sps_links .juiz_sps_link_reddit .juiz_sps_button:focus {
 	background-color: var(--reddit);
 }
 
-.juiz_sps_links .juiz_sps_link_evernote a:hover,
-.juiz_sps_links .juiz_sps_link_evernote a:focus {
+.juiz_sps_links .juiz_sps_link_evernote .juiz_sps_button:hover,
+.juiz_sps_links .juiz_sps_link_evernote .juiz_sps_button:focus {
 	background-color: var(--evernote);
 }
 
-.juiz_sps_links .juiz_sps_link_weibo a:hover,
-.juiz_sps_links .juiz_sps_link_weibo a:focus { 
+.juiz_sps_links .juiz_sps_link_weibo .juiz_sps_button:hover,
+.juiz_sps_links .juiz_sps_link_weibo .juiz_sps_button:focus { 
 	background-color: var(--weibo);
 }
 
-.juiz_sps_links .juiz_sps_link_whatsapp a:hover,
-.juiz_sps_links .juiz_sps_link_whatsapp a:focus { 
+.juiz_sps_links .juiz_sps_link_shareapi .juiz_sps_button:hover,
+.juiz_sps_links .juiz_sps_link_shareapi .juiz_sps_button:focus { 
+	background-color: var(--shareapi);
+}
+
+.juiz_sps_links .juiz_sps_link_whatsapp .juiz_sps_button:hover,
+.juiz_sps_links .juiz_sps_link_whatsapp .juiz_sps_button:focus { 
 	background-color: var(--whatsapp);
 }
 
-.juiz_sps_links .juiz_sps_link_pocket a:hover,
-.juiz_sps_links .juiz_sps_link_pocket a:focus { 
+.juiz_sps_links .juiz_sps_link_pocket .juiz_sps_button:hover,
+.juiz_sps_links .juiz_sps_link_pocket .juiz_sps_button:focus { 
 	background-color: var(--pocket);
 }
 
-.juiz_sps_links .juiz_sps_link_bookmark a:hover,
-.juiz_sps_links .juiz_sps_link_bookmark a:focus,
-.juiz_sps_links .juiz_sps_link_print a:hover,
-.juiz_sps_links .juiz_sps_link_print a:focus,
-.juiz_sps_links .juiz_sps_link_mail a:hover,
-.juiz_sps_links .juiz_sps_link_mail a:focus {
+.juiz_sps_links .juiz_sps_link_bookmark .juiz_sps_button:hover,
+.juiz_sps_links .juiz_sps_link_bookmark .juiz_sps_button:focus,
+.juiz_sps_links .juiz_sps_link_print .juiz_sps_button:hover,
+.juiz_sps_links .juiz_sps_link_print .juiz_sps_button:focus,
+.juiz_sps_links .juiz_sps_link_mail .juiz_sps_button:hover,
+.juiz_sps_links .juiz_sps_link_mail .juiz_sps_button:focus {
 	background: var(--neutral);
 }
 
 
 /* Specific if names are hidden */
-.juiz_sps_hide_name .juiz_sps_item a {
+.juiz_sps_hide_name .juiz_sps_item .juiz_sps_button {
 	padding: 0.4em .85em 0.45em;
 }
 
-.juiz_sps_hide_name a .juiz_sps_network_name {
+.juiz_sps_hide_name .juiz_sps_button .juiz_sps_network_name {
 	max-width:0;
 	white-space: nowrap!important;
 	overflow: hidden;
 }
 
-.juiz_sps_hide_name a .juiz_sps_network_name {
+.juiz_sps_hide_name .juiz_sps_button .juiz_sps_network_name {
 	-webkit-transition: max-width .75s;
 	transition: max-width .75s;
 }
 
-.juiz_sps_hide_name a .juiz_sps_icon {
+.juiz_sps_hide_name .juiz_sps_button .juiz_sps_icon {
 	margin-right:0;
 	-webkit-transition: margin .75s;
 	transition: margin .75s;
 }
 
-.juiz_sps_hide_name a:hover .juiz_sps_network_name,
-.juiz_sps_hide_name a:focus .juiz_sps_network_name {
+.juiz_sps_hide_name .juiz_sps_button:hover .juiz_sps_network_name,
+.juiz_sps_hide_name .juiz_sps_button:focus .juiz_sps_network_name {
 	max-width: 8em;
 }
 
-.juiz_sps_hide_name a:hover .juiz_sps_icon, .juiz_sps_hide_name a:focus .juiz_sps_icon {
+.juiz_sps_hide_name .juiz_sps_button:hover .juiz_sps_icon,
+.juiz_sps_hide_name .juiz_sps_button:focus .juiz_sps_icon {
 	margin-right: 0.3em;
 }
 

@@ -5,7 +5,7 @@ Author: Geoffrey Crofte
 Version: Styles v3 - Blue Metro Style
 */
 
-@font-face{
+@font-face {
 	font-family: 'jsps-icons';
 	src: url('../common/fonts/jsps.woff2?200') format('woff2'),
 	     url('../common/fonts/jsps.woff?200') format('woff'),
@@ -61,7 +61,8 @@ Version: Styles v3 - Blue Metro Style
 .jsps-reddit:before {
   content: "\e90a";
 }
-.jsps-share:before {
+.jsps-share:before,
+.jsps-shareapi:before {
   content: "\e90b";
 }
 .jsps-tumblr:before {
@@ -108,8 +109,8 @@ Version: Styles v3 - Blue Metro Style
 }
 
 .juiz_sps_links .juiz_sps_item,
-.juiz_sps_links .juiz_sps_item a,
-.juiz_sps_links .juiz_sps_item a .juiz_sps_network_name { 
+.juiz_sps_links .juiz_sps_item .juiz_sps_button,
+.juiz_sps_links .juiz_sps_item .juiz_sps_button .juiz_sps_network_name { 
 	display: inline-block;
 	vertical-align: middle;
 }
@@ -118,7 +119,7 @@ Version: Styles v3 - Blue Metro Style
 	margin: 4px!important;
 }
 
-.juiz_sps_links .juiz_sps_item a { 
+.juiz_sps_links .juiz_sps_item .juiz_sps_button { 
 	padding: 8px 15px 8px 10px;
 	margin: 0;
 	background-color: #04b7e3;
@@ -132,9 +133,11 @@ Version: Styles v3 - Blue Metro Style
 	transform-origin: 100% 100%;
 	perspective: 2000;
 	perspective-origin: 50% 50%;
+	font-family: inherit;
+	text-transform: inherit;
 }
 
-.juiz_sps_links .juiz_sps_item:last-child a {
+.juiz_sps_links .juiz_sps_item:last-child .juiz_sps_button {
 	margin-right: 0;
 }
 
@@ -153,40 +156,40 @@ Version: Styles v3 - Blue Metro Style
 	height: calc(100% - 6px);
 }
 
-.juiz_sps_links .juiz_sps_item a:hover,
-.juiz_sps_links .juiz_sps_item a:focus {
+.juiz_sps_links .juiz_sps_item .juiz_sps_button:hover,
+.juiz_sps_links .juiz_sps_item .juiz_sps_button:focus {
 	color: #F2F2F2;
 	background-color: #24459a;
 	transform: scale(0.99) scaleZ(0.9) rotateX(6deg) rotateY(6deg);
 }
 
 /* special if names are hidden */
-.juiz_sps_hide_name .juiz_sps_item a {
+.juiz_sps_hide_name .juiz_sps_item .juiz_sps_button {
 	padding: 5px 10px 6px 10px;
 }
 
-.juiz_sps_hide_name a .juiz_sps_icon,
-.juiz_sps_hide_name a .juiz_sps_network_name {
+.juiz_sps_hide_name .juiz_sps_button .juiz_sps_icon,
+.juiz_sps_hide_name .juiz_sps_button .juiz_sps_network_name {
 	transition: max-width .3s, margin .3s;
 }
 
-.juiz_sps_hide_name a .juiz_sps_network_name {
+.juiz_sps_hide_name .juiz_sps_button .juiz_sps_network_name {
 	max-width:0;
 	white-space: nowrap!important;
 	overflow: hidden;
 }
 
-.juiz_sps_hide_name a .juiz_sps_icon {
+.juiz_sps_hide_name .juiz_sps_button .juiz_sps_icon {
 	margin-right: 0;
 }
 
-.juiz_sps_hide_name a:hover .juiz_sps_network_name,
-.juiz_sps_hide_name a:focus .juiz_sps_network_name {
+.juiz_sps_hide_name .juiz_sps_button:hover .juiz_sps_network_name,
+.juiz_sps_hide_name .juiz_sps_button:focus .juiz_sps_network_name {
 	max-width: 85px;
 }
 
-.juiz_sps_hide_name a:hover .juiz_sps_icon,
-.juiz_sps_hide_name a:focus .juiz_sps_icon {
+.juiz_sps_hide_name .juiz_sps_button:hover .juiz_sps_icon,
+.juiz_sps_hide_name .juiz_sps_button:focus .juiz_sps_icon {
 	margin-right:5px;
 }
 
