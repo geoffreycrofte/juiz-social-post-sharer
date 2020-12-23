@@ -54,6 +54,13 @@
 
 	--shareapi: #5250B1;
 	--shareapidark: #3C3B69;
+
+	/* Utilities */
+	--link-padding: 8px 16px 8px 12px;
+	--icon-size: 32px;
+	--text-size: 18px;
+	--icon-margin: 8px;
+	--space-between: 4px;
 }
 
 @font-face{
@@ -66,7 +73,7 @@
 	font-style: normal;
 }
 
-.juiz_sps_icon{
+.juiz_sps_icon {
 	font-family: 'jsps-icons'!important;
 	speak: never;
 	font-style: normal;
@@ -76,7 +83,7 @@
 	line-height: 1;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	font-size: 32px;
+	font-size: var(--icon-size, 32px);
 }
 
 .jsps-bookmark:before {
@@ -168,13 +175,13 @@
 /* UL list */
 .juiz_sps_links .juiz_sps_links_list {
 	flex-wrap: wrap;
-	margin-left: 4px;
-	margin-right: 4px;
+	margin-left: var(--space-between, 4px);
+	margin-right: var(--space-between, 4px);
 }
 
 /* LI item */
 .juiz_sps_links .juiz_sps_item {
-	margin: 4px!important;
+	margin: var(--space-between, 4px) !important;
 }
 
 .juiz_sps_links .juiz_sps_item .juiz_sps_button .juiz_sps_network_name {
@@ -182,12 +189,10 @@
 }
 
 .juiz_sps_links .juiz_sps_item .juiz_sps_button {
-	--link-padding: 8px 16px 8px 12px;
-	
 	align-items: center;
 	padding: var(--link-padding);
 	border: 0;
-	font-size: 18px;
+	font-size: var(--text-size, 18px);
 	color: #FFF;
 	text-decoration: none;
 	text-shadow: none;
@@ -205,6 +210,8 @@
 	-webkit-touch-callout: none;
 	font-family: inherit;
 	text-transform: inherit;
+	font-weight: normal;
+	line-height: 1.55;
 }
 
 .juiz_sps_links .juiz_sps_item .juiz_sps_button:focus {
@@ -218,7 +225,7 @@
 }
 
 .juiz_sps_links .juiz_sps_icon {
-	margin-right: 8px;
+	margin-right: var(--icon-margin, 8px);
 	width: 1em;
 	height: 1em;
 	text-align: center;
@@ -388,9 +395,11 @@
 	color: #FFF;
 }
 
-/* special if names are hidden */
-.juiz_sps_hide_name .juiz_sps_item .juiz_sps_button {
-	padding: 8px; /* override --link-padding */
+/**
+ * Special if names are hidden
+ */
+.juiz_sps_links .juiz_sps_hide_name {
+	--link-padding: 8px;
 }
 
 .juiz_sps_hide_name .juiz_sps_button .juiz_sps_network_name {
@@ -412,7 +421,7 @@
 
 .juiz_sps_hide_name .juiz_sps_item .juiz_sps_button:hover,
 .juiz_sps_hide_name .juiz_sps_item .juiz_sps_button:focus {
-	padding: var(--link-padding);
+	--link-padding: 8px 16px 8px 12px;
 }
 
 .juiz_sps_hide_name .juiz_sps_button:hover .juiz_sps_network_name,
@@ -422,8 +431,38 @@
 
 .juiz_sps_hide_name .juiz_sps_button:hover .juiz_sps_icon,
 .juiz_sps_hide_name .juiz_sps_button:focus .juiz_sps_icon {
-	margin-right:0.3em;
+	margin-right: 0.3em;
 }
+
+/**
+ * Compact Mode
+ */
+.juiz_sps_compact {
+	--link-padding: 4px 10px 4px 6px;
+	--icon-size: 20px;
+	--text-size: 14px;
+	--icon-margin: 4px;
+	--space-between: 2px;
+}
+
+/**
+ * Hide + Compact
+ */
+.juiz_sps_compact.juiz_sps_hide_name {
+	--link-padding: 4px;
+}
+.juiz_sps_compact.juiz_sps_hide_name .juiz_sps_button:hover,
+.juiz_sps_compact.juiz_sps_hide_name .juiz_sps_button:focus {
+	--link-padding: 4px 10px 4px 6px;
+}
+.juiz_sps_compact.juiz_sps_hide_name .juiz_sps_button:hover .juiz_sps_icon,
+.juiz_sps_compact.juiz_sps_hide_name .juiz_sps_button:focus .juiz_sps_icon {
+	margin-right: 4px;
+}
+
+/**
+ * Counters
+ */
 
 .juiz_sps_counter,
 .juiz_sps_totalcount {

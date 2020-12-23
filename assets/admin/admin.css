@@ -453,7 +453,7 @@
 .jsps-emphasis {
 	font-weight: normal;
 	font-style: italic;
-	color: #777;
+	color: #888;
 }
 
 em.jsps-emphasis.jsps-emphasis {
@@ -1220,6 +1220,19 @@ input[type="checkbox"]:checked + label em {
 	opacity: 0;
 	transform: translateX(-50%) translateY(200px);
 	transition: all .300s;
+}
+
+.juiz-sps-notif.is-inline {
+	position: static;
+	width: auto;
+	transform: none;
+	opacity: 1;
+	box-shadow: none;
+	margin: 1.5em 0;
+}
+
+td > .juiz-sps-notif.is-inline:first-child {
+	margin-top: -1.5em;
 }
 
 .juiz-sps-notif.is-visible {

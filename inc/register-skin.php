@@ -22,9 +22,11 @@ function jsps_get_core_skins( $core_skins = array() ) {
 	 *
  	 * @since  2.0.0 First version
  	 *
- 	 * @param  {array}  cskins=array()    The list of Core Skins.
- 	 * @param  {array}  cskins.slug       Info of a skin where `slug` is its shortname.
- 	 * @param  {string} cskins.slug.name  The visible name of the skin.
+ 	 * @param  {array}  cskins=array()               The list of Core Skins.
+ 	 * @param  {array}  cskins.slug                  Info of a skin where `slug` is its shortname.
+ 	 * @param  {string} cskins.slug.name             The visible name of the skin.
+ 	 * @param  {string} cskins.slug.demo_url_2x      The image used for the option in admin.
+ 	 * @param  {boolean} cskins.slug.support_compact Does it have compact mode (tinier verion) support. 
  	 *
  	 * @return {array}                    The list of Core Skins.
 	 */
@@ -58,6 +60,8 @@ function jsps_get_custom_skins( $custom_skins = array() ) {
  	 * @param  {string} cskins.slug.author_url  The URL of the author displayed in the admin.
  	 * @param  {string} cskins.slug.css_url     The CSS URL used to style the skin.
  	 * @param  {string} cskins.slug.demo_url    The image of the demo to display it in the admin.
+ 	 * @param  {string} cskins.slug.demo_url_2x      The image used for the option in admin.
+ 	 * @param  {boolean} cskins.slug.support_compact Does it have compact mode (tinier verion) support. 
  	 *
  	 * @return {array}                          The list of Core Skins.
 	 */

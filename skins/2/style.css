@@ -151,6 +151,11 @@ Version: Styles v2
 	transition: all .4s;
 	font-family: inherit;
 	text-transform: inherit;
+	line-height: 1.55;
+}
+
+.juiz_sps_links .juiz_sps_item .juiz_sps_button .juiz_sps_network_name {
+	font-weight: normal;
 }
 
 .juiz_sps_item .juiz_sps_counter + .juiz_sps_button {

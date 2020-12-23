@@ -180,7 +180,7 @@ Version: Styles v6 (Design and CSS by Fandia - http://fandia.w.pw)
 	padding: 0.5em 1.2em 0.5em 0.62em;
 	border: 0;
 	font-size: 0.8em;
-	font-weight:bold;
+	font-weight: bold;
 	color: #fff;
 	text-decoration: none;
 	text-shadow: 1px 1px 1px rgba(0,0,0,.35);
@@ -188,10 +188,11 @@ Version: Styles v6 (Design and CSS by Fandia - http://fandia.w.pw)
 	-webkit-background-clip: padding-box;
 	-moz-background-clip: padding;
 	background-clip: padding-box;
-	-webkit-transition: background-color .5s;
-	transition: background-color .5s;
+	-webkit-transition: all .4s;
+	transition: all .4s;
 	text-transform: inherit;
 	font-family: inherit;
+	line-height: 1.55;
 }
 
 .juiz_sps_links .juiz_sps_item:last-child .juiz_sps_button {
@@ -303,7 +304,9 @@ Version: Styles v6 (Design and CSS by Fandia - http://fandia.w.pw)
 }
 
 
-/* Specific if names are hidden */
+/**
+ * Specific if names are hidden
+ */
 .juiz_sps_hide_name .juiz_sps_item .juiz_sps_button {
 	padding: 0.4em .85em 0.45em;
 }
@@ -335,6 +338,41 @@ Version: Styles v6 (Design and CSS by Fandia - http://fandia.w.pw)
 	margin-right: 0.3em;
 }
 
+/**
+ * Compact Mode
+ */
+.juiz_sps_compact .juiz_sps_item .juiz_sps_button {
+	font-size: 0.725em;
+}
+
+.juiz_sps_compact .juiz_sps_icon {
+	font-size: 20px;
+}
+
+.juiz_sps_compact .juiz_sps_item {
+	margin:  2px !important;
+}
+
+/**
+ * Hide + Compact
+ */
+.juiz_sps_compact.juiz_sps_hide_name .juiz_sps_item .juiz_sps_button {
+	padding: .4em .42em;
+}
+
+.juiz_sps_compact.juiz_sps_hide_name .juiz_sps_item .juiz_sps_button:hover,
+.juiz_sps_compact.juiz_sps_hide_name .juiz_sps_item .juiz_sps_button:focus {
+	padding: .4em .6em .4em .5em;
+}
+
+.juiz_sps_compact.juiz_sps_hide_name .juiz_sps_button:hover .juiz_sps_icon,
+.juiz_sps_compact.juiz_sps_hide_name .juiz_sps_button:focus .juiz_sps_icon {
+	margin-right: 4px;
+}
+
+/**
+ * Counters
+ */
 .juiz_sps_counter,
 .juiz_sps_totalcount {
 	position: relative;

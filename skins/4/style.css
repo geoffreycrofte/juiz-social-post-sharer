@@ -134,6 +134,7 @@ Version: Styles v4 - Dark Metro Style
 	perspective-origin: 50% 50%;
 	font-family: inherit;
 	text-transform: inherit;
+	line-height: 1.55;
 }
 
 .juiz_sps_links .juiz_sps_item:last-child .juiz_sps_button {
@@ -191,6 +192,44 @@ Version: Styles v4 - Dark Metro Style
 .juiz_sps_hide_name .juiz_sps_button:focus .juiz_sps_icon {
 	margin-right:5px;
 }
+
+/**
+ * Compact Mode
+ */
+.juiz_sps_links_list.juiz_sps_compact .juiz_sps_item {
+	margin: 2px !important;
+}
+
+.juiz_sps_links .juiz_sps_compact .juiz_sps_item .juiz_sps_button {
+	padding: 4px 10px 4px 6px;
+}
+
+.juiz_sps_links .juiz_sps_compact .juiz_sps_icon {
+	font-size: 20px;
+}
+
+/**
+ * Compact + Hidden name
+ */
+.juiz_sps_compact.juiz_sps_hide_name .juiz_sps_item .juiz_sps_button {
+	padding: 4px;
+}
+
+.juiz_sps_compact.juiz_sps_hide_name .juiz_sps_item .juiz_sps_button:hover,
+.juiz_sps_compact.juiz_sps_hide_name .juiz_sps_item .juiz_sps_button:focus {
+	padding: 4px 8px 4px 4px;
+	transform: none;
+}
+
+.juiz_sps_compact.juiz_sps_hide_name .juiz_sps_button:hover .juiz_sps_icon,
+.juiz_sps_compact.juiz_sps_hide_name .juiz_sps_button:focus .juiz_sps_icon {
+	margin-right: 4px;
+	margin-left: 4px;
+}
+
+/**
+ * Counters
+ */
 
 .juiz_sps_counter,
 .juiz_sps_totalcount {

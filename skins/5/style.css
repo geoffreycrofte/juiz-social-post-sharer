@@ -152,28 +152,28 @@ Version: Styles v5 (Design and CSS by Tony Trancard - tonytrancard.fr)
 	right: -9999em;
 }
 
-.juiz_sps_links ul,
-.juiz_sps_links li  { 
+.juiz_sps_links .juiz_sps_links_list,
+.juiz_sps_links .juiz_sps_item  { 
 	padding: 0!important;
 	margin: 0!important;
 	list-style: none!important;
 }
 
-.juiz_sps_links li,
-.juiz_sps_links li .juiz_sps_button,
-.juiz_sps_links li .juiz_sps_button .juiz_sps_network_name { 
+.juiz_sps_links .juiz_sps_item,
+.juiz_sps_links .juiz_sps_item .juiz_sps_button,
+.juiz_sps_links .juiz_sps_item .juiz_sps_button .juiz_sps_network_name { 
 	display: inline-block;
 	vertical-align: middle;
 }
 
-.juiz_sps_links li .juiz_sps_button { 
+.juiz_sps_links .juiz_sps_item .juiz_sps_button { 
 	padding: 6px 15px 8px 10px;
 	margin: 3px 5px 0 0;
 	border: 1px solid var(--jsps-custom-hover-color, var(--neutraldark));
 	color: #fff;
 	text-decoration: none;
 	font-size: .785em;
-	font-weight:bold;
+	font-weight: bold;
 	text-shadow: 1px 1px 1px rgba(0,0,0,.35);
     background-image: linear-gradient(to top, rgba(255,255,255,0) 0%, rgba(255,255,255,.26) 100%);
     background-color: var(--jsps-custom-color, var(--neutral));
@@ -183,8 +183,10 @@ Version: Styles v5 (Design and CSS by Tony Trancard - tonytrancard.fr)
 	transition: background .275s;
 	font-family: inherit;
 	text-transform: inherit;
+	line-height: 1.55;
 }
-.juiz_sps_links li:last-child .juiz_sps_button {
+
+.juiz_sps_links .juiz_sps_item:last-child .juiz_sps_button {
 	margin-right: 0;
 }
 
@@ -360,14 +362,11 @@ Version: Styles v5 (Design and CSS by Tony Trancard - tonytrancard.fr)
 	background-color: var(--evernotedark);
 }
 
-/* special if names are hidden */
-.juiz_sps_hide_name li .juiz_sps_button {
+/**
+ * Special if names are hidden
+ */
+.juiz_sps_hide_name .juiz_sps_item .juiz_sps_button {
 	padding: 2px 10px;
-}
-
-.juiz_sps_hide_name .juiz_sps_button .juiz_sps_icon,
-.juiz_sps_hide_name .juiz_sps_button .juiz_sps_network_name {
-	display: none;
 }
 
 .juiz_sps_hide_name .juiz_sps_button .juiz_sps_network_name {
@@ -382,14 +381,14 @@ Version: Styles v5 (Design and CSS by Tony Trancard - tonytrancard.fr)
 }
 
 .juiz_sps_hide_name .juiz_sps_button .juiz_sps_icon {
-	margin-right:0;
+	margin-right: 0;
 	-webkit-transition: margin .4s;
 	transition: margin .4s;
 }
 
 .juiz_sps_hide_name .juiz_sps_button:hover .juiz_sps_network_name,
 .juiz_sps_hide_name .juiz_sps_button:focus .juiz_sps_network_name {
-	max-width:80px;
+	max-width: 80px;
 }
 
 .juiz_sps_hide_name .juiz_sps_button:hover .juiz_sps_icon,
@@ -397,6 +396,44 @@ Version: Styles v5 (Design and CSS by Tony Trancard - tonytrancard.fr)
 	margin-right: 5px;
 	margin-left: 5px;
 }
+
+/**
+ * Compact mode.
+ */
+.juiz_sps_compact .juiz_sps_item .juiz_sps_button {
+	padding: 4px 11px 5px 6px;
+	margin: 2px 4px 0 0;
+}
+
+.juiz_sps_compact .juiz_sps_icon {
+	font-size: 20px;
+}
+
+.juiz_sps_compact .juiz_sps_item .juiz_sps_button .juiz_sps_network_name {
+	font-size: 0.92em;
+}
+
+/**
+ * Compact + Hidden name
+ */
+.juiz_sps_compact.juiz_sps_hide_name .juiz_sps_item .juiz_sps_button {
+	padding: 4px;
+}
+
+.juiz_sps_compact.juiz_sps_hide_name .juiz_sps_item .juiz_sps_button:hover,
+.juiz_sps_compact.juiz_sps_hide_name .juiz_sps_item .juiz_sps_button:focus {
+	padding: 4px 8px 4px 4px;
+}
+
+.juiz_sps_compact.juiz_sps_hide_name .juiz_sps_button:hover .juiz_sps_icon,
+.juiz_sps_compact.juiz_sps_hide_name .juiz_sps_button:focus .juiz_sps_icon {
+	margin-right: 4px;
+	margin-left: 4px;
+}
+
+/**
+ * Counters
+ */
 
 .juiz_sps_counter,
 .juiz_sps_totalcount {

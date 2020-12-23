@@ -254,6 +254,7 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 		// Classes and attributes options.
 		$juiz_sps_target_link = ( isset( $juiz_sps_options['juiz_sps_target_link'] ) && $juiz_sps_options['juiz_sps_target_link'] == 1 ) ? ' target="_blank"' : '';
 		$juiz_sps_hidden_name_class = ( isset( $juiz_sps_options['juiz_sps_hide_social_name'] ) && $juiz_sps_options['juiz_sps_hide_social_name'] == 1 ) ? ' juiz_sps_hide_name' : '';
+		$juiz_sps_compact_name_class = ( isset( $juiz_sps_options['juiz_sps_compact_display'] ) && $juiz_sps_options['juiz_sps_compact_display'] == 1 ) ? ' juiz_sps_compact' : '';
 		$container_classes .= ( intval( $counters ) == 1 ) ? ' juiz_sps_counters' : '';
 		$container_classes .= ( isset( $juiz_sps_options['juiz_sps_counter_option'] ) ) ? ' counters_' . $juiz_sps_options['juiz_sps_counter_option'] : ' counters_both';
 
@@ -266,7 +267,7 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 		$juiz_sps_content .= "\n" . '<' . $div . ' class="juiz_sps_links ' . esc_attr( $container_classes ) . ' juiz_sps_displayed_' . $juiz_sps_display_where . '" data-post-id="' . $post -> ID . '">';
 		$juiz_sps_content .= $hide_intro_phrase ? '' : "\n" . '<' . $p . ' class="screen-reader-text juiz_sps_maybe_hidden_text">' . $share_the_post_sentence . ' "' . wp_strip_all_tags( get_the_title() ) . '"</' . $p . '>' . "\n";
 		$juiz_sps_content .= $before_the_list;
-		$juiz_sps_content .= "\n\t" . '<' . $ul . ' class="juiz_sps_links_list' . esc_attr( $juiz_sps_hidden_name_class ) . '">';
+		$juiz_sps_content .= "\n\t" . '<' . $ul . ' class="juiz_sps_links_list' . esc_attr( $juiz_sps_hidden_name_class ) . esc_attr( $juiz_sps_compact_name_class ) . '">';
 		$juiz_sps_content .= $before_first_i;
 
 

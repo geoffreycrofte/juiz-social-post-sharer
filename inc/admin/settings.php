@@ -65,7 +65,7 @@ function add_juiz_sps_plugin_options() {
 	add_settings_section( 'juiz_sps_plugin_display_in', __( 'Display settings','juiz-social-post-sharer'), 'juiz_sps_section_text_display', JUIZ_SPS_SLUG );
 	add_settings_field( 'juiz_sps_display_in_types', __( 'What type of content must have buttons?', 'juiz-social-post-sharer' ), 'juiz_sps_setting_checkbox_content_type', JUIZ_SPS_SLUG, 'juiz_sps_plugin_display_in' );
 	add_settings_field( 'juiz_sps_display_where', __( 'Where do you want to display buttons?','juiz-social-post-sharer' ), 'juiz_sps_setting_radio_where', JUIZ_SPS_SLUG, 'juiz_sps_plugin_display_in' );
-	add_settings_field( 'juiz_sps_compact_display', __( 'Prefer Compact Display', 'juiz-social-post-sharer' ) . '<br /><em>(' . __( 'Some skins can propose a more compact display, it will remove space around buttons and make them tinier depending on how the skin handle this option.', 'juiz-social-post-sharer' ) . ')</em>', 'juiz_sps_setting_radio_compact_display', JUIZ_SPS_SLUG, 'juiz_sps_plugin_display_in' );
+	add_settings_field( 'juiz_sps_compact_display', __( 'Prefer Compact Display', 'juiz-social-post-sharer' ) . '<br /><em>(' . __( 'Some skins can propose a more compact display, it will remove space around buttons and make them tinier depending on how the skin handles this option.', 'juiz-social-post-sharer' ) . ')</em>', 'juiz_sps_setting_radio_compact_display', JUIZ_SPS_SLUG, 'juiz_sps_plugin_display_in' );
 	add_settings_field( 'juiz_sps_hide_social_name', __( 'Show only social icon?', 'juiz-social-post-sharer' ) . '<br /><em>(' . __( 'hide text, show it on mouse over or focus', 'juiz-social-post-sharer' ) . ')</em>', 'juiz_sps_setting_radio_hide_social_name', JUIZ_SPS_SLUG, 'juiz_sps_plugin_display_in' );
 	add_settings_field( 'juiz_sps_temp_submit_2', get_submit_button( __( 'Save Changes' ), 'primary' ), '__return_empty_string', JUIZ_SPS_SLUG, 'juiz_sps_plugin_display_in' );
 
@@ -189,7 +189,7 @@ function juiz_sps_setting_radio_style_choice() {
 	 * Another part of cleanup for multisite and single site.
 	 */
 	if ( ! is_array( $options ) ) {
-		if ( function_exists( 'is_plugin_active_for_network' ) &&is_plugin_active_for_network( JUIZ_SPS_SLUG . '/' . JUIZ_SPS_SLUG . '.php' ) ) {
+		if ( function_exists( 'is_plugin_active_for_network' ) && is_plugin_active_for_network( JUIZ_SPS_SLUG . '/' . JUIZ_SPS_SLUG . '.php' ) ) {
 			jsps_init_option_ms( jsps_get_initial_settings() );
 		} else {
 			jsps_update_option( jsps_get_initial_settings() );
@@ -480,6 +480,18 @@ function juiz_sps_setting_radio_compact_display() {
 	$options = jsps_get_option();
 
 	if ( is_array( $options ) )
+		$core_skins   = jsps_get_core_skins();
+		$custom_skins = jsps_get_custom_skins();
+		$all_skins    = $core_skins + $custom_skins;
+
+		if ( isset( $all_skins[ $options['juiz_sps_style'] ]['support_compact'] ) && $all_skins[ $options['juiz_sps_style'] ]['support_compact'] === false ) {
+			echo '<div class="juiz-sps-notif is-inline is-error"><div class="juiz-sps-notif-icon"><i class="dashicons dashicons-warning" role="presentation"></i></div><p class="juiz-sps-notif-text">' . __( 'This buttons skin tells there is no support for compact display.', 'juiz-social-post-sharer' ) . '</p></div>';
+		} elseif ( isset( $all_skins[ $options['juiz_sps_style'] ]['support_compact'] ) && $all_skins[ $options['juiz_sps_style'] ]['support_compact'] === true ) {
+			echo '<div class="juiz-sps-notif is-inline is-success"><div class="juiz-sps-notif-icon"><i class="dashicons dashicons-yes-alt" role="presentation"></i></div><p class="juiz-sps-notif-text">' . __( 'This buttons skin tells there is a support of compact display.', 'juiz-social-post-sharer' ) . '</p></div>';
+		} else {
+			echo '<div class="juiz-sps-notif is-inline"><div class="juiz-sps-notif-icon"><i class="dashicons dashicons-info-outline" role="presentation"></i></div><p class="juiz-sps-notif-text">' . __( 'We can\'t tell if the button skin supports the compact display.', 'juiz-social-post-sharer' ) . '</p></div>';
+		}
+
 		( isset( $options['juiz_sps_compact_display'] ) && $options['juiz_sps_compact_display'] == 1 ) ? $y = ' checked="checked"' : $n = ' checked="checked"';
 	
 	echo '<input id="jsps_compact_display_y" value="1" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_compact_display]" type="radio" ' . $y . ' />
