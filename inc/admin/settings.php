@@ -459,17 +459,37 @@ function juiz_sps_setting_radio_hide_social_name() {
 	$y = $n = '';
 	$options = jsps_get_option();
 
-	if ( is_array( $options ) )
+	if ( is_array( $options ) ) {
 		( isset( $options['juiz_sps_hide_social_name'] ) && $options['juiz_sps_hide_social_name'] == 1 ) ? $y = ' checked="checked"' : $n = ' checked="checked"';
-	
-	echo '
-		<img class="jsps-gif-demo" src="' . JUIZ_SPS_PLUGIN_ASSETS . 'img/jsps-icon-only.gif" width="350" height="60">
+		$core_skins   = jsps_get_core_skins();
+		$custom_skins = jsps_get_custom_skins();
+		$all_skins    = $core_skins + $custom_skins;
 
-		<input id="jsps_hide_name_y" value="1" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_hide_social_name]" type="radio" ' . $y . ' />
-		<label for="jsps_hide_name_y">' . __( 'Yes', 'juiz-social-post-sharer' ) . '</label>
-			
-		<input id="jsps_hide_name_n" value="0" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_hide_social_name]" type="radio" ' . $n . ' />
-		<label for="jsps_hide_name_n">' . __( 'No', 'juiz-social-post-sharer' ) . '</label>';
+		echo '<img class="jsps-gif-demo" src="' . JUIZ_SPS_PLUGIN_ASSETS . 'img/jsps-icon-only.gif" width="350" height="60">';
+
+		if ( isset( $all_skins[ $options['juiz_sps_style'] ]['support_hidden_name'] ) && $all_skins[ $options['juiz_sps_style'] ]['support_hidden_name'] === false ) {
+			echo jsps_get_notif(
+				'is-error',
+				__( 'This buttons skin tells there is no support for hidden name.', 'juiz-social-post-sharer' )
+			);
+		} elseif ( isset( $all_skins[ $options['juiz_sps_style'] ]['support_hidden_name'] ) && $all_skins[ $options['juiz_sps_style'] ]['support_hidden_name'] === true ) {
+			echo jsps_get_notif(
+				'is-success',
+				__( 'This buttons skin tells there is a support of hidden name.', 'juiz-social-post-sharer' )
+			);
+		} else {
+			echo jsps_get_notif(
+				'',
+				__( 'We can\'t tell if the button skin supports the hidden name option.', 'juiz-social-post-sharer' )
+			);
+		}
+
+		echo '<input id="jsps_hide_name_y" value="1" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_hide_social_name]" type="radio" ' . $y . ' />
+			<label for="jsps_hide_name_y">' . __( 'Yes', 'juiz-social-post-sharer' ) . '</label>
+				
+			<input id="jsps_hide_name_n" value="0" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_hide_social_name]" type="radio" ' . $n . ' />
+			<label for="jsps_hide_name_n">' . __( 'No', 'juiz-social-post-sharer' ) . '</label>';
+	}
 }
 }
 
@@ -485,11 +505,20 @@ function juiz_sps_setting_radio_compact_display() {
 		$all_skins    = $core_skins + $custom_skins;
 
 		if ( isset( $all_skins[ $options['juiz_sps_style'] ]['support_compact'] ) && $all_skins[ $options['juiz_sps_style'] ]['support_compact'] === false ) {
-			echo '<div class="juiz-sps-notif is-inline is-error"><div class="juiz-sps-notif-icon"><i class="dashicons dashicons-warning" role="presentation"></i></div><p class="juiz-sps-notif-text">' . __( 'This buttons skin tells there is no support for compact display.', 'juiz-social-post-sharer' ) . '</p></div>';
+			echo jsps_get_notif(
+				'is-error',
+				__( 'This buttons skin tells there is no support for compact display.', 'juiz-social-post-sharer' )
+			);
 		} elseif ( isset( $all_skins[ $options['juiz_sps_style'] ]['support_compact'] ) && $all_skins[ $options['juiz_sps_style'] ]['support_compact'] === true ) {
-			echo '<div class="juiz-sps-notif is-inline is-success"><div class="juiz-sps-notif-icon"><i class="dashicons dashicons-yes-alt" role="presentation"></i></div><p class="juiz-sps-notif-text">' . __( 'This buttons skin tells there is a support of compact display.', 'juiz-social-post-sharer' ) . '</p></div>';
+			echo jsps_get_notif(
+				'is-success',
+				__( 'This buttons skin tells there is a support of compact display.', 'juiz-social-post-sharer' )
+			);
 		} else {
-			echo '<div class="juiz-sps-notif is-inline"><div class="juiz-sps-notif-icon"><i class="dashicons dashicons-info-outline" role="presentation"></i></div><p class="juiz-sps-notif-text">' . __( 'We can\'t tell if the button skin supports the compact display.', 'juiz-social-post-sharer' ) . '</p></div>';
+			echo jsps_get_notif(
+				'',
+				__( 'We can\'t tell if the button skin supports the compact display.', 'juiz-social-post-sharer' )
+			);
 		}
 
 		( isset( $options['juiz_sps_compact_display'] ) && $options['juiz_sps_compact_display'] == 1 ) ? $y = ' checked="checked"' : $n = ' checked="checked"';

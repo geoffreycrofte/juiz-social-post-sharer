@@ -17,24 +17,28 @@ function jsps_register_core_skins( $core_skins ) {
 		'name'        => __( 'Juizy Light Tone', 'juiz-social-post-sharer' ),
 		'demo_url_2x' => JUIZ_SPS_PLUGIN_URL . 'skins/1/demo@2x.png',
 		'support_compact' => false,
+		'support_hidden_name' => true,
 	);
 
 	$core_skins['2'] = array(
 		'name'        => __( 'Juizy Light Tone Reversed', 'juiz-social-post-sharer' ),
 		'demo_url_2x' => JUIZ_SPS_PLUGIN_URL . 'skins/2/demo@2x.png',
 		'support_compact' => false,
+		'support_hidden_name' => true,
 	);
 
 	$core_skins['3'] = array(
 		'name'        => __( 'Blue Metro Style', 'juiz-social-post-sharer' ),
 		'demo_url_2x' => JUIZ_SPS_PLUGIN_URL . 'skins/3/demo@2x.png',
 		'support_compact' => true,
+		'support_hidden_name' => true,
 	);
 
 	$core_skins['4'] = array(
 		'name'        => __( 'Gray Metro Style', 'juiz-social-post-sharer' ),
 		'demo_url_2x' => JUIZ_SPS_PLUGIN_URL . 'skins/4/demo@2x.png',
 		'support_compact' => true,
+		'support_hidden_name' => true,
 	);
 
 	$core_skins['5'] = array(
@@ -43,6 +47,7 @@ function jsps_register_core_skins( $core_skins ) {
 		'author_url'  => 'https://tonytrancard.fr/',
 		'demo_url_2x' => JUIZ_SPS_PLUGIN_URL . 'skins/5/demo@2x.png',
 		'support_compact' => true,
+		'support_hidden_name' => true,
 	);
 
 	$core_skins['6'] = array(
@@ -51,18 +56,21 @@ function jsps_register_core_skins( $core_skins ) {
 		'author_url'  => 'http://fandia.w.pw/',
 		'demo_url_2x' => JUIZ_SPS_PLUGIN_URL . 'skins/6/demo@2x.png',
 		'support_compact' => true,
+		'support_hidden_name' => true,
 	);
 
 	$core_skins['7'] = array(
 		'name'        => __( 'Brands Colors', 'juiz-social-post-sharer' ),
 		'demo_url_2x' => JUIZ_SPS_PLUGIN_URL . 'skins/7/demo@2x.png',
-		'support_compact' => true,
+		'support_compact' => false,
+		'support_hidden_name' => false,
 	);
 
 	$core_skins['8'] = array(
 		'name'        => __( 'Material Brand Colors', 'juiz-social-post-sharer' ),
 		'demo_url_2x' => JUIZ_SPS_PLUGIN_URL . 'skins/8/demo@2x.png',
 		'support_compact' => true,
+		'support_hidden_name' => true,
 	);
 
 	/**

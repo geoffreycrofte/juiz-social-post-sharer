@@ -326,6 +326,33 @@ if ( ! function_exists('jsps_get_network_html_icon') ) {
 	}
 }
 
+if ( ! function_exists('jsps_get_notif') ) {
+	/**
+	 * Get the HTML markup for a notification (here an inline one.)
+	 * 
+	 * @param  string $type is-success or is-error
+	 * @param  string $text The message being displayed
+	 * @return string       The entire HTML markup.
+	 *
+	 * @since  2.0.0
+	 * @author Geoffrey Crofte
+	 */
+	function jsps_get_notif( $type = '', $text ) {
+		$notif = '<div class="juiz-sps-notif is-inline ' . esc_attr( $type ) . '"><div class="juiz-sps-notif-icon">';
+
+		$icon = 'dashicons-info-outline';
+		if ( $type === 'is-error' ) {
+			$icon = 'dashicons-warning';
+		} elseif ($type === 'is-success' ) {
+			$icon = 'dashicons-yes-alt';
+		}
+						
+		$notif .= '<i class="dashicons ' . $icon . '" role="presentation"></i></div><p class="juiz-sps-notif-text">' . $text . '</p></div>';
+
+		return $notif;
+	}
+}
+
 if ( ! function_exists( 'jsps_render_api_link' ) ) {
 	/**
 	 * Format the custom network API link for front usage.

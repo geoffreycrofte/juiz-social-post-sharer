@@ -27,6 +27,7 @@ function jsps_get_core_skins( $core_skins = array() ) {
  	 * @param  {string} cskins.slug.name             The visible name of the skin.
  	 * @param  {string} cskins.slug.demo_url_2x      The image used for the option in admin.
  	 * @param  {boolean} cskins.slug.support_compact Does it have compact mode (tinier verion) support. 
+ 	 * @param  {boolean} cskins.slug.support_hidden_name Does it have hidden name support. 
  	 *
  	 * @return {array}                    The list of Core Skins.
 	 */
