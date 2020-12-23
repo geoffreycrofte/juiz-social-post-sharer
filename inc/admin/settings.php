@@ -65,6 +65,7 @@ function add_juiz_sps_plugin_options() {
 	add_settings_section( 'juiz_sps_plugin_display_in', __( 'Display settings','juiz-social-post-sharer'), 'juiz_sps_section_text_display', JUIZ_SPS_SLUG );
 	add_settings_field( 'juiz_sps_display_in_types', __( 'What type of content must have buttons?', 'juiz-social-post-sharer' ), 'juiz_sps_setting_checkbox_content_type', JUIZ_SPS_SLUG, 'juiz_sps_plugin_display_in' );
 	add_settings_field( 'juiz_sps_display_where', __( 'Where do you want to display buttons?','juiz-social-post-sharer' ), 'juiz_sps_setting_radio_where', JUIZ_SPS_SLUG, 'juiz_sps_plugin_display_in' );
+	add_settings_field( 'juiz_sps_compact_display', __( 'Prefer Compact Display', 'juiz-social-post-sharer' ) . '<br /><em>(' . __( 'Some skins can propose a more compact display, it will remove space around buttons and make them tinier depending on how the skin handle this option.', 'juiz-social-post-sharer' ) . ')</em>', 'juiz_sps_setting_radio_compact_display', JUIZ_SPS_SLUG, 'juiz_sps_plugin_display_in' );
 	add_settings_field( 'juiz_sps_hide_social_name', __( 'Show only social icon?', 'juiz-social-post-sharer' ) . '<br /><em>(' . __( 'hide text, show it on mouse over or focus', 'juiz-social-post-sharer' ) . ')</em>', 'juiz_sps_setting_radio_hide_social_name', JUIZ_SPS_SLUG, 'juiz_sps_plugin_display_in' );
 	add_settings_field( 'juiz_sps_temp_submit_2', get_submit_button( __( 'Save Changes' ), 'primary' ), '__return_empty_string', JUIZ_SPS_SLUG, 'juiz_sps_plugin_display_in' );
 
@@ -128,6 +129,7 @@ function juiz_sps_sanitize( $options ) {
 
 	$newoptions['juiz_sps_style'] = esc_attr( $options['juiz_sps_style'] );
 	$newoptions['juiz_sps_hide_social_name'] = (int) $options['juiz_sps_hide_social_name'] == 1 ? 1 : 0;
+	$newoptions['juiz_sps_compact_display'] = (int) $options['juiz_sps_compact_display'] == 1 ? 1 : 0;
 	$newoptions['juiz_sps_target_link'] = (int) $options['juiz_sps_target_link'] == 1 ? 1 : 0;
 	$newoptions['juiz_sps_counter'] = (int) $options['juiz_sps_counter'] == 1 ? 1 : 0;
 
@@ -468,6 +470,23 @@ function juiz_sps_setting_radio_hide_social_name() {
 			
 		<input id="jsps_hide_name_n" value="0" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_hide_social_name]" type="radio" ' . $n . ' />
 		<label for="jsps_hide_name_n">' . __( 'No', 'juiz-social-post-sharer' ) . '</label>';
+}
+}
+
+// Radio fields Y or N for compact display
+if ( ! function_exists( 'juiz_sps_setting_radio_compact_display' ) ) {
+function juiz_sps_setting_radio_compact_display() {
+	$y = $n = '';
+	$options = jsps_get_option();
+
+	if ( is_array( $options ) )
+		( isset( $options['juiz_sps_compact_display'] ) && $options['juiz_sps_compact_display'] == 1 ) ? $y = ' checked="checked"' : $n = ' checked="checked"';
+	
+	echo '<input id="jsps_compact_display_y" value="1" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_compact_display]" type="radio" ' . $y . ' />
+		<label for="jsps_compact_display_y">' . __( 'Yes', 'juiz-social-post-sharer' ) . '</label>
+			
+		<input id="jsps_compact_display_n" value="0" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_compact_display]" type="radio" ' . $n . ' />
+		<label for="jsps_compact_display_n">' . __( 'No', 'juiz-social-post-sharer' ) . '</label>';
 }
 }
 
