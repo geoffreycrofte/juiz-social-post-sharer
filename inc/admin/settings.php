@@ -111,7 +111,7 @@ function juiz_sps_sanitize( $options ) {
 	// Normal option update only send an array with visible networks. array('twitter', 'facebook')
 	// AJAX Update send complete network array.
 	// if $options['juiz_sps_networks']['twitter'] is set, it's an AJAX Request
-	if ( is_array( $options['juiz_sps_networks'] ) && ! isset( $options['juiz_sps_networks']['twitter'] ) ) {
+	if ( isset( $options['juiz_sps_networks'] ) && is_array( $options['juiz_sps_networks'] ) && ! isset( $options['juiz_sps_networks']['twitter'] ) ) {
 
 		//$juiz_sps_opt = jsps_get_option();
 		$all_networks = jsps_get_all_registered_networks();
@@ -124,7 +124,7 @@ function juiz_sps_sanitize( $options ) {
 		$newoptions['juiz_sps_networks'] = $all_networks;
 
 	} else {
-		$newoptions['juiz_sps_networks'] = $options['juiz_sps_networks'];
+		$newoptions['juiz_sps_networks'] = isset( $options['juiz_sps_networks'] ) ? $options['juiz_sps_networks'] : jsps_get_old_network_array();
 	}
 
 	$newoptions['juiz_sps_style'] = esc_attr( $options['juiz_sps_style'] );
