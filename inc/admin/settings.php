@@ -308,7 +308,6 @@ function juiz_sps_setting_checkbox_network_selection() {
 						'37' => 'App.net',
 						'38' => 'Buffer',
 						'35' => 'Instagram',
-						'40' => 'Native Share API',
 						'36' => 'Plurk',
 						'39' => 'Telegram',
 						'34' => 'Yummly'
