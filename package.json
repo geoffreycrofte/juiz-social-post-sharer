@@ -31,9 +31,10 @@
 		"url": "git+https://github.com/geoffreycrofte/juiz-social-post-sharer.git"
 	},
 	"scripts": {
-		"doc": "rm -rf doc && jsdoc inc -c hookdoc.json"
+		"doc": "del '../nobs-share-buttons-doc/**' '!../nobs-share-buttons-doc/.git' -f && jsdoc inc -c hookdoc.json"
 	},
 	"devDependencies": {
+		"del-cli": "^3.0.1",
 		"jsdoc": "^3.6.4",
 		"wp-hookdoc": "^0.2.0"
 	}

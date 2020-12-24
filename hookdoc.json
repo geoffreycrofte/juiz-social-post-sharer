@@ -1,6 +1,6 @@
 {
     "opts": {
-        "destination"   : "doc",
+        "destination"   : "../nobs-share-buttons-doc",
         "template"      : "documentation/template",
         "readme"        : "documentation/README.md",
         "tutorials"     : "documentation/tutorials",
