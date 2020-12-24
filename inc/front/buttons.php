@@ -466,7 +466,7 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 					$api_link = '#';
 					$button = 'button';
 					$api_text = apply_filters( 'juiz_sps_share_text_for_' . $k, __( 'Share on your favorite apps', 'juiz-social-post-sharer') );
-					//$more_item_attr = 'style="display:none;"';
+					$more_item_attr = 'style="display:none;"';
 					
 					$code_before_end_li = '<script>
 					window.addEventListener("DOMContentLoaded", function(){
