@@ -50,7 +50,7 @@ if ( ! function_exists('jsps_enqueue_scripts') ) {
 		 	 * @param  {boolean}  $is_shown=true `true` to display it, `false` to hide it.
 		 	 * @return {boolean} `true` to display it, `false` to hide it, your choice 😊
 			 */
-			'modalEmailFooter'		=> apply_filters( 'jsps_show_modal_footer', true) ? sprintf( __( 'Free service by %sSocial Post Sharer%s', 'juiz-social-post-sharer' ), '<a href="https://wordpress.org/plugins/juiz-social-post-sharer/" target="_blank">', '</a>' ) : '',
+			'modalEmailFooter'		=> apply_filters( 'jsps_show_modal_footer', true) ? sprintf( __( 'Free service by %sNobs • Share Buttons%s', 'juiz-social-post-sharer' ), '<a href="https://wordpress.org/plugins/juiz-social-post-sharer/" target="_blank">', '</a>' ) : '',
 			'modalClose'			=> esc_html__( 'Close', 'juiz-social-post-sharer' ),
 			'modalErrorGeneric'		=> esc_html__( 'Sorry. It looks like we\'ve got an error on our side.', 'juiz-social-post-sharer' )
 		) );
