@@ -39,6 +39,12 @@
     background: #fff;
     background: var(--jsps-overlay, var(--jsps-modal-background));
     z-index: 999999;
+    opacity: 0;
+    transition: opacity .4s;
+}
+
+.juiz-sps-modal.jsps-modal-show {
+    opacity: 1;
 }
 
 .juiz-sps-modal ::selection {
@@ -63,6 +69,12 @@
     box-shadow: 0 1px 3px rgba(0, 0, 0, .1), 0 3px 8px rgba(0, 0, 0, .09), 0 16px 24px rgba(0, 0, 0, .08);
     border-radius: 8px;
     overflow: auto;
+    transform: scale(.95);
+    transition: all .4s;
+}
+
+.jsps-modal-show .juiz-sps-modal-inside {
+    transform: scale(1);
 }
 
 .juiz-sps-modal .juiz-sps-modal-inside p {
