@@ -302,7 +302,8 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 				continue;
 			}
 
-			$api_link = $api_text = '';
+			$api_link = get_permalink( $post->ID );
+			$api_text = '';
 
 			/**
 			 * Sets the URL to be shared on a specific network, where `*` is the network shortname.
@@ -320,7 +321,7 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 		 	 * @return {string} The URL to be shared on the specific network. You don't need to sanitize or urlencode it, the after that.
 		 	 *
 			 */
-			$url = urlencode( esc_url( apply_filters( 'juiz_sps_the_shared_permalink_for_' . $k, $url, $is_current_page_url, $url_to_share ) ) );
+			$url = apply_filters( 'juiz_sps_the_shared_permalink_for_' . $k, $url, $is_current_page_url, $url_to_share );
 
 			$nw_name  = isset( $v['name'] ) ? $v['name'] : $k;
 
@@ -377,16 +378,16 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 					 */
 					$twitter_user = isset( $juiz_sps_options['juiz_sps_twitter_user'] ) && $juiz_sps_options['juiz_sps_twitter_user'] != '' ? '&amp;related=' . apply_filters( 'juiz_sps_twitter_nickname', $juiz_sps_options['juiz_sps_twitter_user'] ) . '&amp;via=' . apply_filters( 'juiz_sps_twitter_nickname', $juiz_sps_options['juiz_sps_twitter_user'] ) : '';
 
-					$api_link = 'https://twitter.com/intent/tweet?source=webclient&amp;original_referer=' . $url . '&amp;text=' . $text . '&amp;url=' . $url . $twitter_user;
+					$api_link = 'https://twitter.com/intent/tweet?source=webclient&amp;original_referer=' . urlencode( $url ) . '&amp;text=' . $text . '&amp;url=' . urlencode( $url ) . $twitter_user;
 					break;
 
 				case 'facebook' :
-					$api_link = 'https://www.facebook.com/sharer.php?u=' . $url;
+					$api_link = 'https://www.facebook.com/sharer.php?u=' . urlencode( $url );
 					break;
 
 				case 'pinterest' :
 					if ( $image != '' && $force_pinterest_snif == 0 ) {
-						$api_link = 'https://pinterest.com/pin/create/button/?media=' . $image[0] . '&amp;url=' . $url . '&amp;title=' . get_the_title() . '&amp;description=' . $excerpt;
+						$api_link = 'https://pinterest.com/pin/create/button/?media=' . $image[0] . '&amp;url=' . urlencode( $url ) . '&amp;title=' . get_the_title() . '&amp;description=' . $excerpt;
 					}
 					else {
 						$api_link = "javascript:void((function(){var%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','//assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)})());";
@@ -395,19 +396,19 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 					break;
 
 				case 'viadeo' :
-					$api_link = 'https://www.viadeo.com/en/widgets/share/preview?url=' . $url . '&amp;comment=' . $text;
+					$api_link = 'https://www.viadeo.com/en/widgets/share/preview?url=' . urlencode( $url ) . '&amp;comment=' . $text;
 					break;
 
 				case 'linkedin':
-					$api_link = 'https://www.linkedin.com/sharing/share-offsite/?url=' . $url;
+					$api_link = 'https://www.linkedin.com/sharing/share-offsite/?url=' . urlencode( $url );
 					break;
 
 				case 'tumblr':
-					$api_link = 'https://www.tumblr.com/widgets/share/tool?canonicalUrl=' . $url;
+					$api_link = 'https://www.tumblr.com/widgets/share/tool?canonicalUrl=' . urlencode( $url );
 					break;
 
 				case 'reddit':
-					$api_link = 'https://www.reddit.com/submit?url=' . $url . '&amp;title=' . $text;
+					$api_link = 'https://www.reddit.com/submit?url=' . urlencode( $url ) . '&amp;title=' . $text;
 					break;
 				
 				case 'mix':
@@ -433,37 +434,35 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 				case 'weibo':
 					// title tips by Aili (thank you ;p)
 					$simplecontent = $text . esc_attr( urlencode( " : " . mb_substr( strip_tags( $post->post_content ), 0, 90, 'utf-8') ) );
-					$api_link = 'http://service.weibo.com/share/share.php?title=' . $simplecontent . '&amp;url=' . $url;
+					$api_link = 'http://service.weibo.com/share/share.php?title=' . $simplecontent . '&amp;url=' . urlencode( $url );
 					break;
 
 				case 'vk':
-					$api_link = 'https://vkontakte.ru/share.php?url=' . $url;
+					$api_link = 'https://vkontakte.ru/share.php?url=' . urlencode( $url );
 					break;
 
 				case 'mail' :
 					if ( strpos( $juiz_sps_options['juiz_sps_mail_body'], '%%' ) || strpos( $juiz_sps_options['juiz_sps_mail_subject'], '%%' ) ) {
 						$api_link = 'mailto:?subject=' . $juiz_sps_options['juiz_sps_mail_subject'] . '&amp;body=' . $juiz_sps_options['juiz_sps_mail_body'];
-						$api_link = preg_replace( array('#%%title%%#', '#%%siteurl%%#', '#%%permalink%%#', '#%%url%%#'), array( get_the_title(), get_site_url(), get_permalink(), $url ), $api_link );
+						$api_link = preg_replace( array('#%%title%%#', '#%%siteurl%%#', '#%%permalink%%#', '#%%url%%#'), array( get_the_title(), get_site_url(), get_permalink(), urlencode( $url ) ), $api_link );
 					}
 					else {
-						$api_link = 'mailto:?subject=' . $juiz_sps_options['juiz_sps_mail_subject'] . '&amp;body=' . $juiz_sps_options['juiz_sps_mail_body'] . ":" . $url;
+						$api_link = 'mailto:?subject=' . $juiz_sps_options['juiz_sps_mail_subject'] . '&amp;body=' . $juiz_sps_options['juiz_sps_mail_body'] . ":" . urlencode( $url );
 					}
 					$api_text = apply_filters( 'juiz_sps_share_text_for_' . $k, __( 'Share this article with a friend (email)', 'juiz-social-post-sharer') );
 					break;
 
 				case 'bookmark' :
-					$api_link = $url;
 					$api_text = apply_filters( 'juiz_sps_share_text_for_' . $k, __( 'Bookmark this article (on your browser)', 'juiz-social-post-sharer') );
 					$more_link_attr = 'data-alert="' . esc_attr( __( 'Press %s to bookmark this page.', 'juiz-social-post-sharer' ) ) . '"';
 					break;
 
 				case 'print' :
-					$api_link = '#';
+					$button = 'button';
 					$api_text = apply_filters( 'juiz_sps_share_text_for_' . $k, __( 'Print this page', 'juiz-social-post-sharer') );
 					break;
 
 				case 'shareapi' :
-					$api_link = '#';
 					$button = 'button';
 					$api_text = apply_filters( 'juiz_sps_share_text_for_' . $k, __( 'Share on your favorite apps', 'juiz-social-post-sharer') );
 					$more_item_attr = 'style="display:none;"';
@@ -508,7 +507,7 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 						'api'   => $v['api_url'],
 						'desc'  => $excerpt,
 						'title' => $text,
-						'url'   => $url
+						'url'   => urlencode( $url )
 					) );
 
 					$api_text = isset( $v['title'] ) ? $v['title'] : '';
@@ -581,14 +580,14 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 
 			$btn_el = '';
 			if ( $button === 'a' ) {
-				$btn_el = 'a href="' . wp_strip_all_tags( esc_attr( $api_link ) ) . '" ' . $rel_nofollow . ' ' . $juiz_sps_target_link;
+				$btn_el = 'a href="' . esc_url( $api_link ) . '" ' . $rel_nofollow . ' ' . $juiz_sps_target_link;
 			} elseif ( $button === 'button' ) {
-				$btn_el = 'button type="button" data-api-link="' . wp_strip_all_tags( esc_attr( $api_link ) ) . '"';
+				$btn_el = 'button type="button" data-api-link="' . esc_url( $api_link ) . '"';
 			} else {
 				$btn_el = $button;
 			}
 
-			$item_content .= '<' . $btn_el . ' ' . ( isset( $more_link_attr ) && ! empty( $more_link_attr ) ? ' ' . $more_link_attr : '' )  . ' title="' . esc_attr( $api_text ) . '" class="juiz_sps_button">';
+			$item_content .= '<' . $btn_el . ' ' . ( isset( $more_link_attr ) && ! empty( $more_link_attr ) ? ' ' . $more_link_attr : '' )  . ' title="' . esc_attr( $api_text ) . '" class="juiz_sps_button" data-nobs-key="' . esc_attr( $k ) . '">';
 
 			/**
 			 * Adds code content before the .juiz_sps_icon element.
@@ -682,7 +681,7 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 		$general_counters = ( isset( $juiz_sps_options['juiz_sps_counter'] ) && $juiz_sps_options['juiz_sps_counter'] == 1 ) ? 1 : 0;
 
 		// no data-* attribute if user markup is not HTML5 :/
-		$hidden_info = '<input type="hidden" class="juiz_sps_info_plugin_url" value="' . JUIZ_SPS_PLUGIN_URL . '" /><input type="hidden" class="juiz_sps_info_permalink" value="' . $url . '" />';
+		$hidden_info = '<input type="hidden" class="juiz_sps_info_plugin_url" value="' . JUIZ_SPS_PLUGIN_URL . '" /><input type="hidden" class="juiz_sps_info_permalink" value="' . get_permalink( $post -> ID ) . '" /><input type="hidden" class="juiz_sps_info_post_id" value="' . $post -> ID . '" />';
 
 		$juiz_sps_content .= $after_last_i;
 
