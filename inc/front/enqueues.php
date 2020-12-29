@@ -20,7 +20,7 @@ if ( ! function_exists('jsps_enqueue_scripts') ) {
 		wp_enqueue_script(
 			'juiz_sps_scripts',
 			JUIZ_SPS_PLUGIN_ASSETS . 'js/' . JUIZ_SPS_SLUG . $prefix . '.js',
-			array( 'jquery' ), // TODO: remove dependency. (rewrite JS)
+			array(),
 			JUIZ_SPS_VERSION,
 			true
 		);
