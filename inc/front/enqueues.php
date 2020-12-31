@@ -163,8 +163,6 @@ if ( ! function_exists( 'juiz_sps_defer_non_critical_css' ) ) {
 
 			// Adds a noscript tags for fallback.
 			$tag = str_replace( '>', '><noscript><link rel="stylesheet" media="' . $media . '" href="' . $href . '"></noscript>', $tag );
-
-			var_dump($tag);
 		}
 		return $tag;
 	}
