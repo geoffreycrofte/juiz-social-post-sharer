@@ -98,12 +98,30 @@ if ( ! function_exists( 'juiz_sps_style_and_script' ) ) {
 
 				// The CSS file for theme.
 				wp_enqueue_style( 'juiz_sps_styles', $css_file, false, JUIZ_SPS_VERSION, 'all' );
+			}
 
-				// The CSS file for modal.
-				wp_enqueue_style( 'juiz_sps_modal_styles', JUIZ_SPS_PLUGIN_ASSETS . 'css/' . JUIZ_SPS_SLUG . '-modal' . $prefix . '.css', false, JUIZ_SPS_VERSION, 'all' );
+			if (
+				( isset( $juiz_sps_options['juiz_sps_networks']['mail'] ) && isset( $juiz_sps_options['juiz_sps_networks']['mail'][0] ) && $juiz_sps_options['juiz_sps_networks']['mail'][0] === 1 ) 
+				||
+				( isset( $juiz_sps_options['juiz_sps_networks']['mail'] ) && isset( $juiz_sps_options['juiz_sps_networks']['mail']['visible'] ) && $juiz_sps_options['juiz_sps_networks']['mail']['visible'] === 1 )
+			) {
+				/**
+				 * Adds to the `wp_enqueue_style()` the JSPS Modal CSS. 
+				 * 
+				 * @hook juiz_sps_use_modal_css
+				 * 
+			 	 * @since  2.0.0
+			 	 * @param  {boolean}  $is_used=true `true` to use the CSS, `false` remove it.
+			 	 * @return {boolean} `true` to use the CSS, `false` to remove it, and use CSS in your own way.
+				 */
+				if ( apply_filters( 'juiz_sps_use_modal_css', true ) ) {
+					wp_enqueue_style( 'juiz_sps_modal_styles', JUIZ_SPS_PLUGIN_ASSETS . 'css/' . JUIZ_SPS_SLUG . '-modal' . $prefix . '.css', false, JUIZ_SPS_VERSION, 'all' );
+				}
+
 			}
 
 			// JS To Add to queue.
+			// TODO: maybe remove that, is we count sharings on click with JS.
 			if (
 				( is_numeric ( $juiz_sps_options['juiz_sps_counter'] ) && $juiz_sps_options['juiz_sps_counter'] == 1 )
 				||
@@ -126,4 +144,55 @@ if ( ! function_exists( 'juiz_sps_style_and_script' ) ) {
 		}
 	}
 	add_action( 'wp_enqueue_scripts', 'juiz_sps_style_and_script');
+}
+
+if ( ! function_exists( 'juiz_sps_defer_non_critical_css' ) ) {
+	/**
+	 * Changes the LINK HTML tags to make it load async (deferred)
+	 *
+	 * @param  string $tag    The complete HTML LINK element.
+	 * @param  string $handle The unique ID of the CSS.
+	 * @param  string $href   The URL of the CSS.
+	 * @param  string $media  The original media attribute value.
+	 * @return string         The new LINK + NOSCRIPT TAG.
+	 */
+	function juiz_sps_defer_non_critical_css( $tag, $handle, $href, $media ) {
+		if ( $handle === 'juiz_sps_modal_styles' ) {
+			// Replace media value by media print and onload attributes.
+			$tag = str_replace( 'media=\''. $media .'\'', 'media="print" onload="this.onload=null;this.media=\'all\'"', $tag );
+
+			// Adds a noscript tags for fallback.
+			$tag = str_replace( '>', '><noscript><link rel="stylesheet" media="' . $media . '" href="' . $href . '"></noscript>', $tag );
+
+			var_dump($tag);
+		}
+		return $tag;
+	}
+	add_filter( 'style_loader_tag', 'juiz_sps_defer_non_critical_css', 10, 4);
+}
+
+if ( ! function_exists( 'juiz_sps_asycn_javascript' ) ) {
+	/**
+	 * Adds (Async too buggy) Defer Attributes to load scripts later and optimize performance.
+	 *
+	 * @param  string $tag    The complete HTML Script element.
+	 * @param  string $handle The unique ID of the script.
+	 * @param  string $src    The URL of the script.
+	 * 
+	 * @return string         The modified HTML Script.
+	 * @author Geoffrey Crofte
+	 * @since  2.0.0
+	 */
+	function juiz_sps_asycn_javascript($tag, $handle, $src) {
+		if ( $handle === 'juiz_sps_scripts' ) {
+			/*if ( false === stripos( $tag, 'async' ) ) {
+				$tag = str_replace(' src', ' async="async" src', $tag);
+			}*/
+			if ( false === stripos( $tag, 'defer' ) ) {	
+				$tag = str_replace('<script ', '<script defer ', $tag);
+			}
+		}
+		return $tag;
+	}
+	add_filter('script_loader_tag', 'juiz_sps_asycn_javascript', 10, 3);
 }
