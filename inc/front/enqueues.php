@@ -121,24 +121,17 @@ if ( ! function_exists( 'juiz_sps_style_and_script' ) ) {
 			}
 
 			// JS To Add to queue.
-			// TODO: maybe remove that, is we count sharings on click with JS.
-			if (
-				( is_numeric ( $juiz_sps_options['juiz_sps_counter'] ) && $juiz_sps_options['juiz_sps_counter'] == 1 )
-				||
-				( isset( $juiz_sps_options['juiz_sps_networks']['print'] ) && isset( $juiz_sps_options['juiz_sps_networks']['print'][0] ) && $juiz_sps_options['juiz_sps_networks']['print'][0] === 1 )
-				||
-				( isset( $juiz_sps_options['juiz_sps_networks']['bookmark'] ) && isset( $juiz_sps_options['juiz_sps_networks']['bookmark'][0] ) && $juiz_sps_options['juiz_sps_networks']['bookmark'][0] === 1 )
-				||
-				( isset( $juiz_sps_options['juiz_sps_networks']['mail'] ) && isset( $juiz_sps_options['juiz_sps_networks']['mail'][0] ) && $juiz_sps_options['juiz_sps_networks']['mail'][0] === 1 )
-
-				// version 2.0.0 new format
-				||
-				( isset( $juiz_sps_options['juiz_sps_networks']['print'] ) && isset( $juiz_sps_options['juiz_sps_networks']['print']['visible'] ) && $juiz_sps_options['juiz_sps_networks']['print']['visible'] === 1 )
-				||
-				( isset( $juiz_sps_options['juiz_sps_networks']['bookmark'] ) && isset( $juiz_sps_options['juiz_sps_networks']['bookmark']['visible'] ) && $juiz_sps_options['juiz_sps_networks']['bookmark']['visible'] === 1 )
-				||
-				( isset( $juiz_sps_options['juiz_sps_networks']['mail'] ) && isset( $juiz_sps_options['juiz_sps_networks']['mail']['visible'] ) && $juiz_sps_options['juiz_sps_networks']['mail']['visible'] === 1 )
-			) {
+			/**
+			 * Adds the Nobs JS file to the `wp_enqueue_script()`.
+			 * Be careful, removing this file will block counters, counting, and Share API Button won't work anymore. You won't be able to retrieve past sharings later. 
+			 * 
+			 * @hook juiz_sps_use_main_js
+			 * 
+		 	 * @since  2.0.0
+		 	 * @param  {boolean}  $is_used=true `true` to use the JS file, `false` remove it.
+		 	 * @return {boolean} `true` to use the JS, `false` to remove it.
+			 */
+			if ( apply_filters( 'juiz_sps_use_main_js', true ) ) {
 				jsps_enqueue_scripts();
 			}
 		}
