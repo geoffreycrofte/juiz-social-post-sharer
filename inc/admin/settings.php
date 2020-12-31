@@ -77,6 +77,7 @@ function add_juiz_sps_plugin_options() {
 	add_settings_field( 'juiz_sps_force_pinterest_snif', __( 'Force Pinterest button sniffing all images of the page?', 'juiz-social-post-sharer' ) . '<br /><em>(' . __( 'need JavaScript', 'juiz-social-post-sharer' ) . ')</em>', 'juiz_sps_setting_radio_force_snif', JUIZ_SPS_SLUG, 'juiz_sps_plugin_advanced');
 	add_settings_field( 'juiz_sps_counter', __( 'Display counter of sharing?', 'juiz-social-post-sharer' ) . '<br /><em>(' . __( 'need JavaScript', 'juiz-social-post-sharer' ) . ')</em>', 'juiz_sps_setting_radio_counter', JUIZ_SPS_SLUG, 'juiz_sps_plugin_advanced' );
 	add_settings_field( 'juiz_sps_counter_option', __( 'For this counter, you want to display:', 'juiz-social-post-sharer' ), 'juiz_sps_setting_radio_counter_option', JUIZ_SPS_SLUG, 'juiz_sps_plugin_advanced' );
+	add_settings_field( 'juiz_sps_use_css', __( 'Use your own CSS file(s)?', 'juiz-social-post-sharer' ) . '<br /><em>(' . __( 'This option will make the plugin not loading the modal, or skin CSS file anymore. Good if you have a piece of CSS in your style.css Theme file.', 'juiz-social-post-sharer' ) . ')</em>', 'juiz_sps_setting_radio_use_css', JUIZ_SPS_SLUG, 'juiz_sps_plugin_advanced' );
 	add_settings_field( 'juiz_sps_temp_submit_3', get_submit_button( __( 'Save Changes' ), 'primary' ), '__return_empty_string', JUIZ_SPS_SLUG, 'juiz_sps_plugin_advanced' );
 
 	/**
@@ -155,6 +156,8 @@ function juiz_sps_sanitize( $options ) {
 	$newoptions['juiz_sps_counter_option'] = in_array( $options['juiz_sps_counter_option'], array( 'both', 'total', 'subtotal' ) ) ? $options['juiz_sps_counter_option'] : 'both';
 
 	// new options (2.0.0)
+	$newoptions['juiz_sps_css_files'] = in_array( $options['juiz_sps_css_files'], array( 'both', 'nope', 'buttons', 'modal' ) ) ? $options['juiz_sps_css_files'] : 'nope';
+
 	$newoptions['juiz_sps_order'] = is_array( $options['juiz_sps_order'] ) ? $options['juiz_sps_order'] : array();
 
 	$newoptions['juiz_sps_version'] = JUIZ_SPS_VERSION;
@@ -605,6 +608,36 @@ function juiz_sps_setting_radio_counter_option() {
 
 			<input id="jsps_counter_subtotal" value="subtotal" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_counter_option]" type="radio" ' . $subtotal . ' />
 			<label for="jsps_counter_subtotal">' . __( 'Only Sub-totals', 'juiz-social-post-sharer' ) . '</label>';
+}
+}
+
+// radio fields for deactivating CSS loading.
+if ( ! function_exists( 'juiz_sps_setting_radio_use_css' ) ) {
+function juiz_sps_setting_radio_use_css() {
+
+	$options = jsps_get_option();
+	if ( is_array( $options ) ) {
+		$nope 		 = ( isset( $options['juiz_sps_css_files'] ) && $options['juiz_sps_css_files'] == 'nope' ) ? ' checked="checked"' : '';
+		$both 		 = ( isset( $options['juiz_sps_css_files'] ) && $options['juiz_sps_css_files'] == 'both' ) ? ' checked="checked"' : '';
+		$modal_css 	 = ( isset( $options['juiz_sps_css_files'] ) && $options['juiz_sps_css_files'] == 'modal' ) ? ' checked="checked"' : '';
+		$buttons_css = ( isset( $options['juiz_sps_css_files'] ) && $options['juiz_sps_css_files'] == 'buttons' ) ? ' checked="checked"' : '';
+
+		if ( $nope == '' && $both == '' && $modal_css == '' && $buttons_css == '' ) {
+			$nope = 'checked="checked"';
+		}
+	}
+	
+	echo '<input id="jsps_css_file_nope" value="nope" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_css_files]" type="radio" ' . $nope . ' />
+			<label for="jsps_css_file_nope">' . __( 'Nope, load the plugin’s', 'juiz-social-post-sharer' ) . '</label>
+			
+			<input id="jsps_css_file_modal" value="modal" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_css_files]" type="radio" ' . $modal_css . ' />
+			<label for="jsps_css_file_modal">' . __( 'for the modal', 'juiz-social-post-sharer' ) . '</label>
+
+			<input id="jsps_css_file_buttons" value="buttons" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_css_files]" type="radio" ' . $buttons_css . ' />
+			<label for="jsps_css_file_buttons">' . __( 'for the buttons', 'juiz-social-post-sharer' ) . '</label>
+
+			<input id="jsps_css_file_both" value="both" name="' . JUIZ_SPS_SETTING_NAME . '[juiz_sps_css_files]" type="radio" ' . $both . ' />
+			<label for="jsps_css_file_both">' . __( 'for both (Ninja!)', 'juiz-social-post-sharer' ) . '</label>';
 }
 }
 

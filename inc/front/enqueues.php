@@ -87,7 +87,8 @@ if ( ! function_exists( 'juiz_sps_style_and_script' ) ) {
 		 	 * @return {boolean} `true` to use the CSS, `false` to remove it, and use CSS in your own way. Know that your can create a folder `juiz-sps/` in your WP Theme to add the button's skin into the available skins within the administration. See the tutorial "{@tutorial create-buttons-skin}"
 		 	 * @tutorial create-buttons-skin
 			 */
-			if ( isset( $juiz_sps_options['juiz_sps_style'] ) && apply_filters( 'juiz_sps_use_default_css', true ) ) {
+			// Also deactivate buttons' CSS if option juiz_sps_css_files equal buttons or both
+			if ( isset( $juiz_sps_options['juiz_sps_style'] ) && apply_filters( 'juiz_sps_use_default_css', true ) && ! ( isset( $juiz_sps_options['juiz_sps_css_files'] ) && in_array( $juiz_sps_options['juiz_sps_css_files'], array( 'both', 'buttons' ) ) ) ) {
 
 				$core_skins   = jsps_get_core_skins();
 				$custom_skins = jsps_get_custom_skins();
@@ -114,7 +115,8 @@ if ( ! function_exists( 'juiz_sps_style_and_script' ) ) {
 			 	 * @param  {boolean}  $is_used=true `true` to use the CSS, `false` remove it.
 			 	 * @return {boolean} `true` to use the CSS, `false` to remove it, and use CSS in your own way.
 				 */
-				if ( apply_filters( 'juiz_sps_use_modal_css', true ) ) {
+				// Also deactivate modal CSS if option juiz_sps_css_files equal modal or both
+				if ( apply_filters( 'juiz_sps_use_modal_css', true ) && ! ( isset( $juiz_sps_options['juiz_sps_css_files'] ) && in_array( $juiz_sps_options['juiz_sps_css_files'], array( 'both', 'modal' ) ) ) ) {
 					wp_enqueue_style( 'juiz_sps_modal_styles', JUIZ_SPS_PLUGIN_ASSETS . 'css/' . JUIZ_SPS_SLUG . '-modal' . $prefix . '.css', false, JUIZ_SPS_VERSION, 'all' );
 				}
 
