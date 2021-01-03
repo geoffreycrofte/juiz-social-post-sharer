@@ -33,6 +33,28 @@ document.addEventListener("DOMContentLoaded", function(event) {
         });
         return arr;
     };
+    const nobs_format_number = function(num) {
+        if (typeof parseInt(num) !== 'NaN' ) {
+            if (num >= 1000000000) return parseInt(num / 1000000000) + "b";
+            if (num >= 1000000) return parseInt(num / 1000000) + "m";
+            if (num >= 1000) return parseInt(num / 1000) + "k";
+            return num;
+        } else {
+            return 0;
+        }
+    };
+    const nobs_count_type = function() {
+        if ( document.querySelector('.juiz_sps_counters.counters_both') ) {
+            return 'both';
+        } else if ( document.querySelector('.juiz_sps_counters.counters_subtotal' ) ) {
+            return 'subtotal';
+        } else if ( document.querySelector('.juiz_sps_counters.counters_total' ) ) {
+            return 'total';
+        }
+        return 'nope';
+    };
+    let open_modal,
+        bookmark_it;
 
     /*
     var pinterest_url = https://api.pinterest.com/v1/urls/count.json?url=https://google.com;
@@ -43,16 +65,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
         const nobs_plugin_url    = document.querySelector('.juiz_sps_info_plugin_url').value;
         const nobs_post_url      = document.querySelector('.juiz_sps_info_permalink').value;
         const nobs_post_id       = document.querySelector('.juiz_sps_info_post_id').value;
-        const nobs_format_number = function(num) {
-            if (typeof parseInt(num) !== 'NaN' ) {
-                if (num >= 1000000000) return parseInt(num / 1000000000) + "b";
-                if (num >= 1000000) return parseInt(num / 1000000) + "m";
-                if (num >= 1000) return parseInt(num / 1000) + "k";
-                return num;
-            } else {
-                return 0;
-            }
-        };
 
         // Reach each occurrence of a bar of buttons.
         nobs.forEach(function(btnbar) {
@@ -89,7 +101,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
                         let counter = document.createElement('span');
                         counter.classList.add('juiz_sps_counter');
-                        //counter.classList.add(nobs_item_class);
+                        if ( nobs_item_class !== '' ) {
+                            counter.classList.add( nobs_item_class );
+                        }
+                        counter.setAttribute('data-nobs-raw-count', data[ key ] );
                         counter.textContent = nobs_format_number( parseInt( data[ key ] ) );
                         item.prepend( counter );
                         nobs_total_count = nobs_total_count + parseInt( data[ key ] );
@@ -97,7 +112,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
                     // If btnbar ask for totalcount (both or total only)
                     // then displays total counter.
-                    if ( ! btnbar.classList.contains('counters_subtotal') ) {
+                    if ( ! btnbar.classList.contains('counters_subtotal') && parseInt(nobs_total_count ) > 0 ) {
                         let total_counter = document.createElement('span');
                         let total_number  = document.createElement('span');
                         let total_element = btnbar.querySelector('.juiz_sps_totalcount');
@@ -107,11 +122,16 @@ document.addEventListener("DOMContentLoaded", function(event) {
                         total_counter.textContent = total_text;
 
                         total_number.classList.add('juiz_sps_total_number');
+                        total_number.setAttribute('data-nobs-raw-count', nobs_total_count );
                         total_number.textContent = nobs_format_number( nobs_total_count );
 
                         // Append the total count
                         total_element.append( total_counter, total_number );
                         total_element.setAttribute('title', total_text + ' ' + nobs_total_count );
+                    }
+
+                    if ( parseInt( nobs_total_count ) === 0 ) {
+                        document.querySelector('.juiz_sps_totalcount_item').classList.add('juiz_sps_maybe_hidden_text');
                     }
                 } else {
                     console.warn('The request failed!');
@@ -125,6 +145,137 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
 
     /**
+     * Count Increment.
+     */
+    if ( document.querySelector('.juiz_sps_item') ) {
+        let buttons = document.querySelectorAll('.juiz_sps_item button, .juiz_sps_item a');
+
+        buttons.forEach(function(button) {
+            button.addEventListener('click', function(e) {
+                // Avoid programmatic click duplicate the count.
+                let _event = e;
+                if ( e.clientX === 0 ) {
+                    return;
+                }
+
+                // Do the prevention, then count.
+                e.preventDefault();
+                let _this = this;
+                let network = _this.getAttribute('data-nobs-key');
+                let post_id  = document.querySelector('.juiz_sps_links').getAttribute('data-post-id');
+
+                let to_send = {
+                    'action': 'jsps-click-count',
+                    'jsps-click-count-nonce': jsps.clickCountNonce,
+                    'id': post_id,
+                    'network': network
+                };
+
+                // XHR Request.
+                let xhrcount = new XMLHttpRequest();
+
+                // Setup our listener to process completed requests
+                xhrcount.onload = function () {
+                    if (xhrcount.status >= 200 && xhrcount.status < 300) {
+                        let data = JSON.parse( xhrcount.response );
+                        let net_items = document.querySelectorAll('.juiz_sps_link_' + network );
+
+                        if ( data.success === true && document.querySelector('.juiz_sps_counters') ) {
+                            let subtotals = document.querySelector('.juiz_sps_link_' + network + ' .juiz_sps_counter');
+                            let total = document.querySelector('.juiz_sps_totalcount');
+                            let new_count = parseInt( data.data[2] );
+
+                            // If it has a counter already, increment
+                            if ( subtotals ) {
+                                net_items.forEach(function(el){
+                                    if ( el.querySelector('.juiz_sps_counter') === null ) {
+                                        return;
+                                    }
+                                    el.querySelector('.juiz_sps_counter').innerHTML = nobs_format_number( new_count ); 
+                                });
+                            }
+                            // Else build counters, by button.
+                            else if ( nobs_count_type() === 'both' || nobs_count_type() === 'subtotal' ) {
+                                let counter = document.createElement('span');
+                                counter.classList.add('juiz_sps_counter');
+                                counter.textContent = nobs_format_number( new_count )
+
+                                net_items.forEach(function(el) {
+                                    el.prepend( counter );
+                                });
+                            }
+
+                            // If it has a global counter already, increment
+                            if ( total ) {
+                                let totals = document.querySelectorAll('.juiz_sps_totalcount');
+                                totals.forEach(function(tot){
+
+                                    let nb = tot.querySelector('.juiz_sps_total_number');
+                                    let currCount = nb.getAttribute('data-nobs-raw-count');
+                                    nb.textContent = nobs_format_number( parseInt( currCount ) + 1 );
+                                    nb.setAttribute('data-nobs-raw-count', parseInt( currCount ) + 1 );
+                                });
+                            }
+                            // Else, build the total container with it.
+                            else {
+                                if ( nobs_count_type() === 'both' || nobs_count_type() === 'total' ) {
+
+                                }
+                            }
+                        } else {
+                            // Count not successful or no need to increase it visually.
+                            // For now, do nothing about it.
+                        }
+                    } else {
+                        console.warn( xhrcount, xhrcount.status );
+                    }
+
+                    // Finally do the thing it was supposed to do.
+                    if ( _this.href && _this.href !== '' && _this.href !== '#' && network !== 'mail' && network !== 'bookmark' ) {
+                        if ( _this.target === '_blank') {
+                            // Better than window.open() action.
+                            let link = document.createElement('a');
+                            link.href = _this.href;
+                            link.target = '_blank';
+                            link.id = 'nobs-temp';
+
+                            document.querySelector('body').prepend(link);
+                            document.getElementById('nobs-temp').click();
+                            document.getElementById('nobs-temp').remove();
+                            // window.open( _this.href );
+                        } else {
+                            document.location.href = _this.href;
+                        }
+                    } else {
+                        switch ( network ) {
+                            case 'bookmark':
+                                bookmark_it(_event);
+                                break;
+                            case 'mail':
+                                open_modal(_event);
+                                break;
+                            case 'print':
+                                if ( window.print ) {
+                                    window.print();
+                                }
+                                break;
+                            case 'shareapi':
+                                // Handled inline. Should be the count and async share without issue.
+                                break;
+                            default:
+                                console.log('Ooops');
+                        }
+                    }
+                };
+                xhrcount.open( 'GET', jsps.ajax_url + formatParams( to_send ) );
+                xhrcount.send();
+
+                return false;
+            });
+        });
+    }
+
+    /**
      * 
      * E-mail button
      * 
@@ -132,7 +283,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     if ( document.querySelector('.juiz_sps_link_mail') ) {
 
         const email_buttons = document.querySelectorAll('.juiz_sps_link_mail');
-        const open_modal = function(event) {
+        open_modal = function(event) {
             
             event.preventDefault();
 
@@ -140,7 +291,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 return;
             }
             let animation = 400;
-            let post_id = this.closest('.juiz_sps_links').getAttribute('data-post-id');
+            let post_id = event.target.closest('.juiz_sps_links').getAttribute('data-post-id');
             let modalContent = '<div class="juiz-sps-modal-inside">' +
                 '<div class="juiz-sps-modal-header">' +
                 '<p id="juiz-sps-email-title" class="juiz-sps-modal-title">' + jsps.modalEmailTitle + '</p>' +
@@ -206,7 +357,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                     phrase = '';
 
                 val = val.split(reg);
-                console.log(val);
+
                 val.forEach(function(email) {
                     count = isValidEmail(email) ? count + 1 : count;
                 });
@@ -344,27 +495,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
             return false;
         };
-
-        email_buttons.forEach(function(el){
-            el.addEventListener('click', open_modal);
-        });
     }
 
     /**
      * 
-     * Print button
+     * Remove Print Button if API not supported.
      * 
      */
-    if ( window.print && document.querySelector('.juiz_sps_link_print') ) {
-        let print_btns = document.querySelectorAll('.juiz_sps_link_print');
-        print_btns.forEach(function(el) {
-            el.addEventListener('click', function(e) {
-                e.preventDefault();
-                window.print();
-                return false;
-            });
-        });
-    } else if ( ! window.print && document.querySelector('.juiz_sps_link_print') ) {
+    if ( ! window.print && document.querySelector('.juiz_sps_link_print') ) {
         let print_btns = document.querySelectorAll('.juiz_sps_link_print');
         print_btns.forEach(function(el) {
             el.remove();
@@ -383,7 +521,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         (typeof chrome === 'undefined') ||
         (typeof chrome !== 'undefined')
     ) {
-        const bookmark_it = function(e) {
+        bookmark_it = function(e) {
             e.preventDefault();
             // Thanks to:
             // https://www.thewebflash.com/how-to-add-a-cross-browser-add-to-favorites-bookmark-button-to-your-website/
@@ -403,17 +541,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
             } else {
                 // Other browsers (mostly all of them since 2019)
                 command = (/Mac/i.test(navigator.userAgent) ? 'Cmd' : 'Ctrl') + '+D';
-                message = this.getAttribute('data-alert');
+                message = e.target.getAttribute('data-alert') || e.target.closest('a, button').getAttribute('data-alert');
                 message = message.replace(/%s/, command);
                 alert( message );
                 return false;
             }
             return false;
         };
-
-        document.querySelectorAll('.juiz_sps_link_bookmark').forEach(function(el){
-            el.querySelector('button, a').addEventListener('click', bookmark_it);
-        });
     } else {
         if ( document.querySelector('.juiz_sps_link_bookmark') ) {
             document.querySelectorAll('.juiz_sps_link_bookmark').forEach(function(el) {

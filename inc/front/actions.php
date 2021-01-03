@@ -3,7 +3,7 @@
 }
 
 /**
- * Admin AJAX for Email To a Friend action.
+ * Front AJAX for Email To a Friend action.
  *
  * @since  2.0.0
  * @author Geoffrey Crofte
@@ -77,6 +77,57 @@ function jsps_ajax_email_friend() {
 			wp_send_json_error( array( 2, esc_html__( 'Seems like the post ID you tried to share is not good.', 'juiz-social-post-sharer' ) ) );
 		}
 	} else {
-		wp_send_json_error( array( 1, esc_html__( 'Your session is finished. Sorry. Retry after reloading the page.', 'juiz-social-post-sharer' ) ) );
+		wp_send_json_error( array( 1, esc_html__( 'Your session is expired. Sorry. Retry after reloading the page.', 'juiz-social-post-sharer' ) ) );
+	}
+}
+
+/**
+ * Front AJAX for Live click counting
+ *
+ * @since  2.0.0
+ * @author Geoffrey Crofte
+ */
+
+add_action( 'wp_ajax_jsps-click-count', 'jsps_ajax_click_count' );
+add_action( 'wp_ajax_nopriv_jsps-click-count', 'jsps_ajax_click_count' );
+
+function jsps_ajax_click_count() {
+
+	if ( isset( $_GET['jsps-click-count-nonce'] ) && wp_verify_nonce( $_GET['jsps-click-count-nonce'], 'jsps-click-count' ) ) {
+
+		$post = '';
+
+		if ( isset( $_GET['id'] ) && isset( $_GET['network'] ) && $post = get_post( $_GET['id'] ) ) {
+			
+			// Get post meta
+			$network = sanitize_key( $_GET['network'] );
+			$counters = get_post_meta( $post -> ID, '_jsps_counters', true );
+
+			// If this post doesn't have any counter yet.
+			if ( $counters === null || $counters === '' ) {
+				$counters = array();
+				$counters[ $network ] = 1;
+			} elseif ( is_array( $counters ) ) {
+				$nb = isset( $counters[ $network ] ) ? (int) $counters[ $network ] : 0;
+				$nb++;
+				$counters[ $network ] = $nb;
+			}
+
+			// Update post meta info - It's auto serialized.
+			$is_updated = update_post_meta( $post -> ID, '_jsps_counters', $counters );
+			
+			// Check the update.
+			if ( $is_updated ) {
+				// Sent successful result
+				wp_send_json_success( array( esc_html__( 'Count increment successful', 'juiz-social-post-sharer' ), $network, $nb, $counters ) );
+
+			} else {
+				wp_send_json_error( array( 5, esc_html__( 'Error trying to update the count number. Sorry for that.', 'juiz-social-post-sharer' ), $headers ) );
+			}
+		} else {
+			wp_send_json_error( array( 2, esc_html__( 'Seems like the post ID you tried to share is not good.', 'juiz-social-post-sharer' ) ) );
+		}
+	} else {
+		wp_send_json_error( array( 1, esc_html__( 'Your session is expired. Sorry. Retry after reloading the page.', 'juiz-social-post-sharer' ) ) );
 	}
 }
