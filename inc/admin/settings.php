@@ -875,6 +875,18 @@ if ( ! function_exists( 'juiz_sps_settings_page' ) ) {
 				</p>
 			</div><!-- . juiz_bottom_links_container -->
 		</div><!-- . juiz_bottom_links -->
+
+		<div class="nobs-modal-container" tabindex="-1" role="modal" aria-hidden="true" aria-labelledby="nobs-modal-title">
+			<div class="nobs-modal">
+				<div class="nobs-modal-icon"></div>
+				<div class="nobs-modal-title" id="nobs-modal-title"></div>
+				<div class="nobs-modal-content"></div>
+				<div class="nobs-modal-actions">
+					<button id="nobs-modal-close" class="button" aria-hidden="true"><?php _e('Close'); ?></button>
+					<button id="nobs-modal-primary" class="button button-primary" id="close" aria-hidden="true"></button>
+				</div>
+			</div>
+		</div>
 	</div><!-- .wrap -->
 
 	<?php

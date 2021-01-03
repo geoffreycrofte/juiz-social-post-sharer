@@ -1538,6 +1538,123 @@ ul + .juiz-changelog-version-number {
 }
 
 /**
+ * Modal System
+ */
+.nobs-modal-container,
+.nobs-modal {
+	transition: opacity .4s ease-in-out,
+				transform .4s ease-in-out,
+				z-index 0s .4s;
+}
+.nobs-modal-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0,0,0,.3);
+	opacity: 0;
+	z-index: -1;
+}
+
+.nobs-modal {
+	transform: scale(.95);
+	min-width: 300px;
+	max-width: 420px;
+	background: white;
+	border-radius: 16px;
+	box-shadow: 0px 24px 49px rgba(0, 0, 0, 0.175),
+				0px 7.2353px 14.7721px rgba(0, 0, 0, 0.11), 
+				0px 3.00517px 6.13556px rgba(0, 0, 0, 0.090),
+				0px 1.08691px 2.21911px rgba(0, 0, 0, 0.061)
+}
+
+.is-modal-visible.nobs-modal-container {
+	transition: opacity .4s ease-in-out,
+				transform .4s ease-in-out,
+				z-index .01s 0s;
+	opacity: 1;
+	z-index: 10000;
+}
+
+.nobs-modal-actions,
+.nobs-modal-actions.nobs-modal-actions.nobs-modal-actions button {
+	display: none;
+}
+
+.nobs-modal-actions.nobs-modal-actions.nobs-modal-actions button {
+	padding: 8px 16px;
+	background: var(--jsps-brand-code-bg);
+	color: var(--jsps-brand-color-4w);
+}
+
+.has-modal-actions .nobs-modal-actions {
+	display: block;
+}
+.has-modal-actions.has-close-action #nobs-modal-close,
+.has-modal-actions.has-primary-action #nobs-modal-primary {
+	display: inline-flex;
+}
+
+.is-modal-visible .nobs-modal {
+	transform: scale(1);
+}
+
+.nobs-modal .small {
+	display: block;
+	color: var(--jsps-gray);
+	font-weight: normal;
+}
+
+.nobs-modal-title,
+.nobs-modal-content,
+.nobs-modal-icon,
+.has-modal-actions .nobs-modal-actions {
+	text-align: center;
+	padding: 16px 24px;
+}
+
+.nobs-modal-content p:last-child,
+.nobs-modal-content ul:last-child {
+	margin-bottom: 0;
+}
+
+.nobs-modal-icon {
+	color: var(--jsps-brand-color);
+	font-size: 56px;
+	padding-top: 32px;
+}
+
+.nobs-modal-title {
+	color: var(--jsps-brand-color-4w);
+	font-size: 1.8em;
+}
+
+.nobs-modal-content {
+	font-weight: 500;
+	padding-top: 0;
+	font-size: 1em;
+	text-align: left;
+	color: var(--jsps-brand-darklight);
+}
+
+.has-modal-actions .nobs-modal-actions {
+	padding-top: 0;
+}
+
+.nobs-modal-content ul {
+	padding-left: 1em;
+	list-style: disc;
+}
+
+.nobs-modal-content li::marker {
+	color: var(--jsps-brand-color);
+}
+
+/**
  * More responsiveness
  */
 @media (max-width: 1240px) {

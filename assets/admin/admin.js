@@ -243,6 +243,53 @@ jQuery( document ).ready( function( $ ){
 	}
 
 	/**
+	 * ShareAPI Alert. Modal.
+	 */
+	let shareapi = document.getElementById('jsps_network_selection_shareapi');
+	let lastFocused;
+	let close_button = document.getElementById('nobs-modal-close');
+
+	if ( close_button ) {
+		close_button.addEventListener('click', function(){
+			nobs_close_modal();
+		});
+	}
+
+	const nobs_close_modal = function() {
+		modal = document.querySelector('.nobs-modal-container');
+
+		modal.classList.remove('is-modal-visible');
+		modal.setAttribute('aria-hidden', 'true');
+		lastFocused.focus();
+	};
+
+	if ( shareapi ) {
+		let modal = document.querySelector('.nobs-modal-container');
+		shareapi.addEventListener('change', function(){
+			if ( this.checked ) {
+				lastFocused = document.activeElement;
+				modal.querySelector('.nobs-modal-icon').innerHTML = jsps.modalShareAPIIcon;
+				modal.querySelector('.nobs-modal-title').innerHTML = jsps.modalShareAPITitle;
+				modal.querySelector('.nobs-modal-content').innerHTML = jsps.modalShareAPIContent;
+				modal.classList.add('is-modal-visible');
+				modal.classList.add('has-modal-actions');
+				modal.classList.add('has-close-action');
+				modal.setAttribute('aria-hidden', 'false');
+				modal.focus();
+			}
+		});
+	}
+
+	document.addEventListener('keydown', function(e){
+		if ( e.key === 'Escape' ) {
+			if ( document.querySelector('.nobs-modal-container') && document.querySelector('.nobs-modal-container').classList.contains('is-modal-visible') ) {
+				nobs_close_modal();
+			}
+		}
+	})
+	
+
+	/**
 	 * Show/Hide incoming list of networks.
 	 */
 	const show_btn = document.querySelector('.jsps-show-networks');
