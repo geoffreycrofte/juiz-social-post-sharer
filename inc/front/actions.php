@@ -131,3 +131,37 @@ function jsps_ajax_click_count() {
 		wp_send_json_error( array( 1, esc_html__( 'Your session is expired. Sorry. Retry after reloading the page.', 'juiz-social-post-sharer' ) ) );
 	}
 }
+
+/**
+ * Front AJAX for getting the share counts
+ *
+ * @since  2.0.0
+ * @author Geoffrey Crofte
+ */
+
+add_action( 'wp_ajax_jsps-get-counters', 'jsps_ajax_get_counter' );
+add_action( 'wp_ajax_nopriv_jsps-get-counters', 'jsps_ajax_get_counter' );
+
+function jsps_ajax_get_counter() {
+
+	if ( isset( $_GET['jsps-get-counters-nonce'] ) && wp_verify_nonce( $_GET['jsps-get-counters-nonce'], 'jsps-get-counters' ) ) {
+
+		$post = '';
+
+		if ( isset( $_GET['id'] ) && $post = get_post( $_GET['id'] ) ) {
+			
+			// Get post meta
+			$counters = get_post_meta( $post -> ID, '_jsps_counters', true );
+
+			// If this post doesn't have any counter yet.
+			$counters = ( $counters === null || $counters === '' ) ? array() : $counters;
+			
+			wp_send_json_success( array( 'Got Counters', $counters ) );
+
+		} else {
+			wp_send_json_error( array( 2, esc_html__( 'Seems like the post ID you tried to share is not good.', 'juiz-social-post-sharer' ) ) );
+		}
+	} else {
+		wp_send_json_error( array( 1, esc_html__( 'Your session is expired. Sorry. Retry after reloading the page.', 'juiz-social-post-sharer' ) ) );
+	}
+}

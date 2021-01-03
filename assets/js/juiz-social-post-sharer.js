@@ -69,6 +69,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         // Reach each occurrence of a bar of buttons.
         nobs.forEach(function(btnbar) {
             let nobs_items =  btnbar.querySelectorAll('.juiz_sps_item');
+            let post_id = document.querySelector('.juiz_sps_links').getAttribute('data-post-id');
             let nobs_item_class = '';
             let nobs_total_count = 0;
 
@@ -80,6 +81,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 return;
             }
 
+            let to_send = {
+                'action': 'jsps-get-counters',
+                'jsps-get-counters-nonce': jsps.getCountersNonce,
+                'id': post_id
+            };
+
             // XHR Request.
             let xhr = new XMLHttpRequest();
 
@@ -87,6 +94,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
             xhr.onload = function () {
                 if (xhr.status >= 200 && xhr.status < 300) {
                     let data = JSON.parse( xhr.response );
+
+                    data = typeof data.data === "object" ? data.data[1] : {};
 
                     nobs_items.forEach(function(item) {
                         if ( item.classList.contains('juiz_sps_totalcount_item') ) {
@@ -139,7 +148,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
             };
 
-            xhr.open( 'GET', nobs_plugin_url + 'test-data.json' );
+            xhr.open( 'GET', jsps.ajax_url + formatParams( to_send ) );
             xhr.send();
         });
     }

@@ -32,6 +32,7 @@ if ( ! function_exists('jsps_enqueue_scripts') ) {
 			'modalEmailInfo'		=> esc_html__( 'Promise, emails are not stored!', 'juiz-social-post-sharer' ),
 			'modalEmailNonce'		=> wp_create_nonce('jsps-email-friend'),
 			'clickCountNonce'		=> wp_create_nonce('jsps-click-count'),
+			'getCountersNonce'		=> wp_create_nonce('jsps-get-counters'),
 			'ajax_url'              => admin_url( 'admin-ajax.php' ),
 			'modalEmailName'		=> esc_html__( 'Your name', 'juiz-social-post-sharer' ),
 			'modalEmailYourEmail'	=> esc_html__( 'Your email', 'juiz-social-post-sharer' ),
