@@ -680,7 +680,7 @@ function juiz_sps_settings_page() {
 			<a class="juiz_twitter" target="_blank" href="https://twitter.com/intent/tweet?source=webclient&amp;hastags=WordPress,Plugin&amp;text=Juiz%20Social%20Post%20Sharer%20is%20an%20awesome%20WordPress%20plugin%20to%20share%20content!%20Try%20it!&amp;url=http://wordpress.org/extend/plugins/juiz-social-post-sharer/&amp;related=geoffrey_crofte&amp;via=geoffrey_crofte"><?php _e( 'Tweet it', 'juiz-social-post-sharer' ); ?></a>
 
 			<a class="juiz_rate" target="_blank" href="http://wordpress.org/support/view/plugin-reviews/juiz-social-post-sharer"><?php _e( 'Rate it', 'juiz-social-post-sharer' ); ?></a>
-			<a href="https://flattr.com/submit/auto?user_id=CreativeJuiz&amp;url=http://wordpress.org/plugins/juiz-social-post-sharer/&amp;title=Juiz%20Social%20Post%20Sharer%20-%20WordPress%20Plugin&amp;description=Awesome%20WordPress%20Plugin%20helping%20you%20to%20add%20buttons%20at%20the%20beginning%20or%20the%20end%20of%20your%20WordPress%20contents%20easily&amp;tags=WordPress,Social,Share,Buttons,Network,Twitter,Facebook,Linkedin&amp;category=software" lang="en" hreflang="en"><img src="https://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this!" width="93" height="20" style="vertical-align:-6px;"></a>
+			<a href="https://flattr.com/@geoffreycrofte" lang="en" hreflang="en"><img src="https://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this!" width="93" height="20" style="vertical-align:-6px;"></a>
 			<a target="_blank" href="<?php echo JUIZ_SPS_PLUGIN_URL; ?>documentation.html"><?php _e( 'Documentation', 'juiz-social-post-sharer' ); ?> (en)</a>
 		</p>
 	</div>
