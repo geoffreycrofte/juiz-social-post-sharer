@@ -43,7 +43,7 @@ Social networks supported:
 * Weibo
 * WhatsApp
 * VKontakte
-* Native Share API (for mobile devices, mostly, allowing to share with your favorite applications)
+* Native [Share API](https://sharebuttons.social/share-api-button.html?utm_source=wp-org&utm_medium=readme&utm_campaign=description) (for mobile devices, mostly, allowing to share with your favorite applications)
 * [Future supported Networks here](https://sharebuttons.social/share-buttons-list.html?utm_source=wp-org&utm_medium=readme&utm_campaign=description)
 
 
@@ -56,20 +56,21 @@ Other actions supported:
 Plugin Options:
 
 * 8 graphic templates available (reworked)
+* Compact option for smaller icons
+* Choose to display only the social network icon
 * Choose from all available networks
 * Open links in a new window (deactivated by default)
-* Choose to display only the social network icon
 * Add your Twitter account name to add "via" while sharing
 * Choose to display buttons only on certain type of post (compatible with Custom Post Type)
 * Choose to hide buttons only on certain posts directly in the edit page (metabox).
 * Choose to display buttons at the bottom, the top of the content, or both (or just with shortcode or template function)
 * Customize mail texts (subject and body), or mail in a lightbox
-* Display a sharings counter (optional, recommend not to use it since Brands are shutting down all the counters, and counter can't be accurate)
-* Use shortcode <code>[juiz_sps]</code> or <code>[juiz_social]</code> where you want
+* Display a sharing counter (optional)
+* Use shortcode <code>[juiz_sps]</code> or <code>[juiz_social]</code> wherever you want
 * For developers: A lot of hooks are available for markup customization (or add some things)
   * A hook is available and offers you the opportunity to add the buttons you need
   * Use template function <code>juiz_sps()</code> or <code>get_juiz_sps()</code> in your code
-  * Contribute by creating you own button Skins
+  * Contribute by [creating you own button Skins](https://sharebuttons.social/doc/tutorial-create-buttons-skin.html?utm_source=wp-org&utm_medium=readme&utm_campaign=description) easily.
 
 Available Languages:
 
@@ -82,11 +83,15 @@ Available Languages:
 * Spanish (thank to [Roberto Castiñeira](www.mediapartner.es "Roberto Castiñeira's website")!)
 * Turkish (thanks to [Hakaner](http://hakanertr.wordpress.com/ "His website")!)
 
+🏁
+You can contribute to [translating in your own language](https://translate.wordpress.org/projects/wp-plugins/juiz-social-post-sharer/)! Thank you for your help 💕
+
 <strong>Full <a href="https://sharebuttons.social/doc/?utm_source=wp-org&utm_medium=readme&utm_campaign=description">Documentation</a> available</strong>.
 
 
-This tool relies on third-party applications (API), so if you say "it's broken", please tell me why, how, what 😊
-Before adding a bad rating, please open a support ticket to solve your issue.
+This tool if made on my spare time for free, so if you say "it's broken", please tell me why, how, what so I can help you 😊 (better than a bad rating that won't make things better)
+
+<strong>Before adding a bad rating, please open a [support ticket](https://wordpress.org/support/plugin/juiz-social-post-sharer/) to solve your issue.</strong> I'm here to help.
 
 
 
@@ -112,6 +117,16 @@ You can use one of both method :
 
 Find a complete documentation on <a href="https://sharebuttons.social/doc/?utm_source=wp-org&utm_medium=readme&utm_campaign=faq">this official documentation</a>
 
+= New 2.0.0 installed, weird stuff happens in my site =
+Double check that you have saved your plugin settings (Settings > Nobs Share Buttons). Sometimes it happend, simply double check your settings and save.
+
+= Since the update to 2.0.0, I don't have the same counters =
+Indeed, because of brands like Facebook and Twitter shutting down their counters, a lot of data weren't accurate anymore. I decided to treat the counters as internal tool for your website. They are now YOUR counters and not facebook's or twitter's anymore.
+Counterpart is that it now reset. No worries, a way to recover your old counters to add those to the new counters will come soon with 2.1.0 ;p
+
+= Since the update to 2.0.0 my activated networks have changed =
+Yes it can happen sometimes. 2.0.0 is a big update and the core of the plugin changed a lot. It's typically the only change you will notice, please just update your networks selected to the one you like, it shouldn't be an issue in the future.
+
 = Why "Nobs"? What does that mean? =
 Ha ha 😁 Good question.
 Nobs stand for 3 different things:
@@ -121,7 +136,7 @@ Nobs stand for 3 different things:
 1. It's also a pun for "knobs", the actual buttons you find on your shirt or drawers. Thank you Myriam for the funny name.
 
 = Twitter counter doesn't appear OR the count seems to be not exact =
-Yep, sorry about that, but <a href="https://twittercommunity.com/t/a-new-design-for-tweet-and-follow-buttons/52791">Twitter decided to shut down counter</a>.
+Yep, sorry about that, but <a href="https://twittercommunity.com/t/a-new-design-for-tweet-and-follow-buttons/52791">Twitter decided to shut down counter</a> as well as Facebook.
 
 Use the version 1.4.3 or above of this plugin to get an alternative of the native counter. But, keep in mind that alternative is not 100% precise, but better than nothing, I guess.
 
@@ -153,6 +168,8 @@ Deactivate and reactivate the plugin to force the rebuild of the options.
 3. The new 1.3.0 Black theme and sharings counter
 4. The metabox to hide buttons on a post
 5. New themes: Brands Colors & Material Design
+6. New admin panel for Nobs.
+7. New networks panel you can now order with drag n' drop.
 
 == Other plugins ==
 
@@ -163,21 +180,26 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
 
 = 2.0.0 =
 
-* Tested on WordPress 5.4.1
-* **Admin**
- * Administration interface redesign
- * Script and Styles in external files (force refresh if you bugs occure)
+Recommended: Save Nobs Share Buttons' settings after updating this plugin.
+* Tested on WordPress 5.6
 * **New feature**
  * Add or remove more easily custom buttons (Network API - Documentation TODO)
  * Create your own buttons Skin with the starter kit and this documentation (TODO). Do it in your theme or in a separate plugin.
- * Removes LinkedIn counter because LinkedIn doesn't offer a count anymore. (@see https://developer.linkedin.com/blog/posts/2018/deprecating-the-inshare-counter)
- * Removes Twitter counter because Twitter doesn't offer a count anymore. (@see https://twittercommunity.com/t/a-new-design-for-tweet-and-follow-buttons/52791)
- * Email button has now an option to open a little form in a lightbox instead of mailto: protocole
+ * Email button now open a little form in a lightbox instead of mailto: protocole
  * New button: Evernote
  * New button: Mix (replace Stumbleuppon)
  * New button: WhatsApp
  * New button: Diigo
  * New button: Pocket
+ * Compact mode added
+ * Option to deactivate default CSS (not recommended if you don't know what this is)
+* **Admin**
+ * Administration interface redesign
+ * Script and Styles in external files (force refresh if bugs occure)
+* **Removed**
+ * Removes LinkedIn counter because LinkedIn doesn't offer a count anymore. (@see https://developer.linkedin.com/blog/posts/2018/deprecating-the-inshare-counter)
+ * Removes Twitter counter because Twitter doesn't offer a count anymore. (@see https://twittercommunity.com/t/a-new-design-for-tweet-and-follow-buttons/52791)
+ * Replace old school counting system by an independent internal one.
 * **All new brand plugin files structure**
 * **New hooks**: see revamped documentation.html file inside the plugin folder.
 * **Fixes**

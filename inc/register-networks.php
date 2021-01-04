@@ -78,7 +78,7 @@ function jsps_register_core_networks( $core_networks ) {
 		),
 		'mail'        => array(
 			'name'    => _x( 'Email', 'Button Name', 'juiz-social-post-sharer' ),
-			'visible' => 1,
+			'visible' => 0,
 		),
 		'bookmark'    => array(
 			'name'    => _x( 'Bookmark', 'Button Name', 'juiz-social-post-sharer' ),

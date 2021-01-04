@@ -293,7 +293,6 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 		// Get displayable (not necessarily displayed) Buttons
 		$sorted_networks = jsps_get_displayable_networks( $juiz_sps_networks, $order );
 
-
 		// Each links (come from options or manual array)
 		foreach( $sorted_networks as $k => $v ) {
 			
