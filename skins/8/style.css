@@ -450,6 +450,12 @@
 	--space-between: 2px;
 }
 
+.juiz_sps_compact .juiz_sps_counter,
+.juiz_sps_compact .juiz_sps_totalcount {
+	padding: 0 5px;
+	font-size: .725em;
+}
+
 /**
  * Hide + Compact
  */

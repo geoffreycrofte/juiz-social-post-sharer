@@ -228,6 +228,12 @@ Version: Styles v3 - Blue Metro Style
 	margin-left: 4px;
 }
 
+.juiz_sps_compact .juiz_sps_counter,
+.juiz_sps_compact .juiz_sps_totalcount {
+	padding: 4px;
+	font-size: 13px;
+}
+
 /**
  * Counters
  */

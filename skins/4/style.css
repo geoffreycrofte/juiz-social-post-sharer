@@ -207,6 +207,11 @@ Version: Styles v4 - Dark Metro Style
 .juiz_sps_links .juiz_sps_compact .juiz_sps_icon {
 	font-size: 20px;
 }
+.juiz_sps_compact .juiz_sps_counter,
+.juiz_sps_compact .juiz_sps_totalcount {
+	padding: 4px;
+	font-size: 13px;
+}
 
 /**
  * Compact + Hidden name
