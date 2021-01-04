@@ -1,68 +1,77 @@
-﻿=== Juiz Social Post Sharer ===
+﻿=== Nobs • Share Buttons ===
+
 Contributors: CreativeJuiz
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJPCWVXGDY&lc=FR&item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&item_number=%23wp%2djsps&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted
-Tags: social, twitter, google, facebook, digg, stumbleupon, linkedin, pinterest, viadeo, weibo, vkontakte, post, share
+Tags: social, buttons, twitter, facebook, digg, mix, linkedin, pinterest, viadeo, weibo, vkontakte, yummly, pocket, whatsapp, diigo, post, evernote, tumblr, reddit, share, sharing, shareAPI
 Requires at least: 3.3
-Tested up to: 5.5.3
-Stable tag: 1.4.11
+Tested up to: 5.6
+Stable tag: 2.0.0
 
-Add smart designed buttons after/before your posts to allow visitors sharing your content (includes no JavaScript mode & counters). Totally GDPR compliant.
+*Juiz Social Post Sharer* is now *Nobs • Share Buttons*.
+
+Add smart designed buttons after/before your posts (or wherever you want) to allow visitors to share your content (includes no JavaScript mode & counters). Totally GDPR compliant.
 
 == Description ==
 
-Add smart designed buttons after/before your posts to allow visitors sharing your content (includes no JavaScript mode & counters). Buttons are Retina/HDPI-ready, translation-ready and come with useful options and hooks. Totally GDPR compliant.
+Add smart designed buttons after/before your posts (or wherever you want) to allow visitors to share your content (includes no JavaScript mode & counters). Buttons are Retina/HDPI-ready, translation-ready and come with useful options and hooks. Totally GDPR compliant, and accessibility and performance friendly.
 
 Select your favorites social networks among a little list.
 Display an optional sharings counter.
+You're done!
 
 **You can donate to support**
 
 * [Donate what you want with Paypal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJPCWVXGDY&lc=FR&item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&item_number=%23wp%2djsps&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted)
-* [Flattr this thing!](https://flattr.com/submit/auto?user_id=CreativeJuiz&url=http://wordpress.org/plugins/juiz-social-post-sharer/&title=Juiz%20Social%20Post%20Sharer%20-%20WordPress%20Plugin&description=Awesome%20WordPress%20Plugin%20helping%20you%20to%20add%20buttons%20at%20the%20beginning%20or%20the%20end%20of%20your%20WordPress%20contents%20easily&tags=WordPress,Social,Share,Buttons,Network,Twitter,Facebook,Linkedin&category=software)
+* [Buy Me a Coffee](https://www.buymeacoffee.com/geoffreycrofte) (you can even subscribe for exclusive content, like sneak peek, free license, exclusive info, etc.)
+* [Flattr this thing!](https://flattr.com/@GeoffreyCrofte)
 
-**Please, use the support forum to tell me bugs encountered, and be patient**
-
+**Please, use the support forum to tell me bugs encountered, and be patient, remember it's a free product build on my spare time**
 
 Social networks supported:
 
-* Delicious
-* Digg
+* Diigo
+* Evernote
 * Facebook 
-* Google+
 * LinkedIn
+* Mix
 * Pinterest
+* Pocket
 * Reddit
-* StumbleUpon
 * Tumblr
 * Twitter
 * Viadeo
 * Weibo
+* WhatsApp
 * VKontakte
+* Native Share API (for mobile devices, mostly, allowing to share with your favorite applications)
+* [Future supported Networks here](https://sharebuttons.social/share-buttons-list.html?utm_source=wp-org&utm_medium=readme&utm_campaign=description)
+
 
 Other actions supported:
 
-* Send by Mail (mailto:)
-* Print
+* Send by Mail (mailto: or multi-recipient lightbox form)
+* Print (buttons are not printed 😜)
 * Add to bookmark
 
-Options plugin:
+Plugin Options:
 
-* 8 graphic templates available
+* 8 graphic templates available (reworked)
 * Choose from all available networks
 * Open links in a new window (deactivated by default)
 * Choose to display only the social network icon
-* Add your Twitter account name to add "via" during a share
-* Choose to display buttons only on certain type of post
+* Add your Twitter account name to add "via" while sharing
+* Choose to display buttons only on certain type of post (compatible with Custom Post Type)
 * Choose to hide buttons only on certain posts directly in the edit page (metabox).
-* Choose to display buttons at the bottom, the top of the content, or both (or just with shortcode)
-* Customize mail texts (subject and body)
-* Display a sharings counter (optional and in beta)
-* Some hooks are available for markup customization (or add some things)
-* A hook is available and offer you the opportunity to add the bouton you need
+* Choose to display buttons at the bottom, the top of the content, or both (or just with shortcode or template function)
+* Customize mail texts (subject and body), or mail in a lightbox
+* Display a sharings counter (optional, recommend not to use it since Brands are shutting down all the counters, and counter can't be accurate)
 * Use shortcode <code>[juiz_sps]</code> or <code>[juiz_social]</code> where you want
-* Use template function <code>juiz_sps()</code> or <code>get_juiz_sps()</code> in your code
+* For developers: A lot of hooks are available for markup customization (or add some things)
+  * A hook is available and offers you the opportunity to add the buttons you need
+  * Use template function <code>juiz_sps()</code> or <code>get_juiz_sps()</code> in your code
+  * Contribute by creating you own button Skins
 
-Languages available:
+Available Languages:
 
 * Deutsch (thank to [Dennis Schmitz](http://compcardinmotion.de "Dennis Schmitz's website")!)
 * English
@@ -73,11 +82,12 @@ Languages available:
 * Spanish (thank to [Roberto Castiñeira](www.mediapartner.es "Roberto Castiñeira's website")!)
 * Turkish (thanks to [Hakaner](http://hakanertr.wordpress.com/ "His website")!)
 
-<strong>Full <a href="http://creativejuiz.fr/blog/doc/juiz-social-post-sharer-documentation.html">Documentation</a> available</strong>.
+<strong>Full <a href="https://sharebuttons.social/doc/?utm_source=wp-org&utm_medium=readme&utm_campaign=description">Documentation</a> available</strong>.
 
 
-This tool relies on third-party applications (API), so if you say "it's broken", please tell me why ;)
-Before adding a bad rating, thanks to open a support ticket to solve your issue.
+This tool relies on third-party applications (API), so if you say "it's broken", please tell me why, how, what 😊
+Before adding a bad rating, please open a support ticket to solve your issue.
+
 
 
 == Installation ==
@@ -86,7 +96,7 @@ You can use one of both method :
 
 **Installation via your Wordpress website**
 
-1. Go to the **admin menu 'Plugins' -> 'Install'** and **search** for 'Juiz Social Post Sharer'
+1. Go to the **admin menu 'Plugins' -> 'Install'** and **search** for 'Nobs • Share Buttons'
 1. **Click** 'install' and **activate it**
 1. (optional) Configure the Plugin in **Settings**
 
@@ -100,12 +110,20 @@ You can use one of both method :
 
 == Frequently Asked Questions ==
 
-Find a complete documentation on <a href="http://creativejuiz.fr/blog/doc/juiz-social-post-sharer-documentation.html">this official documentation</a>
+Find a complete documentation on <a href="https://sharebuttons.social/doc/?utm_source=wp-org&utm_medium=readme&utm_campaign=faq">this official documentation</a>
+
+= Why "Nobs"? What does that mean? =
+Ha ha 😁 Good question.
+Nobs stand for 3 different things:
+
+1. "No BS" (AKA No Bullshit),
+1. The humble accronym "Number One Button Set for Social Sharing" (Nobsss 😅 but I truncated it).
+1. It's also a pun for "knobs", the actual buttons you find on your shirt or drawers. Thank you Myriam for the funny name.
 
 = Twitter counter doesn't appear OR the count seems to be not exact =
 Yep, sorry about that, but <a href="https://twittercommunity.com/t/a-new-design-for-tweet-and-follow-buttons/52791">Twitter decided to shut down counter</a>.
 
-Use the version 1.4.3 or more of this plugin to get an alternative of the native counter. But, keep in mind that alternative is not 100% precise, but better than nothing, I guess.
+Use the version 1.4.3 or above of this plugin to get an alternative of the native counter. But, keep in mind that alternative is not 100% precise, but better than nothing, I guess.
 
 = The text shared by default is very ugly, something like "Share the post "YOUR POST TITLE" FacebookTwitterGoogle+E-mail [SOME OTHER WORDS]"? =
 You certainly activated the buttons in the top of your post. It's your choice, but in this case, you need to improve by yourself the SEO-description of your article/page. You can try using the <a href="https://wordpress.org/plugins/wordpress-seo/">WordPress SEO plugin by Yoast</a>. 
@@ -115,56 +133,85 @@ Yes, but not with the page options of this plugin. You need to use a hook to add
 See the `juiz_sps_before_first_item` or `juiz_sps_after_last_item` hook in <a href="http://creativejuiz.fr/blog/doc/juiz-social-post-sharer-documentation.html">the documentation</a>. 
 
 = I have a fatal error or a 500 server error since update to 1.2.3 =
-Yes, you surely use pinterest button. It's a bug, update to 1.2.4.
+Yes, you surely use pinterest button. It's a bug, update to 1.2.4 or above.
 Thank you.
 
 = I can't just use shortcode by deactivating all the checkbox display option in admin option page? since 1.2.0 =
-Yes, it's a bug, please, use the plugin version 1.2.2. 
+Yes, it's a bug, please, use the plugin version 1.2.2 or above. 
 
 = New style is not visible? =
-Please update to 1.1.3
+Please update to 1.1.3 or above
 
 = Some options are not visible (if it's not the first installation, but an update of the plugin) =
-Deactivate and reactivate the plugin to force the options rebuild.
+Deactivate and reactivate the plugin to force the rebuild of the options.
 
 
 == Screenshots ==
 
-1. Themes available
+1. Default Themes available
 2. After a post
 3. The new 1.3.0 Black theme and sharings counter
 4. The metabox to hide buttons on a post
-5. Both new themes: Brands Colors & Material Design
+5. New themes: Brands Colors & Material Design
 
 == Other plugins ==
 
-**Try the new plugin <a href="http://wordpress.org/plugins/juiz-user-login-by-email/">User Log-in by email</a>**
 Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://profiles.wordpress.org/creativejuiz/</a>
 
 
 == Changelog ==
 
+= 2.0.0 =
+
+* Tested on WordPress 5.4.1
+* **Admin**
+ * Administration interface redesign
+ * Script and Styles in external files (force refresh if you bugs occure)
+* **New feature**
+ * Add or remove more easily custom buttons (Network API - Documentation TODO)
+ * Create your own buttons Skin with the starter kit and this documentation (TODO). Do it in your theme or in a separate plugin.
+ * Removes LinkedIn counter because LinkedIn doesn't offer a count anymore. (@see https://developer.linkedin.com/blog/posts/2018/deprecating-the-inshare-counter)
+ * Removes Twitter counter because Twitter doesn't offer a count anymore. (@see https://twittercommunity.com/t/a-new-design-for-tweet-and-follow-buttons/52791)
+ * Email button has now an option to open a little form in a lightbox instead of mailto: protocole
+ * New button: Evernote
+ * New button: Mix (replace Stumbleuppon)
+ * New button: WhatsApp
+ * New button: Diigo
+ * New button: Pocket
+* **All new brand plugin files structure**
+* **New hooks**: see revamped documentation.html file inside the plugin folder.
+* **Fixes**
+ * Fav/bookmark button JS error on Firefox (`chrome is undefined`)
+ * Buttons are not printed if you use your browser print function (or the JSPS print button)
+* **Thanks for their help**
+ * To [jeherve](https://github.com/geoffreycrofte/juiz-social-post-sharer/pull/12)
+ * To [sebastienserre](https://github.com/geoffreycrofte/juiz-social-post-sharer/pull/14)
+ * To [MarieComet](https://github.com/geoffreycrofte/juiz-social-post-sharer/pull/10)
+ * To [audrasjb](https://github.com/geoffreycrofte/juiz-social-post-sharer/pull/7)
+
 = 1.4.11 =
+
 * Tested up to WP 5.5.3
 * Prepares the next major version: 2.0.0
 * Fixes PHP Notice (`create_function` deprecated)
 * Fixes issue in Multisite where setting were not well initiated.
 
 = 1.4.10 =
+
 * Tested up to WP 5.2.3
 * New hook `juiz_sps_twitter_nickname` to change the Twitter Username
 
 = 1.4.9 =
+
 * Compatible with Dark Mode plugin.
 * Tested up to WP 4.9.8
 
 = 1.4.8 =
+
 * Security Update: Fixes XSS vulnerability.
-* Network Counters:
- * StumbleUpon: code improvement.
- * Google+: not supported anymore.
 
 = 1.4.7 =
+
 * Compatibility on network (multisite) thanks to Marie Comet ([Marie Comet](http://mariecomet.fr/))
 
 = 1.4.6 =
@@ -176,41 +223,42 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
 * Fixes a bug in Safari (`Chrome undefined` message)
 
 = 1.4.4 =
-* Translation
+* **Translation**
  * Error fixed with an untranslatable english string
-* Fixes
+* **Fixes**
  * Google+ and StumbleUpon counters fixed
  * CURLOPT_FOLLOWLOCATION PHP error fixed
 
 = 1.4.3 =
-* Compatibility
+* **Compatibility**
  * Tested up to WordPress 4.5 (I took advance that time!)
  * Tested up to PHP 7 (Did you try that version? The Fast And Furious version of PHP)
-* Features
+* **Features**
  * Twitter counter is back from the death thanks to NewShareCounts Services, a third-party that try to bring back your preciouuuus… counter. Golum!
+
 
 = 1.4.2 =
 * Tested in WordPress 4.4.1
-* Networks:
+* **Networks:**
  * New Fav button
  * New Print button
-* Security:
+* **Security:**
  * Better translation controls
-* Support info:
+* **Support info:**
  * No more support for this plugin version 1.1.0 (0,2% of plugin users)
 * Better URL encode (hope so)
 
 = 1.4.1 =
 * Tested in WordPress 4.4
-* Interface:
+* **Interface:**
  * Better dashicons support for your custom post types
  * Some CSS reworks on admin settings
  * "Metro", "Modern" and "Black" styles are now Retina-ready
  * Button styles CSS updated (each one)
-* Engine:
+* **Engine:**
  * Code rewrite to follow WordPress convention
  * Buttons are optionnaly added to excerpt (deactivated by default, see doc)
-* Networks :
+* **Networks:**
  * New Delicious button
  * New Tumblr button
  * New Reddit button
@@ -227,8 +275,9 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
 
 = 1.3.8 =
 * Better Viadeo support
-* Should include a better HTTPS support
- * Thanks to [evelyette](https://wordpress.org/support/topic/contributing-the-code?replies=5#post-6635057) and [Adam](https://wordpress.org/support/topic/some-counters-wont-work-under-https)
+* Should include a better HTTPS support:
+ * thank you to [evelyette](https://wordpress.org/support/topic/contributing-the-code?replies=5#post-6635057)
+ * thank you to [Adam](https://wordpress.org/support/topic/some-counters-wont-work-under-https)
 
 = 1.3.7 =
 * **Tested up to WordPress 4.1.1**
@@ -274,7 +323,7 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
 * **Improvements**
  * Add "title" parameter for Weibo API (thank you Aili!)
  * HTML tag for "total count" is customizable (it was an LI element)
- * New hook `juiz_sps_share_name_for_[network]` to adjust networks name-text ([more info](http://wordpress.org/support/topic/button-text-and-image?replies=2#post-5510471))
+ * New hook `juiz_sps_share_name_for_{network}` to adjust networks name-text ([more info](http://wordpress.org/support/topic/button-text-and-image?replies=2#post-5510471))
  * New hook `juiz_sps_use_default_css` to remove default CSS request (you can use your own CSS)
  * New in Shortcode : use the `url` parameter to share "permalink", "siteurl" or "customurl" instead of current URL
  * New in Template function : use the $url_to_share parameter to share "permalink", "siteurl" or "customurl" instead of current URL
@@ -304,12 +353,12 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
 * Translation: new Russian language (thanks to [Fandia](http://fandia.w.pw "Fandia's website")!)
 * New hook: `juiz_sps_intro_phrase_text` to help you change (see [the documentation](http://creativejuiz.fr/blog/doc/juiz-social-post-sharer-documentation.html "Official Documentation"))
 * New hook: `juiz_sps_hide_intro_phrase` (see [the documentation](http://creativejuiz.fr/blog/doc/juiz-social-post-sharer-documentation.html "Official Documentation"))
-* New hook: `juiz_sps_share_text_for_[network]` (see [the documentation](http://creativejuiz.fr/blog/doc/juiz-social-post-sharer-documentation.html "Official Documentation"))
+* New hook: `juiz_sps_share_text_for_{network}` (see [the documentation](http://creativejuiz.fr/blog/doc/juiz-social-post-sharer-documentation.html "Official Documentation"))
 
 = 1.2.4 =
 * IMPORTANT: bug fix for Pinterest button's users (thanks to <a href="http://wordpress.org/support/topic/getting-500-internal-error-on-some-pages?replies=6#post-4204030">jamesdodd</a>)
 * IMPORTANT: hook juiz_sps_the_permalink replaced by juiz_sps_the_shared_permalink
-* New hook: `juiz_sps_the_shared_permalink_for_[network]` (see [the documentation](http://creativejuiz.fr/blog/doc/juiz-social-post-sharer-documentation.html "Official Documentation"))
+* New hook: `juiz_sps_the_shared_permalink_for_{network}` (see [the documentation](http://creativejuiz.fr/blog/doc/juiz-social-post-sharer-documentation.html "Official Documentation"))
 
 = 1.2.3 =
 * Removes new Facebook API because of the complexity of use for the user (old API always works)
@@ -319,12 +368,12 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
 * New hook to remove `rel="nofollow"` on links
 * New hook to customize container element (div by default)
 * New hook to remove intro sentence, or its container tag
-* New: to perform customization, you can use %%title%% (insert the post title), %%siteurl%% (insert the site URL) or %%permalink%% (insert the post URL) variables
+* New: to perform customization, you can use `%%title%%` (insert the post title), `%%siteurl%%` (insert the site URL) or `%%permalink%%` (insert the post URL) variables
 * Bug fix: you can now use shortcode or template function only by choosing option "I'm a ninja, I want to use the shortcode only!"
 * Translation updates (French, English)
 
 = 1.2.1 =
-* [juiz_sps] shortcode added (you now have [juiz_social] and [juiz_sps])
+* `[juiz_sps]` shortcode added (you now have `[juiz_social]` and `[juiz_sps]`)
 * CSS improvement for themes not really well thought ;)
 
 = 1.2.0 =
@@ -344,9 +393,9 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
 
 = 1.1.2 =
 * New hook for developper (can now hook shared url)
-* Styles : New optionnal style for buttons (thanks to <a href="http://tonytrancard.fr">Tony</a>)
-* Styles : bug correction for Chrome
-* Styles : little margin added before and after line of buttons
+* Styles: New optionnal style for buttons (thanks to <a href="http://tonytrancard.fr">Tony</a>)
+* Styles: bug correction for Chrome
+* Styles: little margin added before and after line of buttons
 
 = 1.1.1 =
 * Styles bug correction
@@ -368,3 +417,5 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
 
 == Upgrade Notice ==
 
+Version 2.0.0 includes a lot of major changes, like a complete reworked code base, but also some changes in CSS (the style of your buttons). It should improve a lot, but check the result on your website especially if you tweaked styles.
+You can help yourself by reading the <a href="https://sharebuttons.social/doc/">new documentation</a>.

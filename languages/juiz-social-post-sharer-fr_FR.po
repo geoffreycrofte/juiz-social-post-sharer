@@ -2,15 +2,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Juiz Social Post Sharer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-28 17:45+0100\n"
-"PO-Revision-Date: 2020-12-28 17:50+0100\n"
+"POT-Creation-Date: 2020-12-28 20:33+0100\n"
+"PO-Revision-Date: 2020-12-28 20:36+0100\n"
 "Last-Translator: Geoffrey <rikuasakura@hotmail.fr>\n"
 "Language-Team: Creativejuiz <support@creativejuiz.com>\n"
 "Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-KeywordsList: _;gettext;gettext_noop;_e;__;esc_html__;esc_html_e\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;_e;__;esc_html__;esc_html_e;"
+"_x\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Generator: Poedit 1.8.6\n"
@@ -104,7 +105,7 @@ msgstr "Cacher les boutons de partage pour ce post"
 #: ../inc/admin/partials/promo-form.php:24 ../inc/admin/upgrade-notice.php:280
 #: ../inc/admin/welcome.php:279
 msgid "New Skin Shop"
-msgstr "Nouvelle Boutique de Skin"
+msgstr "Boutique de Skin"
 
 #: ../inc/admin/partials/promo-form.php:27 ../inc/admin/upgrade-notice.php:283
 #: ../inc/admin/welcome.php:282
@@ -114,7 +115,7 @@ msgstr "Skins Gratuits &amp; Premium"
 #: ../inc/admin/partials/promo-form.php:37 ../inc/admin/upgrade-notice.php:293
 #: ../inc/admin/welcome.php:292
 msgid "Soon! Be the first to know"
-msgstr "Bientôt ! Soyez 1er au courant."
+msgstr "Bientôt ! Chopez l’info."
 
 #: ../inc/admin/partials/promo-form.php:38 ../inc/admin/upgrade-notice.php:295
 #: ../inc/admin/welcome.php:293
@@ -664,9 +665,9 @@ msgid ""
 "When users want to share the blog post via email, they get a new pop-in that "
 "give the ability %sto share to multiple friends!%s"
 msgstr ""
-"Quand vos visiteurs veulent partager vos post par e-mail, il est possible de "
-"le faire via une modale qui offre la possibilité %sde partager à plusieurs "
-"destinataires%s."
+"Quand vos visiteurs veulent partager vos posts par e-mail, il est possible "
+"de le faire via une modale qui offre la possibilité %sde partager à "
+"plusieurs destinataires%s."
 
 #: ../inc/admin/welcome.php:228
 msgid "Rebuilt Documentation"
@@ -683,7 +684,7 @@ msgstr ""
 
 #: ../inc/admin/welcome.php:253
 msgid "Roadmap &amp; Contribution"
-msgstr "Feuille de route &amp; Contributions"
+msgstr "Roadmap &amp; Contribution"
 
 #: ../inc/admin/welcome.php:256
 #, php-format

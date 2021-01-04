@@ -1,80 +1,128 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: juiz-social-post-sharer\n"
-"POT-Creation-Date: 2014-05-31 23:03+0900\n"
-"PO-Revision-Date: 2016-04-11 23:41+0200\n"
+"POT-Creation-Date: 2020-12-28 18:04+0100\n"
+"PO-Revision-Date: 2020-12-28 18:05+0100\n"
 "Last-Translator: Shun Takeda\n"
 "Language-Team: \n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.8.6\n"
 "X-Poedit-KeywordsList: _;gettext;gettext_noop;_e;__;esc_html__;esc_html_e\n"
-"X-Poedit-Basepath: C:/Users/Shun/Desktop/WordPress\n"
-"Language: ja\n"
+"X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-SearchPath-0: juiz-social-post-sharer\n"
+"X-Poedit-SearchPath-0: .\n"
 
-#: juiz-social-post-sharer/juiz-social-post-sharer.php:137
-msgid "Share the post"
-msgstr "この記事を共有する"
+#: class/nobs-license-manager-client.php:94
+#: class/nobs-license-manager-client.php:149
+#, php-format
+msgid "%s License"
+msgstr ""
 
-#: juiz-social-post-sharer/juiz-social-post-sharer.php:210
-msgid "Share this article on Twitter"
-msgstr "この記事を Twitter で共有する"
+#: class/nobs-license-manager-client.php:116
+msgid "License"
+msgstr ""
 
-#: juiz-social-post-sharer/juiz-social-post-sharer.php:215
-msgid "Share this article on Facebook"
-msgstr "この記事を Facebook で共有する"
+#: class/nobs-license-manager-client.php:123
+msgid "Email address"
+msgstr ""
 
-#: juiz-social-post-sharer/juiz-social-post-sharer.php:220
-msgid "Share this article on Google+"
-msgstr "この記事を Google+ で共有する"
+#: class/nobs-license-manager-client.php:131
+msgid "License key"
+msgstr ""
 
-#: juiz-social-post-sharer/juiz-social-post-sharer.php:231
-msgid "Share an image of this article on Pinterest"
-msgstr "この記事の画像を Pinterest で共有する"
+#: class/nobs-license-manager-client.php:142
+msgid "Insert your license information to enable updates."
+msgstr ""
 
-#: juiz-social-post-sharer/juiz-social-post-sharer.php:236
-msgid "Share this article on Viadeo"
-msgstr "この記事を Viadeo で共有する"
+#: class/nobs-license-manager-client.php:217
+#, php-format
+msgid "Please enter your email and license key to enable updates to %s."
+msgstr ""
 
-#: juiz-social-post-sharer/juiz-social-post-sharer.php:241
-msgid "Share this article on LinkedIn"
-msgstr "この記事を LinkedIn で共有する"
+#: class/nobs-license-manager-client.php:227
+msgid "Complete the setup"
+msgstr ""
 
-#: juiz-social-post-sharer/juiz-social-post-sharer.php:246
-msgid "Share this article on Digg"
-msgstr "この記事を Digg で共有する"
+#: inc/admin/actions.php:23
+msgid "New order saved!"
+msgstr ""
 
-#: juiz-social-post-sharer/juiz-social-post-sharer.php:251
-msgid "Share this article on StumbleUpon"
-msgstr "この記事を StumbleUpon で共有する"
+#: inc/admin/actions.php:27 inc/admin/actions.php:34
+msgid "Sorry, can’t save the order. Use the Save Changes button."
+msgstr ""
 
-#: juiz-social-post-sharer/juiz-social-post-sharer.php:259
-msgid "Share this article on Weibo"
-msgstr "この記事を Weibo で共有する"
+#: inc/admin/actions.php:66
+msgid "Notice Removed"
+msgstr ""
 
-#: juiz-social-post-sharer/juiz-social-post-sharer.php:264
-msgid "Share this article on VKontakte"
-msgstr "この記事を VKontakte で共有する"
+#: inc/admin/actions.php:70
+msgid "Sorry, can’t save the notice removal. Try again?"
+msgstr ""
 
-#: juiz-social-post-sharer/juiz-social-post-sharer.php:275
-msgid "Share this article with a friend (email)"
-msgstr "この記事を Eメール で友達に送る"
+#: inc/admin/actions.php:77 inc/admin/actions.php:157
+msgid "Your session has expired. Reload the page and try again please :)"
+msgstr ""
 
-#: juiz-social-post-sharer/juiz-social-post-sharer.php:292
-msgid "Total: "
-msgstr "合計:"
+#: inc/admin/actions.php:99 inc/admin/actions.php:150
+msgid "Success"
+msgstr ""
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:40
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:60
+#: inc/admin/actions.php:114
+msgid ""
+"The call to our last skins failed, sorry for that. It’s temporary, please "
+"come back later."
+msgstr ""
+
+#: inc/admin/actions.php:136
+msgid "Available Soon"
+msgstr ""
+
+#: inc/admin/actions.php:143
+msgid "and way more to come 😜"
+msgstr ""
+
+#: inc/admin/metaboxes.php:24 inc/admin/metaboxes.php:29
+msgid "Sharing buttons"
+msgstr "共有ボタン"
+
+#: inc/admin/metaboxes.php:40
+msgid "Hide sharing buttons for this post."
+msgstr "この記事の共有ボタンを隠す"
+
+#: inc/admin/partials/promo-form.php:24 inc/admin/upgrade-notice.php:280
+#: inc/admin/welcome.php:279
+msgid "New Skin Shop"
+msgstr ""
+
+#: inc/admin/partials/promo-form.php:27 inc/admin/upgrade-notice.php:283
+#: inc/admin/welcome.php:282
+msgid "Free &amp; Premium Button Skins"
+msgstr ""
+
+#: inc/admin/partials/promo-form.php:37 inc/admin/upgrade-notice.php:293
+#: inc/admin/welcome.php:292
+msgid "Soon! Be the first to know"
+msgstr ""
+
+#: inc/admin/partials/promo-form.php:38 inc/admin/upgrade-notice.php:295
+#: inc/admin/welcome.php:293
+msgid "Email Address"
+msgstr ""
+
+#: inc/admin/partials/promo-form.php:49 inc/admin/upgrade-notice.php:304
+#: inc/admin/welcome.php:304
+msgid "Subscribe"
+msgstr ""
+
+#: inc/admin/register-settings.php:110 inc/utilities.php:529
 #, php-format
 msgid "Visit this link find on %%siteurl%%"
 msgstr "Visit this link find on %%siteurl%%"
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:41
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:61
+#: inc/admin/register-settings.php:111 inc/utilities.php:530
 #, php-format
 msgid ""
 "Hi, I found this information for you : \"%%title%%\"! This is the direct "
@@ -83,189 +131,197 @@ msgstr ""
 "Hi, I found this information for you : \"%%title%%\"! This is the direct "
 "link: %%permalink%% Have a nice day :)"
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:102
+#: inc/admin/settings.php:17 inc/admin/welcome.php:396
 msgid "Settings"
 msgstr "設定"
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:119
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:120
-msgid "Social Post Sharer"
-msgstr "Social Post Sharer"
+#: inc/admin/settings.php:18
+msgid "Welcome"
+msgstr ""
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:152
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:157
-msgid "Sharing buttons"
-msgstr "共有ボタン"
+#: inc/admin/settings.php:35 inc/admin/settings.php:36
+msgid "Nobs Share Buttons"
+msgstr ""
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:167
-msgid "Hide sharing buttons for this post."
-msgstr "この記事の共有ボタンを隠す"
+#: inc/admin/settings.php:55
+msgid "Themes &amp; Networks"
+msgstr ""
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:189
-msgid "Main settings"
-msgstr "メインの設定"
-
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:190
+#: inc/admin/settings.php:56
 msgid "Choose a style to display"
 msgstr "表示するスタイルを選択"
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:191
-msgid "Display those following social networks:"
-msgstr "表示するSNSを選択"
-
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:192
-msgid "What is your Twitter user name to be mentioned?"
-msgstr "通知される Twitter ユーザー名"
-
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:193
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:199
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:209
+#: inc/admin/settings.php:57 inc/admin/settings.php:60
+#: inc/admin/settings.php:70 inc/admin/settings.php:80
+#: inc/admin/settings.php:88
 msgid "Save Changes"
 msgstr "変更を保存"
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:196
+#: inc/admin/settings.php:58
+msgid "Display those following social networks:"
+msgstr "表示するSNSを選択"
+
+#: inc/admin/settings.php:59
+msgid "What is your Twitter user name to be mentioned?"
+msgstr "通知される Twitter ユーザー名"
+
+#: inc/admin/settings.php:65
 msgid "Display settings"
 msgstr "表示の設定"
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:197
+#: inc/admin/settings.php:66
 msgid "What type of content must have buttons?"
 msgstr "ボタンを表示するコンテンツの種類"
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:198
+#: inc/admin/settings.php:67
 msgid "Where do you want to display buttons?"
 msgstr "ボタンを表示する場所"
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:202
-msgid "Advanced settings"
-msgstr "詳細の設定"
+#: inc/admin/settings.php:68
+msgid "Prefer Compact Display"
+msgstr ""
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:203
+#: inc/admin/settings.php:68
+msgid ""
+"Some skins can propose a more compact display, it will remove space around "
+"buttons and make them tinier depending on how the skin handles this option."
+msgstr ""
+
+#: inc/admin/settings.php:69
 msgid "Show only social icon?"
 msgstr "ソーシャルアイコンのみを表示"
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:203
+#: inc/admin/settings.php:69
 msgid "hide text, show it on mouse over or focus"
 msgstr "マウスオーバーまたはフォーカス時にテキストを表示"
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:204
+#: inc/admin/settings.php:75
+msgid "Advanced settings"
+msgstr "詳細の設定"
+
+#: inc/admin/settings.php:76
 msgid "Open links in a new window?"
 msgstr "リンクを新規ウィンドウで開く"
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:204
+#: inc/admin/settings.php:76
 #, php-format
 msgid "adds a %s attribute"
 msgstr "%s 属性を追加"
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:205
+#: inc/admin/settings.php:77
 msgid "Force Pinterest button sniffing all images of the page?"
 msgstr "ページのあらゆる画像に Pinterest ボタンを表示する"
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:205
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:206
+#: inc/admin/settings.php:77 inc/admin/settings.php:78
 msgid "need JavaScript"
 msgstr "JavaScript が必要"
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:206
+#: inc/admin/settings.php:78
 msgid "Display counter of sharing?"
 msgstr "共有カウンターを表示"
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:207
+#: inc/admin/settings.php:79
 msgid "For this counter, you want to display:"
 msgstr "共有カウンターの表示スタイル"
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:208
-msgid "Write CSS code in HTML head?"
-msgstr "CSS コードを HTML ヘッダーに記述"
-
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:208
-msgid "good thing for performance on mobile"
-msgstr "携帯端末でのパフォーマンスが向上"
-
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:212
+#: inc/admin/settings.php:85
 msgid "Customize mail texts"
 msgstr "メール文のカスタマイズ"
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:213
+#: inc/admin/settings.php:86
 msgid "Mail subject:"
 msgstr "件名:"
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:214
+#: inc/admin/settings.php:87
 msgid "Mail body:"
 msgstr "本文:"
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:278
-msgid "Here, you can modify default settings of the SPS plugin"
-msgstr "Social Post Sharer プラグインのデフォルト設定を変更できます。"
+#: inc/admin/settings.php:93
+msgid "What’s new"
+msgstr ""
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:293
-msgid "Juizy Light Tone"
-msgstr "Juizy Light Tone"
+#: inc/admin/settings.php:94 inc/admin/settings.php:658
+msgid "Changelog"
+msgstr ""
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:297
-msgid "Juizy Light Tone Reverse"
-msgstr "Juizy Light Tone Reverse"
+#: inc/admin/settings.php:99 inc/admin/settings.php:100
+msgid "Skin Shop"
+msgstr ""
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:301
-msgid "Blue Metro Style"
-msgstr "Blue Metro Style"
+#: inc/admin/settings.php:169
+msgid "Edit the style of your buttons and the networks you want to activate."
+msgstr ""
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:305
-msgid "Gray Metro Style"
-msgstr "Gray Metro Style"
+#: inc/admin/settings.php:209
+msgid "This skin doesn't have a name"
+msgstr ""
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:309
-msgid "Modern Style"
-msgstr "Modern Style"
+#: inc/admin/settings.php:210
+#, php-format
+msgid "%1$s by %2$s"
+msgstr ""
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:309
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:313
-msgid "by"
-msgstr "by"
-
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:313
-msgid "Black"
-msgstr "Black"
-
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:329
+#: inc/admin/settings.php:264
 msgid "uses JavaScript to work"
 msgstr "JavaScript が必要"
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:338
-msgid "New social network!"
-msgstr "新しいSNS"
+#: inc/admin/settings.php:287
+#, php-format
+msgid ""
+"%sYou don’t see your favorite network here?%s I might be already working on "
+"it! You can see the list of incoming network support, or suggest new ones. "
+"If you are a developer, you can also build your own one. You can also see "
+"our %sroadmap%s."
+msgstr ""
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:350
+#: inc/admin/settings.php:295
+msgid "See what’s coming"
+msgstr ""
+
+#: inc/admin/settings.php:298
+msgid "Suggest new one"
+msgstr ""
+
+#: inc/admin/settings.php:301
+msgid "Create your own"
+msgstr ""
+
+#: inc/admin/settings.php:319
+msgid "Open corresponding issue"
+msgstr ""
+
+#: inc/admin/settings.php:341
 msgid "Username without \"@\""
 msgstr "ユーザー名は \"@\" を抜いて入力してください"
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:360
+#: inc/admin/settings.php:351
 msgid ""
 "You can choose precisely the types of content that will benefit from the "
 "sharing buttons."
 msgstr "共有ボタンを表示するコンテンツの種類を選択できます。"
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:400
+#: inc/admin/settings.php:411
 #, php-format
 msgid "Lists of articles %s(blog, archives, search results, etc.)%s"
 msgstr "記事の一覧%s(ブログ、アーカイブ、検索結果、ほか)%s"
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:416
+#: inc/admin/settings.php:428
 msgid "Content bottom"
 msgstr "コンテンツの下"
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:419
+#: inc/admin/settings.php:432
 msgid "Content top"
 msgstr "コンテンツの上"
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:422
+#: inc/admin/settings.php:436
 msgid "Both"
 msgstr "両方"
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:425
+#: inc/admin/settings.php:440
 msgid "I'm a ninja, I want to use the shortcode only!"
 msgstr "ショートコードのみ"
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:435
+#: inc/admin/settings.php:450
 msgid ""
 "Modify advanced settings of the plugin. Some of them needs JavaScript (only "
 "one file loaded)"
@@ -273,39 +329,55 @@ msgstr ""
 "プラグインの詳細の設定を変更できます。いくつかの設定は JavaScript が必要で"
 "す。( 1 つのファイルがロードされます )"
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:450
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:469
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:486
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:504
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:546
+#: inc/admin/settings.php:472
+msgid "This buttons skin tells there is no support for hidden name."
+msgstr ""
+
+#: inc/admin/settings.php:477
+msgid "This buttons skin tells there is a support of hidden name."
+msgstr ""
+
+#: inc/admin/settings.php:482
+msgid "We can't tell if the button skin supports the hidden name option."
+msgstr ""
+
+#: inc/admin/settings.php:487 inc/admin/settings.php:526
+#: inc/admin/settings.php:543 inc/admin/settings.php:560
+#: inc/admin/settings.php:578
 msgid "Yes"
 msgstr "はい"
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:453
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:472
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:489
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:507
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:549
+#: inc/admin/settings.php:490 inc/admin/settings.php:529
+#: inc/admin/settings.php:546 inc/admin/settings.php:563
+#: inc/admin/settings.php:581
 msgid "No"
 msgstr "いいえ"
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:525
+#: inc/admin/settings.php:509
+msgid "This buttons skin tells there is no support for compact display."
+msgstr ""
+
+#: inc/admin/settings.php:514
+msgid "This buttons skin tells there is a support of compact display."
+msgstr ""
+
+#: inc/admin/settings.php:519
+msgid "We can't tell if the button skin supports the compact display."
+msgstr ""
+
+#: inc/admin/settings.php:601
 msgid "Total &amp; Sub-totals"
 msgstr "合計と小計"
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:528
+#: inc/admin/settings.php:604
 msgid "Only Total"
 msgstr "合計のみ"
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:531
+#: inc/admin/settings.php:607
 msgid "Only Sub-totals"
 msgstr "小計のみ"
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:544
-msgid "This option will be enabled for a next version"
-msgstr "このオプションは次期バージョンで有効になります"
-
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:557
+#: inc/admin/settings.php:614
 msgid ""
 "You can customize texts to display when visitors share your content by mail "
 "button"
@@ -313,7 +385,7 @@ msgstr ""
 "訪問者が Eメール ボタンからコンテンツを共有した際に表示されるテキストをカスタ"
 "マイズできます。"
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:558
+#: inc/admin/settings.php:614
 #, php-format
 msgid ""
 "To perform customization, you can use %s%%%%title%%%%%s, %s%%%%siteurl%%%%%s "
@@ -322,16 +394,49 @@ msgstr ""
 "カスタマイズには、%s%%%%title%%%%%s、 %s%%%%siteurl%%%%%s または %s%%"
 "%%permalink%%%%%s 変数を使用できます。"
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:582
-msgid "Manage Juiz Social Post Sharer"
-msgstr "Juiz Social Post Sharer の管理"
+#: inc/admin/settings.php:638
+msgid ""
+"Discover what is fresh in your favorite Social Sharing plugin to keep track "
+"of updates."
+msgstr ""
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:587
+#: inc/admin/settings.php:638
+#, php-format
+msgid ""
+"You can also display the %sWelcome Page%s to get a quick tour of the "
+"features."
+msgstr ""
+
+#: inc/admin/settings.php:729
+msgid ""
+"I’m working on a Skin Shop to give you the most premium skin ever made with "
+"tone of choice: free skins, paid skins, new skins, colorful skins or more "
+"neutral, animated or static… just for every taste."
+msgstr ""
+
+#: inc/admin/settings.php:740
+msgid "Skin available soon"
+msgstr ""
+
+#: inc/admin/settings.php:741
+msgid "The last finest skins directly in your WordPress Admin!"
+msgstr ""
+
+#: inc/admin/settings.php:744
+msgid "Sorry, for performance issue, this listing needs JavaScript activated."
+msgstr ""
+
+#: inc/admin/settings.php:745
+#, php-format
+msgid "You can still visit the %sofficial website%s for further information."
+msgstr ""
+
+#: inc/admin/settings.php:773
 #, php-format
 msgid "You must chose at least one %stype of content%s."
 msgstr "最低でも 1 つの  %stype of content%s を選択してください。"
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:588
+#: inc/admin/settings.php:774
 msgid ""
 "Is you don't want to use this plugin more longer, go to Plugins section and "
 "deactivate it."
@@ -339,7 +444,7 @@ msgstr ""
 "このプラグインの使用を止めたい場合は、インストール済みプラグイン ページを開"
 "き、プラグインを停止します。"
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:592
+#: inc/admin/settings.php:791
 #, php-format
 msgid ""
 "You can use %s[juiz_sps]%s or %s[juiz_social]%s shortcode with an optional "
@@ -348,26 +453,521 @@ msgstr ""
 "%s[juiz_sps]%s または %s[juiz_social]%s ショートコード を使うと、思い通りの場"
 "所にソーシャルネットワークボタンの一覧を表示できます。"
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:594
+#: inc/admin/settings.php:793
 msgid "Example with all the networks available:"
 msgstr "有効なすべての SNS と記述例:"
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:606
-msgid "Like it? Support this plugin! Thank you."
-msgstr "お気に召しましたか？このプラグインをサポートしてください！"
+#: inc/admin/settings.php:811
+msgid "Thanks!"
+msgstr ""
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:607
-msgid "Donate"
-msgstr "寄付"
+#: inc/admin/settings.php:814
+msgid "Like it? Support this plugin! Thank you 😊"
+msgstr ""
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:608
+#: inc/admin/settings.php:818 inc/admin/settings.php:822
+#: inc/admin/settings.php:826 inc/admin/welcome.php:328
+#: inc/admin/welcome.php:332 inc/admin/welcome.php:336
+#, php-format
+msgid "Donate with %s"
+msgstr ""
+
+#: inc/admin/settings.php:819 inc/admin/welcome.php:329
+msgid "Paypal"
+msgstr ""
+
+#: inc/admin/settings.php:823 inc/admin/welcome.php:333
+msgid "Flattr"
+msgstr ""
+
+#: inc/admin/settings.php:828 inc/admin/welcome.php:338
+msgid "Buy me a Coffee"
+msgstr ""
+
+#: inc/admin/settings.php:831 inc/admin/welcome.php:378
 msgid "Tweet it"
 msgstr "プラグインをツイート"
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:609
+#: inc/admin/settings.php:833 inc/admin/welcome.php:380
 msgid "Rate it"
 msgstr "評価する"
 
-#: juiz-social-post-sharer/admin/jsps-admin.inc.php:610
+#: inc/admin/settings.php:835 inc/admin/welcome.php:382
+msgid "Translate it"
+msgstr ""
+
+#: inc/admin/settings.php:839
+msgid "Want to customize everything? Look at the documentation."
+msgstr ""
+
+#: inc/admin/settings.php:841 inc/admin/upgrade-notice.php:169
 msgid "Documentation"
 msgstr "ドキュメント"
+
+#: inc/admin/upgrade-notice.php:12
+#, php-format
+msgid ""
+"Includes a lot of improvements. It has been tested on our side and should be "
+"ok. But WordPress is a big universe, it might be breaking changes for your "
+"specific website. If you can: double check on a safe (test) environment that "
+"everything is going to be ok for your website. Don’t forget to %sbackup your "
+"website%s."
+msgstr ""
+
+#: inc/admin/upgrade-notice.php:120
+msgid "Congratulations! Your sharing buttons are now in version 2.0"
+msgstr ""
+
+#: inc/admin/upgrade-notice.php:146
+msgid "New Settings"
+msgstr ""
+
+#: inc/admin/upgrade-notice.php:150
+msgid "You can now re-order your buttons and enjoy the new admin interface."
+msgstr ""
+
+#: inc/admin/upgrade-notice.php:154
+msgid "See Settings Page"
+msgstr ""
+
+#: inc/admin/upgrade-notice.php:175
+#, php-format
+msgid "You are a developer or you have questions, visit the %sFAQ%s or doc. "
+msgstr ""
+
+#: inc/admin/upgrade-notice.php:190
+msgid "See the doc."
+msgstr ""
+
+#: inc/admin/upgrade-notice.php:251
+msgid "What’s New?"
+msgstr ""
+
+#: inc/admin/upgrade-notice.php:254
+msgid "I gathered some information in the welcome page, stay tuned of news!"
+msgstr ""
+
+#: inc/admin/upgrade-notice.php:257
+msgid "Visit Welcome Page"
+msgstr ""
+
+#: inc/admin/welcome.php:16 inc/admin/welcome.php:17
+msgid "Social Post Sharer"
+msgstr "Social Post Sharer"
+
+#: inc/admin/welcome.php:43
+#, php-format
+msgid "Welcome in version %s"
+msgstr ""
+
+#: inc/admin/welcome.php:47
+#, php-format
+msgid ""
+"The good way to make people share your content %swithout sacrificing%s your "
+"website performance!"
+msgstr ""
+
+#: inc/admin/welcome.php:97
+msgid "Responsive Skins"
+msgstr ""
+
+#: inc/admin/welcome.php:100
+#, php-format
+msgid ""
+"The list of default skins proposed is growing up and the existing ones have "
+"being rebuilt with the %sfresh new brand colors%s."
+msgstr ""
+
+#: inc/admin/welcome.php:124
+msgid "Drag &amp; Drop Buttons"
+msgstr ""
+
+#: inc/admin/welcome.php:127
+#, php-format
+msgid ""
+"You can now re-order your buttons by simply drag and drop those in the "
+"%ssettings page%s. %sClick on it to activate, drag to order%s!"
+msgstr ""
+
+#: inc/admin/welcome.php:146
+msgid "Performant"
+msgstr ""
+
+#: inc/admin/welcome.php:149
+#, php-format
+msgid ""
+"%sNobs%s get rid of all those JavaScript loading and making your page slow. "
+"It helps %simprove accessibility and SEO%s."
+msgstr ""
+
+#: inc/admin/welcome.php:165
+msgid "New Contact Modal"
+msgstr ""
+
+#: inc/admin/welcome.php:168
+#, php-format
+msgid ""
+"When users want to share the blog post via email, they get a new pop-in that "
+"give the ability %sto share to multiple friends!%s"
+msgstr ""
+
+#: inc/admin/welcome.php:228
+msgid "Rebuilt Documentation"
+msgstr ""
+
+#: inc/admin/welcome.php:231
+#, php-format
+msgid ""
+"The whole %sdocumentation%s has been rebuilt to better meet the developers "
+"expectations. %sFresh tutorials are here to help!%s"
+msgstr ""
+
+#: inc/admin/welcome.php:253
+msgid "Roadmap &amp; Contribution"
+msgstr ""
+
+#: inc/admin/welcome.php:256
+#, php-format
+msgid ""
+"This plugin is open-source, %sthe roadmap%s is public and available on "
+"Github.com. This makes it stronger and way safer!"
+msgstr ""
+
+#: inc/admin/welcome.php:321
+#, php-format
+msgid "Plugin made for free %s by humans"
+msgstr ""
+
+#: inc/admin/welcome.php:324
+#, php-format
+msgid ""
+"This plugin is totally free since 2012 and will stay %sfree forever%s. But "
+"you can always support people behind it with a donation."
+msgstr ""
+
+#: inc/admin/welcome.php:343
+#, php-format
+msgid "Big thanks to %sall the contributors%s."
+msgstr ""
+
+#: inc/admin/welcome.php:371
+#, php-format
+msgid "You can also help %s by sharing"
+msgstr ""
+
+#: inc/admin/welcome.php:374
+#, php-format
+msgid ""
+"Not everybody can help with money. You can give a good rating, a tweet or a "
+"bit of your time to help %simprove this plugin &amp; spread the word.%s"
+msgstr ""
+
+#: inc/admin/welcome.php:384
+msgid "Contribute"
+msgstr ""
+
+#: inc/admin/welcome.php:399
+msgid ""
+"Read the news about your plugin or go back to the settings page to discover "
+"the new interface."
+msgstr ""
+
+#: inc/admin/welcome.php:404
+msgid "Settings Page"
+msgstr ""
+
+#: inc/admin/welcome.php:408
+msgid "Public Website"
+msgstr ""
+
+#: inc/front/actions.php:24
+msgid "Your email address is invalid."
+msgstr ""
+
+#: inc/front/actions.php:28
+msgid "No recipient email address."
+msgstr ""
+
+#: inc/front/actions.php:45
+msgid "The recipient email address is invalid."
+msgstr ""
+
+#: inc/front/actions.php:71
+msgid "Post successfully sent!"
+msgstr ""
+
+#: inc/front/actions.php:74
+msgid "Error trying to send your message. Sorry for that."
+msgstr ""
+
+#: inc/front/actions.php:77
+msgid "Seems like the post ID you tried to share is not good."
+msgstr ""
+
+#: inc/front/actions.php:80
+msgid "Your session is finished. Sorry. Retry after reloading the page."
+msgstr ""
+
+#: inc/front/buttons.php:87
+msgid "Total: "
+msgstr "合計:"
+
+#: inc/front/buttons.php:109
+msgid "Share the post"
+msgstr "この記事を共有する"
+
+#: inc/front/buttons.php:348
+#, php-format
+msgid "Share this article on %s"
+msgstr ""
+
+#: inc/front/buttons.php:394
+msgid "Share an image of this article on Pinterest"
+msgstr "この記事の画像を Pinterest で共有する"
+
+#: inc/front/buttons.php:451
+msgid "Share this article with a friend (email)"
+msgstr "この記事を Eメール で友達に送る"
+
+#: inc/front/buttons.php:456
+msgid "Bookmark this article (on your browser)"
+msgstr ""
+
+#: inc/front/buttons.php:457
+#, php-format
+msgid "Press %s to bookmark this page."
+msgstr ""
+
+#: inc/front/buttons.php:462
+msgid "Print this page"
+msgstr ""
+
+#: inc/front/buttons.php:468
+msgid "Share on your favorite apps"
+msgstr ""
+
+#: inc/front/enqueues.php:31
+msgid "Share by email"
+msgstr ""
+
+#: inc/front/enqueues.php:32
+msgid "Promise, emails are not stored!"
+msgstr ""
+
+#: inc/front/enqueues.php:35
+msgid "Your name"
+msgstr ""
+
+#: inc/front/enqueues.php:36
+msgid "Your email"
+msgstr ""
+
+#: inc/front/enqueues.php:37
+msgid "Recipient's email"
+msgstr ""
+
+#: inc/front/enqueues.php:38
+msgid "Personal message"
+msgstr ""
+
+#: inc/front/enqueues.php:39
+msgid "optional"
+msgstr ""
+
+#: inc/front/enqueues.php:40
+msgid "A link to the article is automatically added in your message."
+msgstr ""
+
+#: inc/front/enqueues.php:41
+msgid "Send this article"
+msgstr ""
+
+#: inc/front/enqueues.php:41
+msgid "1 recipient"
+msgstr ""
+
+#: inc/front/enqueues.php:42
+#, php-format
+msgid "%s recipients"
+msgstr ""
+
+#: inc/front/enqueues.php:53
+#, php-format
+msgid "Free service by %sNobs • Share Buttons%s"
+msgstr ""
+
+#: inc/front/enqueues.php:54
+msgid "Close"
+msgstr ""
+
+#: inc/front/enqueues.php:55
+msgid "Sorry. It looks like we've got an error on our side."
+msgstr ""
+
+#: inc/register-networks.php:18
+msgid "Diigo"
+msgstr ""
+
+#: inc/register-networks.php:22
+msgid "Evernote"
+msgstr ""
+
+#: inc/register-networks.php:26
+msgid "Facebook"
+msgstr ""
+
+#: inc/register-networks.php:30
+msgid "LinkedIn"
+msgstr ""
+
+#: inc/register-networks.php:34
+msgid "Mix"
+msgstr ""
+
+#: inc/register-networks.php:38
+msgid "Pinterest"
+msgstr ""
+
+#: inc/register-networks.php:42
+msgid "Pocket"
+msgstr ""
+
+#: inc/register-networks.php:46
+msgid "Reddit"
+msgstr ""
+
+#: inc/register-networks.php:50
+msgid "Twitter"
+msgstr ""
+
+#: inc/register-networks.php:54
+msgid "Tumblr"
+msgstr ""
+
+#: inc/register-networks.php:58
+msgid "Viadeo"
+msgstr ""
+
+#: inc/register-networks.php:62
+msgid "VKontakte"
+msgstr ""
+
+#: inc/register-networks.php:66
+msgid "Weibo"
+msgstr ""
+
+#: inc/register-networks.php:70
+msgid "WhatsApp"
+msgstr ""
+
+#: inc/register-networks.php:76
+msgid "Share…"
+msgstr ""
+
+#: inc/register-networks.php:80
+msgid "Email"
+msgstr ""
+
+#: inc/register-networks.php:84
+msgid "Bookmark"
+msgstr ""
+
+#: inc/register-networks.php:88
+msgid "Print"
+msgstr ""
+
+#: inc/register-skins.php:17
+msgid "Juizy Light Tone"
+msgstr "Juizy Light Tone"
+
+#: inc/register-skins.php:24
+msgid "Juizy Light Tone Reversed"
+msgstr ""
+
+#: inc/register-skins.php:31
+msgid "Blue Metro Style"
+msgstr "Blue Metro Style"
+
+#: inc/register-skins.php:38
+msgid "Gray Metro Style"
+msgstr "Gray Metro Style"
+
+#: inc/register-skins.php:45
+msgid "Modern Style"
+msgstr "Modern Style"
+
+#: inc/register-skins.php:54
+msgid "Black"
+msgstr "Black"
+
+#: inc/register-skins.php:63
+msgid "Brands Colors"
+msgstr ""
+
+#: inc/register-skins.php:70
+msgid "Material Brand Colors"
+msgstr ""
+
+#: inc/register-skins.php:184
+msgid "Button Skin"
+msgstr ""
+
+#~ msgid "Share this article on Twitter"
+#~ msgstr "この記事を Twitter で共有する"
+
+#~ msgid "Share this article on Facebook"
+#~ msgstr "この記事を Facebook で共有する"
+
+#~ msgid "Share this article on Google+"
+#~ msgstr "この記事を Google+ で共有する"
+
+#~ msgid "Share this article on Viadeo"
+#~ msgstr "この記事を Viadeo で共有する"
+
+#~ msgid "Share this article on LinkedIn"
+#~ msgstr "この記事を LinkedIn で共有する"
+
+#~ msgid "Share this article on Digg"
+#~ msgstr "この記事を Digg で共有する"
+
+#~ msgid "Share this article on StumbleUpon"
+#~ msgstr "この記事を StumbleUpon で共有する"
+
+#~ msgid "Share this article on Weibo"
+#~ msgstr "この記事を Weibo で共有する"
+
+#~ msgid "Share this article on VKontakte"
+#~ msgstr "この記事を VKontakte で共有する"
+
+#~ msgid "Main settings"
+#~ msgstr "メインの設定"
+
+#~ msgid "Write CSS code in HTML head?"
+#~ msgstr "CSS コードを HTML ヘッダーに記述"
+
+#~ msgid "good thing for performance on mobile"
+#~ msgstr "携帯端末でのパフォーマンスが向上"
+
+#~ msgid "Here, you can modify default settings of the SPS plugin"
+#~ msgstr "Social Post Sharer プラグインのデフォルト設定を変更できます。"
+
+#~ msgid "Juizy Light Tone Reverse"
+#~ msgstr "Juizy Light Tone Reverse"
+
+#~ msgid "by"
+#~ msgstr "by"
+
+#~ msgid "New social network!"
+#~ msgstr "新しいSNS"
+
+#~ msgid "This option will be enabled for a next version"
+#~ msgstr "このオプションは次期バージョンで有効になります"
+
+#~ msgid "Manage Juiz Social Post Sharer"
+#~ msgstr "Juiz Social Post Sharer の管理"
+
+#~ msgid "Like it? Support this plugin! Thank you."
+#~ msgstr "お気に召しましたか？このプラグインをサポートしてください！"
+
+#~ msgid "Donate"
+#~ msgstr "寄付"
