@@ -2,8 +2,8 @@ Nobs • Share Buttons
 ===============================
 
 * **Contributors:** CreativeJuiz
-* **Donate link:** [Paypal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJPCWVXGDY&lc=FR&item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&item_number=%23wp%2djsps&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted), [Buy Me a Coffee](https://www.buymeacoffee.com/geoffreycrofte), [Flattr](https://flattr.com/@CreativeJuiz)
-* **Tags:** social, buttons, twitter, facebook, digg, mix, linkedin, pinterest, viadeo, weibo, vkontakte, yummly, pocket, whatsapp, diigo, post, evernote, tumblr, reddit, share, sharing
+* **Donate link:** [Paypal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJPCWVXGDY&lc=FR&item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&item_number=%23wp%2djsps&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted), [Buy Me a Coffee](https://www.buymeacoffee.com/geoffreycrofte), [Flattr](https://flattr.com/@GeoffreyCrofte)
+* **Tags:** social, buttons, twitter, facebook, digg, mix, linkedin, pinterest, viadeo, weibo, vkontakte, yummly, pocket, whatsapp, diigo, post, evernote, tumblr, reddit, share, sharing, shareAPI
 * **Requires at least:** 3.3
 * **Tested up to:** 5.6
 * **Stable tag:** 2.0.0

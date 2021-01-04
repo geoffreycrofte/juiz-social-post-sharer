@@ -2,7 +2,7 @@
 
 Contributors: CreativeJuiz
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJPCWVXGDY&lc=FR&item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&item_number=%23wp%2djsps&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted
-Tags: social, buttons, twitter, facebook, digg, mix, linkedin, pinterest, viadeo, weibo, vkontakte, yummly, pocket, whatsapp, diigo, post, evernote, tumblr, reddit, share, sharing
+Tags: social, buttons, twitter, facebook, digg, mix, linkedin, pinterest, viadeo, weibo, vkontakte, yummly, pocket, whatsapp, diigo, post, evernote, tumblr, reddit, share, sharing, shareAPI
 Requires at least: 3.3
 Tested up to: 5.6
 Stable tag: 2.0.0
@@ -23,7 +23,7 @@ You're done!
 
 * [Donate what you want with Paypal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJPCWVXGDY&lc=FR&item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&item_number=%23wp%2djsps&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted)
 * [Buy Me a Coffee](https://www.buymeacoffee.com/geoffreycrofte) (you can even subscribe for exclusive content, like sneak peek, free license, exclusive info, etc.)
-* [Flattr this thing!](https://flattr.com/@CreativeJuiz)
+* [Flattr this thing!](https://flattr.com/@GeoffreyCrofte)
 
 **Please, use the support forum to tell me bugs encountered, and be patient, remember it's a free product build on my spare time**
 
@@ -44,6 +44,7 @@ Social networks supported:
 * WhatsApp
 * VKontakte
 * Native Share API (for mobile devices, mostly, allowing to share with your favorite applications)
+* [Future supported Networks here](https://sharebuttons.social/share-buttons-list.html?utm_source=wp-org&utm_medium=readme&utm_campaign=description)
 
 
 Other actions supported:
@@ -81,7 +82,7 @@ Available Languages:
 * Spanish (thank to [Roberto Castiñeira](www.mediapartner.es "Roberto Castiñeira's website")!)
 * Turkish (thanks to [Hakaner](http://hakanertr.wordpress.com/ "His website")!)
 
-<strong>Full <a href="https://sharebuttons.social/doc/">Documentation</a> available</strong>.
+<strong>Full <a href="https://sharebuttons.social/doc/?utm_source=wp-org&utm_medium=readme&utm_campaign=description">Documentation</a> available</strong>.
 
 
 This tool relies on third-party applications (API), so if you say "it's broken", please tell me why, how, what 😊
