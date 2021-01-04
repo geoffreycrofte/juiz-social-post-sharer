@@ -82,6 +82,48 @@ function juiz_sps_AJAX_notice_removal() {
 }
 
 /**
+ * Action on Counter Recovery
+ * TODO: write this part and the JS part too.
+ * @return void
+ * @since  2.0.0
+ * @author Geoffrey Crofte
+ */
+add_action( 'wp_ajax_juiz_sps_count_recovery', 'juiz_sps_AJAX_count_recovery' );
+add_action( 'wp_ajax_nopriv_juiz_sps_count_recovery', 'juiz_sps_AJAX_count_recovery' );
+
+function juiz_sps_AJAX_count_recovery() {
+	if ( isset( $_POST['nonce'] ) && wp_verify_nonce( $_POST['nonce'], 'juiz_sps_count_recovery' ) && isset( $_POST['post_id'] ) ) {
+
+		$url = get_permalink( (int) $_POST['post_id'] );
+
+		// TODO :
+		// With HTTP and HTTPS to full recovery
+		$facebook = 'https://www.shareaholic.net/api/share_counts/v1/counts?api_key=ca08ce11cc98198581a18ece230ab4e2&ttl=1&service=facebook&url=' . urlencode( $_POST['url'] ). '&_=1609703469341';
+		$pinterest = 'https://www.shareaholic.net/api/share_counts/v1/counts?api_key=ca08ce11cc98198581a18ece230ab4e2&ttl=1&service=pinterest&url=' . urlencode( $_POST['url'] ). '&_=1609703469341';
+		$reddit = 'https://www.shareaholic.net/api/share_counts/v1/counts?api_key=ca08ce11cc98198581a18ece230ab4e2&ttl=1&service=reddit&url=' . urlencode( $_POST['url'] ). '&_=1609703469341';
+		$buffer = 'https://www.shareaholic.net/api/share_counts/v1/counts?api_key=ca08ce11cc98198581a18ece230ab4e2&ttl=1&service=buffer&url=' . urlencode( $_POST['url'] ). '&_=1609703469341';
+
+
+		// Global, but seems to be only for ShareThis users.
+		// Maybe propose this as recovery.
+		// http://count-server.sharethis.com/v2.0/get_counts?url=https://localhost
+
+		//Headers: TE=Trailers
+		// Update post
+
+		$data['message'] = esc_html__( 'Notice Removed', 'juiz-social-post-sharer' ); 
+		wp_send_json_success( $data );
+		wp_die();
+
+	} else {
+		$data['message'] = esc_html__( 'Your session has expired. Reload the page and try again please :)', 'juiz-social-post-sharer' );
+		$data['data'] = $jsps_user_options;
+		wp_send_json_error( $data );
+		wp_die();
+	}
+}
+
+/**
  * Action on Skin Loading Action.
  *
  * @return void
