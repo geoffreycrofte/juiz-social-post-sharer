@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Juiz Social Post Sharer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-11 23:42+0200\n"
-"PO-Revision-Date: 2016-04-11 23:42+0200\n"
+"POT-Creation-Date: 2020-12-28 18:05+0100\n"
+"PO-Revision-Date: 2020-12-28 18:05+0100\n"
 "Last-Translator: Borisa Djuraskovic <borisad@webhostinghub.com>\n"
 "Language-Team: Creativejuiz <support@creativejuiz.com>\n"
 "Language: sr_RS\n"
@@ -16,82 +16,114 @@ msgstr ""
 "X-Generator: Poedit 1.8.6\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../admin/jsps-admin.inc.php:15 ../admin/jsps-admin.inc.php:84
-#: ../admin/jsps-admin.inc.php:243
-msgid "Delicious"
+#: ../class/nobs-license-manager-client.php:94
+#: ../class/nobs-license-manager-client.php:149
+#, php-format
+msgid "%s License"
 msgstr ""
 
-#: ../admin/jsps-admin.inc.php:16
-msgid "Digg"
+#: ../class/nobs-license-manager-client.php:116
+msgid "License"
 msgstr ""
 
-#: ../admin/jsps-admin.inc.php:17
-msgid "Facebook"
+#: ../class/nobs-license-manager-client.php:123
+msgid "Email address"
 msgstr ""
 
-#: ../admin/jsps-admin.inc.php:18
-msgid "Google+"
+#: ../class/nobs-license-manager-client.php:131
+msgid "License key"
 msgstr ""
 
-#: ../admin/jsps-admin.inc.php:19
-msgid "LinkedIn"
+#: ../class/nobs-license-manager-client.php:142
+msgid "Insert your license information to enable updates."
 msgstr ""
 
-#: ../admin/jsps-admin.inc.php:20
-msgid "Pinterest"
+#: ../class/nobs-license-manager-client.php:217
+#, php-format
+msgid "Please enter your email and license key to enable updates to %s."
 msgstr ""
 
-#: ../admin/jsps-admin.inc.php:21 ../admin/jsps-admin.inc.php:85
-#: ../admin/jsps-admin.inc.php:244
-msgid "Reddit"
+#: ../class/nobs-license-manager-client.php:227
+msgid "Complete the setup"
 msgstr ""
 
-#: ../admin/jsps-admin.inc.php:22
-msgid "StumbleUpon"
+#: ../inc/admin/actions.php:23
+msgid "New order saved!"
 msgstr ""
 
-#: ../admin/jsps-admin.inc.php:23
-msgid "Twitter"
+#: ../inc/admin/actions.php:27 ../inc/admin/actions.php:34
+msgid "Sorry, can’t save the order. Use the Save Changes button."
 msgstr ""
 
-#: ../admin/jsps-admin.inc.php:24 ../admin/jsps-admin.inc.php:83
-#: ../admin/jsps-admin.inc.php:242
-msgid "Tumblr"
+#: ../inc/admin/actions.php:66
+msgid "Notice Removed"
 msgstr ""
 
-#: ../admin/jsps-admin.inc.php:25
-msgid "Viadeo"
+#: ../inc/admin/actions.php:70
+msgid "Sorry, can’t save the notice removal. Try again?"
 msgstr ""
 
-#: ../admin/jsps-admin.inc.php:26 ../admin/jsps-admin.inc.php:65
-#: ../admin/jsps-admin.inc.php:238
-msgid "VKontakte"
+#: ../inc/admin/actions.php:77 ../inc/admin/actions.php:157
+msgid "Your session has expired. Reload the page and try again please :)"
 msgstr ""
 
-#: ../admin/jsps-admin.inc.php:27 ../admin/jsps-admin.inc.php:234
-msgid "Weibo"
+#: ../inc/admin/actions.php:99 ../inc/admin/actions.php:150
+msgid "Success"
 msgstr ""
 
-#: ../admin/jsps-admin.inc.php:28
-msgid "Email"
+#: ../inc/admin/actions.php:114
+msgid ""
+"The call to our last skins failed, sorry for that. It’s temporary, please "
+"come back later."
 msgstr ""
 
-#: ../admin/jsps-admin.inc.php:29 ../admin/jsps-admin.inc.php:94
-#: ../admin/jsps-admin.inc.php:248
-msgid "Bookmark"
+#: ../inc/admin/actions.php:136
+msgid "Available Soon"
 msgstr ""
 
-#: ../admin/jsps-admin.inc.php:30 ../admin/jsps-admin.inc.php:95
-#: ../admin/jsps-admin.inc.php:249
-msgid "Print"
+#: ../inc/admin/actions.php:143
+msgid "and way more to come 😜"
 msgstr ""
 
-#: ../admin/jsps-admin.inc.php:40
+#: ../inc/admin/metaboxes.php:24 ../inc/admin/metaboxes.php:29
+msgid "Sharing buttons"
+msgstr "Dugmad za deljenje"
+
+#: ../inc/admin/metaboxes.php:40
+msgid "Hide sharing buttons for this post."
+msgstr "Sakriti dugmad za deljenje kod ovog posta"
+
+#: ../inc/admin/partials/promo-form.php:24 ../inc/admin/upgrade-notice.php:280
+#: ../inc/admin/welcome.php:279
+msgid "New Skin Shop"
+msgstr ""
+
+#: ../inc/admin/partials/promo-form.php:27 ../inc/admin/upgrade-notice.php:283
+#: ../inc/admin/welcome.php:282
+msgid "Free &amp; Premium Button Skins"
+msgstr ""
+
+#: ../inc/admin/partials/promo-form.php:37 ../inc/admin/upgrade-notice.php:293
+#: ../inc/admin/welcome.php:292
+msgid "Soon! Be the first to know"
+msgstr ""
+
+#: ../inc/admin/partials/promo-form.php:38 ../inc/admin/upgrade-notice.php:295
+#: ../inc/admin/welcome.php:293
+msgid "Email Address"
+msgstr ""
+
+#: ../inc/admin/partials/promo-form.php:49 ../inc/admin/upgrade-notice.php:304
+#: ../inc/admin/welcome.php:304
+msgid "Subscribe"
+msgstr ""
+
+#: ../inc/admin/register-settings.php:110 ../inc/utilities.php:529
 #, php-format
 msgid "Visit this link find on %%siteurl%%"
 msgstr "Posetite ovaj link na %%urlsajta%%"
 
-#: ../admin/jsps-admin.inc.php:41
+#: ../inc/admin/register-settings.php:111 ../inc/utilities.php:530
 #, php-format
 msgid ""
 "Hi, I found this information for you : \"%%title%%\"! This is the direct "
@@ -100,163 +132,170 @@ msgstr ""
 "Našao sam ovu info za vas : \"%%title%%\"! Ovo je direktan link: %%permalink"
 "%% Have a nice day :)"
 
-#: ../admin/jsps-admin.inc.php:106
+#: ../inc/admin/settings.php:17 ../inc/admin/welcome.php:396
 msgid "Settings"
 msgstr "Postavke"
 
-#: ../admin/jsps-admin.inc.php:123 ../admin/jsps-admin.inc.php:124
-msgid "Social Post Sharer"
-msgstr "Social Post Sharer"
+#: ../inc/admin/settings.php:18
+msgid "Welcome"
+msgstr ""
 
-#: ../admin/jsps-admin.inc.php:155 ../admin/jsps-admin.inc.php:160
-msgid "Sharing buttons"
-msgstr "Dugmad za deljenje"
+#: ../inc/admin/settings.php:35 ../inc/admin/settings.php:36
+msgid "Nobs Share Buttons"
+msgstr ""
 
-#: ../admin/jsps-admin.inc.php:170
-msgid "Hide sharing buttons for this post."
-msgstr "Sakriti dugmad za deljenje kod ovog posta"
+#: ../inc/admin/settings.php:55
+msgid "Themes &amp; Networks"
+msgstr ""
 
-#: ../admin/jsps-admin.inc.php:190
-msgid "Main settings"
-msgstr "Glavne postavke"
-
-#: ../admin/jsps-admin.inc.php:191
+#: ../inc/admin/settings.php:56
 msgid "Choose a style to display"
 msgstr "Izabrati stil za prikaz"
 
-#: ../admin/jsps-admin.inc.php:192 ../admin/jsps-admin.inc.php:195
-#: ../admin/jsps-admin.inc.php:201 ../admin/jsps-admin.inc.php:211
+#: ../inc/admin/settings.php:57 ../inc/admin/settings.php:60
+#: ../inc/admin/settings.php:70 ../inc/admin/settings.php:80
+#: ../inc/admin/settings.php:88
 msgid "Save Changes"
 msgstr "Sačuvati promene"
 
-#: ../admin/jsps-admin.inc.php:193
+#: ../inc/admin/settings.php:58
 msgid "Display those following social networks:"
 msgstr "Prikaži sledeće socijalne mreže:"
 
-#: ../admin/jsps-admin.inc.php:194
+#: ../inc/admin/settings.php:59
 msgid "What is your Twitter user name to be mentioned?"
 msgstr "Koje Twitter  ime želite da bude pomenuto?"
 
-#: ../admin/jsps-admin.inc.php:198
+#: ../inc/admin/settings.php:65
 msgid "Display settings"
 msgstr "Prikaži postavke"
 
-#: ../admin/jsps-admin.inc.php:199
+#: ../inc/admin/settings.php:66
 msgid "What type of content must have buttons?"
 msgstr "Koji tip sadržaja moraju imati dugmad ?"
 
-#: ../admin/jsps-admin.inc.php:200
+#: ../inc/admin/settings.php:67
 msgid "Where do you want to display buttons?"
 msgstr "Gde želite da prikažete dugmad?"
 
-#: ../admin/jsps-admin.inc.php:204
-msgid "Advanced settings"
-msgstr "Napredne postavke"
+#: ../inc/admin/settings.php:68
+msgid "Prefer Compact Display"
+msgstr ""
 
-#: ../admin/jsps-admin.inc.php:205
+#: ../inc/admin/settings.php:68
+msgid ""
+"Some skins can propose a more compact display, it will remove space around "
+"buttons and make them tinier depending on how the skin handles this option."
+msgstr ""
+
+#: ../inc/admin/settings.php:69
 msgid "Show only social icon?"
 msgstr "Prikazati samo ikonu sa socijalnom mrežom?"
 
-#: ../admin/jsps-admin.inc.php:205
+#: ../inc/admin/settings.php:69
 msgid "hide text, show it on mouse over or focus"
 msgstr "sakriti tekst, prikazati tek kada se mišem prdje preko"
 
-#: ../admin/jsps-admin.inc.php:206
+#: ../inc/admin/settings.php:75
+msgid "Advanced settings"
+msgstr "Napredne postavke"
+
+#: ../inc/admin/settings.php:76
 msgid "Open links in a new window?"
 msgstr "Otvoriti linkove u novim prozorima? "
 
-#: ../admin/jsps-admin.inc.php:206
+#: ../inc/admin/settings.php:76
 #, php-format
 msgid "adds a %s attribute"
 msgstr "dodaci %s atributa"
 
-#: ../admin/jsps-admin.inc.php:207
+#: ../inc/admin/settings.php:77
 msgid "Force Pinterest button sniffing all images of the page?"
 msgstr "Naterati Pinterest dugme da predje sve slike na stranici?"
 
-#: ../admin/jsps-admin.inc.php:207 ../admin/jsps-admin.inc.php:208
+#: ../inc/admin/settings.php:77 ../inc/admin/settings.php:78
 msgid "need JavaScript"
 msgstr "treba vam JavaScript"
 
-#: ../admin/jsps-admin.inc.php:208
+#: ../inc/admin/settings.php:78
 msgid "Display counter of sharing?"
 msgstr "Display counter of sharing?"
 
-#: ../admin/jsps-admin.inc.php:209
+#: ../inc/admin/settings.php:79
 msgid "For this counter, you want to display:"
 msgstr ""
 
-#: ../admin/jsps-admin.inc.php:210
-msgid "Write CSS code in HTML head?"
-msgstr "Napisati CSS kod u HTML glavi?"
-
-#: ../admin/jsps-admin.inc.php:210
-msgid "good thing for performance on mobile"
-msgstr "dobra stvar za performanse na telefonu"
-
-#: ../admin/jsps-admin.inc.php:214
+#: ../inc/admin/settings.php:85
 msgid "Customize mail texts"
 msgstr "Customize tekstove mejlova"
 
-#: ../admin/jsps-admin.inc.php:215
+#: ../inc/admin/settings.php:86
 msgid "Mail subject:"
 msgstr "Predmet mejla:"
 
-#: ../admin/jsps-admin.inc.php:216
+#: ../inc/admin/settings.php:87
 msgid "Mail body:"
 msgstr "Telo mejla:"
 
-#: ../admin/jsps-admin.inc.php:297
-msgid "Here, you can modify default settings of the SPS plugin"
-msgstr "Ovde možete izmeniti podrazumevane postavke iz SPS plugin"
+#: ../inc/admin/settings.php:93
+msgid "What’s new"
+msgstr ""
 
-#: ../admin/jsps-admin.inc.php:312
-msgid "Juizy Light Tone"
-msgstr "Juizy Light Tone"
+#: ../inc/admin/settings.php:94 ../inc/admin/settings.php:658
+msgid "Changelog"
+msgstr ""
 
-#: ../admin/jsps-admin.inc.php:316
-msgid "Juizy Light Tone Reverse"
-msgstr "Juizy Light Tone obrnuto"
+#: ../inc/admin/settings.php:99 ../inc/admin/settings.php:100
+msgid "Skin Shop"
+msgstr ""
 
-#: ../admin/jsps-admin.inc.php:320
-msgid "Blue Metro Style"
-msgstr "Plavi Metro stil"
+#: ../inc/admin/settings.php:169
+msgid "Edit the style of your buttons and the networks you want to activate."
+msgstr ""
 
-#: ../admin/jsps-admin.inc.php:324
-msgid "Gray Metro Style"
-msgstr "Sivi Metro stil"
+#: ../inc/admin/settings.php:209
+msgid "This skin doesn't have a name"
+msgstr ""
 
-#: ../admin/jsps-admin.inc.php:328
+#: ../inc/admin/settings.php:210
 #, php-format
-msgid "Modern Style by %s"
+msgid "%1$s by %2$s"
 msgstr ""
 
-#: ../admin/jsps-admin.inc.php:332
-#, php-format
-msgid "Black by %s"
-msgstr ""
-
-#: ../admin/jsps-admin.inc.php:336
-msgid "Brands colors"
-msgstr ""
-
-#: ../admin/jsps-admin.inc.php:340
-msgid "Material Design"
-msgstr ""
-
-#: ../admin/jsps-admin.inc.php:356
+#: ../inc/admin/settings.php:264
 msgid "uses JavaScript to work"
 msgstr "koristi JavaScript da bi radio"
 
-#: ../admin/jsps-admin.inc.php:365
-msgid "New social network!"
-msgstr "Noa socijalna mreža!"
+#: ../inc/admin/settings.php:287
+#, php-format
+msgid ""
+"%sYou don’t see your favorite network here?%s I might be already working on "
+"it! You can see the list of incoming network support, or suggest new ones. "
+"If you are a developer, you can also build your own one. You can also see "
+"our %sroadmap%s."
+msgstr ""
 
-#: ../admin/jsps-admin.inc.php:377
+#: ../inc/admin/settings.php:295
+msgid "See what’s coming"
+msgstr ""
+
+#: ../inc/admin/settings.php:298
+msgid "Suggest new one"
+msgstr ""
+
+#: ../inc/admin/settings.php:301
+msgid "Create your own"
+msgstr ""
+
+#: ../inc/admin/settings.php:319
+msgid "Open corresponding issue"
+msgstr ""
+
+#: ../inc/admin/settings.php:341
 msgid "Username without \"@\""
 msgstr "Korisničko ime bezt "
 
-#: ../admin/jsps-admin.inc.php:387
+#: ../inc/admin/settings.php:351
 msgid ""
 "You can choose precisely the types of content that will benefit from the "
 "sharing buttons."
@@ -264,28 +303,28 @@ msgstr ""
 "Možete izabrati tačno tip sadržaja koji će imati koristi od dugmadi za "
 "deljenje ."
 
-#: ../admin/jsps-admin.inc.php:446
+#: ../inc/admin/settings.php:411
 #, php-format
 msgid "Lists of articles %s(blog, archives, search results, etc.)%s"
 msgstr "Lista članaka %s (blog, arhive, rezultate pretraga, itd)%s"
 
-#: ../admin/jsps-admin.inc.php:462
+#: ../inc/admin/settings.php:428
 msgid "Content bottom"
 msgstr "Dno sadržaja"
 
-#: ../admin/jsps-admin.inc.php:465
+#: ../inc/admin/settings.php:432
 msgid "Content top"
 msgstr "Vrh sadržaja"
 
-#: ../admin/jsps-admin.inc.php:468
+#: ../inc/admin/settings.php:436
 msgid "Both"
 msgstr "Oba"
 
-#: ../admin/jsps-admin.inc.php:471
+#: ../inc/admin/settings.php:440
 msgid "I'm a ninja, I want to use the shortcode only!"
 msgstr "Ja sam nindža , želim da koristim samo skraćenicu !"
 
-#: ../admin/jsps-admin.inc.php:481
+#: ../inc/admin/settings.php:450
 msgid ""
 "Modify advanced settings of the plugin. Some of them needs JavaScript (only "
 "one file loaded)"
@@ -293,50 +332,55 @@ msgstr ""
 "Izmena naprednih podešavanja dodatka . Neki od njih treba JavaScript ( samo "
 "jedan fajl  je učitan )"
 
-#: ../admin/jsps-admin.inc.php:496 ../admin/jsps-admin.inc.php:515
-#: ../admin/jsps-admin.inc.php:532 ../admin/jsps-admin.inc.php:550
-#: ../admin/jsps-admin.inc.php:596
+#: ../inc/admin/settings.php:472
+msgid "This buttons skin tells there is no support for hidden name."
+msgstr ""
+
+#: ../inc/admin/settings.php:477
+msgid "This buttons skin tells there is a support of hidden name."
+msgstr ""
+
+#: ../inc/admin/settings.php:482
+msgid "We can't tell if the button skin supports the hidden name option."
+msgstr ""
+
+#: ../inc/admin/settings.php:487 ../inc/admin/settings.php:526
+#: ../inc/admin/settings.php:543 ../inc/admin/settings.php:560
+#: ../inc/admin/settings.php:578
 msgid "Yes"
 msgstr "Da"
 
-#: ../admin/jsps-admin.inc.php:499 ../admin/jsps-admin.inc.php:518
-#: ../admin/jsps-admin.inc.php:535 ../admin/jsps-admin.inc.php:553
-#: ../admin/jsps-admin.inc.php:599
+#: ../inc/admin/settings.php:490 ../inc/admin/settings.php:529
+#: ../inc/admin/settings.php:546 ../inc/admin/settings.php:563
+#: ../inc/admin/settings.php:581
 msgid "No"
 msgstr "Ne"
 
-#: ../admin/jsps-admin.inc.php:573
+#: ../inc/admin/settings.php:509
+msgid "This buttons skin tells there is no support for compact display."
+msgstr ""
+
+#: ../inc/admin/settings.php:514
+msgid "This buttons skin tells there is a support of compact display."
+msgstr ""
+
+#: ../inc/admin/settings.php:519
+msgid "We can't tell if the button skin supports the compact display."
+msgstr ""
+
+#: ../inc/admin/settings.php:601
 msgid "Total &amp; Sub-totals"
 msgstr ""
 
-#: ../admin/jsps-admin.inc.php:576
+#: ../inc/admin/settings.php:604
 msgid "Only Total"
 msgstr ""
 
-#: ../admin/jsps-admin.inc.php:579
+#: ../inc/admin/settings.php:607
 msgid "Only Sub-totals"
 msgstr ""
 
-#: ../admin/jsps-admin.inc.php:581
-#, php-format
-msgid ""
-"Important: Twitter doesn't support counter anymore since %sthat decision%s."
-msgstr ""
-
-#: ../admin/jsps-admin.inc.php:581
-#, php-format
-msgid ""
-"I suggest you an alternative using %sNewShareCounts%s. Click the link, enter "
-"your website address and click the big blue Twitter button. Authorize this "
-"app with your Twitter Account, and that's all. You will retrieve your "
-"Twitter counts."
-msgstr ""
-
-#: ../admin/jsps-admin.inc.php:594
-msgid "This option will be enabled for a next version"
-msgstr "Ova opcije će biti omogućena u sledećoj verziji"
-
-#: ../admin/jsps-admin.inc.php:607
+#: ../inc/admin/settings.php:614
 msgid ""
 "You can customize texts to display when visitors share your content by mail "
 "button"
@@ -344,7 +388,7 @@ msgstr ""
 "Možete da prilagodite tekstove da prikažete kada posetioci dele vaš sadržaj "
 "email dugmetom "
 
-#: ../admin/jsps-admin.inc.php:608
+#: ../inc/admin/settings.php:614
 #, php-format
 msgid ""
 "To perform customization, you can use %s%%%%title%%%%%s, %s%%%%siteurl%%%%%s "
@@ -353,16 +397,49 @@ msgstr ""
 "Da biste izvršili prilagođavanje , možete da koristite %s%%%%title%%%%%s, %s"
 "%%%%siteurl%%%%%s or %s%%%%permalink%%%%%s  promenljive ."
 
-#: ../admin/jsps-admin.inc.php:634
-msgid "Manage Juiz Social Post Sharer"
-msgstr "Upravljajte sa Juiz Social Post Sharer-om"
+#: ../inc/admin/settings.php:638
+msgid ""
+"Discover what is fresh in your favorite Social Sharing plugin to keep track "
+"of updates."
+msgstr ""
 
-#: ../admin/jsps-admin.inc.php:639
+#: ../inc/admin/settings.php:638
+#, php-format
+msgid ""
+"You can also display the %sWelcome Page%s to get a quick tour of the "
+"features."
+msgstr ""
+
+#: ../inc/admin/settings.php:729
+msgid ""
+"I’m working on a Skin Shop to give you the most premium skin ever made with "
+"tone of choice: free skins, paid skins, new skins, colorful skins or more "
+"neutral, animated or static… just for every taste."
+msgstr ""
+
+#: ../inc/admin/settings.php:740
+msgid "Skin available soon"
+msgstr ""
+
+#: ../inc/admin/settings.php:741
+msgid "The last finest skins directly in your WordPress Admin!"
+msgstr ""
+
+#: ../inc/admin/settings.php:744
+msgid "Sorry, for performance issue, this listing needs JavaScript activated."
+msgstr ""
+
+#: ../inc/admin/settings.php:745
+#, php-format
+msgid "You can still visit the %sofficial website%s for further information."
+msgstr ""
+
+#: ../inc/admin/settings.php:773
 #, php-format
 msgid "You must chose at least one %stype of content%s."
 msgstr "Treba izabrete  najmanje jedan % stip sadržaja%s."
 
-#: ../admin/jsps-admin.inc.php:640
+#: ../inc/admin/settings.php:774
 msgid ""
 "Is you don't want to use this plugin more longer, go to Plugins section and "
 "deactivate it."
@@ -370,7 +447,7 @@ msgstr ""
 "Ako ne želite više da koristite ovaj plugin , idite na Plugins deoi "
 "deaktivirajte ."
 
-#: ../admin/jsps-admin.inc.php:644
+#: ../inc/admin/settings.php:791
 #, php-format
 msgid ""
 "You can use %s[juiz_sps]%s or %s[juiz_social]%s shortcode with an optional "
@@ -379,63 +456,494 @@ msgstr ""
 "Možete da koristite %s[juiz_sps]%s ili %s[juiz_social]%s skraćenicu sa "
 "opcionim atributom  \"buttons\" listing društvene mreže koje želite ."
 
-#: ../admin/jsps-admin.inc.php:646
+#: ../inc/admin/settings.php:793
 msgid "Example with all the networks available:"
 msgstr "Primer sa svim dostupnim mrežama:"
 
-#: ../admin/jsps-admin.inc.php:658
-msgid "Like it? Support this plugin! Thank you."
-msgstr "Dopada vam se? Podržite ovaj plugin! Hvala."
+#: ../inc/admin/settings.php:811
+msgid "Thanks!"
+msgstr ""
 
-#: ../admin/jsps-admin.inc.php:659
-msgid "Donate"
-msgstr "Donirati"
+#: ../inc/admin/settings.php:814
+msgid "Like it? Support this plugin! Thank you 😊"
+msgstr ""
 
-#: ../admin/jsps-admin.inc.php:660
+#: ../inc/admin/settings.php:818 ../inc/admin/settings.php:822
+#: ../inc/admin/settings.php:826 ../inc/admin/welcome.php:328
+#: ../inc/admin/welcome.php:332 ../inc/admin/welcome.php:336
+#, php-format
+msgid "Donate with %s"
+msgstr ""
+
+#: ../inc/admin/settings.php:819 ../inc/admin/welcome.php:329
+msgid "Paypal"
+msgstr ""
+
+#: ../inc/admin/settings.php:823 ../inc/admin/welcome.php:333
+msgid "Flattr"
+msgstr ""
+
+#: ../inc/admin/settings.php:828 ../inc/admin/welcome.php:338
+msgid "Buy me a Coffee"
+msgstr ""
+
+#: ../inc/admin/settings.php:831 ../inc/admin/welcome.php:378
 msgid "Tweet it"
 msgstr "Tweetuj o ovome"
 
-#: ../admin/jsps-admin.inc.php:662
+#: ../inc/admin/settings.php:833 ../inc/admin/welcome.php:380
 msgid "Rate it"
 msgstr "Oceniti"
 
-#: ../admin/jsps-admin.inc.php:664
+#: ../inc/admin/settings.php:835 ../inc/admin/welcome.php:382
+msgid "Translate it"
+msgstr ""
+
+#: ../inc/admin/settings.php:839
+msgid "Want to customize everything? Look at the documentation."
+msgstr ""
+
+#: ../inc/admin/settings.php:841 ../inc/admin/upgrade-notice.php:169
 msgid "Documentation"
 msgstr "Dokumentacija"
 
-#: ../juiz-social-post-sharer.php:154
+#: ../inc/admin/upgrade-notice.php:12
+#, php-format
+msgid ""
+"Includes a lot of improvements. It has been tested on our side and should be "
+"ok. But WordPress is a big universe, it might be breaking changes for your "
+"specific website. If you can: double check on a safe (test) environment that "
+"everything is going to be ok for your website. Don’t forget to %sbackup your "
+"website%s."
+msgstr ""
+
+#: ../inc/admin/upgrade-notice.php:120
+msgid "Congratulations! Your sharing buttons are now in version 2.0"
+msgstr ""
+
+#: ../inc/admin/upgrade-notice.php:146
+msgid "New Settings"
+msgstr ""
+
+#: ../inc/admin/upgrade-notice.php:150
+msgid "You can now re-order your buttons and enjoy the new admin interface."
+msgstr ""
+
+#: ../inc/admin/upgrade-notice.php:154
+msgid "See Settings Page"
+msgstr ""
+
+#: ../inc/admin/upgrade-notice.php:175
+#, php-format
+msgid "You are a developer or you have questions, visit the %sFAQ%s or doc. "
+msgstr ""
+
+#: ../inc/admin/upgrade-notice.php:190
+msgid "See the doc."
+msgstr ""
+
+#: ../inc/admin/upgrade-notice.php:251
+msgid "What’s New?"
+msgstr ""
+
+#: ../inc/admin/upgrade-notice.php:254
+msgid "I gathered some information in the welcome page, stay tuned of news!"
+msgstr ""
+
+#: ../inc/admin/upgrade-notice.php:257
+msgid "Visit Welcome Page"
+msgstr ""
+
+#: ../inc/admin/welcome.php:16 ../inc/admin/welcome.php:17
+msgid "Social Post Sharer"
+msgstr "Social Post Sharer"
+
+#: ../inc/admin/welcome.php:43
+#, php-format
+msgid "Welcome in version %s"
+msgstr ""
+
+#: ../inc/admin/welcome.php:47
+#, php-format
+msgid ""
+"The good way to make people share your content %swithout sacrificing%s your "
+"website performance!"
+msgstr ""
+
+#: ../inc/admin/welcome.php:97
+msgid "Responsive Skins"
+msgstr ""
+
+#: ../inc/admin/welcome.php:100
+#, php-format
+msgid ""
+"The list of default skins proposed is growing up and the existing ones have "
+"being rebuilt with the %sfresh new brand colors%s."
+msgstr ""
+
+#: ../inc/admin/welcome.php:124
+msgid "Drag &amp; Drop Buttons"
+msgstr ""
+
+#: ../inc/admin/welcome.php:127
+#, php-format
+msgid ""
+"You can now re-order your buttons by simply drag and drop those in the "
+"%ssettings page%s. %sClick on it to activate, drag to order%s!"
+msgstr ""
+
+#: ../inc/admin/welcome.php:146
+msgid "Performant"
+msgstr ""
+
+#: ../inc/admin/welcome.php:149
+#, php-format
+msgid ""
+"%sNobs%s get rid of all those JavaScript loading and making your page slow. "
+"It helps %simprove accessibility and SEO%s."
+msgstr ""
+
+#: ../inc/admin/welcome.php:165
+msgid "New Contact Modal"
+msgstr ""
+
+#: ../inc/admin/welcome.php:168
+#, php-format
+msgid ""
+"When users want to share the blog post via email, they get a new pop-in that "
+"give the ability %sto share to multiple friends!%s"
+msgstr ""
+
+#: ../inc/admin/welcome.php:228
+msgid "Rebuilt Documentation"
+msgstr ""
+
+#: ../inc/admin/welcome.php:231
+#, php-format
+msgid ""
+"The whole %sdocumentation%s has been rebuilt to better meet the developers "
+"expectations. %sFresh tutorials are here to help!%s"
+msgstr ""
+
+#: ../inc/admin/welcome.php:253
+msgid "Roadmap &amp; Contribution"
+msgstr ""
+
+#: ../inc/admin/welcome.php:256
+#, php-format
+msgid ""
+"This plugin is open-source, %sthe roadmap%s is public and available on "
+"Github.com. This makes it stronger and way safer!"
+msgstr ""
+
+#: ../inc/admin/welcome.php:321
+#, php-format
+msgid "Plugin made for free %s by humans"
+msgstr ""
+
+#: ../inc/admin/welcome.php:324
+#, php-format
+msgid ""
+"This plugin is totally free since 2012 and will stay %sfree forever%s. But "
+"you can always support people behind it with a donation."
+msgstr ""
+
+#: ../inc/admin/welcome.php:343
+#, php-format
+msgid "Big thanks to %sall the contributors%s."
+msgstr ""
+
+#: ../inc/admin/welcome.php:371
+#, php-format
+msgid "You can also help %s by sharing"
+msgstr ""
+
+#: ../inc/admin/welcome.php:374
+#, php-format
+msgid ""
+"Not everybody can help with money. You can give a good rating, a tweet or a "
+"bit of your time to help %simprove this plugin &amp; spread the word.%s"
+msgstr ""
+
+#: ../inc/admin/welcome.php:384
+msgid "Contribute"
+msgstr ""
+
+#: ../inc/admin/welcome.php:399
+msgid ""
+"Read the news about your plugin or go back to the settings page to discover "
+"the new interface."
+msgstr ""
+
+#: ../inc/admin/welcome.php:404
+msgid "Settings Page"
+msgstr ""
+
+#: ../inc/admin/welcome.php:408
+msgid "Public Website"
+msgstr ""
+
+#: ../inc/front/actions.php:24
+msgid "Your email address is invalid."
+msgstr ""
+
+#: ../inc/front/actions.php:28
+msgid "No recipient email address."
+msgstr ""
+
+#: ../inc/front/actions.php:45
+msgid "The recipient email address is invalid."
+msgstr ""
+
+#: ../inc/front/actions.php:71
+msgid "Post successfully sent!"
+msgstr ""
+
+#: ../inc/front/actions.php:74
+msgid "Error trying to send your message. Sorry for that."
+msgstr ""
+
+#: ../inc/front/actions.php:77
+msgid "Seems like the post ID you tried to share is not good."
+msgstr ""
+
+#: ../inc/front/actions.php:80
+msgid "Your session is finished. Sorry. Retry after reloading the page."
+msgstr ""
+
+#: ../inc/front/buttons.php:87
 msgid "Total: "
 msgstr "Ukupno:"
 
-#: ../juiz-social-post-sharer.php:158
+#: ../inc/front/buttons.php:109
 msgid "Share the post"
 msgstr "Šeruj post"
 
-#: ../juiz-social-post-sharer.php:229
+#: ../inc/front/buttons.php:348
 #, php-format
 msgid "Share this article on %s"
 msgstr ""
 
-#: ../juiz-social-post-sharer.php:254
+#: ../inc/front/buttons.php:394
 msgid "Share an image of this article on Pinterest"
 msgstr "Šerujovaj članak na Pinterest"
 
-#: ../juiz-social-post-sharer.php:303
+#: ../inc/front/buttons.php:451
 msgid "Share this article with a friend (email)"
 msgstr "Šerujovaj članak na sa prijateljem (email)"
 
-#: ../juiz-social-post-sharer.php:308
+#: ../inc/front/buttons.php:456
 msgid "Bookmark this article (on your browser)"
 msgstr ""
 
-#: ../juiz-social-post-sharer.php:309
+#: ../inc/front/buttons.php:457
 #, php-format
 msgid "Press %s to bookmark this page."
 msgstr ""
 
-#: ../juiz-social-post-sharer.php:314
+#: ../inc/front/buttons.php:462
 msgid "Print this page"
 msgstr ""
+
+#: ../inc/front/buttons.php:468
+msgid "Share on your favorite apps"
+msgstr ""
+
+#: ../inc/front/enqueues.php:31
+msgid "Share by email"
+msgstr ""
+
+#: ../inc/front/enqueues.php:32
+msgid "Promise, emails are not stored!"
+msgstr ""
+
+#: ../inc/front/enqueues.php:35
+msgid "Your name"
+msgstr ""
+
+#: ../inc/front/enqueues.php:36
+msgid "Your email"
+msgstr ""
+
+#: ../inc/front/enqueues.php:37
+msgid "Recipient's email"
+msgstr ""
+
+#: ../inc/front/enqueues.php:38
+msgid "Personal message"
+msgstr ""
+
+#: ../inc/front/enqueues.php:39
+msgid "optional"
+msgstr ""
+
+#: ../inc/front/enqueues.php:40
+msgid "A link to the article is automatically added in your message."
+msgstr ""
+
+#: ../inc/front/enqueues.php:41
+msgid "Send this article"
+msgstr ""
+
+#: ../inc/front/enqueues.php:41
+msgid "1 recipient"
+msgstr ""
+
+#: ../inc/front/enqueues.php:42
+#, php-format
+msgid "%s recipients"
+msgstr ""
+
+#: ../inc/front/enqueues.php:53
+#, php-format
+msgid "Free service by %sNobs • Share Buttons%s"
+msgstr ""
+
+#: ../inc/front/enqueues.php:54
+msgid "Close"
+msgstr ""
+
+#: ../inc/front/enqueues.php:55
+msgid "Sorry. It looks like we've got an error on our side."
+msgstr ""
+
+#: ../inc/register-networks.php:18
+msgid "Diigo"
+msgstr ""
+
+#: ../inc/register-networks.php:22
+msgid "Evernote"
+msgstr ""
+
+#: ../inc/register-networks.php:26
+msgid "Facebook"
+msgstr ""
+
+#: ../inc/register-networks.php:30
+msgid "LinkedIn"
+msgstr ""
+
+#: ../inc/register-networks.php:34
+msgid "Mix"
+msgstr ""
+
+#: ../inc/register-networks.php:38
+msgid "Pinterest"
+msgstr ""
+
+#: ../inc/register-networks.php:42
+msgid "Pocket"
+msgstr ""
+
+#: ../inc/register-networks.php:46
+msgid "Reddit"
+msgstr ""
+
+#: ../inc/register-networks.php:50
+msgid "Twitter"
+msgstr ""
+
+#: ../inc/register-networks.php:54
+msgid "Tumblr"
+msgstr ""
+
+#: ../inc/register-networks.php:58
+msgid "Viadeo"
+msgstr ""
+
+#: ../inc/register-networks.php:62
+msgid "VKontakte"
+msgstr ""
+
+#: ../inc/register-networks.php:66
+msgid "Weibo"
+msgstr ""
+
+#: ../inc/register-networks.php:70
+msgid "WhatsApp"
+msgstr ""
+
+#: ../inc/register-networks.php:76
+msgid "Share…"
+msgstr ""
+
+#: ../inc/register-networks.php:80
+msgid "Email"
+msgstr ""
+
+#: ../inc/register-networks.php:84
+msgid "Bookmark"
+msgstr ""
+
+#: ../inc/register-networks.php:88
+msgid "Print"
+msgstr ""
+
+#: ../inc/register-skins.php:17
+msgid "Juizy Light Tone"
+msgstr "Juizy Light Tone"
+
+#: ../inc/register-skins.php:24
+msgid "Juizy Light Tone Reversed"
+msgstr ""
+
+#: ../inc/register-skins.php:31
+msgid "Blue Metro Style"
+msgstr "Plavi Metro stil"
+
+#: ../inc/register-skins.php:38
+msgid "Gray Metro Style"
+msgstr "Sivi Metro stil"
+
+#: ../inc/register-skins.php:45
+msgid "Modern Style"
+msgstr "Moderno stil"
+
+#: ../inc/register-skins.php:54
+msgid "Black"
+msgstr "Crno"
+
+#: ../inc/register-skins.php:63
+msgid "Brands Colors"
+msgstr ""
+
+#: ../inc/register-skins.php:70
+msgid "Material Brand Colors"
+msgstr ""
+
+#: ../inc/register-skins.php:184
+msgid "Button Skin"
+msgstr ""
+
+#~ msgid "Main settings"
+#~ msgstr "Glavne postavke"
+
+#~ msgid "Write CSS code in HTML head?"
+#~ msgstr "Napisati CSS kod u HTML glavi?"
+
+#~ msgid "good thing for performance on mobile"
+#~ msgstr "dobra stvar za performanse na telefonu"
+
+#~ msgid "Here, you can modify default settings of the SPS plugin"
+#~ msgstr "Ovde možete izmeniti podrazumevane postavke iz SPS plugin"
+
+#~ msgid "Juizy Light Tone Reverse"
+#~ msgstr "Juizy Light Tone obrnuto"
+
+#~ msgid "New social network!"
+#~ msgstr "Noa socijalna mreža!"
+
+#~ msgid "This option will be enabled for a next version"
+#~ msgstr "Ova opcije će biti omogućena u sledećoj verziji"
+
+#~ msgid "Manage Juiz Social Post Sharer"
+#~ msgstr "Upravljajte sa Juiz Social Post Sharer-om"
+
+#~ msgid "Like it? Support this plugin! Thank you."
+#~ msgstr "Dopada vam se? Podržite ovaj plugin! Hvala."
+
+#~ msgid "Donate"
+#~ msgstr "Donirati"
 
 #~ msgid "Share this article on Twitter"
 #~ msgstr "Šerujovaj članak na Twitter"
@@ -464,14 +972,8 @@ msgstr ""
 #~ msgid "Share this article on VKontakte"
 #~ msgstr "Šerujovaj članak na VKontakte"
 
-#~ msgid "Modern Style"
-#~ msgstr "Moderno stil"
-
 #~ msgid "by"
 #~ msgstr "od strane"
-
-#~ msgid "Black"
-#~ msgstr "Crno"
 
 #~ msgid "Visit this link"
 #~ msgstr "Un bon lien à visiter"

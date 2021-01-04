@@ -1,0 +1,16 @@
+{
+    "opts": {
+        "destination"   : "../nobs-share-buttons-doc",
+        "template"      : "documentation/template",
+        "readme"        : "documentation/README.md",
+        "tutorials"     : "documentation/tutorials",
+        "mainpagetitle" : "Nobs • Share Buttons - Documentation",
+        "recurse": true
+    },
+    "source": {
+        "includePattern": ".+\\.(php|inc)?$"
+    },
+    "plugins": [
+        "node_modules/wp-hookdoc/plugin/"
+    ]
+}
