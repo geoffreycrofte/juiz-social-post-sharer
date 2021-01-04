@@ -122,7 +122,7 @@ function jsps_ajax_click_count() {
 				wp_send_json_success( array( 'Count increment successful', $network, $nb, $counters ) );
 
 			} else {
-				wp_send_json_error( array( 5, 'Error trying to update the count number. Sorry for that.' ), $headers ) );
+				wp_send_json_error( array( 5, 'Error trying to update the count number. Sorry for that.', $headers ) );
 			}
 		} else {
 			wp_send_json_error( array( 2, 'Seems like the post ID you tried to share is not good.' ) );
