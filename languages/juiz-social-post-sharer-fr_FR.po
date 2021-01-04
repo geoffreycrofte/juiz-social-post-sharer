@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Juiz Social Post Sharer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-28 20:33+0100\n"
-"PO-Revision-Date: 2020-12-28 20:36+0100\n"
+"POT-Creation-Date: 2021-01-04 22:34+0100\n"
+"PO-Revision-Date: 2021-01-04 22:44+0100\n"
 "Last-Translator: Geoffrey <rikuasakura@hotmail.fr>\n"
 "Language-Team: Creativejuiz <support@creativejuiz.com>\n"
 "Language: fr_FR\n"
@@ -12,73 +12,76 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-KeywordsList: _;gettext;gettext_noop;_e;__;esc_html__;esc_html_e;"
 "_x\n"
-"X-Poedit-Basepath: .\n"
+"X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Generator: Poedit 1.8.6\n"
-"X-Poedit-SearchPath-0: ..\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: assets\n"
+"X-Poedit-SearchPathExcluded-1: documentation\n"
+"X-Poedit-SearchPathExcluded-2: skins\n"
 
-#: ../class/nobs-license-manager-client.php:94
-#: ../class/nobs-license-manager-client.php:149
+#: class/nobs-license-manager-client.php:94
+#: class/nobs-license-manager-client.php:149
 #, php-format
 msgid "%s License"
 msgstr "Licence de %s"
 
-#: ../class/nobs-license-manager-client.php:116
+#: class/nobs-license-manager-client.php:116
 msgid "License"
 msgstr "Licence"
 
-#: ../class/nobs-license-manager-client.php:123
+#: class/nobs-license-manager-client.php:123
 msgid "Email address"
 msgstr "Adresse e-mail"
 
-#: ../class/nobs-license-manager-client.php:131
+#: class/nobs-license-manager-client.php:131
 msgid "License key"
 msgstr "Clé de licence"
 
-#: ../class/nobs-license-manager-client.php:142
+#: class/nobs-license-manager-client.php:142
 msgid "Insert your license information to enable updates."
 msgstr "Insérer vos informations de licence pour activer les mises à jour."
 
-#: ../class/nobs-license-manager-client.php:217
+#: class/nobs-license-manager-client.php:217
 #, php-format
 msgid "Please enter your email and license key to enable updates to %s."
 msgstr ""
 "Précisez votre e-mail et clé de licence pour activer les mises à jour de %s."
 
-#: ../class/nobs-license-manager-client.php:227
+#: class/nobs-license-manager-client.php:227
 msgid "Complete the setup"
 msgstr "Compléter les réglages"
 
-#: ../inc/admin/actions.php:23
+#: inc/admin/actions.php:23
 msgid "New order saved!"
 msgstr "Nouvelle disposition enregistrée&nbsp;!"
 
-#: ../inc/admin/actions.php:27 ../inc/admin/actions.php:34
+#: inc/admin/actions.php:27 inc/admin/actions.php:34
 msgid "Sorry, can’t save the order. Use the Save Changes button."
 msgstr ""
 "Navré, je ne peux pas enregistrer la nouvelle disposition. Utilisez le "
 "bouton “Enregistrer les modifications”."
 
-#: ../inc/admin/actions.php:66
+#: inc/admin/actions.php:66 inc/admin/actions.php:114
 msgid "Notice Removed"
 msgstr "Message d’info retiré"
 
-#: ../inc/admin/actions.php:70
+#: inc/admin/actions.php:70
 msgid "Sorry, can’t save the notice removal. Try again?"
 msgstr ""
 "Navré, je ne peux pas retirer le message d’information. Essayez en "
 "rechargeant la page&nbsp;?"
 
-#: ../inc/admin/actions.php:77 ../inc/admin/actions.php:157
+#: inc/admin/actions.php:77 inc/admin/actions.php:119 inc/admin/actions.php:199
 msgid "Your session has expired. Reload the page and try again please :)"
 msgstr ""
 "Votre session a expiré. Merci de rechargez la page et essayez à nouveau :)"
 
-#: ../inc/admin/actions.php:99 ../inc/admin/actions.php:150
+#: inc/admin/actions.php:141 inc/admin/actions.php:192
 msgid "Success"
 msgstr "Succès"
 
-#: ../inc/admin/actions.php:114
+#: inc/admin/actions.php:156
 msgid ""
 "The call to our last skins failed, sorry for that. It’s temporary, please "
 "come back later."
@@ -86,53 +89,77 @@ msgstr ""
 "L’appel à nos derniers skins a échoué. Désolé pour ça. C’est temporaire, "
 "merci de revenir plus tard."
 
-#: ../inc/admin/actions.php:136
+#: inc/admin/actions.php:178
 msgid "Available Soon"
 msgstr "Disponible bientôt"
 
-#: ../inc/admin/actions.php:143
+#: inc/admin/actions.php:185
 msgid "and way more to come 😜"
 msgstr "et bien davantage à venir 😜"
 
-#: ../inc/admin/metaboxes.php:24 ../inc/admin/metaboxes.php:29
+#: inc/admin/enqueues.php:39
+msgid "Share API - Important Info"
+msgstr "Share API - Info importante"
+
+#: inc/admin/enqueues.php:41
+#, php-format
+msgid ""
+"%1$sNote that in some cases you won’t see this button yourself:%2$s %3$s "
+"%5$sIf your website isn’t in HTTPS %7$sbecause this new piece of technology "
+"needs secure website%8$s%6$s %5$sIf you watch it on a desktop browser "
+"%7$sthis API isn’t supported by most of them yet%8$s%6$s %5$sIf your mobile "
+"device if too old %7$sthis API wouldn’t be supported neither%8$s%6$s %4$s "
+"%1$sBut no worries, your visitors will be able to see it if website is in "
+"HTTPS.%2$s"
+msgstr ""
+"%1$sDans certains cas vous ne pourrez pas voir le bouton sur votre site "
+"web&nbsp;:%2$s %3$s %5$sSi votre site n’est pas en HTTPS %7$scar cette "
+"nouvelle technologie requiert une connexion sécurisée%8$s%6$s %5$sSi vous le "
+"consultez sur un navigateur “bureau” %7$scette API n’est pas encore bien "
+"supportée par ces derniers%8$s%6$s %5$sSi votre terminal mobile est trop "
+"vieux %7$scette API ne serait pas supportée non plus.%8$s%6$s %4$s %1$sMais "
+"pas d’inquiètudes vos visiteurs seront capable de votre ce bouton si votre "
+"site est en HTTPS.%2$s"
+
+#: inc/admin/metaboxes.php:24 inc/admin/metaboxes.php:29
 msgid "Sharing buttons"
 msgstr "Boutons de partage"
 
-#: ../inc/admin/metaboxes.php:40
+#: inc/admin/metaboxes.php:40
 msgid "Hide sharing buttons for this post."
 msgstr "Cacher les boutons de partage pour ce post"
 
-#: ../inc/admin/partials/promo-form.php:24 ../inc/admin/upgrade-notice.php:280
-#: ../inc/admin/welcome.php:279
+#: inc/admin/partials/promo-form.php:24 inc/admin/upgrade-notice.php:280
+#: inc/admin/welcome.php:279
 msgid "New Skin Shop"
 msgstr "Boutique de Skin"
 
-#: ../inc/admin/partials/promo-form.php:27 ../inc/admin/upgrade-notice.php:283
-#: ../inc/admin/welcome.php:282
+#: inc/admin/partials/promo-form.php:27 inc/admin/upgrade-notice.php:283
+#: inc/admin/welcome.php:282
 msgid "Free &amp; Premium Button Skins"
 msgstr "Skins Gratuits &amp; Premium"
 
-#: ../inc/admin/partials/promo-form.php:37 ../inc/admin/upgrade-notice.php:293
-#: ../inc/admin/welcome.php:292
+#: inc/admin/partials/promo-form.php:37 inc/admin/upgrade-notice.php:293
+#: inc/admin/welcome.php:292
 msgid "Soon! Be the first to know"
 msgstr "Bientôt ! Chopez l’info."
 
-#: ../inc/admin/partials/promo-form.php:38 ../inc/admin/upgrade-notice.php:295
-#: ../inc/admin/welcome.php:293
+#: inc/admin/partials/promo-form.php:38 inc/admin/upgrade-notice.php:295
+#: inc/admin/welcome.php:293
 msgid "Email Address"
 msgstr "Adresse e-mail"
 
-#: ../inc/admin/partials/promo-form.php:49 ../inc/admin/upgrade-notice.php:304
-#: ../inc/admin/welcome.php:304
+#: inc/admin/partials/promo-form.php:49 inc/admin/upgrade-notice.php:304
+#: inc/admin/welcome.php:304
 msgid "Subscribe"
 msgstr "Souscrire"
 
-#: ../inc/admin/register-settings.php:110 ../inc/utilities.php:529
+#: inc/admin/register-settings.php:110 inc/utilities.php:529
 #, php-format
 msgid "Visit this link find on %%siteurl%%"
 msgstr "Un bon lien à visiter sur %%siteurl%%"
 
-#: ../inc/admin/register-settings.php:111 ../inc/utilities.php:530
+#: inc/admin/register-settings.php:111 inc/utilities.php:530
 #, php-format
 msgid ""
 "Hi, I found this information for you : \"%%title%%\"! This is the direct "
@@ -141,57 +168,57 @@ msgstr ""
 "Salut ! J'ai trouvé cette information pour toi&nbsp;: \"%%title%%\"&nbsp;! "
 "Voici le lien direct&nbsp;: %%permalink%%  Bonne journée :)"
 
-#: ../inc/admin/settings.php:17 ../inc/admin/welcome.php:396
+#: inc/admin/settings.php:17 inc/admin/welcome.php:396
 msgid "Settings"
 msgstr "Réglages"
 
-#: ../inc/admin/settings.php:18
+#: inc/admin/settings.php:18
 msgid "Welcome"
 msgstr "Bienvenue"
 
-#: ../inc/admin/settings.php:35 ../inc/admin/settings.php:36
+#: inc/admin/settings.php:35 inc/admin/settings.php:36
 msgid "Nobs Share Buttons"
 msgstr "Nobs Share Buttons"
 
-#: ../inc/admin/settings.php:55
+#: inc/admin/settings.php:55
 msgid "Themes &amp; Networks"
 msgstr "Thèmes &amp; Réseaux"
 
-#: ../inc/admin/settings.php:56
+#: inc/admin/settings.php:56
 msgid "Choose a style to display"
 msgstr "Choisissez votre style"
 
-#: ../inc/admin/settings.php:57 ../inc/admin/settings.php:60
-#: ../inc/admin/settings.php:70 ../inc/admin/settings.php:80
-#: ../inc/admin/settings.php:88
+#: inc/admin/settings.php:57 inc/admin/settings.php:60
+#: inc/admin/settings.php:70 inc/admin/settings.php:81
+#: inc/admin/settings.php:89
 msgid "Save Changes"
 msgstr "Enregistrer les modifications"
 
-#: ../inc/admin/settings.php:58
+#: inc/admin/settings.php:58
 msgid "Display those following social networks:"
 msgstr "Afficher les réseaux sociaux suivants :"
 
-#: ../inc/admin/settings.php:59
+#: inc/admin/settings.php:59
 msgid "What is your Twitter user name to be mentioned?"
 msgstr "Quel est le pseudo Twitter à mentionner lors du partage&nbsp;?"
 
-#: ../inc/admin/settings.php:65
+#: inc/admin/settings.php:65
 msgid "Display settings"
 msgstr "Réglages d'affichage"
 
-#: ../inc/admin/settings.php:66
+#: inc/admin/settings.php:66
 msgid "What type of content must have buttons?"
 msgstr "Quel type de contenu doit proposer des boutons&nbsp;?"
 
-#: ../inc/admin/settings.php:67
+#: inc/admin/settings.php:67
 msgid "Where do you want to display buttons?"
 msgstr "Où souhaitez-vous placer les boutons&nbsp;?"
 
-#: ../inc/admin/settings.php:68
+#: inc/admin/settings.php:68
 msgid "Prefer Compact Display"
 msgstr "Préférer l’affichage compact"
 
-#: ../inc/admin/settings.php:68
+#: inc/admin/settings.php:68
 msgid ""
 "Some skins can propose a more compact display, it will remove space around "
 "buttons and make them tinier depending on how the skin handles this option."
@@ -200,86 +227,99 @@ msgstr ""
 "l’espace autour des boutons et les rend plus petit, suivant comment le skin "
 "gère cette option."
 
-#: ../inc/admin/settings.php:69
+#: inc/admin/settings.php:69
 msgid "Show only social icon?"
 msgstr "Afficher uniquement les icônes&nbsp;?"
 
-#: ../inc/admin/settings.php:69
+#: inc/admin/settings.php:69
 msgid "hide text, show it on mouse over or focus"
 msgstr "cache le texte et l'affiche uniquement au survol ou focus"
 
-#: ../inc/admin/settings.php:75
+#: inc/admin/settings.php:75
 msgid "Advanced settings"
 msgstr "Réglages avancés"
 
-#: ../inc/admin/settings.php:76
+#: inc/admin/settings.php:76
 msgid "Open links in a new window?"
 msgstr "Ouvrir les liens dans une nouvelle fenêtre&nbsp;?"
 
-#: ../inc/admin/settings.php:76
+#: inc/admin/settings.php:76
 #, php-format
 msgid "adds a %s attribute"
 msgstr "ajoute l'attribut %s"
 
-#: ../inc/admin/settings.php:77
+#: inc/admin/settings.php:77
 msgid "Force Pinterest button sniffing all images of the page?"
 msgstr ""
 "Forcer le bouton Pinterest à scanner toutes les images de la page&nbsp;?"
 
-#: ../inc/admin/settings.php:77 ../inc/admin/settings.php:78
+#: inc/admin/settings.php:77 inc/admin/settings.php:78
 msgid "need JavaScript"
 msgstr "nécessite JavaScript"
 
-#: ../inc/admin/settings.php:78
+#: inc/admin/settings.php:78
 msgid "Display counter of sharing?"
 msgstr "Afficher un compteur de partage&nbsp;?"
 
-#: ../inc/admin/settings.php:79
+#: inc/admin/settings.php:79
 msgid "For this counter, you want to display:"
 msgstr "Pour ce compteur, vous souhaitez afficher&nbsp;:"
 
-#: ../inc/admin/settings.php:85
+#: inc/admin/settings.php:80
+msgid "Use your own CSS file(s)?"
+msgstr "Utiliser vos propres fichiers CSS&nbsp;?"
+
+#: inc/admin/settings.php:80
+msgid ""
+"This option will make the plugin not loading the modal, or skin CSS file "
+"anymore. Good if you have a piece of CSS in your style.css Theme file."
+msgstr ""
+"Cette option fera ne plus se charger les fichiers de modale, ou skin des "
+"boutons. Bonne idée si vous avez votre propre CSS dans le fichier style.css "
+"de votre Thème."
+
+#: inc/admin/settings.php:86
 msgid "Customize mail texts"
 msgstr "Personnaliser les textes du mail"
 
-#: ../inc/admin/settings.php:86
+#: inc/admin/settings.php:87
 msgid "Mail subject:"
 msgstr "Sujet du mail&nbsp;:"
 
-#: ../inc/admin/settings.php:87
+#: inc/admin/settings.php:88
 msgid "Mail body:"
 msgstr "Corps du mail&nbsp;:"
 
-#: ../inc/admin/settings.php:93
+#: inc/admin/settings.php:94
 msgid "What’s new"
 msgstr "Quoi de neuf ?"
 
-#: ../inc/admin/settings.php:94 ../inc/admin/settings.php:658
+#: inc/admin/settings.php:95 inc/admin/settings.php:697
 msgid "Changelog"
 msgstr "Changelog"
 
-#: ../inc/admin/settings.php:99 ../inc/admin/settings.php:100
+#: inc/admin/settings.php:100 inc/admin/settings.php:101
 msgid "Skin Shop"
 msgstr "Boutique de Skins"
 
-#: ../inc/admin/settings.php:169
+#: inc/admin/settings.php:172
 msgid "Edit the style of your buttons and the networks you want to activate."
 msgstr "Éditez le style des boutons et les réseaux que vous souhaitez activer."
 
-#: ../inc/admin/settings.php:209
+#: inc/admin/settings.php:212
 msgid "This skin doesn't have a name"
 msgstr "Ce skin n’a pas de nom."
 
-#: ../inc/admin/settings.php:210
+#: inc/admin/settings.php:213
 #, php-format
 msgid "%1$s by %2$s"
 msgstr "%1$s par %2$s"
 
-#: ../inc/admin/settings.php:264
+#: inc/admin/settings.php:267
 msgid "uses JavaScript to work"
 msgstr "utilise JavaScript pour fonctionner"
 
-#: ../inc/admin/settings.php:287
+#: inc/admin/settings.php:290
 #, php-format
 msgid ""
 "%sYou don’t see your favorite network here?%s I might be already working on "
@@ -292,27 +332,27 @@ msgstr ""
 "suggérer de nouveaux. Si vous êtes un·e développeur·se vous pouvez aussi en "
 "créer. Vous pouvez aussi consulter %sla feuille de route%s."
 
-#: ../inc/admin/settings.php:295
+#: inc/admin/settings.php:298
 msgid "See what’s coming"
 msgstr "Voir ce qui arrive"
 
-#: ../inc/admin/settings.php:298
+#: inc/admin/settings.php:301
 msgid "Suggest new one"
 msgstr "En suggérer un"
 
-#: ../inc/admin/settings.php:301
+#: inc/admin/settings.php:304
 msgid "Create your own"
 msgstr "Créer le vôtre"
 
-#: ../inc/admin/settings.php:319
+#: inc/admin/settings.php:322
 msgid "Open corresponding issue"
 msgstr "Ouvrir la demande correspondante"
 
-#: ../inc/admin/settings.php:341
+#: inc/admin/settings.php:344
 msgid "Username without \"@\""
 msgstr "Pseudo sans \"@\""
 
-#: ../inc/admin/settings.php:351
+#: inc/admin/settings.php:354
 msgid ""
 "You can choose precisely the types of content that will benefit from the "
 "sharing buttons."
@@ -320,29 +360,29 @@ msgstr ""
 "Vous pouvez choisir précisément les types de contenu qui bénéficieront des "
 "boutons de partage."
 
-#: ../inc/admin/settings.php:411
+#: inc/admin/settings.php:414
 #, php-format
 msgid "Lists of articles %s(blog, archives, search results, etc.)%s"
 msgstr ""
 "Les listes d'articles %s(blog, archives, résultats de recherche, etc.)%s"
 
-#: ../inc/admin/settings.php:428
+#: inc/admin/settings.php:431
 msgid "Content bottom"
 msgstr "Après le contenu"
 
-#: ../inc/admin/settings.php:432
+#: inc/admin/settings.php:435
 msgid "Content top"
 msgstr "Avant le contenu"
 
-#: ../inc/admin/settings.php:436
+#: inc/admin/settings.php:439
 msgid "Both"
 msgstr "Les deux"
 
-#: ../inc/admin/settings.php:440
+#: inc/admin/settings.php:443
 msgid "I'm a ninja, I want to use the shortcode only!"
 msgstr "Je suis un ninja, je veux utiliser seulement le shortcode&nbsp;!"
 
-#: ../inc/admin/settings.php:450
+#: inc/admin/settings.php:453
 msgid ""
 "Modify advanced settings of the plugin. Some of them needs JavaScript (only "
 "one file loaded)"
@@ -350,55 +390,81 @@ msgstr ""
 "Modifiez les réglages avancés du plugin. Certains d'entre eux nécessite "
 "JavaScript (un seul fichier chargé)"
 
-#: ../inc/admin/settings.php:472
+#: inc/admin/settings.php:475
 msgid "This buttons skin tells there is no support for hidden name."
 msgstr "Ce skin prévient qu’il n’y a pas de support du nom caché."
 
-#: ../inc/admin/settings.php:477
+#: inc/admin/settings.php:480
 msgid "This buttons skin tells there is a support of hidden name."
 msgstr "Ce skin prévient qu’il y a bien un support pour cette option."
 
-#: ../inc/admin/settings.php:482
+#: inc/admin/settings.php:485
 msgid "We can't tell if the button skin supports the hidden name option."
 msgstr "Impossible de dire si ce skin supporte l’option du nom caché."
 
-#: ../inc/admin/settings.php:487 ../inc/admin/settings.php:526
-#: ../inc/admin/settings.php:543 ../inc/admin/settings.php:560
-#: ../inc/admin/settings.php:578
+#: inc/admin/settings.php:490 inc/admin/settings.php:529
+#: inc/admin/settings.php:546 inc/admin/settings.php:563
+#: inc/admin/settings.php:586
 msgid "Yes"
 msgstr "Oui"
 
-#: ../inc/admin/settings.php:490 ../inc/admin/settings.php:529
-#: ../inc/admin/settings.php:546 ../inc/admin/settings.php:563
-#: ../inc/admin/settings.php:581
+#: inc/admin/settings.php:493 inc/admin/settings.php:532
+#: inc/admin/settings.php:549 inc/admin/settings.php:566
+#: inc/admin/settings.php:589
 msgid "No"
 msgstr "Non"
 
-#: ../inc/admin/settings.php:509
+#: inc/admin/settings.php:512
 msgid "This buttons skin tells there is no support for compact display."
 msgstr "Ce skin prévient qu’il n’y a pas de support pour l’affichage compact."
 
-#: ../inc/admin/settings.php:514
+#: inc/admin/settings.php:517
 msgid "This buttons skin tells there is a support of compact display."
 msgstr "Ce skin prévient qu’il y a bien un support pour cette option."
 
-#: ../inc/admin/settings.php:519
+#: inc/admin/settings.php:522
 msgid "We can't tell if the button skin supports the compact display."
 msgstr "Impossible de dire si ce skin supporte l’option d’affichage compact."
 
-#: ../inc/admin/settings.php:601
+#: inc/admin/settings.php:581
+#, php-format
+msgid ""
+"Counters are internal tool for your website. Most social networks don’t "
+"allow developers to count real URL sharing nowadays. %sMore info%s"
+msgstr ""
+"Les compteurs sont un outil interne à votre site web. La plupart des réseaux "
+"sociaux aujourd’hui n’autorise plus les développeurs à compter le partage "
+"d’URL. %sPlus d’info%s"
+
+#: inc/admin/settings.php:610
 msgid "Total &amp; Sub-totals"
 msgstr "Total &amp; Sous-totaux"
 
-#: ../inc/admin/settings.php:604
+#: inc/admin/settings.php:613
 msgid "Only Total"
 msgstr "Seulement le Total"
 
-#: ../inc/admin/settings.php:607
+#: inc/admin/settings.php:616
 msgid "Only Sub-totals"
 msgstr "Seulement les Sous-totaux"
 
-#: ../inc/admin/settings.php:614
+#: inc/admin/settings.php:637
+msgid "Nope, load the plugin’s"
+msgstr "Naah, charger ceux de l’extension"
+
+#: inc/admin/settings.php:640
+msgid "for the modal"
+msgstr "pour la modale"
+
+#: inc/admin/settings.php:643
+msgid "for the buttons"
+msgstr "pour les boutons"
+
+#: inc/admin/settings.php:646
+msgid "for both (Ninja!)"
+msgstr "pour les deux (Ninja &nbsp;!)"
+
+#: inc/admin/settings.php:653
 msgid ""
 "You can customize texts to display when visitors share your content by mail "
 "button"
@@ -406,7 +472,7 @@ msgstr ""
 "Vous pouvez personnaliser les textes à afficher lorsque les visiteurs "
 "partagent votre contenu grâce au bouton mail."
 
-#: ../inc/admin/settings.php:614
+#: inc/admin/settings.php:653
 #, php-format
 msgid ""
 "To perform customization, you can use %s%%%%title%%%%%s, %s%%%%siteurl%%%%%s "
@@ -415,7 +481,7 @@ msgstr ""
 "Pour mettre en place la personnalisation, vous pouvez utiliser les variables "
 "%s%%%%title%%%%%s, %s%%%%siteurl%%%%%s et %s%%%%permalink%%%%%s"
 
-#: ../inc/admin/settings.php:638
+#: inc/admin/settings.php:677
 msgid ""
 "Discover what is fresh in your favorite Social Sharing plugin to keep track "
 "of updates."
@@ -423,7 +489,7 @@ msgstr ""
 "Découvrez ce qu’il y a de nouveau dans votre plugin de partage favoris pour "
 "garder le fil des changements."
 
-#: ../inc/admin/settings.php:638
+#: inc/admin/settings.php:677
 #, php-format
 msgid ""
 "You can also display the %sWelcome Page%s to get a quick tour of the "
@@ -432,7 +498,7 @@ msgstr ""
 "Vous pouvez aussi afficher la %spage de bienvenue%s pour avoir un rapide "
 "tour d’horizon des fonctionnalités."
 
-#: ../inc/admin/settings.php:729
+#: inc/admin/settings.php:768
 msgid ""
 "I’m working on a Skin Shop to give you the most premium skin ever made with "
 "tone of choice: free skins, paid skins, new skins, colorful skins or more "
@@ -443,32 +509,32 @@ msgstr ""
 "payants, des nouveaux, des colorés, des plus neutres, animés ou pas… pour "
 "tous les goûts."
 
-#: ../inc/admin/settings.php:740
+#: inc/admin/settings.php:779
 msgid "Skin available soon"
 msgstr "Skin dispo bientôt"
 
-#: ../inc/admin/settings.php:741
+#: inc/admin/settings.php:780
 msgid "The last finest skins directly in your WordPress Admin!"
 msgstr "Les plus fins designs directement dans votre admin WordPress."
 
-#: ../inc/admin/settings.php:744
+#: inc/admin/settings.php:783
 msgid "Sorry, for performance issue, this listing needs JavaScript activated."
 msgstr ""
 "Navré, pour des raisons de performance, cette liste à besoin de l’activation "
 "de JavaScript."
 
-#: ../inc/admin/settings.php:745
+#: inc/admin/settings.php:784
 #, php-format
 msgid "You can still visit the %sofficial website%s for further information."
 msgstr ""
 "Vous pouvez cependant visiter le %ssite officiel%s pour plus d’informations."
 
-#: ../inc/admin/settings.php:773
+#: inc/admin/settings.php:812
 #, php-format
 msgid "You must chose at least one %stype of content%s."
 msgstr "Vous devez choisir au moins un %stype de contenu%s."
 
-#: ../inc/admin/settings.php:774
+#: inc/admin/settings.php:813
 msgid ""
 "Is you don't want to use this plugin more longer, go to Plugins section and "
 "deactivate it."
@@ -476,7 +542,7 @@ msgstr ""
 "Si vous ne souhaitez plus utiliser ce plugin, rendez-vous dans la section "
 "\"Extensions\" et désactivez-le."
 
-#: ../inc/admin/settings.php:791
+#: inc/admin/settings.php:830
 #, php-format
 msgid ""
 "You can use %s[juiz_sps]%s or %s[juiz_social]%s shortcode with an optional "
@@ -486,60 +552,64 @@ msgstr ""
 "un paramètre optionnel \"buttons\" listant les réseaux sociaux que vous "
 "souhaitez."
 
-#: ../inc/admin/settings.php:793
+#: inc/admin/settings.php:832
 msgid "Example with all the networks available:"
 msgstr "Exemple avec tous les réseaux disponibles&nbsp;:"
 
-#: ../inc/admin/settings.php:811
+#: inc/admin/settings.php:850
 msgid "Thanks!"
 msgstr "Merci&nbsp;!"
 
-#: ../inc/admin/settings.php:814
+#: inc/admin/settings.php:853
 msgid "Like it? Support this plugin! Thank you 😊"
 msgstr ""
 "Vous l’aimez&nbsp;? Aidez le développement du plugin&nbsp;! Un grand merci 😊"
 
-#: ../inc/admin/settings.php:818 ../inc/admin/settings.php:822
-#: ../inc/admin/settings.php:826 ../inc/admin/welcome.php:328
-#: ../inc/admin/welcome.php:332 ../inc/admin/welcome.php:336
+#: inc/admin/settings.php:857 inc/admin/settings.php:861
+#: inc/admin/settings.php:865 inc/admin/welcome.php:328
+#: inc/admin/welcome.php:332 inc/admin/welcome.php:336
 #, php-format
 msgid "Donate with %s"
 msgstr "Donner avec %s"
 
-#: ../inc/admin/settings.php:819 ../inc/admin/welcome.php:329
+#: inc/admin/settings.php:858 inc/admin/welcome.php:329
 msgid "Paypal"
 msgstr "Paypal"
 
-#: ../inc/admin/settings.php:823 ../inc/admin/welcome.php:333
+#: inc/admin/settings.php:862 inc/admin/welcome.php:333
 msgid "Flattr"
 msgstr "Flattr"
 
-#: ../inc/admin/settings.php:828 ../inc/admin/welcome.php:338
+#: inc/admin/settings.php:867 inc/admin/welcome.php:338
 msgid "Buy me a Coffee"
 msgstr "Buy me a Coffee"
 
-#: ../inc/admin/settings.php:831 ../inc/admin/welcome.php:378
+#: inc/admin/settings.php:870 inc/admin/welcome.php:378
 msgid "Tweet it"
 msgstr "Tweetez"
 
-#: ../inc/admin/settings.php:833 ../inc/admin/welcome.php:380
+#: inc/admin/settings.php:872 inc/admin/welcome.php:380
 msgid "Rate it"
 msgstr "Notez-le"
 
-#: ../inc/admin/settings.php:835 ../inc/admin/welcome.php:382
+#: inc/admin/settings.php:874 inc/admin/welcome.php:382
 msgid "Translate it"
 msgstr "Le traduire"
 
-#: ../inc/admin/settings.php:839
+#: inc/admin/settings.php:878
 msgid "Want to customize everything? Look at the documentation."
 msgstr ""
 "Vous souhaitez personnaliser des choses&nbsp;? Regardez du côté de la doc."
 
-#: ../inc/admin/settings.php:841 ../inc/admin/upgrade-notice.php:169
+#: inc/admin/settings.php:880 inc/admin/upgrade-notice.php:169
 msgid "Documentation"
 msgstr "Documentation"
 
-#: ../inc/admin/upgrade-notice.php:12
+#: inc/admin/settings.php:891 inc/front/enqueues.php:56
+msgid "Close"
+msgstr "Fermer"
+
+#: inc/admin/upgrade-notice.php:12
 #, php-format
 msgid ""
 "Includes a lot of improvements. It has been tested on our side and should be "
@@ -555,59 +625,59 @@ msgstr ""
 "être sûr que tout est ok. N’oubliez pas de faire %sdes backups%s de votre "
 "site."
 
-#: ../inc/admin/upgrade-notice.php:120
+#: inc/admin/upgrade-notice.php:120
 msgid "Congratulations! Your sharing buttons are now in version 2.0"
 msgstr "Félicitations ! Vos boutons de partage sont maintenant en version 2.0"
 
-#: ../inc/admin/upgrade-notice.php:146
+#: inc/admin/upgrade-notice.php:146
 msgid "New Settings"
 msgstr "Nouveaux réglages"
 
-#: ../inc/admin/upgrade-notice.php:150
+#: inc/admin/upgrade-notice.php:150
 msgid "You can now re-order your buttons and enjoy the new admin interface."
 msgstr ""
 "Vous pouvez ré-ordonner les boutons et profiter d’une nouvelle interface "
 "d’admin."
 
-#: ../inc/admin/upgrade-notice.php:154
+#: inc/admin/upgrade-notice.php:154
 msgid "See Settings Page"
 msgstr "Voir les réglages"
 
-#: ../inc/admin/upgrade-notice.php:175
+#: inc/admin/upgrade-notice.php:175
 #, php-format
 msgid "You are a developer or you have questions, visit the %sFAQ%s or doc. "
 msgstr ""
 "Vous êtes un développeur·euse et avez des questions&nbsp;? Visitez la %sFAQ"
 "%s ou doc."
 
-#: ../inc/admin/upgrade-notice.php:190
+#: inc/admin/upgrade-notice.php:190
 msgid "See the doc."
 msgstr "Voir la doc."
 
-#: ../inc/admin/upgrade-notice.php:251
+#: inc/admin/upgrade-notice.php:251
 msgid "What’s New?"
 msgstr "Quoi de neuf&nbsp;?"
 
-#: ../inc/admin/upgrade-notice.php:254
+#: inc/admin/upgrade-notice.php:254
 msgid "I gathered some information in the welcome page, stay tuned of news!"
 msgstr ""
 "J’ai réuni quelques informations dans la page de bienvenue, restez "
 "informé·e·s&nbsp;!"
 
-#: ../inc/admin/upgrade-notice.php:257
+#: inc/admin/upgrade-notice.php:257
 msgid "Visit Welcome Page"
 msgstr "Visiter la page de bienvenue"
 
-#: ../inc/admin/welcome.php:16 ../inc/admin/welcome.php:17
+#: inc/admin/welcome.php:16 inc/admin/welcome.php:17
 msgid "Social Post Sharer"
 msgstr "Social Post Sharer"
 
-#: ../inc/admin/welcome.php:43
+#: inc/admin/welcome.php:43
 #, php-format
 msgid "Welcome in version %s"
 msgstr "Bienvenue en version %s"
 
-#: ../inc/admin/welcome.php:47
+#: inc/admin/welcome.php:47
 #, php-format
 msgid ""
 "The good way to make people share your content %swithout sacrificing%s your "
@@ -616,11 +686,11 @@ msgstr ""
 "La meilleure manière d’inviter les gens à partager votre contenu %ssans "
 "sacrifier%s la performance de votre site web&nbsp;!"
 
-#: ../inc/admin/welcome.php:97
+#: inc/admin/welcome.php:97
 msgid "Responsive Skins"
 msgstr "Skins Réactifs"
 
-#: ../inc/admin/welcome.php:100
+#: inc/admin/welcome.php:100
 #, php-format
 msgid ""
 "The list of default skins proposed is growing up and the existing ones have "
@@ -629,11 +699,11 @@ msgstr ""
 "La liste des skins proposés grandit et les existants ont été reconstruits "
 "avec les %snouvelles couleurs des marques%s."
 
-#: ../inc/admin/welcome.php:124
+#: inc/admin/welcome.php:124
 msgid "Drag &amp; Drop Buttons"
 msgstr "Boutons en Drag &amp; Drop"
 
-#: ../inc/admin/welcome.php:127
+#: inc/admin/welcome.php:127
 #, php-format
 msgid ""
 "You can now re-order your buttons by simply drag and drop those in the "
@@ -642,11 +712,11 @@ msgstr ""
 "Vous pouvez maintenant ré-ordonner les boutons par simple glisser-déposer "
 "dans %sles réglages%s.%sCliquez pour activer, glisser pour ordonner%s&nbsp;!"
 
-#: ../inc/admin/welcome.php:146
+#: inc/admin/welcome.php:146
 msgid "Performant"
 msgstr "Performant"
 
-#: ../inc/admin/welcome.php:149
+#: inc/admin/welcome.php:149
 #, php-format
 msgid ""
 "%sNobs%s get rid of all those JavaScript loading and making your page slow. "
@@ -655,11 +725,11 @@ msgstr ""
 "%sNobs%s se débarrasse de tous ces JavaScript au chargement qui rendent vos "
 "pages lentes. Ça %saméliore l’accessibilité et le SEO%s."
 
-#: ../inc/admin/welcome.php:165
+#: inc/admin/welcome.php:165
 msgid "New Contact Modal"
 msgstr "Nouvelle modale"
 
-#: ../inc/admin/welcome.php:168
+#: inc/admin/welcome.php:168
 #, php-format
 msgid ""
 "When users want to share the blog post via email, they get a new pop-in that "
@@ -669,11 +739,11 @@ msgstr ""
 "de le faire via une modale qui offre la possibilité %sde partager à "
 "plusieurs destinataires%s."
 
-#: ../inc/admin/welcome.php:228
+#: inc/admin/welcome.php:228
 msgid "Rebuilt Documentation"
 msgstr "Nouvelle Documentation"
 
-#: ../inc/admin/welcome.php:231
+#: inc/admin/welcome.php:231
 #, php-format
 msgid ""
 "The whole %sdocumentation%s has been rebuilt to better meet the developers "
@@ -682,11 +752,11 @@ msgstr ""
 "Toute la %sdocumentation%s a été refaite pour mieux correspondra aux "
 "attentes des développeur·euse·s. %sDe nouveaux auto sont là pour aider%s."
 
-#: ../inc/admin/welcome.php:253
+#: inc/admin/welcome.php:253
 msgid "Roadmap &amp; Contribution"
 msgstr "Roadmap &amp; Contribution"
 
-#: ../inc/admin/welcome.php:256
+#: inc/admin/welcome.php:256
 #, php-format
 msgid ""
 "This plugin is open-source, %sthe roadmap%s is public and available on "
@@ -695,14 +765,14 @@ msgstr ""
 "Ce plugin est open-source, %sla feuille de route%s est publique et dispo sur "
 "Github.com. Il en est que plus fort et plus sécurisé&nbsp;!"
 
-#: ../inc/admin/welcome.php:321
+#: inc/admin/welcome.php:321
 #, php-format
 msgid "Plugin made for free %s by humans"
 msgstr ""
 "Plugin fait gratuitement %s\n"
 "par des humains"
 
-#: ../inc/admin/welcome.php:324
+#: inc/admin/welcome.php:324
 #, php-format
 msgid ""
 "This plugin is totally free since 2012 and will stay %sfree forever%s. But "
@@ -712,19 +782,19 @@ msgstr ""
 "%s. Mais vous pouvez soutenir les personnes qui le construisent avec une "
 "donation."
 
-#: ../inc/admin/welcome.php:343
+#: inc/admin/welcome.php:343
 #, php-format
 msgid "Big thanks to %sall the contributors%s."
 msgstr "Un grand merci %saux contributeurs%s."
 
-#: ../inc/admin/welcome.php:371
+#: inc/admin/welcome.php:371
 #, php-format
 msgid "You can also help %s by sharing"
 msgstr ""
 "Vous pouvez aussi aider %s\n"
 "en partageant"
 
-#: ../inc/admin/welcome.php:374
+#: inc/admin/welcome.php:374
 #, php-format
 msgid ""
 "Not everybody can help with money. You can give a good rating, a tweet or a "
@@ -734,11 +804,11 @@ msgstr ""
 "note, un tweet ou un peu de votre temps pour aider %sà améliorer ce plugin "
 "&amp; partager le mot.%s"
 
-#: ../inc/admin/welcome.php:384
+#: inc/admin/welcome.php:384
 msgid "Contribute"
 msgstr "Contribuer"
 
-#: ../inc/admin/welcome.php:399
+#: inc/admin/welcome.php:399
 msgid ""
 "Read the news about your plugin or go back to the settings page to discover "
 "the new interface."
@@ -746,242 +816,242 @@ msgstr ""
 "Lisez les nouvelles sur ce plugin et retournez dans la page de réglages pour "
 "découvrir la nouvelle interface."
 
-#: ../inc/admin/welcome.php:404
+#: inc/admin/welcome.php:404
 msgid "Settings Page"
 msgstr "Réglages"
 
-#: ../inc/admin/welcome.php:408
+#: inc/admin/welcome.php:408
 msgid "Public Website"
 msgstr "Site public"
 
-#: ../inc/front/actions.php:24
+#: inc/front/actions.php:24
 msgid "Your email address is invalid."
 msgstr "Votre adresse e-mail est invalide."
 
-#: ../inc/front/actions.php:28
+#: inc/front/actions.php:28
 msgid "No recipient email address."
 msgstr "Pas de destinataire…"
 
-#: ../inc/front/actions.php:45
+#: inc/front/actions.php:45
 msgid "The recipient email address is invalid."
 msgstr "L’adresse du destinataire semble invalide."
 
-#: ../inc/front/actions.php:71
+#: inc/front/actions.php:71
 msgid "Post successfully sent!"
 msgstr "Post envoyé avec succès&nbsp;!"
 
-#: ../inc/front/actions.php:74
+#: inc/front/actions.php:74
 msgid "Error trying to send your message. Sorry for that."
 msgstr "Erreur en essayant d’envoyer votre message. Désolé pour ça."
 
-#: ../inc/front/actions.php:77
+#: inc/front/actions.php:77 inc/front/actions.php:162
 msgid "Seems like the post ID you tried to share is not good."
 msgstr "On dirait que l’identifiant du post partagé n’est pas bon…"
 
-#: ../inc/front/actions.php:80
-msgid "Your session is finished. Sorry. Retry after reloading the page."
-msgstr "Votre session est expirée. Navré, ré-essayez en rechargeant la page."
+#: inc/front/actions.php:80 inc/front/actions.php:165
+msgid "Your session is expired. Sorry. Retry after reloading the page."
+msgstr "Votre session a expiré. Navré pour cela, veuillez recharger la page."
 
-#: ../inc/front/buttons.php:87
+#: inc/front/buttons.php:87
 msgid "Total: "
 msgstr "Total&nbsp;: "
 
-#: ../inc/front/buttons.php:109
+#: inc/front/buttons.php:109
 msgid "Share the post"
 msgstr "Partager la publication"
 
-#: ../inc/front/buttons.php:348
+#: inc/front/buttons.php:349
 #, php-format
 msgid "Share this article on %s"
 msgstr "Partager cet article sur %s"
 
-#: ../inc/front/buttons.php:394
+#: inc/front/buttons.php:395
 msgid "Share an image of this article on Pinterest"
 msgstr "Partager une image de cette publication sur Pinterest"
 
-#: ../inc/front/buttons.php:451
+#: inc/front/buttons.php:452
 msgid "Share this article with a friend (email)"
 msgstr "Partager cette publication avec un ami (e-mail)"
 
-#: ../inc/front/buttons.php:456
+#: inc/front/buttons.php:456
 msgid "Bookmark this article (on your browser)"
 msgstr "Marquer cette page (dans votre navigateur)"
 
-#: ../inc/front/buttons.php:457
+#: inc/front/buttons.php:457
 #, php-format
 msgid "Press %s to bookmark this page."
 msgstr "Pressez %s pour marquer cette page."
 
-#: ../inc/front/buttons.php:462
+#: inc/front/buttons.php:462
 msgid "Print this page"
 msgstr "Imprimer cette page"
 
-#: ../inc/front/buttons.php:468
+#: inc/front/buttons.php:467
 msgid "Share on your favorite apps"
 msgstr "Partager sur votre appli. favoris."
 
-#: ../inc/front/enqueues.php:31
+#: inc/front/enqueues.php:31
 msgid "Share by email"
 msgstr "Partager par e-mail"
 
-#: ../inc/front/enqueues.php:32
+#: inc/front/enqueues.php:32
 msgid "Promise, emails are not stored!"
 msgstr "Promis, les e-mails ne sont pas stockés&nbsp;!"
 
-#: ../inc/front/enqueues.php:35
+#: inc/front/enqueues.php:37
 msgid "Your name"
 msgstr "Votre nom"
 
-#: ../inc/front/enqueues.php:36
+#: inc/front/enqueues.php:38
 msgid "Your email"
 msgstr "Votre e-mail"
 
-#: ../inc/front/enqueues.php:37
+#: inc/front/enqueues.php:39
 msgid "Recipient's email"
 msgstr "E-mail de destinataire(s)"
 
-#: ../inc/front/enqueues.php:38
+#: inc/front/enqueues.php:40
 msgid "Personal message"
 msgstr "Message personnel"
 
-#: ../inc/front/enqueues.php:39
+#: inc/front/enqueues.php:41
 msgid "optional"
 msgstr "optionnel"
 
-#: ../inc/front/enqueues.php:40
+#: inc/front/enqueues.php:42
 msgid "A link to the article is automatically added in your message."
 msgstr "Un lien vers l’article est ajouté automatiquement au message."
 
-#: ../inc/front/enqueues.php:41
+#: inc/front/enqueues.php:43
 msgid "Send this article"
 msgstr "Envoyer ce post"
 
-#: ../inc/front/enqueues.php:41
+#: inc/front/enqueues.php:43
 msgid "1 recipient"
 msgstr "1 destinataire"
 
-#: ../inc/front/enqueues.php:42
+#: inc/front/enqueues.php:44
 #, php-format
 msgid "%s recipients"
 msgstr "%s destinataires"
 
-#: ../inc/front/enqueues.php:53
+#: inc/front/enqueues.php:55
 #, php-format
 msgid "Free service by %sNobs • Share Buttons%s"
 msgstr "Service gratuit par %sNobs • Share Plugin%s"
 
-#: ../inc/front/enqueues.php:54
-msgid "Close"
-msgstr "Fermer"
-
-#: ../inc/front/enqueues.php:55
+#: inc/front/enqueues.php:57
 msgid "Sorry. It looks like we've got an error on our side."
 msgstr "Désolé on dirait que nous avons une erreur de notre côté…"
 
-#: ../inc/register-networks.php:18
+#: inc/register-networks.php:18
 msgid "Diigo"
 msgstr "Diigo"
 
-#: ../inc/register-networks.php:22
+#: inc/register-networks.php:22
 msgid "Evernote"
 msgstr "Evernote"
 
-#: ../inc/register-networks.php:26
+#: inc/register-networks.php:26
 msgid "Facebook"
 msgstr "Facebook"
 
-#: ../inc/register-networks.php:30
+#: inc/register-networks.php:30
 msgid "LinkedIn"
 msgstr "LinkedIn"
 
-#: ../inc/register-networks.php:34
+#: inc/register-networks.php:34
 msgid "Mix"
 msgstr "Mix"
 
-#: ../inc/register-networks.php:38
+#: inc/register-networks.php:38
 msgid "Pinterest"
 msgstr "Pinterest"
 
-#: ../inc/register-networks.php:42
+#: inc/register-networks.php:42
 msgid "Pocket"
 msgstr "Pocket"
 
-#: ../inc/register-networks.php:46
+#: inc/register-networks.php:46
 msgid "Reddit"
 msgstr "Reddit"
 
-#: ../inc/register-networks.php:50
+#: inc/register-networks.php:50
 msgid "Twitter"
 msgstr "Twitter"
 
-#: ../inc/register-networks.php:54
+#: inc/register-networks.php:54
 msgid "Tumblr"
 msgstr "Tumblr"
 
-#: ../inc/register-networks.php:58
+#: inc/register-networks.php:58
 msgid "Viadeo"
 msgstr "Viadeo"
 
-#: ../inc/register-networks.php:62
+#: inc/register-networks.php:62
 msgid "VKontakte"
 msgstr "VKontakte"
 
-#: ../inc/register-networks.php:66
+#: inc/register-networks.php:66
 msgid "Weibo"
 msgstr "Weibo"
 
-#: ../inc/register-networks.php:70
+#: inc/register-networks.php:70
 msgid "WhatsApp"
 msgstr "WhatsApp"
 
-#: ../inc/register-networks.php:76
+#: inc/register-networks.php:76
 msgid "Share…"
 msgstr "Partager…"
 
-#: ../inc/register-networks.php:80
+#: inc/register-networks.php:80
 msgid "Email"
 msgstr "E-mail"
 
-#: ../inc/register-networks.php:84
+#: inc/register-networks.php:84
 msgid "Bookmark"
 msgstr "Marque-page"
 
-#: ../inc/register-networks.php:88
+#: inc/register-networks.php:88
 msgid "Print"
 msgstr "Imprimer"
 
-#: ../inc/register-skins.php:17
+#: inc/register-skins.php:17
 msgid "Juizy Light Tone"
 msgstr "Juizy Light Tone"
 
-#: ../inc/register-skins.php:24
+#: inc/register-skins.php:24
 msgid "Juizy Light Tone Reversed"
 msgstr "Juizy - Tons clairs inversés"
 
-#: ../inc/register-skins.php:31
+#: inc/register-skins.php:31
 msgid "Blue Metro Style"
 msgstr "Style Metro bleu"
 
-#: ../inc/register-skins.php:38
+#: inc/register-skins.php:38
 msgid "Gray Metro Style"
 msgstr "Style Metro gris"
 
-#: ../inc/register-skins.php:45
+#: inc/register-skins.php:45
 msgid "Modern Style"
 msgstr "Modern Style"
 
-#: ../inc/register-skins.php:54
+#: inc/register-skins.php:54
 msgid "Black"
 msgstr "Noir"
 
-#: ../inc/register-skins.php:63
+#: inc/register-skins.php:63
 msgid "Brands Colors"
 msgstr "Couleurs de marques"
 
-#: ../inc/register-skins.php:70
+#: inc/register-skins.php:70
 msgid "Material Brand Colors"
 msgstr "Couleurs de marques “Material”"
 
-#: ../inc/register-skins.php:184
+#: inc/register-skins.php:184
 msgid "Button Skin"
 msgstr "Skin de boutons"
+
+#~ msgid "Your session is finished. Sorry. Retry after reloading the page."
+#~ msgstr ""
+#~ "Votre session est expirée. Navré, ré-essayez en rechargeant la page."

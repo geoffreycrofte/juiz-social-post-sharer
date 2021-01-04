@@ -119,16 +119,16 @@ function jsps_ajax_click_count() {
 			// Check the update.
 			if ( $is_updated ) {
 				// Sent successful result
-				wp_send_json_success( array( esc_html__( 'Count increment successful', 'juiz-social-post-sharer' ), $network, $nb, $counters ) );
+				wp_send_json_success( array( 'Count increment successful', $network, $nb, $counters ) );
 
 			} else {
-				wp_send_json_error( array( 5, esc_html__( 'Error trying to update the count number. Sorry for that.', 'juiz-social-post-sharer' ), $headers ) );
+				wp_send_json_error( array( 5, 'Error trying to update the count number. Sorry for that.' ), $headers ) );
 			}
 		} else {
-			wp_send_json_error( array( 2, esc_html__( 'Seems like the post ID you tried to share is not good.', 'juiz-social-post-sharer' ) ) );
+			wp_send_json_error( array( 2, 'Seems like the post ID you tried to share is not good.' ) );
 		}
 	} else {
-		wp_send_json_error( array( 1, esc_html__( 'Your session is expired. Sorry. Retry after reloading the page.', 'juiz-social-post-sharer' ) ) );
+		wp_send_json_error( array( 1, 'Your session is expired. Sorry. Retry after reloading the page.' ) );
 	}
 }
 
