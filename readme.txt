@@ -180,11 +180,12 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
 
 = 2.0.0 =
 
-Recommended: Save Nobs Share Buttons' settings after updating this plugin.
+<strong>Recommended: Save Nobs Share Buttons' settings after updating this plugin.</strong>
+
 * Tested on WordPress 5.6
 * **New feature**
- * Add or remove more easily custom buttons (Network API - Documentation TODO)
- * Create your own buttons Skin with the starter kit and this documentation (TODO). Do it in your theme or in a separate plugin.
+ * Add or remove more easily custom buttons (Network API) - [Documentation](https://sharebuttons.social/doc/tutorial-create-a-custom-button.html?utm_source=wp-org&utm_medium=readme&utm_campaign=changelog)
+ * Create your own buttons Skin with the starter kit and [this documentation](https://sharebuttons.social/doc/tutorial-create-buttons-skin.html?utm_source=wp-org&utm_medium=readme&utm_campaign=changelog). Do it in your theme or in a separate plugin.
  * Email button now open a little form in a lightbox instead of mailto: protocole
  * New button: Evernote
  * New button: Mix (replace Stumbleuppon)
@@ -197,8 +198,8 @@ Recommended: Save Nobs Share Buttons' settings after updating this plugin.
  * Administration interface redesign
  * Script and Styles in external files (force refresh if bugs occure)
 * **Removed**
- * Removes LinkedIn counter because LinkedIn doesn't offer a count anymore. (@see https://developer.linkedin.com/blog/posts/2018/deprecating-the-inshare-counter)
- * Removes Twitter counter because Twitter doesn't offer a count anymore. (@see https://twittercommunity.com/t/a-new-design-for-tweet-and-follow-buttons/52791)
+ * Removes LinkedIn counter because LinkedIn doesn't offer a count anymore. [See this](https://developer.linkedin.com/blog/posts/2018/deprecating-the-inshare-counter)
+ * Removes Twitter counter because Twitter doesn't offer a count anymore. [See this](https://twittercommunity.com/t/a-new-design-for-tweet-and-follow-buttons/52791)
  * Replace old school counting system by an independent internal one.
 * **All new brand plugin files structure**
 * **New hooks**: see revamped documentation.html file inside the plugin folder.

@@ -32,8 +32,6 @@ function jsps_plugin_update_message( $plugin_data, $new_data ) {
 		return false;
 	}
 
-	var_dump( $plugin_data );
-
 	$new  = explode( '.', $plugin_data['new_version'] );
 	$curr = explode( '.', $plugin_data['Version'] );
 
