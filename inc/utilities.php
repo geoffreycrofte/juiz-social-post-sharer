@@ -116,11 +116,22 @@ if ( ! function_exists('juiz_sps_remove_old_networks') ) {
 	 * @since  2.0.0
 	 * @author Geoffrey Crofte
 	 */
-	function juiz_sps_remove_old_networks( $networks ) {
+	function juiz_sps_remove_old_networks( $networks, $clean_removed = false ) {
 		unset( $networks['delicious']   );
 		unset( $networks['digg']        );
 		unset( $networks['stumbleupon'] );
 		unset( $networks['google']      );
+
+		// Check unvalid network, oftentime the one added by a dev
+		// and removed from the added theme or plugin.
+		// Usually looks like $networks['buffer'] => (int) 0
+		if ( $clean_removed ) {
+			foreach ( $networks as $key => $value ) {
+				if ( ! is_array( $value ) ) {
+					unset( $networks[ $key ] );
+				}
+			}
+		}
 
 		return $networks;
 	}
@@ -186,7 +197,7 @@ if ( ! function_exists( 'jsps_get_displayable_networks' ) ) {
 		}
 
 		$dnetworks = juiz_sps_get_ordered_networks( $merged_networks, $order );
-		$dnetworks = juiz_sps_remove_old_networks( $dnetworks );
+		$dnetworks = juiz_sps_remove_old_networks( $dnetworks, true );
 
 		/**
 		 * Gets an ordered list of networks.
