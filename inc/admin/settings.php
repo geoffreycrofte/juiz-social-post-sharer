@@ -106,7 +106,6 @@ add_filter( 'admin_init', 'add_juiz_sps_plugin_options' );
 
 // sanitize posted data
 function juiz_sps_sanitize( $options ) {
-
 	$newoptions = array();
 	
 	// Normal option update only send an array with visible networks. array('twitter', 'facebook')
@@ -128,40 +127,39 @@ function juiz_sps_sanitize( $options ) {
 		$newoptions['juiz_sps_networks'] = isset( $options['juiz_sps_networks'] ) ? $options['juiz_sps_networks'] : jsps_get_old_network_array();
 	}
 
-	$newoptions['juiz_sps_style'] = esc_attr( $options['juiz_sps_style'] );
-	$newoptions['juiz_sps_hide_social_name'] = (int) $options['juiz_sps_hide_social_name'] == 1 ? 1 : 0;
-	$newoptions['juiz_sps_compact_display'] = (int) $options['juiz_sps_compact_display'] == 1 ? 1 : 0;
-	$newoptions['juiz_sps_target_link'] = (int) $options['juiz_sps_target_link'] == 1 ? 1 : 0;
-	$newoptions['juiz_sps_counter'] = (int) $options['juiz_sps_counter'] == 1 ? 1 : 0;
+	$newoptions['juiz_sps_style'] = isset( $options['juiz_sps_style'] ) ? esc_attr( $options['juiz_sps_style'] ) : 8;
+	$newoptions['juiz_sps_hide_social_name'] = isset( $options['juiz_sps_hide_social_name'] ) && (int) $options['juiz_sps_hide_social_name'] == 1 ? 1 : 0;
+	$newoptions['juiz_sps_compact_display'] = isset( $options['juiz_sps_compact_display'] ) && (int) $options['juiz_sps_compact_display'] == 1 ? 1 : 0;
+	$newoptions['juiz_sps_target_link'] = isset( $options['juiz_sps_target_link'] ) && (int) $options['juiz_sps_target_link'] == 1 ? 1 : 0;
+	$newoptions['juiz_sps_counter'] = isset( $options['juiz_sps_counter'] ) && (int) $options['juiz_sps_counter'] == 1 ? 1 : 0;
 
 	// new options (1.1.0)
 	$newoptions['juiz_sps_write_css_in_html'] = isset( $options['juiz_sps_write_css_in_html'] ) && (int) $options['juiz_sps_write_css_in_html'] == 1 ? 1 : 0;
-	$newoptions['juiz_sps_twitter_user'] = preg_replace( "#@#", '', sanitize_key( $options['juiz_sps_twitter_user'] ) );
-	$newoptions['juiz_sps_mail_subject'] = sanitize_text_field( $options['juiz_sps_mail_subject'] );
-	$newoptions['juiz_sps_mail_body'] = sanitize_text_field( $options['juiz_sps_mail_body'] );
+	$newoptions['juiz_sps_twitter_user'] = isset( $options['juiz_sps_twitter_user'] ) ?preg_replace( "#@#", '', sanitize_key( $options['juiz_sps_twitter_user'] ) ) : 'WPShareButtons';
+	$newoptions['juiz_sps_mail_subject'] = isset( $options['juiz_sps_mail_subject'] ) ?sanitize_text_field( $options['juiz_sps_mail_subject'] ) : '';
+	$newoptions['juiz_sps_mail_body'] = isset( $options['juiz_sps_mail_body'] ) ?sanitize_text_field( $options['juiz_sps_mail_body'] ) : '';
 
-	if ( is_array( $options['juiz_sps_display_in_types'] ) && count( $options['juiz_sps_display_in_types'] ) > 0 ) {
+	if ( isset( $options['juiz_sps_display_in_types'] ) && is_array( $options['juiz_sps_display_in_types'] ) && count( $options['juiz_sps_display_in_types'] ) > 0 ) {
 		$newoptions['juiz_sps_display_in_types'] = $options['juiz_sps_display_in_types'];
 	} else {
 		wp_redirect( admin_url( 'options-general.php?page=' . JUIZ_SPS_SLUG . '&message=1337' ) );
 		exit;
 	}
 
-	$newoptions['juiz_sps_display_where'] = in_array( $options['juiz_sps_display_where'], array( 'bottom', 'top', 'both', 'nowhere' ) ) ? $options['juiz_sps_display_where'] : 'bottom';
+	$newoptions['juiz_sps_display_where'] = isset( $options['juiz_sps_display_where'] ) && in_array( $options['juiz_sps_display_where'], array( 'bottom', 'top', 'both', 'nowhere' ) ) ? $options['juiz_sps_display_where'] : 'bottom';
 
 	// new options (1.2.5)
-	$newoptions['juiz_sps_force_pinterest_snif'] = (int) $options['juiz_sps_force_pinterest_snif'] == 1 ? 1 : 0;
+	$newoptions['juiz_sps_force_pinterest_snif'] = isset( $options['juiz_sps_force_pinterest_snif'] ) && (int) $options['juiz_sps_force_pinterest_snif'] == 1 ? 1 : 0;
 
 	// new options (1.3.3.7)
-	$newoptions['juiz_sps_counter_option'] = in_array( $options['juiz_sps_counter_option'], array( 'both', 'total', 'subtotal' ) ) ? $options['juiz_sps_counter_option'] : 'both';
+	$newoptions['juiz_sps_counter_option'] = isset( $options['juiz_sps_counter_option'] ) && in_array( $options['juiz_sps_counter_option'], array( 'both', 'total', 'subtotal' ) ) ? $options['juiz_sps_counter_option'] : 'both';
 
 	// new options (2.0.0)
-	$newoptions['juiz_sps_css_files'] = in_array( $options['juiz_sps_css_files'], array( 'both', 'nope', 'buttons', 'modal' ) ) ? $options['juiz_sps_css_files'] : 'nope';
+	$newoptions['juiz_sps_css_files'] = isset( $options['juiz_sps_css_files'] ) && in_array( $options['juiz_sps_css_files'], array( 'both', 'nope', 'buttons', 'modal' ) ) ? $options['juiz_sps_css_files'] : 'nope';
 
-	$newoptions['juiz_sps_order'] = is_array( $options['juiz_sps_order'] ) ? $options['juiz_sps_order'] : array();
+	$newoptions['juiz_sps_order'] = isset( $options['juiz_sps_order'] ) && is_array( $options['juiz_sps_order'] ) ? $options['juiz_sps_order'] : array();
 
 	$newoptions['juiz_sps_version'] = JUIZ_SPS_VERSION;
-
 	
 	return $newoptions;
 }
@@ -176,6 +174,8 @@ if ( ! function_exists( 'juiz_sps_section_text' ) ) {
 // Radio fields styles choice
 if ( ! function_exists( 'juiz_sps_setting_radio_style_choice' ) ) {
 function juiz_sps_setting_radio_style_choice() {
+	// Only for debugging.
+	// jsps_update_option( jsps_get_initial_old_settings() );
 
 	/**
 	 * Some clean up in this first form element. (TODO: could be done somewhere else)
@@ -253,6 +253,11 @@ function juiz_sps_setting_checkbox_network_selection() {
 				// [ $k ][0] is retro compat from < 2.0.0
 				$all_networks[ $k ]['visible'] = isset( $options['juiz_sps_networks'][ $k ]['visible'] ) ? $options['juiz_sps_networks'][ $k ]['visible'] : $options['juiz_sps_networks'][ $k ][0];
 			}
+			/*else {
+				// Avoid activating new networks for existing users.
+				// Or should it? Otherwise this option is useless for new buttons.
+				$all_networks[ $k ]['visible'] = 0;
+			}*/
 		}
 
 		$networks = jsps_get_displayable_networks( $all_networks, $options['juiz_sps_order'] );
