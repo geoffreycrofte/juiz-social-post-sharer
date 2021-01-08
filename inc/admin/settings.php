@@ -190,17 +190,19 @@ function juiz_sps_setting_radio_style_choice() {
 
 	/**
 	 * Another part of cleanup for multisite and single site.
+	 * We do that only one time at the first option. (arbitrary)
 	 */
 	if ( ! is_array( $options ) ) {
+		$options = jsps_get_initial_settings();
 		if ( function_exists( 'is_plugin_active_for_network' ) && is_plugin_active_for_network( JUIZ_SPS_SLUG . '/' . JUIZ_SPS_SLUG . '.php' ) ) {
-			jsps_init_option_ms( jsps_get_initial_settings() );
+			jsps_init_option_ms( $options );
 		} else {
-			jsps_update_option( jsps_get_initial_settings() );
+			jsps_update_option( $options );
 		}
 	}
 
 	// Ready to start displaying options!
-	if ( is_array( $options ) && is_array( $core_skins ) ) {
+	if ( is_array( $options ) && is_array( $core_skins ) && is_array( $custom_skins ) ) {
 		
 		// Slug of theme activated.
 		$current_skin = $options['juiz_sps_style'];
