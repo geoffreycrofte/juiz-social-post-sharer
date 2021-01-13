@@ -76,15 +76,26 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 		$image = has_post_thumbnail( $post->ID ) ? wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' ) : '';
 
 		/**
-		 * Sets the word to be used below the total when counters are activated.
+		 * Sets the word to be used next to the total when counters are activated.
 		 * 
 		 * @hook juiz_sps_total_count_word
 		 * 
 	 	 * @since  1.0.0 First version
-	 	 * @param  {string}  $text="Total:"        The text to be used.
-	 	 * @return {string} The URL to be shared. You don't need to sanitize or urlencode it, it'll be done later in the process.
+	 	 * @param  {string}  $text="Total: "        The text to be used.
+	 	 * @return {string}  The translated word "Total: " or another one.
 		 */
 		$total_word = apply_filters( 'juiz_sps_total_count_word', __( 'Total: ', 'juiz-social-post-sharer' ) );
+
+		/**
+		 * Sets the word to be used below the total when counters are activated.
+		 * 
+		 * @hook juiz_sps_shares_word
+		 * 
+	 	 * @since  1.0.0 First version
+	 	 * @param  {string}  $text="Shares"  The text to be used.
+	 	 * @return {string} The translated word "Shares" or another one.
+		 */
+		$shares_word = apply_filters( 'juiz_sps_shares_word', __( 'Shares', 'juiz-social-post-sharer' ) );
 
 		/**
 		 * Decides if the intro text before the buttons should be printed or not.
@@ -386,7 +397,8 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 
 				case 'pinterest' :
 					if ( $image != '' && $force_pinterest_snif == 0 ) {
-						$api_link = 'https://pinterest.com/pin/create/button/?media=' . $image[0] . '&amp;url=' . urlencode( $url ) . '&amp;title=' . get_the_title() . '&amp;description=' . $excerpt;
+						$api_link = 'https://pinterest.com/pin/create/bookmarklet/?url=' . urlencode( $url ) . '&amp;media=' . $image[0];
+						//$api_link = 'https://pinterest.com/pin/create/button/?media=' . $image[0] . '&amp;url=' . urlencode( $url ) . '&amp;title=' . get_the_title() . '&amp;description=' . $excerpt;
 					}
 					else {
 						$api_link = "javascript:void((function(){var%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','//assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)})());";
@@ -693,7 +705,7 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 					( $general_counters == 0 && intval( $counters ) == 1 )
 				 )
 				 ?
-				 '<' . $li . ' class="juiz_sps_item juiz_sps_totalcount_item"><span class="juiz_sps_totalcount" title="' . esc_attr( $total_word ) . '"><span class="juiz_sps_t_nb"></span></span></' . $li . '>'
+				 '<' . $li . ' class="juiz_sps_item juiz_sps_totalcount_item"><span class="juiz_sps_totalcount" title="' . esc_attr( $total_word ) . '"><span class="juiz_sps_total_share_text">' . esc_html( $shares_word ) . '</span></span></' . $li . '>'
 				 : '';
 			}
 		}

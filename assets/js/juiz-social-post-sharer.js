@@ -128,6 +128,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                         let total_text    = total_element.getAttribute('title');
 
                         total_counter.classList.add('juiz_sps_total_text');
+                        total_counter.classList.add('juiz_sps_maybe_hidden_text');
                         total_counter.textContent = total_text;
 
                         total_number.classList.add('juiz_sps_total_number');

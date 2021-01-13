@@ -472,9 +472,28 @@ Version: Styles v5 (Design and CSS by Tony Trancard - tonytrancard.fr)
 	border-top: 6px solid transparent;
 }
 
-.juiz_sps_totalcount {
-	border-right-width: 1px;
-	border-radius: 3px 3px;
+.juiz_sps_counters .juiz_sps_totalcount {
+	display: flex;
+	flex-direction: column-reverse;
+	margin-top: 2px;
+	border: 0;
+	border-left: 2px solid var(--neutral);
+	line-height: 1;
+	color: var(--neutral);
+	background: none;
+	box-shadow: none;
+}
+
+.juiz_sps_compact .juiz_sps_total_number {
+	font-size: 1em;
+}
+
+.juiz_sps_total_number {
+	font-size: 1.3em;
+}
+
+.juiz_sps_total_share_text {
+	font-size: .785em;
 }
 
 .juiz_sps_links.counters_total .juiz_hidden_counter {

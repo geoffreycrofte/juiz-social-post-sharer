@@ -242,7 +242,7 @@ Version: Styles v3 - Blue Metro Style
 .juiz_sps_totalcount {
 	position: relative;
 	display: inline-block;
-	padding: 6px 6px 8px;
+	padding: 9px 6px;
 	border: 1px solid #aaa;
 	border-right-width: 0;
 	vertical-align: middle;
@@ -263,9 +263,35 @@ Version: Styles v3 - Blue Metro Style
 	border-top: 6px solid transparent;
 }
 
-.juiz_sps_totalcount {
-	border-right-width: 1px;
-	border-radius: 3px 3px;
+
+.juiz_sps_counters .juiz_sps_totalcount {
+	display: flex;
+	border-radius: 0;
+	flex-direction: column-reverse;
+	border: 0;
+	border-left: 2px solid #888;
+	line-height: 1;
+	color: var(--neutral);
+	background: none;
+	box-shadow: none;
+	padding: 7px 8px;
+}
+
+.juiz_sps_compact .juiz_sps_totalcount {
+	margin-top: 2px;
+	padding: 4px 8px;
+}
+
+.juiz_sps_compact .juiz_sps_total_number {
+	font-size: 1em;
+}
+
+.juiz_sps_total_number {
+	font-size: 1.3em;
+}
+
+.juiz_sps_total_share_text {
+	font-size: .785em;
 }
 
 .juiz_sps_links.counters_total .juiz_hidden_counter {

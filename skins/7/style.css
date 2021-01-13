@@ -494,9 +494,26 @@
 	border-top: 0.4em solid transparent;
 }
 
+.juiz_sps_totalcount_item {
+	order: -1;
+	border-right: 2px solid var(--neutral);
+}
+
 .juiz_sps_totalcount {
+	display: flex;
+	flex-direction: column-reverse;
+	line-height: 1;
 	color: var(--neutral);
-	background: #F4F4F4;
+	background: none;
+}
+
+.juiz_sps_total_number {
+	font-size: 1.2em;
+}
+
+.juiz_sps_total_share_text {
+	font-size: .875em;
+	opacity: .75;
 }
 
 .juiz_sps_links.counters_total .juiz_hidden_counter {

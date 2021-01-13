@@ -382,7 +382,7 @@ Version: Styles v6 (Design and CSS by Fandia - http://fandia.w.pw)
 	padding: 4px 8px;
 	border: 0.15em solid #2E2E2E;
 	font-size: 0.725em;
-	color: #bbb;
+	color: #F2F2F2;
 	background: #676767;
 }
 
@@ -395,6 +395,32 @@ Version: Styles v6 (Design and CSS by Fandia - http://fandia.w.pw)
 	border-left: 0.45em solid #676767;
 	border-bottom: 0.45em solid transparent;
 	border-top: 0.45em solid transparent;
+}
+
+.juiz_sps_totalcount_item {
+	order: -1;
+	border-right: 2px solid var(--neutral);
+}
+
+.juiz_sps_counters .juiz_sps_totalcount {
+	display: flex;
+	flex-direction: column-reverse;
+	border: 0;
+	line-height: 1;
+	color: var(--neutral);
+	background: none;
+}
+
+.juiz_sps_compact .juiz_sps_total_number {
+	font-size: 1em;
+}
+
+.juiz_sps_total_number {
+	font-size: 1.3em;
+}
+
+.juiz_sps_total_share_text {
+	font-size: .785em;
 }
 
 .juiz_sps_links.counters_total .juiz_hidden_counter {
