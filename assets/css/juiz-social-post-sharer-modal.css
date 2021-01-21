@@ -182,6 +182,7 @@
     background: var(--jsps-modal-background);
     border-radius: 4px;
     transition: all .275s;
+    color: var(--jsps-brand-dark);
 }
 
 .juiz-sps-modal textarea {
@@ -189,9 +190,9 @@
     height: 96px;
 }
 
-.juiz-sps-modal input[type="text"]:focus,
-.juiz-sps-modal input[type="email"]:focus,
-.juiz-sps-modal textarea:focus {
+.juiz-sps-modal.juiz-sps-modal input[type="text"]:focus,
+.juiz-sps-modal.juiz-sps-modal input[type="email"]:focus,
+.juiz-sps-modal.juiz-sps-modal textarea:focus {
     background: var(--jsps-modal-background);
     border-color: var(--jsps-brand-color);
     border-width: 2px;
@@ -214,6 +215,8 @@
 
 .juiz-sps-modal .juiz-sps-submit-line button,
 .juiz-sps-modal .juiz-sps-submit-line input {
+    border: 0;
+    padding: 8px 16px;
     font-size: 12px;
     border-radius: 20px;
     letter-spacing: 0.1em;
@@ -271,6 +274,7 @@
     color: #444;
     color: var(--jsps-brand-dark);
     opacity: .5;
+    border: 0;
 }
 
 .juiz-sps-modal .juiz-sps-hidden {
@@ -342,12 +346,12 @@
         background: rgba(255, 255, 255, .1);
         color: white;
     }
-    .juiz-sps-modal input:focus,
-    .juiz-sps-modal textarea:focus {
+    .juiz-sps-modal.juiz-sps-modal input:focus,
+    .juiz-sps-modal.juiz-sps-modal textarea:focus {
         color: white;
     }
-    .juiz-sps-modal input,
-    .juiz-sps-modal textarea {
+    .juiz-sps-modal.juiz-sps-modal input,
+    .juiz-sps-modal.juiz-sps-modal textarea {
         color: rgba(255, 255, 255, .8);
     }
     @media (min-width: 640px) {
