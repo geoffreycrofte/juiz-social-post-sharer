@@ -15,6 +15,8 @@ Add smart designed buttons after/before your posts (or wherever you want) to all
 
 Add smart designed buttons after/before your posts (or wherever you want) to allow visitors to share your content (includes no JavaScript mode & counters). Buttons are Retina/HDPI-ready, translation-ready and come with useful options and hooks. Totally GDPR compliant, and accessibility and performance friendly.
 
+[youtube https://www.youtube.com/watch?v=G-aOvMEwvhk]
+
 Select your favorites social networks among a little list.
 Display an optional sharings counter.
 You're done!
