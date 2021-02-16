@@ -102,6 +102,12 @@ function jsps_register_current_template_skins( $custom_skins ) {
 	$skins = array();
 	$css = juiz_sps_get_skin_css_name();
 	$img = juiz_sps_get_skin_img_name();
+
+	// In case the theme directory doesn't exist.
+	if ( ! file_exists( get_template_directory() ) ) {
+		return $skins;
+	}
+
 	$dir = new DirectoryIterator( get_template_directory() );
 
 	/**
