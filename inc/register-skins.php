@@ -94,6 +94,7 @@ add_filter( 'jsps_register_core_skin', 'jsps_register_core_skins' );
  *
  * @see    register-skin.php jsps_get_custom_skins() function desc for array composition.
  *
+ * @since  2.0.1 - Bug fix in case directory doesn't exist.
  * @since  2.0.0
  * @author Geoffrey Crofte
  */
