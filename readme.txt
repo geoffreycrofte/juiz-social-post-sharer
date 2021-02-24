@@ -5,7 +5,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJ
 Tags: social, buttons, twitter, facebook, digg, mix, linkedin, pinterest, viadeo, weibo, vkontakte, yummly, pocket, whatsapp, diigo, post, evernote, tumblr, reddit, share, sharing, shareAPI
 Requires at least: 3.3
 Tested up to: 5.6
-Stable tag: 2.0.1
+Stable tag: 2.0.2
 
 *Juiz Social Post Sharer* is now *Nobs • Share Buttons*.
 
@@ -179,6 +179,9 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
 
 
 == Changelog ==
+
+= 2.0.2 =
+* Bug Fix: Upgrade Notice wouldn't be removed. It's now fixed. Sorry for the pushy behavior, not on purpose, I promise!
 
 = 2.0.1 =
 

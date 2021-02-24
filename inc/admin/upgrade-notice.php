@@ -98,8 +98,8 @@ function jsps_admin_notice_after_update() {
 		return;
 	}
 
-	// If user ask to hide it.
-	$user_options = jsps_get_user_options('notice-upgrade-' . JUIZ_SPS_VERSION );
+	// If user asked to hide it.
+	$user_options = jsps_get_user_options( 'notice-upgrade-2.0.0' );
 	$user_removed_it = $user_options === false || $user_options === null ? false : true;
 
 	if ( $user_removed_it ) {

@@ -160,6 +160,9 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
 
 ## Changelog
 
+### 2.0.2
+* Bug Fix: Upgrade Notice wouldn't be removed. It's now fixed. Sorry for the pushy behavior, not on purpose, I promise!
+
 ### 2.0.1
 
 * Bug Fix: In very rare cases, the Theme folder can be unexisting and make the plugin display a PHP error. Issue fixed.
