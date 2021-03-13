@@ -7,7 +7,6 @@
 	Author URI: https://geoffrey.crofte.fr/en
 	License: GPLv2 or later
 	Text Domain: juiz-social-post-sharer
-	Domain Path: /languages
 
 	
 	Copyright 2012  Geoffrey Crofte  (email : support@creativejuiz.com)
@@ -41,12 +40,6 @@ define( 'JUIZ_SPS_PLUGIN_ASSETS', JUIZ_SPS_PLUGIN_URL . 'assets/' );
 define( 'JUIZ_SPS_SKINS_FOLDER',  JUIZ_SPS_PLUGIN_URL . 'skins/' );
 define( 'JUIZ_SPS_SLUG',		  'juiz-social-post-sharer' );
 define( 'JUIZ_SPS_SETTING_NAME',  'juiz_SPS_settings' );
-	
-// Multilingal.
-add_action( 'init', 'make_juiz_sps_multilang' );
-function make_juiz_sps_multilang() {
-	load_plugin_textdomain( 'juiz-social-post-sharer', false, JUIZ_SPS_DIRNAME.'/languages' );
-}
 
 include_once( 'inc/options.php'                       );
 include_once( 'inc/register-skin.php'                 );
