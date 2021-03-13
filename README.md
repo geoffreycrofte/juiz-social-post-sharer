@@ -121,29 +121,36 @@ Nobs stand for 3 different things:
 1. The humble accronym "Number One Button Set for Social Sharing" (Nobsss 😅 but I truncated it).
 1. It's also a pun for "knobs", the actual buttons you find on your shirt or drawers. Thank you Myriam for the funny name.
 
-= Twitter counter doesn't appear OR the count seems to be not exact =
+### Twitter counter doesn't appear OR the count seems to be not exact
+
 Yep, sorry about that, but <a href="https://twittercommunity.com/t/a-new-design-for-tweet-and-follow-buttons/52791">Twitter decided to shut down counter</a>.
 
 Use the version 1.4.3 or above of this plugin to get an alternative of the native counter. But, keep in mind that alternative is not 100% precise, but better than nothing, I guess.
 
-= The text shared by default is very ugly, something like "Share the post "YOUR POST TITLE" FacebookTwitterGoogle+E-mail [SOME OTHER WORDS]"? =
+### The text shared by default is very ugly, something like "Share the post "YOUR POST TITLE" FacebookTwitterGoogle+E-mail [SOME OTHER WORDS]"?
+
 You certainly activated the buttons in the top of your post. It's your choice, but in this case, you need to improve by yourself the SEO-description of your article/page. You can try using the <a href="https://wordpress.org/plugins/wordpress-seo/">WordPress SEO plugin by Yoast</a>. 
 
-= Can I add a "Like" ou "Google +1" button with this plugin? =
+### Can I add a "Like" ou "Google +1" button with this plugin?
+
 Yes, but not with the page options of this plugin. You need to use a hook to add an item in your buttons list.
 See the `juiz_sps_before_first_item` or `juiz_sps_after_last_item` hook in <a href="https://sharebuttons.social/doc/juiz_sps_before_first_item.html?utm_source=github&utm_medium=readme&utm_campaign=faq">the documentation</a>. 
 
-= I have a fatal error or a 500 server error since update to 1.2.3 =
+### I have a fatal error or a 500 server error since update to 1.2.3
+
 Yes, you surely use pinterest button. It's a bug, update to 1.2.4 or above.
 Thank you.
 
-= I can't just use shortcode by deactivating all the checkbox display option in admin option page? since 1.2.0 =
+### I can't just use shortcode by deactivating all the checkbox display option in admin option page? since 1.2.0
+
 Yes, it's a bug, please, use the plugin version 1.2.2 or above. 
 
-= New style is not visible? =
+### New style is not visible?
+
 Please update to 1.1.3 or above
 
-= Some options are not visible (if it's not the first installation, but an update of the plugin) =
+### Some options are not visible (if it's not the first installation, but an update of the plugin)
+
 Deactivate and reactivate the plugin to force the rebuild of the options.
 
 
