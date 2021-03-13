@@ -1,0 +1,9 @@
+<wpml-config>
+    <admin-texts>
+        <key name="juiz_SPS_settings">
+            <key name="juiz_sps_twitter_user"/>
+            <key name="juiz_sps_mail_subject"/>
+            <key name="juiz_sps_mail_body"/>
+        </key>
+    </admin-texts>
+</wpml-config>
