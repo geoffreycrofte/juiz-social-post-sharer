@@ -113,7 +113,8 @@ You can use one of these methods:
 
 Find a complete documentation on <a href="https://sharebuttons.social/doc/?utm_source=github&utm_medium=readme&utm_campaign=faq">this official documentation</a>
 
-= Why "Nobs"? What does that mean? =
+### Why "Nobs"? What does that mean?
+
 Ha ha 😁 Good question.
 Nobs stand for 3 different things:
 
