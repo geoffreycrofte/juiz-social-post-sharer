@@ -5,7 +5,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJ
 Tags: social, buttons, twitter, facebook, digg, mix, linkedin, pinterest, viadeo, weibo, vkontakte, yummly, pocket, whatsapp, diigo, post, evernote, tumblr, reddit, share, sharing, shareAPI
 Requires at least: 4.6
 Tested up to: 5.6
-Stable tag: 2.0.2
+Stable tag: 2.1.0
 
 *Juiz Social Post Sharer* is now *Nobs • Share Buttons*.
 
@@ -179,6 +179,14 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
 
 
 == Changelog ==
+
+
+= 2.1.0 =
+* **Drops support for WordPress < 4.6**
+* **Translation support**
+ * Removes the translation folder to make it handled by the community ([Translate in your language](https://translate.wordpress.org/projects/wp-plugins/juiz-social-post-sharer/))
+ * Adds support for Polylang and WPML on the text field all over the plugin options.
+* Great help from [Sebastien SERRE](https://github.com/sebastienserre) of the [Polylang](https://wordpress.org/plugins/polylang/) team. 
 
 = 2.0.2 =
 * Bug Fix: Upgrade Notice wouldn't be removed. It's now fixed. Sorry for the pushy behavior, not on purpose, I promise!

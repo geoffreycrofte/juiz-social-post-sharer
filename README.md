@@ -4,9 +4,9 @@ Nobs • Share Buttons
 * **Contributors:** CreativeJuiz
 * **Donate link:** [Paypal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJPCWVXGDY&lc=FR&item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&item_number=%23wp%2djsps&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted), [Buy Me a Coffee](https://www.buymeacoffee.com/geoffreycrofte), [Flattr](https://flattr.com/@GeoffreyCrofte)
 * **Tags:** social, buttons, twitter, facebook, digg, mix, linkedin, pinterest, viadeo, weibo, vkontakte, yummly, pocket, whatsapp, diigo, post, evernote, tumblr, reddit, share, sharing, shareAPI
-* **Requires at least:** 3.3
+* **Requires at least:** 4.6
 * **Tested up to:** 5.6
-* **Stable tag:** 2.0.1
+* **Stable tag:** 2.1.0
 
 **Juiz Social Post Sharer** is now **Nobs • Share Buttons**.
 
@@ -81,6 +81,8 @@ Available Languages:
 * Serbian (thank to [Borisa Djuraskovic](http://www.webhostinghub.com "Borisa Djuraskovic's website")!)
 * Spanish (thank to [Roberto Castiñeira](www.mediapartner.es "Roberto Castiñeira's website")!)
 * Turkish (thanks to [Hakaner](http://hakanertr.wordpress.com/ "His website")!)
+
+[🏁 Translate in your language](https://translate.wordpress.org/projects/wp-plugins/juiz-social-post-sharer/) Thank you for your help 💕
 
 **Full <a href="https://sharebuttons.social/doc/?utm_source=github&amp;utm_medium=readme&amp;utm_campaign=description">Documentation</a> available**
 
@@ -159,6 +161,13 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
 
 
 ## Changelog
+
+### 2.1.0
+* **Drops support for WordPress < 4.6**
+* **Translation support**
+ * Removes the translation folder to make it handled by the community ([Translate in your language](https://translate.wordpress.org/projects/wp-plugins/juiz-social-post-sharer/))
+ * Adds support for Polylang and WPML on the text field all over the plugin options.
+* Great help from [Sebastien SERRE](https://github.com/sebastienserre) of the [Polylang](https://wordpress.org/plugins/polylang/) team. 
 
 ### 2.0.2
 * Bug Fix: Upgrade Notice wouldn't be removed. It's now fixed. Sorry for the pushy behavior, not on purpose, I promise!
