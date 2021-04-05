@@ -6,7 +6,7 @@ Nobs • Share Buttons
 * **Tags:** social, buttons, twitter, facebook, digg, mix, linkedin, pinterest, viadeo, weibo, vkontakte, yummly, pocket, whatsapp, diigo, post, evernote, tumblr, reddit, share, sharing, shareAPI
 * **Requires at least:** 4.6
 * **Tested up to:** 5.7
-* **Stable tag:** 2.1.0
+* **Stable tag:** 2.1.1
 
 **Juiz Social Post Sharer** is now **Nobs • Share Buttons**.
 
@@ -169,6 +169,10 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
 
 
 ## Changelog
+
+### 2.1.1
+* **Bug fix**
+ * JS Error fixed in some cases with the Share API Button ([issue](https://wordpress.org/support/topic/unescaped-javascript-string/))
 
 ### 2.1.0
 * **Drops support for WordPress < 4.6**

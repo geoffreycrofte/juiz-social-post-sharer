@@ -495,13 +495,13 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 								el.addEventListener("click", async () => {
 									try {
 										await navigator.share({
-											title: "' . esc_attr( $post->post_title ) . '",
-											text: "' . esc_attr( $post->post_title ) . ' - ' . esc_attr( jsps_get_excerpt( $post ) ) . '",
+											title: "' . esc_js ( esc_attr( $post->post_title ) ) . '",
+											text: "' . esc_js( esc_attr( $post->post_title ) ) . ' - ' . esc_js( esc_attr( jsps_get_excerpt( $post ) ) ) . '",
 											url: shareurl,
 										});
-										console.info("Successful share");
+										console.info("Nobs: Successful share");
 									} catch(err) {
-										console.warn("Error sharing", error);
+										console.warn("Nobs: Error sharing", error);
 									}
 								});
 							});
