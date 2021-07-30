@@ -5,7 +5,7 @@ Nobs • Share Buttons
 * **Donate link:** [Paypal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJPCWVXGDY&lc=FR&item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&item_number=%23wp%2djsps&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted), [Buy Me a Coffee](https://www.buymeacoffee.com/geoffreycrofte), [Flattr](https://flattr.com/@GeoffreyCrofte)
 * **Tags:** social, buttons, twitter, facebook, digg, mix, linkedin, pinterest, viadeo, weibo, vkontakte, yummly, pocket, whatsapp, diigo, post, evernote, tumblr, reddit, share, sharing, shareAPI
 * **Requires at least:** 4.6
-* **Tested up to:** 5.7
+* **Tested up to:** 5.8
 * **Stable tag:** 2.1.1
 
 **Juiz Social Post Sharer** is now **Nobs • Share Buttons**.
