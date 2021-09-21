@@ -6,7 +6,7 @@ Nobs • Share Buttons
 * **Tags:** social, buttons, twitter, facebook, digg, mix, linkedin, pinterest, viadeo, weibo, vkontakte, yummly, pocket, whatsapp, diigo, post, evernote, tumblr, reddit, share, sharing, shareAPI
 * **Requires at least:** 4.6
 * **Tested up to:** 5.8
-* **Stable tag:** 2.1.1
+* **Stable tag:** 2.1.2
 
 **Juiz Social Post Sharer** is now **Nobs • Share Buttons**.
 
@@ -169,6 +169,10 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
 
 
 ## Changelog
+
+### 2.1.2
+* **PHP 8 Compatibility**
+ * Fix of deprecated declaration ([see PHP 8 Issue](https://php.watch/versions/8.0/deprecate-required-param-after-optional))
 
 ### 2.1.1
 * **Bug fix**

@@ -348,7 +348,7 @@ if ( ! function_exists('jsps_get_notif') ) {
 	 * @since  2.0.0
 	 * @author Geoffrey Crofte
 	 */
-	function jsps_get_notif( $type = '', $text ) {
+	function jsps_get_notif( $type = '', $text = '' ) {
 		$notif = '<div class="juiz-sps-notif is-inline ' . esc_attr( $type ) . '"><div class="juiz-sps-notif-icon">';
 
 		$icon = 'dashicons-info-outline';
