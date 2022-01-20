@@ -258,18 +258,19 @@ if ( ! function_exists('jsps_get_excerpt') ) {
 		 * Filters the number of letters before truncate the excerpt.
 	 	 * 
 	 	 * @hook jsps_get_excerpt_letter_count
-		 * 
+		 *
+		 * @since  2.1.3 Uses post_excerpt before post_content
 	 	 * @since  2.0.0
 		 * 
 	 	 * @param  {int} $count=80 The number of letters needed.
 	 	 * @return                 The filtered number of letters.
 		 */
 		$count = apply_filters( 'jsps_get_excerpt_letter_count', $count );
-		$text  = wordwrap( wp_strip_all_tags( $post->post_content ), (int) $count, "***", true );
+		$text  = wordwrap( wp_strip_all_tags( $post->post_excerpt ), (int) $count, "***", true );
 		$tcut  = explode("***", $text);
 
 		/**
-		 * Gets an excerpt from the `$post->post_content` based on the number of letter requested (`$count`), mostly used for Share APIs that use long text.
+		 * Gets an excerpt from the `$post->post_excerpt` based on the number of letter requested (`$count`), mostly used for Share APIs that use long text.
 		 * 
 		 * @hook jsps_get_excerpt
 		 * 
