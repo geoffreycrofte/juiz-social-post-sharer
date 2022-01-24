@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
                     // If btnbar ask for totalcount (both or total only)
                     // then displays total counter.
-                    if ( ! btnbar.classList.contains('counters_subtotal') && parseInt(nobs_total_count ) > 0 ) {
+                    if ( ! btnbar.classList.contains('counters_subtotal') ) {
                         let total_counter = document.createElement('span');
                         let total_number  = document.createElement('span');
                         let total_element = btnbar.querySelector('.juiz_sps_totalcount');
@@ -141,7 +141,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
                     }
 
                     if ( parseInt( nobs_total_count ) === 0 ) {
-                        document.querySelector('.juiz_sps_totalcount_item').classList.add('juiz_sps_maybe_hidden_text');
+                        if ( document.querySelectorAll('.juiz_sps_totalcount_item') ) {
+                            document.querySelectorAll('.juiz_sps_totalcount_item').forEach(function(el) {
+                                el.classList.add('juiz_sps_maybe_hidden_text');
+                            });
+                        }
                     }
                 } else {
                     console.warn('The request failed!');
