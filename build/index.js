@@ -414,7 +414,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__["registerBlockType"])('nobs/share-buttons', {
-  title: 'Nobs • Share Buttons',
+  title: 'Nobs • Share Buttons (beta)',
   icon: 'share',
   category: 'layout',
   attributes: {

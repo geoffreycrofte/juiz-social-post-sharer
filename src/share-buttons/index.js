@@ -6,7 +6,7 @@ import { setState } from '@wordpress/compose';
 import edit from './edit';
 
 registerBlockType( 'nobs/share-buttons', {
-    title: 'Nobs • Share Buttons',
+    title: 'Nobs • Share Buttons (beta)',
     icon: 'share',
     category: 'layout',
     attributes: {
