@@ -7,11 +7,28 @@ if ( ! function_exists( 'jsps_load_custom_wp_admin_assets' ) ) {
 	 * Include Admin dedicated scripts.
 	 * @return void
 	 * @author Geoffrey Crofte
+	 *
+	 * @since 2.2.0 Gutenber JS File loading
 	 * @since 2.0.0
 	 */
 	function jsps_load_custom_wp_admin_assets() {
 		global $current_screen;
 
+		// Enqueue Gutenberg JS Files everywhere.
+		if (
+			method_exists( $current_screen, 'is_block_editor' )
+			&& $current_screen->is_block_editor()
+		) {
+			$asset_file = include_once( dirname( JUIZ_SPS_FILE ) . '/build/index.asset.php');
+			wp_enqueue_script(
+			    'nobs-gutenberg-script',
+			    JUIZ_SPS_PLUGIN_URL . 'build/index.js',
+			    $asset_file['dependencies'],
+			    $asset_file['version']
+			);
+		}
+
+		// if not on the plugin's pages, do not include the CSS and JS files.
 		if ( $current_screen->base !== 'settings_page_juiz-social-post-sharer' 
 			 &&
 			 $current_screen->base !== 'settings_page_juiz-social-post-sharer-welcome' )

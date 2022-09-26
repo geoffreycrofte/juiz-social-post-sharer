@@ -1,49 +1,47 @@
 {
-	"name": "juiz-social-post-sharer",
-	"description": "A Social Sharing Buttons plugin for WordPress.",
-	"version": "2.0.0",
-	"homepage": "https://github.com/geoffreycrofte/juiz-social-post-sharer/",
-	"author": {
-		"name": "Geoffrey Crofte",
-		"twitter": "https://twitter.com/geoffreycrofte",
-		"linkedin": "https://linkedin/in/geoffreycrofte",
-		"github": "https://github.com/geoffreycrofte/"
-	},
-	"bugs": {
-		"url": "https://github.com/geoffreycrofte/juiz-social-post-sharer/issues"
-	},
-	"bundleDependencies": false,
-	"deprecated": false,
-	"keywords": [
-		"social",
-		"network",
-		"wordpress",
-		"button",
-		"plugin",
-		"extension",
-		"share",
-		"twitter",
-		"facebook"
-	],
-	"license": "MIT",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/geoffreycrofte/juiz-social-post-sharer.git"
-	},
-	"scripts": {
-		"doc": "del '../nobs-share-buttons-doc/**' '!../nobs-share-buttons-doc/.git' -f && jsdoc inc -c hookdoc.json"
-	},
-	"devDependencies": {
-		"del-cli": "^3.0.1",
-		"jsdoc": "^3.6.4",
-		"wp-hookdoc": "^0.2.0",
-		"grunt": "~1.3.0",
-	    "grunt-exec": "~0.4.5",
-	    "grunt-wp-i18n": "~0.4.9",
-	    "grunt-potomo": "~2.1.0",
-	    "load-grunt-tasks": "~0.2.0",
-	    "grunt-contrib-compress": "~0.8.0",
-	    "grunt-contrib-clean": "~0.5.0",
-	    "grunt-contrib-copy": "~0.5.0"
-	}
+  "name": "juiz-social-post-sharer",
+  "description": "A Social Sharing Buttons plugin for WordPress.",
+  "version": "2.2.0",
+  "homepage": "https://github.com/geoffreycrofte/juiz-social-post-sharer/",
+  "author": "Geoffrey Crofte",
+  "bugs": {
+    "url": "https://github.com/geoffreycrofte/juiz-social-post-sharer/issues"
+  },
+  "deprecated": false,
+  "keywords": [
+    "social",
+    "network",
+    "wordpress",
+    "button",
+    "plugin",
+    "extension",
+    "share",
+    "twitter",
+    "facebook"
+  ],
+  "license": "GPL-2.0-only",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/geoffreycrofte/juiz-social-post-sharer.git"
+  },
+  "scripts": {
+    "doc": "del '../nobs-share-buttons-doc/**' '!../nobs-share-buttons-doc/.git' -f && jsdoc inc -c hookdoc.json",
+    "start": "wp-scripts start",
+    "build": "wp-scripts build"
+  },
+  "devDependencies": {
+    "@wordpress/scripts": "6.0.0",
+    "del-cli": "^3.0.1",
+    "grunt": "~1.3.0",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-compress": "~0.8.0",
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-exec": "~0.4.5",
+    "grunt-potomo": "~2.1.0",
+    "grunt-wp-i18n": "~0.4.9",
+    "jsdoc": "^3.6.4",
+    "load-grunt-tasks": "~0.2.0",
+    "wp-hookdoc": "^0.2.0"
+  },
+  "main": "build/index.js"
 }
