@@ -67,9 +67,10 @@ if ( ! function_exists( 'juiz_sps_style_and_script' ) ) {
 	 *
 	 * @return void
 	 *
-	 * @since   2.0.0 Revamp the core/custom skins.
-	 * @since   1.0
-	 * @author  Geoffrey Crofte
+	 * @since  2.2.0 New action using it for Gutenberg styling
+	 * @since  2.0.0 Revamp the core/custom skins.
+	 * @since  1.0
+	 * @author Geoffrey Crofte
 	 */
 	function juiz_sps_style_and_script() {
 
@@ -92,9 +93,9 @@ if ( ! function_exists( 'juiz_sps_style_and_script' ) ) {
 			// Also deactivate buttons' CSS if option juiz_sps_css_files equal buttons or both
 			if ( isset( $juiz_sps_options['juiz_sps_style'] ) && apply_filters( 'juiz_sps_use_default_css', true ) && ! ( isset( $juiz_sps_options['juiz_sps_css_files'] ) && in_array( $juiz_sps_options['juiz_sps_css_files'], array( 'both', 'buttons' ) ) ) ) {
 
-				$core_skins   = jsps_get_core_skins();
-				$custom_skins = jsps_get_custom_skins();
-				$all_skins    = $core_skins + $custom_skins;
+				$core_skins    = jsps_get_core_skins();
+				$custom_skins  = jsps_get_custom_skins();
+				$all_skins     = $core_skins + $custom_skins;
 				$current_slug  = $juiz_sps_options['juiz_sps_style'];
 
 				$css_file = isset( $all_skins[ $current_slug ]['css_url'] ) ? $all_skins[ $current_slug ]['css_url'] : JUIZ_SPS_SKINS_FOLDER . $current_slug . '/style' . $prefix . '.css';
@@ -141,6 +142,7 @@ if ( ! function_exists( 'juiz_sps_style_and_script' ) ) {
 		}
 	}
 	add_action( 'wp_enqueue_scripts', 'juiz_sps_style_and_script');
+	add_action( 'enqueue_block_editor_assets', 'juiz_sps_style_and_script' );
 }
 
 if ( ! function_exists( 'juiz_sps_defer_non_critical_css' ) ) {
