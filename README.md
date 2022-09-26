@@ -14,7 +14,7 @@ Add smart designed buttons after/before your posts (or wherever you want) to all
 
 ## Description
 
-Add smart designed buttons after/before your posts (or wherever you want) to allow visitors to share your content (includes no JavaScript mode & counters). Buttons are Retina/HDPI-ready, translation-ready and come with useful options and hooks. Totally GDPR compliant, and accessibility and performance friendly.
+Add smart designed buttons after/before your posts (or wherever you want) to allow visitors to share your content (includes no JavaScript mode & counters). Buttons are Retina/HDPI-ready, translation-ready and come with useful options and hooks. Totally GDPR compliant, and accessibility and performance friendly. Includes a Gutenberg block.
 
 Select your favorites social networks among a little list.
 Display an optional sharings counter.
@@ -66,6 +66,7 @@ Plugin Options:
 * Customize mail texts (subject and body), or mail in a lightbox
 * Display a sharings counter (optional, recommend not to use it since Brands are shutting down all the counters, and counter can't be accurate)
 * Use shortcode <code>[juiz_sps]</code> or <code>[juiz_social]</code> where you want
+* Use the Gutenberg Block wherever you need. (no settings available yet for this block)
 * For developers: A lot of hooks are available for markup customization (or add some things)
   * A hook is available and offers you the opportunity to add the buttons you need
   * Use template function <code>juiz_sps()</code> or <code>get_juiz_sps()</code> in your code
@@ -125,6 +126,23 @@ If you need to debug your script, prefer the `npm run start` command. It'll watc
 
 Find a complete documentation on <a href="https://sharebuttons.social/doc/?utm_source=github&utm_medium=readme&utm_campaign=faq">this official documentation</a>
 
+### Tested the Gutenberg block, but it's buggy 
+
+Well, it's quite new to me to develop with React (the language used by Gutenberg). Tell me what happened for you by opening an issue so I can dig in. Thanks :)
+
+### New 2.0.0 installed, weird stuff happens in my site
+
+Double check that you have saved your plugin settings (Settings > Nobs Share Buttons). Sometimes it happend, simply double check your settings and save.
+
+### Since the update to 2.0.0, I don't have the same counters
+
+Indeed, because of brands like Facebook and Twitter shutting down their counters, a lot of data weren't accurate anymore. I decided to treat the counters as internal tool for your website. They are now YOUR counters and not facebook's or twitter's anymore.
+Counterpart is that it now reset. No worries, a way to recover your old counters to add those to the new counters will come soon with 2.1.0 ;p
+
+### Since the update to 2.0.0 my activated networks have changed
+
+Yes it can happen sometimes. 2.0.0 is a big update and the core of the plugin changed a lot. It's typically the only change you will notice, please just update your networks selected to the one you like, it shouldn't be an issue in the future.
+
 ### Why "Nobs"? What does that mean?
 
 Ha ha 😁 Good question.
@@ -174,6 +192,9 @@ Deactivate and reactivate the plugin to force the rebuild of the options.
 3. The new 1.3.0 Black theme and sharings counter
 4. The metabox to hide buttons on a post
 5. New themes: Brands Colors & Material Design
+6. New admin panel for Nobs.
+7. New networks panel you can now order with drag n' drop.
+8. Gutenberg's block in action
 
 ## Other plugins
 

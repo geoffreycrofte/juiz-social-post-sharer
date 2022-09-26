@@ -2,7 +2,7 @@
 
 Contributors: CreativeJuiz
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJPCWVXGDY&lc=FR&item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&item_number=%23wp%2djsps&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted
-Tags: social, buttons, twitter, facebook, digg, mix, linkedin, pinterest, viadeo, weibo, vkontakte, yummly, pocket, whatsapp, diigo, post, evernote, tumblr, reddit, share, sharing, shareAPI
+Tags: social, buttons, twitter, facebook, digg, mix, linkedin, pinterest, viadeo, weibo, gutenberg, block, vkontakte, yummly, pocket, whatsapp, diigo, post, evernote, tumblr, reddit, share, sharing, shareAPI
 Requires at least: 4.6
 Tested up to: 6.0.2
 Stable tag: 2.2.0
@@ -13,7 +13,7 @@ Add smart designed buttons after/before your posts (or wherever you want) to all
 
 == Description ==
 
-Add smart designed buttons after/before your posts (or wherever you want) to allow visitors to share your content (includes no JavaScript mode & counters). Buttons are Retina/HDPI-ready, translation-ready and come with useful options and hooks. Totally GDPR compliant, and accessibility and performance friendly.
+Add smart designed buttons after/before your posts (or wherever you want) to allow visitors to share your content (includes no JavaScript mode & counters). Buttons are Retina/HDPI-ready, translation-ready and come with useful options and hooks. Totally GDPR compliant, and accessibility and performance friendly. Includes a Gutenberg block.
 
 [youtube https://www.youtube.com/watch?v=G-aOvMEwvhk]
 
@@ -69,6 +69,7 @@ Plugin Options:
 * Customize mail texts (subject and body), or mail in a lightbox
 * Display a sharing counter (optional)
 * Use shortcode <code>[juiz_sps]</code> or <code>[juiz_social]</code> wherever you want
+* Use the Gutenberg Block wherever you need. (no settings available yet for this block)
 * For developers: A lot of hooks are available for markup customization (or add some things)
   * A hook is available and offers you the opportunity to add the buttons you need
   * Use template function <code>juiz_sps()</code> or <code>get_juiz_sps()</code> in your code
@@ -118,6 +119,9 @@ You can use one of both method :
 == Frequently Asked Questions ==
 
 Find a complete documentation on <a href="https://sharebuttons.social/doc/?utm_source=wp-org&utm_medium=readme&utm_campaign=faq">this official documentation</a>
+
+= Tested the Gutenberg block, but it's buggy =
+Well, it's quite new to me to develop with React (the language used by Gutenberg). Tell me what happened for you by opening an issue so I can dig in. Thanks :)
 
 = New 2.0.0 installed, weird stuff happens in my site =
 Double check that you have saved your plugin settings (Settings > Nobs Share Buttons). Sometimes it happend, simply double check your settings and save.
@@ -172,6 +176,7 @@ Deactivate and reactivate the plugin to force the rebuild of the options.
 5. New themes: Brands Colors & Material Design
 6. New admin panel for Nobs.
 7. New networks panel you can now order with drag n' drop.
+8. Gutenberg's block in action
 
 == Other plugins ==
 
