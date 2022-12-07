@@ -64,6 +64,7 @@ if ( is_admin() ) {
 }
 
 include_once( 'inc/front/actions.php' );
+include_once( 'inc/front/third-parties/wp-job-manager.php' );
 
 // Things you do in front, or Gutenberg? can 
 if ( ! is_admin() ) {

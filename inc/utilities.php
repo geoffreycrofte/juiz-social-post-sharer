@@ -561,3 +561,14 @@ function jsps_delete_plugin_options() {
 	delete_option( 'juiz_SPS_settings' );
 	delete_site_option( 'juiz_SPS_settings' );
 }
+
+/**
+ * War Dump mode
+ */
+if ( ! function_exists( 'war_dump' ) ) {
+	function war_dump( $content ) {
+		echo '<pre>';
+		var_dump( $content );
+		echo '</pre>';
+	}
+}
