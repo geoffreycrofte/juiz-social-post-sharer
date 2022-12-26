@@ -1,8 +1,8 @@
-/**
+/**!
  * Plugin Name: Nobs • Share Buttons
  * Plugin URI: https://sharebuttons.social
  * Author: Geoffrey Crofte
- * Updated: 2.0.0 - No jQuery needed anymore.
+ * Updated: 2.3.2 - No jQuery needed anymore.
  */
 ;
 document.addEventListener("DOMContentLoaded", function(event) {
@@ -305,6 +305,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 return;
             }
             let animation = 400;
+            let focusedEl = document.activeElement;
             let post_id = event.target.closest('.juiz_sps_links').getAttribute('data-post-id');
             let modalContent = '<div class="juiz-sps-modal-inside">' +
                 '<div class="juiz-sps-modal-header">' +
@@ -493,6 +494,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             document.querySelector('.juiz-sps-close').addEventListener('click', function() {
                 modal.setAttribute('aria-hidden', 'true');
                 modal.classList.remove('jsps-modal-show');
+                focusedEl.focus();
                 temp = setInterval(function() {
                     modal.remove();
                 }, 400);
@@ -511,6 +513,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             });
 
             // Accessibility.
+            // TODO: not enough
             document.querySelector('.juiz-sps-close').addEventListener('blur', function() {
                 this.closest('.juiz-sps-modal').querySelector('form > p:first-child input').focus();
                 return false;
