@@ -37,7 +37,7 @@
     "grunt-wp-i18n": "~0.4.9",
     "grunt-potomo": "~2.1.0",
     "load-grunt-tasks": "~0.2.0",
-    "grunt-contrib-compress": "~0.8.0",
+    "grunt-contrib-compress": "~2.0.0",
     "grunt-contrib-clean": "~0.5.0",
     "grunt-contrib-copy": "~0.5.0",
     "jsdoc": "^3.6.4",
