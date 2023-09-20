@@ -4,8 +4,8 @@ Contributors: CreativeJuiz
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJPCWVXGDY&lc=FR&item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&item_number=%23wp%2djsps&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted
 Tags: social, buttons, twitter, facebook, digg, mix, linkedin, pinterest, viadeo, weibo, gutenberg, block, vkontakte, yummly, pocket, whatsapp, diigo, post, evernote, tumblr, reddit, share, sharing, shareAPI, WP Job Manager
 Requires at least: 4.6
-Tested up to: 6.1.1
-Stable tag: 2.3.2
+Tested up to: 6.2.0
+Stable tag: 2.4.0
 
 *Juiz Social Post Sharer* is now *Nobs • Share Buttons*.
 
@@ -55,7 +55,7 @@ Other actions supported:
 * Print (buttons are not printed 😜)
 * Add to bookmark
 
-Plugin Options:
+Plugin Options & Features:
 
 * 8 graphic templates available (reworked)
 * Compact option for smaller icons
@@ -69,6 +69,7 @@ Plugin Options:
 * Customize mail texts (subject and body), or mail in a lightbox
 * Display a sharing counter (optional)
 * Use shortcode <code>[juiz_sps]</code> or <code>[juiz_social]</code> wherever you want
+* Find a summary of the post shared in your dashboard (Thank you Nicolas ;p)
 * Use the Gutenberg Block wherever you need. (no settings available yet for this block)
 * For developers: A lot of hooks are available for markup customization (or add some things)
   * A hook is available and offers you the opportunity to add the buttons you need
@@ -184,6 +185,10 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
 
 
 == Changelog ==
+
+= 2.4.0 =
+* Features 
+ * Find a summary of the post shared in your dashboard (Thank you Nicolas ;p)
 
 = 2.3.2 =
 * Bug fix
