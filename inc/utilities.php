@@ -424,6 +424,47 @@ if ( ! function_exists( 'jsps_render_api_link' ) ) {
 }
 
 /**
+ * Format the content to replace placeholders with the expected values.
+ * 
+ * @param  (string) $content The content to be formatted
+ * @param  (object) $post    A WordPress Post object if necessary
+ * @return (string)          The formatted content.
+ * 
+ * @since  2.3.2
+ * @author Geoffrey Crofte
+ */
+function jsps_render_mail_content( $content, $post = null ) {
+
+	/**
+	 * Filters the URL to be shared on a mail content.
+	 * 
+	 * @hook juiz_sps_the_shared_permalink_for_mail
+	 * 
+ 	 * @param  {string}  $url                  The shared URL.
+ 	 * @return {string} The URL to be shared on the specific network. You don't need to sanitize or urlencode it, the after that.
+ 	 *
+ 	 * @since  2.3.2 First version
+	 */
+	$url = apply_filters( 'juiz_sps_the_shared_permalink_for_mail', ( $post !== null ? get_permalink( $post -> ID ) : get_permalink() ) );
+
+	return preg_replace(
+		array(
+			'#%%title%%#',
+			'#%%siteurl%%#',
+			'#%%permalink%%#',
+			'#%%url%%#'
+		), 
+		array( 
+			$post !== null ? get_the_title( $post -> ID ) : get_the_title(),
+			get_site_url(),
+			$post !== null ? get_permalink( $post -> ID ) : get_permalink(),
+			urlencode( $url )
+		),
+		$content
+	);
+}
+
+/**
  * Get the URL of Nobs plugin public website.
  * 
  * @param  string $page The inner page where to point out.
@@ -538,7 +579,7 @@ function jsps_get_initial_old_settings() {
 		'juiz_sps_display_in_types' => array( 'post' ),
 		'juiz_sps_display_where'	=> 'bottom',
 		'juiz_sps_write_css_in_html'=> 0,
-		'juiz_sps_mail_subject'		=> __( 'Visit this link find on %%siteurl%%', 'juiz-social-post-sharer'),
+		'juiz_sps_mail_subject'		=> __( 'Visit this link found on %%siteurl%%', 'juiz-social-post-sharer'),
 		'juiz_sps_mail_body'		=> __( 'Hi, I found this information for you : "%%title%%"! This is the direct link: %%permalink%% Have a nice day :)', 'juiz-social-post-sharer' ),
 		'juiz_sps_force_pinterest_snif' => 0,
 		'juiz_sps_colors' 			=> array(
@@ -560,4 +601,15 @@ function jsps_get_initial_old_settings() {
 function jsps_delete_plugin_options() {
 	delete_option( 'juiz_SPS_settings' );
 	delete_site_option( 'juiz_SPS_settings' );
+}
+
+/**
+ * War Dump mode
+ */
+if ( ! function_exists( 'war_dump' ) ) {
+	function war_dump( $content ) {
+		echo '<pre>';
+		var_dump( $content );
+		echo '</pre>';
+	}
 }
