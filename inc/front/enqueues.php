@@ -35,6 +35,7 @@ if ( ! function_exists('jsps_enqueue_scripts') ) {
 			'getCountersNonce'		=> wp_create_nonce('jsps-get-counters'),
 			'ajax_url'              => admin_url( 'admin-ajax.php' ),
 			'modalEmailName'		=> esc_html__( 'Your name', 'juiz-social-post-sharer' ),
+			'modalEmailAction'		=> admin_url( 'admin-ajax.php' ),
 			'modalEmailYourEmail'	=> esc_html__( 'Your email', 'juiz-social-post-sharer' ),
 			'modalEmailFriendEmail'	=> esc_html__( 'Recipient\'s email', 'juiz-social-post-sharer' ),
 			'modalEmailMessage'		=> esc_html__( 'Personal message', 'juiz-social-post-sharer' ),

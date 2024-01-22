@@ -1,8 +1,8 @@
-/**
+/**!
  * Plugin Name: Nobs • Share Buttons
  * Plugin URI: https://sharebuttons.social
  * Author: Geoffrey Crofte
- * Updated: 2.0.0 - No jQuery needed anymore.
+ * Updated: 2.3.2 - No jQuery needed anymore.
  */
 ;
 document.addEventListener("DOMContentLoaded", function(event) {
@@ -305,13 +305,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 return;
             }
             let animation = 400;
+            let focusedEl = document.activeElement;
             let post_id = event.target.closest('.juiz_sps_links').getAttribute('data-post-id');
             let modalContent = '<div class="juiz-sps-modal-inside">' +
                 '<div class="juiz-sps-modal-header">' +
                 '<p id="juiz-sps-email-title" class="juiz-sps-modal-title">' + jsps.modalEmailTitle + '</p>' +
                 '</div>' +
                 '<div class="juiz-sps-modal-content">' +
-                '<form id="jsps-email-form" name="jsps-email" action="' + jsps.modalEmailAction + '" method="post" novalidate>' +
+                '<form id="jsps-email-form" name="jsps-email" action="' + jsps.modalEmailAction + '" method="post" enctype="application/x-www-form-urlencoded" novalidate>' +
                 '<p class="juiz-sps-input-line">' +
                 '<label for="jsps-your-name">' + jsps.modalEmailName + '</label>' +
                 '<input type="text" id="jsps-your-name" name="jsps-your-name" aria-required="true" required="required" value="" autofocus>' +
@@ -390,6 +391,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 }
 
                 let countspan = document.createElement('span');
+                countspan.setAttribute( 'aria-live', 'polite' );
                 countspan.innerHTML = phrase;
 
                 document.querySelector('[for="jsps-friend-email"]').append( countspan );
@@ -400,13 +402,19 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
                 e.preventDefault();
 
-                let datas = serializeArray( this ),
-                    modal = this.closest('.juiz-sps-modal'),
+                let datas   = serializeArray( this ),
+                    modal   = this.closest('.juiz-sps-modal'),
                     post_id = modal.getAttribute('data-post-id'),
-                    loader = this.querySelector('.juiz-sps-loader');
+                    loader  = this.querySelector('.juiz-sps-loader'),
+                    reg     = /\s*(?:[;,]|$)\s*/;
 
                 loader.classList.add('is-active')
                 loader.innerHTML = jsps.modalLoader;
+
+                // do something with datas[2]
+                // when multiple friends
+                // send currently &friend=email,email2
+                // should send &friend[]=email&friend[]=email2
 
                 var to_send = {
                     'action': 'jsps-email-friend',
@@ -414,7 +422,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
                     'id': post_id,
                     'name': datas[0].value,
                     'email': datas[1].value,
-                    'friend': datas[2].value,
+                    //'friend': datas[2].value,
+                    'friend': datas[2].value.split(reg),
                     'message': datas[3].value
                 };
 
@@ -436,8 +445,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
                                 modal.querySelector('form') // old one
                             );
 
-                            modal.querySelector('.juiz-sps-success').innerHTML = '<svg width="130px" height="86px" viewBox="0 0 130 86" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><path d="M129.832519,0.8459473 C129.832031,0.8449707 129.831543,0.8439942 129.831055,0.8439942 C129.694336,0.6389161 129.493652,0.5002442 129.271484,0.4367676 C129.271484,0.4367676 129.271484,0.4367676 129.270996,0.4367676 C129.268066,0.4367676 129.268066,0.4348145 129.267578,0.435791 C129.265625,0.435791 129.265625,0.4338379 129.26416,0.4348144 C129.262695,0.4348144 129.262207,0.4348144 129.258301,0.4338378 C129.256836,0.4328612 129.255371,0.4328612 129.254883,0.4328612 C129.253906,0.4328612 129.252441,0.4318846 129.251465,0.4318846 C129.250976,0.4328612 129.251465,0.430908 129.247558,0.430908 C129.245117,0.430908 129.24414,0.4299314 129.24414,0.4299314 C129.242187,0.4318845 129.241211,0.4289548 129.239746,0.4289548 L129.239258,0.4289548 C129.237793,0.4279782 129.236816,0.4279782 129.23584,0.4279782 C129.234863,0.4279782 129.233886,0.4270016 129.232422,0.4270016 C129.226562,0.426025 129.229492,0.426025 129.229004,0.426025 C129.227539,0.4250484 129.226074,0.4240719 129.225586,0.4250484 C129.223632,0.4250484 129.223144,0.4250484 129.222168,0.4250484 C129.081054,0.3928218 128.93164,0.3918453 128.787597,0.4221187 L0.8061523,25.7277832 C0.3925781,25.8098145 0.074707,26.1428223 0.0112304,26.5588379 C-0.0517579,26.9758301 0.1533202,27.3879395 0.5239257,27.5891113 L38.7761841,48.296875 L44.2290039,84.748291 C44.2433472,84.8442383 44.2748413,84.9345703 44.3149414,85.0205078 C44.3240967,85.0400391 44.3364258,85.0568848 44.3468018,85.0759277 C44.3948975,85.1638183 44.4549561,85.243164 44.5269165,85.3127441 C44.5414429,85.3269043 44.5529175,85.3422851 44.5683594,85.3557129 C44.6381836,85.4157715 44.7144776,85.46875 44.800293,85.5080567 C44.8154908,85.5151368 44.8327027,85.5122071 44.8481446,85.5185547 C44.8656007,85.5256348 44.8774415,85.5400391 44.8955079,85.5461426 C45.0024415,85.583252 45.1108399,85.5998535 45.2177735,85.5998535 C45.3156739,85.5998535 45.4129029,85.5832519 45.5073243,85.5546875 C45.5412598,85.5444336 45.5709229,85.5253906 45.6035157,85.5117187 C45.652649,85.4909667 45.7036134,85.4753417 45.7495118,85.4465332 L72.343628,68.7521973 L98.4980469,85.442627 C98.6606446,85.5461426 98.8476563,85.5998536 99.0361328,85.5998536 C99.1445312,85.5998536 99.2539062,85.5822755 99.3588867,85.5461427 C99.6464844,85.4484864 99.8740234,85.2248536 99.9770508,84.9387208 L129.937012,1.7492677 C129.950195,1.7131349 129.961914,1.6760255 129.971191,1.6389161 C129.972656,1.6320802 129.97168,1.636963 129.97168,1.6359864 C129.98291,1.5891114 129.990723,1.5422364 129.995606,1.4943848 C130.01416,1.2980957 129.975586,1.0949707 129.873535,0.9123535 C129.86084,0.8898926 129.847168,0.8674316 129.833008,0.8459472 C129.832519,0.8459473 129.832519,0.8459473 129.832519,0.8459473 Z M3.9179688,27.1516113 L122.299317,3.7443847 L39.7011719,46.5227051 L3.9179688,27.1516113 Z M45.59729,80.3791504 L40.7855225,48.213623 L118.380859,8.0256347 L54.2226563,55.5783691 C54.1802369,55.6098632 54.1459351,55.6489257 54.1095582,55.685791 C54.0936891,55.7021484 54.0759889,55.7143555 54.0612184,55.7316894 C53.9859621,55.8193359 53.9310304,55.9199218 53.8900758,56.0270996 C53.8854371,56.0393066 53.8753053,56.0473633 53.8710939,56.0598144 L45.59729,80.3791504 Z M47.0717163,82.2556152 L55.3543091,57.9106445 L70.4785767,67.5620117 L47.0717163,82.2556152 Z M98.519043,83.0842285 L56.5800781,56.3205566 L126.938476,4.1721191 L98.519043,83.0842285 Z" fill="#FFF" fill-rule="nonzero"></path></g></svg>' +
-                                '<p>' + data.data + '</p>' +
+                            modal.querySelector('.juiz-sps-success').innerHTML = '<svg width="130px" height="86px" viewBox="0 0 130 86" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="presentation"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><path d="M129.832519,0.8459473 C129.832031,0.8449707 129.831543,0.8439942 129.831055,0.8439942 C129.694336,0.6389161 129.493652,0.5002442 129.271484,0.4367676 C129.271484,0.4367676 129.271484,0.4367676 129.270996,0.4367676 C129.268066,0.4367676 129.268066,0.4348145 129.267578,0.435791 C129.265625,0.435791 129.265625,0.4338379 129.26416,0.4348144 C129.262695,0.4348144 129.262207,0.4348144 129.258301,0.4338378 C129.256836,0.4328612 129.255371,0.4328612 129.254883,0.4328612 C129.253906,0.4328612 129.252441,0.4318846 129.251465,0.4318846 C129.250976,0.4328612 129.251465,0.430908 129.247558,0.430908 C129.245117,0.430908 129.24414,0.4299314 129.24414,0.4299314 C129.242187,0.4318845 129.241211,0.4289548 129.239746,0.4289548 L129.239258,0.4289548 C129.237793,0.4279782 129.236816,0.4279782 129.23584,0.4279782 C129.234863,0.4279782 129.233886,0.4270016 129.232422,0.4270016 C129.226562,0.426025 129.229492,0.426025 129.229004,0.426025 C129.227539,0.4250484 129.226074,0.4240719 129.225586,0.4250484 C129.223632,0.4250484 129.223144,0.4250484 129.222168,0.4250484 C129.081054,0.3928218 128.93164,0.3918453 128.787597,0.4221187 L0.8061523,25.7277832 C0.3925781,25.8098145 0.074707,26.1428223 0.0112304,26.5588379 C-0.0517579,26.9758301 0.1533202,27.3879395 0.5239257,27.5891113 L38.7761841,48.296875 L44.2290039,84.748291 C44.2433472,84.8442383 44.2748413,84.9345703 44.3149414,85.0205078 C44.3240967,85.0400391 44.3364258,85.0568848 44.3468018,85.0759277 C44.3948975,85.1638183 44.4549561,85.243164 44.5269165,85.3127441 C44.5414429,85.3269043 44.5529175,85.3422851 44.5683594,85.3557129 C44.6381836,85.4157715 44.7144776,85.46875 44.800293,85.5080567 C44.8154908,85.5151368 44.8327027,85.5122071 44.8481446,85.5185547 C44.8656007,85.5256348 44.8774415,85.5400391 44.8955079,85.5461426 C45.0024415,85.583252 45.1108399,85.5998535 45.2177735,85.5998535 C45.3156739,85.5998535 45.4129029,85.5832519 45.5073243,85.5546875 C45.5412598,85.5444336 45.5709229,85.5253906 45.6035157,85.5117187 C45.652649,85.4909667 45.7036134,85.4753417 45.7495118,85.4465332 L72.343628,68.7521973 L98.4980469,85.442627 C98.6606446,85.5461426 98.8476563,85.5998536 99.0361328,85.5998536 C99.1445312,85.5998536 99.2539062,85.5822755 99.3588867,85.5461427 C99.6464844,85.4484864 99.8740234,85.2248536 99.9770508,84.9387208 L129.937012,1.7492677 C129.950195,1.7131349 129.961914,1.6760255 129.971191,1.6389161 C129.972656,1.6320802 129.97168,1.636963 129.97168,1.6359864 C129.98291,1.5891114 129.990723,1.5422364 129.995606,1.4943848 C130.01416,1.2980957 129.975586,1.0949707 129.873535,0.9123535 C129.86084,0.8898926 129.847168,0.8674316 129.833008,0.8459472 C129.832519,0.8459473 129.832519,0.8459473 129.832519,0.8459473 Z M3.9179688,27.1516113 L122.299317,3.7443847 L39.7011719,46.5227051 L3.9179688,27.1516113 Z M45.59729,80.3791504 L40.7855225,48.213623 L118.380859,8.0256347 L54.2226563,55.5783691 C54.1802369,55.6098632 54.1459351,55.6489257 54.1095582,55.685791 C54.0936891,55.7021484 54.0759889,55.7143555 54.0612184,55.7316894 C53.9859621,55.8193359 53.9310304,55.9199218 53.8900758,56.0270996 C53.8854371,56.0393066 53.8753053,56.0473633 53.8710939,56.0598144 L45.59729,80.3791504 Z M47.0717163,82.2556152 L55.3543091,57.9106445 L70.4785767,67.5620117 L47.0717163,82.2556152 Z M98.519043,83.0842285 L56.5800781,56.3205566 L126.938476,4.1721191 L98.519043,83.0842285 Z" fill="#FFF" fill-rule="nonzero"></path></g></svg>' +
+                                '<p role="alert">' + data.data + '</p>' +
                                 '</div>';
                         } else if ( data.success === false ) {
                             if ( ! modal.querySelector('.juiz-sps-error') ) {
@@ -467,7 +476,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
                         let errorContent = jsps.modalErrorGeneric + '<br><code style="font-size:.8em;">' + xhrmod.statusText + '(' + xhrmod.status + ')</code>';
                         let errorMsg = document.createElement('div');
 
-                        errorMsg.classList.add('juiz-sps-error juiz-sps-message');
+                        errorMsg.classList.add('juiz-sps-error');
+                        errorMsg.classList.add('juiz-sps-message');
                         errorMsg.innerHTML = errorContent;
 
                         modal.querySelector('form').append( errorMsg );
@@ -484,6 +494,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             document.querySelector('.juiz-sps-close').addEventListener('click', function() {
                 modal.setAttribute('aria-hidden', 'true');
                 modal.classList.remove('jsps-modal-show');
+                focusedEl.focus();
                 temp = setInterval(function() {
                     modal.remove();
                 }, 400);
@@ -502,6 +513,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             });
 
             // Accessibility.
+            // TODO: not enough
             document.querySelector('.juiz-sps-close').addEventListener('blur', function() {
                 this.closest('.juiz-sps-modal').querySelector('form > p:first-child input').focus();
                 return false;

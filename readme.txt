@@ -2,10 +2,10 @@
 
 Contributors: CreativeJuiz
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJPCWVXGDY&lc=FR&item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&item_number=%23wp%2djsps&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted
-Tags: social, buttons, twitter, facebook, digg, mix, linkedin, pinterest, viadeo, weibo, vkontakte, yummly, pocket, whatsapp, diigo, post, evernote, tumblr, reddit, share, sharing, shareAPI
+Tags: social, buttons, twitter, facebook, digg, mix, linkedin, pinterest, viadeo, weibo, gutenberg, block, vkontakte, yummly, pocket, whatsapp, diigo, post, evernote, tumblr, reddit, share, sharing, shareAPI, WP Job Manager
 Requires at least: 4.6
-Tested up to: 6.0.2
-Stable tag: 2.2.0
+Tested up to: 6.1.1
+Stable tag: 2.3.2
 
 *Juiz Social Post Sharer* is now *Nobs • Share Buttons*.
 
@@ -13,7 +13,7 @@ Add smart designed buttons after/before your posts (or wherever you want) to all
 
 == Description ==
 
-Add smart designed buttons after/before your posts (or wherever you want) to allow visitors to share your content (includes no JavaScript mode & counters). Buttons are Retina/HDPI-ready, translation-ready and come with useful options and hooks. Totally GDPR compliant, and accessibility and performance friendly.
+Add smart designed buttons after/before your posts (or wherever you want) to allow visitors to share your content (includes no JavaScript mode & counters). Buttons are Retina/HDPI-ready, translation-ready and come with useful options and hooks. Totally GDPR compliant, and accessibility and performance friendly. Includes a Gutenberg block.
 
 [youtube https://www.youtube.com/watch?v=G-aOvMEwvhk]
 
@@ -69,6 +69,7 @@ Plugin Options:
 * Customize mail texts (subject and body), or mail in a lightbox
 * Display a sharing counter (optional)
 * Use shortcode <code>[juiz_sps]</code> or <code>[juiz_social]</code> wherever you want
+* Use the Gutenberg Block wherever you need. (no settings available yet for this block)
 * For developers: A lot of hooks are available for markup customization (or add some things)
   * A hook is available and offers you the opportunity to add the buttons you need
   * Use template function <code>juiz_sps()</code> or <code>get_juiz_sps()</code> in your code
@@ -118,6 +119,9 @@ You can use one of both method :
 == Frequently Asked Questions ==
 
 Find a complete documentation on <a href="https://sharebuttons.social/doc/?utm_source=wp-org&utm_medium=readme&utm_campaign=faq">this official documentation</a>
+
+= Tested the Gutenberg block, but it's buggy =
+Well, it's quite new to me to develop with React (the language used by Gutenberg). Tell me what happened for you by opening an issue so I can dig in. Thanks :)
 
 = New 2.0.0 installed, weird stuff happens in my site =
 Double check that you have saved your plugin settings (Settings > Nobs Share Buttons). Sometimes it happend, simply double check your settings and save.
@@ -172,6 +176,7 @@ Deactivate and reactivate the plugin to force the rebuild of the options.
 5. New themes: Brands Colors & Material Design
 6. New admin panel for Nobs.
 7. New networks panel you can now order with drag n' drop.
+8. Gutenberg's block in action
 
 == Other plugins ==
 
@@ -180,14 +185,31 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
 
 == Changelog ==
 
+= 2.3.2 =
+* Bug fix
+ * Fixes a bug on the Mail button which in some case could display a 500 error message.
+
+= 2.3.1 =
+* Bug fix
+ * Fixes a Notice error message introduced in v2.2.0 in the Widgets option page that did happen in some cases. (thank Nico ;p)
+
+= 2.3.0 =
+* Third-Parties
+ * Nobs is now compatible with WP Job Manager. This plugin uses the content of WordPress differently than other plugins. A Specific development have been made to reflect the option available in Nobs for this CPT.
+
+= 2.2.0 =
+* Gutenberg
+ * Adds a new block that displays the buttons wherever you need keeping your global settings.
+ * Yes, I'm working on a way to customize buttons and options directly into the block, in the meantime you can still use the shortcode for more specific needs.
+
 = 2.1.4 =
 * Counters
-  * Fixes a bug that occures sometimes on new posts with 0 Shares and the global counter activated (JS Error in the console, but the count is taken into account)
+ * Fixes a bug that occures sometimes on new posts with 0 Shares and the global counter activated (JS Error in the console, but the count is taken into account)
 
 = 2.1.3 =
 * ShareAPI Button
-  * Uses now post_excerpt in prior of post_content
-  * If you have a bug with button not displayed, try filling the Excerpt field in your Posts. You might have a plugin messing with the first lines of your post, use the excerpt to get a short description of your post content.
+ * Uses now post_excerpt in prior of post_content
+ * If you have a bug with button not displayed, try filling the Excerpt field in your Posts. You might have a plugin messing with the first lines of your post, use the excerpt to get a short description of your post content.
 
 = 2.1.2 =
 * **PHP 8 Compatibility**
