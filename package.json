@@ -40,7 +40,7 @@
     "grunt-contrib-compress": "~2.0.0",
     "grunt-contrib-clean": "~0.5.0",
     "grunt-contrib-copy": "~0.5.0",
-    "jsdoc": "^3.6.4",
+    "jsdoc": "^4.0.2",
     "wp-hookdoc": "^0.2.0"
   },
   "main": "build/index.js"
