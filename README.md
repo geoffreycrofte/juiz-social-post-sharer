@@ -3,10 +3,10 @@ Nobs • Share Buttons
 
 * **Contributors:** CreativeJuiz
 * **Donate link:** [Paypal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJPCWVXGDY&lc=FR&item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&item_number=%23wp%2djsps&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted), [Buy Me a Coffee](https://www.buymeacoffee.com/geoffreycrofte), [Flattr](https://flattr.com/@GeoffreyCrofte)
-* **Tags:** social, buttons, twitter, facebook, digg, mix, linkedin, pinterest, viadeo, weibo, vkontakte, yummly, pocket, whatsapp, diigo, post, evernote, tumblr, reddit, share, sharing, shareAPI
+* **Tags:** social, buttons, twitter, facebook, digg, mix, linkedin, pinterest, viadeo, weibo, vkontakte, yummly, pocket, whatsapp, diigo, post, evernote, tumblr, reddit, share, sharing, shareAPI, WP Job Manager
 * **Requires at least:** 4.6
-* **Tested up to:** 6.0.2
-* **Stable tag:** 2.2.0
+* **Tested up to:** 6.1.1
+* **Stable tag:** 2.3.2
 
 **Juiz Social Post Sharer** is now **Nobs • Share Buttons**.
 
@@ -203,14 +203,31 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
 
 ## Changelog
 
+### 2.3.2
+* Bug fix
+ * Fixes a bug on the Mail button which in some case could display a 500 error message.
+
+### 2.3.1
+* Bug fix
+ * Fixes a Notice error message introduced in v2.2.0 in the Widgets option page that did happen in some cases. (thank Nico ;p)
+
+### 2.3.0
+* Third-Parties
+ * Nobs is now compatible with WP Job Manager. This plugin uses the content of WordPress differently than other plugins. A Specific development have been made to reflect the option available in Nobs for this CPT.
+
+### 2.2.0
+* Gutenberg
+ * Adds a new block that displays the buttons wherever you need keeping your global settings.
+ * Yes, I'm working on a way to customize buttons and options directly into the block, in the meantime you can still use the shortcode for more specific needs.
+
 ### 2.1.4
 * Counters
-  * Fixes a bug that occures sometimes on new posts with 0 Shares and the global counter activated (JS Error in the console, but the count is taken into account)
+ * Fixes a bug that occures sometimes on new posts with 0 Shares and the global counter activated (JS Error in the console, but the count is taken into account)
 
 ### 2.1.3
 * ShareAPI Button
-  * Uses now post_excerpt in prior of post_content
-  * If you have a bug with button not displayed, try filling the Excerpt field in your Posts. You might have a plugin messing with the first lines of your post, use the excerpt to get a short description of your post content.
+ * Uses now post_excerpt in prior of post_content
+ * If you have a bug with button not displayed, try filling the Excerpt field in your Posts. You might have a plugin messing with the first lines of your post, use the excerpt to get a short description of your post content.
 
 ### 2.1.2
 * **PHP 8 Compatibility**

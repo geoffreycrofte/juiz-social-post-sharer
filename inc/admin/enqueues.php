@@ -18,6 +18,7 @@ if ( ! function_exists( 'jsps_load_custom_wp_admin_assets' ) ) {
 		if (
 			method_exists( $current_screen, 'is_block_editor' )
 			&& $current_screen->is_block_editor()
+			&& 'widgets' !== $current_screen->base
 		) {
 			$asset_file = include_once( dirname( JUIZ_SPS_FILE ) . '/build/index.asset.php');
 			wp_enqueue_script(
