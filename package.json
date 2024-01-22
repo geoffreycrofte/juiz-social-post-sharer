@@ -30,7 +30,7 @@
     "build": "wp-scripts build"
   },
   "devDependencies": {
-    "@wordpress/scripts": "25.1.0",
+    "@wordpress/scripts": "27.0.0",
     "del-cli": "^3.0.1",
     "grunt": "~1.5.3",
     "grunt-exec": "~0.4.5",
