@@ -455,7 +455,7 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 				case 'mail' :
 					if ( strpos( $juiz_sps_options['juiz_sps_mail_body'], '%%' ) || strpos( $juiz_sps_options['juiz_sps_mail_subject'], '%%' ) ) {
 						$api_link = 'mailto:?subject=' . $juiz_sps_options['juiz_sps_mail_subject'] . '&amp;body=' . $juiz_sps_options['juiz_sps_mail_body'];
-						$api_link = preg_replace( array('#%%title%%#', '#%%siteurl%%#', '#%%permalink%%#', '#%%url%%#'), array( get_the_title(), get_site_url(), get_permalink(), urlencode( $url ) ), $api_link );
+						$api_link = jsps_render_mail_content( $api_link );
 					}
 					else {
 						$api_link = 'mailto:?subject=' . $juiz_sps_options['juiz_sps_mail_subject'] . '&amp;body=' . $juiz_sps_options['juiz_sps_mail_body'] . ":" . urlencode( $url );

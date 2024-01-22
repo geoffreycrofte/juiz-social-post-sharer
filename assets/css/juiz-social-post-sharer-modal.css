@@ -215,24 +215,24 @@
 
 .juiz-sps-modal .juiz-sps-submit-line button,
 .juiz-sps-modal .juiz-sps-submit-line input {
-    border: 0;
-    padding: 8px 16px;
+    border: 0!important;
+    padding: 8px 16px!important;
     font-size: 12px;
     border-radius: 20px;
     letter-spacing: 0.1em;
     font-weight: bold;
     text-transform: uppercase;
-    color: var(--jsps-modal-background);
-    background: var(--jsps-brand-color);
+    color: var(--jsps-modal-background)!important;
+    background: var(--jsps-brand-color)!important;
     white-space: nowrap;
     transition: all .275s;
 }
 
-.juiz-sps-modal .juiz-sps-submit-line button:focus,
-.juiz-sps-modal .juiz-sps-submit-line input:focus,
+.juiz-sps-modal .juiz-sps-submit-line button:focus-visible,
+.juiz-sps-modal .juiz-sps-submit-line input:focus-visible,
 .juiz-sps-modal .juiz-sps-submit-line button:hover,
 .juiz-sps-modal .juiz-sps-submit-line input:hover {
-    background: var(--jsps-brand-color-dark);
+    background: var(--jsps-brand-color-dark)!important;
 }
 
 .juiz-sps-modal .juiz-sps-message {

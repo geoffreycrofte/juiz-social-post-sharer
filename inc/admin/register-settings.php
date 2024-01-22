@@ -107,7 +107,7 @@ function jsps_get_initial_settings() {
 				'juiz_sps_display_in_types' => array( 'post' ),
 				'juiz_sps_display_where'	=> 'bottom',
 				'juiz_sps_write_css_in_html'=> 0,
-				'juiz_sps_mail_subject'		=> __( 'Visit this link find on %%siteurl%%', 'juiz-social-post-sharer'),
+				'juiz_sps_mail_subject'		=> __( 'Visit this link found on %%siteurl%%', 'juiz-social-post-sharer'),
 				'juiz_sps_mail_body'		=> __( 'Hi, I found this information for you : "%%title%%"! This is the direct link: %%permalink%% Have a nice day :)', 'juiz-social-post-sharer' ),
 				'juiz_sps_force_pinterest_snif' => 0,
 				'juiz_sps_colors' 			=> array(
