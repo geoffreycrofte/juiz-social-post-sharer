@@ -204,6 +204,7 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
 ## Changelog
 
 ### 2.3.3
+* Network renamed: Twitter becomes X
 * Bug fix
  * PHP 8.3 error fixed
 
