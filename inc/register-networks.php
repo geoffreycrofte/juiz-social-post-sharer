@@ -47,7 +47,7 @@ function jsps_register_core_networks( $core_networks ) {
 			'visible' => 0,
 		),
 		'twitter'     => array(
-			'name'    => _x( 'Twitter', 'Button Name', 'juiz-social-post-sharer' ),
+			'name'    => _x( 'X', 'Button Name', 'juiz-social-post-sharer' ),
 			'visible' => 1,
 		),
 		'tumblr'      => array(
