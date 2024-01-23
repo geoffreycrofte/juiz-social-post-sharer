@@ -25,7 +25,7 @@ function juiz_sps_activation() {
 		$default_options = jsps_get_initial_settings();
 		
 		jsps_update_option( $default_options );
-		jsps_init_option_ms( $default_settings );
+		jsps_init_option_ms( $default_options );
 	}
 	else {
 		// If was version under 2.0.0

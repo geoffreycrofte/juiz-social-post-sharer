@@ -56,7 +56,7 @@ function add_juiz_sps_plugin_options() {
 	add_settings_field( 'juiz_sps_style_choice', __( 'Choose a style to display', 'juiz-social-post-sharer' ), 'juiz_sps_setting_radio_style_choice', JUIZ_SPS_SLUG, 'juiz_sps_plugin_main');
 	add_settings_field( 'juiz_sps_temp_submit', get_submit_button( __( 'Save Changes' ), 'secondary' ), '__return_empty_string', JUIZ_SPS_SLUG, 'juiz_sps_plugin_main' );
 	add_settings_field( 'juiz_sps_network_selection', __( 'Display those following social networks:', 'juiz-social-post-sharer' ) , 'juiz_sps_setting_checkbox_network_selection', JUIZ_SPS_SLUG, 'juiz_sps_plugin_main' );
-	add_settings_field( 'juiz_sps_twitter_user', __( 'What is your Twitter user name to be mentioned?', 'juiz-social-post-sharer' ) , 'juiz_sps_setting_input_twitter_user', JUIZ_SPS_SLUG, 'juiz_sps_plugin_main' );
+	add_settings_field( 'juiz_sps_twitter_user', __( 'What is your X.com user name to be mentioned?', 'juiz-social-post-sharer' ) , 'juiz_sps_setting_input_twitter_user', JUIZ_SPS_SLUG, 'juiz_sps_plugin_main' );
 	add_settings_field( 'juiz_sps_temp_submit_1', get_submit_button( __( 'Save Changes' ), 'primary' ), '__return_empty_string', JUIZ_SPS_SLUG, 'juiz_sps_plugin_main' );
 
 	/**
