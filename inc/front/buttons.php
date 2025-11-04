@@ -278,7 +278,7 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 		$juiz_sps_content .= "\n" . '<' . $div . ' class="juiz_sps_links ' . esc_attr( $container_classes ) . ' juiz_sps_displayed_' . $juiz_sps_display_where . '" data-post-id="' . $post -> ID . '">';
 		$juiz_sps_content .= $hide_intro_phrase ? '' : "\n" . '<' . $p . ' class="screen-reader-text juiz_sps_maybe_hidden_text">' . $share_the_post_sentence . ' "' . wp_strip_all_tags( get_the_title() ) . '"</' . $p . '>' . "\n";
 		$juiz_sps_content .= $before_the_list;
-		$juiz_sps_content .= "\n\t" . '<' . $ul . ' class="juiz_sps_links_list' . esc_attr( $juiz_sps_hidden_name_class ) . esc_attr( $juiz_sps_compact_name_class ) . '">';
+		$juiz_sps_content .= "\n\t" . '<' . $ul . ' class="juiz_sps_links_list' . esc_attr( $juiz_sps_hidden_name_class ) . esc_attr( $juiz_sps_compact_name_class ) . '" onclick="void(0);">';
 		$juiz_sps_content .= $before_first_i;
 
 
@@ -720,6 +720,7 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 		$general_counters = ( isset( $juiz_sps_options['juiz_sps_counter'] ) && $juiz_sps_options['juiz_sps_counter'] == 1 ) ? 1 : 0;
 
 		// no data-* attribute if user markup is not HTML5 :/
+		// TODO: 2025 note, maybe replace that one day :D
 		$hidden_info = '<input type="hidden" class="juiz_sps_info_plugin_url" value="' . JUIZ_SPS_PLUGIN_URL . '" /><input type="hidden" class="juiz_sps_info_permalink" value="' . get_permalink( $post -> ID ) . '" /><input type="hidden" class="juiz_sps_info_post_id" value="' . $post -> ID . '" />';
 
 		$juiz_sps_content .= $after_last_i;
