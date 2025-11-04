@@ -26,7 +26,7 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 
 		// Show buttons only if post meta doesn't ask to hide it and if it's not a shortcode.
 		if ( ! $show_me ) {
-			return;
+			return '';
 		}
 
 		// URL requested by user can be custom, permalink or siteurl (or null)
@@ -376,6 +376,7 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 
 			switch ( $k ) {
 				case 'twitter' :
+				case 'x' :
 					/**
 					 * Edits the default Twitter nickname mentionned in the URL (via option) and override the option in the admin.<br>
 					 * **The option have to not to be empty in the admin for the hook to work.**
@@ -386,9 +387,9 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 				 	 * @param  {string}  $text      The Twitter nickname set in the admin option.
 				 	 * @return {string}  The new Twitter nickname to be mentionned.
 					 */
-					$twitter_user = isset( $juiz_sps_options['juiz_sps_twitter_user'] ) && $juiz_sps_options['juiz_sps_twitter_user'] != '' ? '&amp;related=' . apply_filters( 'juiz_sps_twitter_nickname', $juiz_sps_options['juiz_sps_twitter_user'] ) . '&amp;via=' . apply_filters( 'juiz_sps_twitter_nickname', $juiz_sps_options['juiz_sps_twitter_user'] ) : '';
+					$twitter_user = isset( $juiz_sps_options['juiz_sps_twitter_user'] ) && $juiz_sps_options['juiz_sps_twitter_user'] != '' ? '&amp;related=' . apply_filters( 'juiz_sps_x_nickname', apply_filters( 'juiz_sps_twitter_nickname', $juiz_sps_options['juiz_sps_twitter_user'] ) ) . '&amp;via=' . apply_filters( 'juiz_sps_x_nickname', apply_filters( 'juiz_sps_twitter_nickname', $juiz_sps_options['juiz_sps_twitter_user'] ) ) : '';
 
-					$api_link = 'https://twitter.com/intent/tweet?source=webclient&amp;original_referer=' . urlencode( $url ) . '&amp;text=' . $text . '&amp;url=' . urlencode( $url ) . $twitter_user;
+					$api_link = 'https://x.com/intent/tweet?source=webclient&amp;original_referer=' . urlencode( $url ) . '&amp;text=' . $text . '&amp;url=' . urlencode( $url ) . $twitter_user;
 					break;
 
 				case 'bluesky' :
@@ -450,9 +451,9 @@ if ( ! function_exists( 'get_juiz_sps' ) ) {
 					$api_link = 'https://telegram.me/share/url?url=' . urlencode( '"' ) . '&text=' . $text;
 					break;
 
-				case 'pocket':
+				/*case 'pocket':
 					$api_link = 'https://getpocket.com/edit?url=' . urlencode( $url );
-					break;
+					break;*/
 
 				case 'evernote':
 					$api_link = 'https://www.addtoany.com/add_to/evernote?linkurl=' . urlencode( $url ) . '&amp;linkname=' . $text . '&amp;linknote=' . $excerpt;
@@ -783,7 +784,7 @@ add_filter( 'the_content', 'juiz_sps_print_links', 10, 1 );
  * 
  * @since  1.3.3.7 First version
  * @param  {boolean}  $in_excerpt=false  Set to true if you want buttons in excerpt. 
- * @return Void. 
+ * @return {void} 
  */
 if ( apply_filters( 'juiz_sps_buttons_in_excerpt', false ) ) {
 	add_filter( 'the_excerpt', 'juiz_sps_print_links', 10, 1 );

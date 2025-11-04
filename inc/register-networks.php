@@ -38,10 +38,10 @@ function jsps_register_core_networks( $core_networks ) {
 			'name'    => _x( 'Pinterest', 'Button Name', 'juiz-social-post-sharer' ),
 			'visible' => 0,
 		),
-		'pocket'   => array(
+		/*'pocket'   => array(
 			'name'    => _x( 'Pocket', 'Button Name', 'juiz-social-post-sharer' ),
 			'visible' => 0,
-		),
+		),*/
 		'reddit'      => array(
 			'name'    => _x( 'Reddit', 'Button Name', 'juiz-social-post-sharer' ),
 			'visible' => 0,
