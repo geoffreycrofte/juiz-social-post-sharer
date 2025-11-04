@@ -12,6 +12,7 @@ Version: Styles v2
 	/* Networks */
 	--neutral: #333C45;
 	--twitter: #1DA1F2;
+	--twitter: #000;
 	--linkedin: #0A66C2;
 	--facebook: #1778F2;
 	--viadeo: #F07355;
@@ -30,10 +31,10 @@ Version: Styles v2
 
 @font-face {
 	font-family: 'jsps-icons';
-	src: url('../common/fonts/jsps.woff2?200') format('woff2'),
-	     url('../common/fonts/jsps.woff?200') format('woff'),
-		 url('../common/fonts/jsps.ttf?200') format('truetype'),
-		 url('../common/fonts/jsps.svg?200') format('svg');
+	src: url('../common/fonts/jsps.woff2?233') format('woff2'),
+	     url('../common/fonts/jsps.woff?233') format('woff'),
+		 url('../common/fonts/jsps.ttf?233') format('truetype'),
+		 url('../common/fonts/jsps.svg?233') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -91,7 +92,7 @@ Version: Styles v2
 .jsps-tumblr:before {
   content: "\e90c";
 }
-.jsps-twitter:before {
+.jsps-twitter-old:before {
   content: "\e90d";
 }
 .jsps-viadeo:before {
@@ -105,6 +106,19 @@ Version: Styles v2
 }
 .jsps-whatsapp:before {
   content: "\e911";
+}
+.jsps-instagram:before {
+	content: "\e913";
+}
+.jsps-buffer:before {
+	content: "\e912";
+}
+.jsps-tiktok:before {
+	content: "\e914";
+}
+.jsps-twitter:before {
+	/* X now */
+	content: "\e915";
 }
 
 .juiz_sps_links {

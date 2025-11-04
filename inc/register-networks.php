@@ -38,17 +38,17 @@ function jsps_register_core_networks( $core_networks ) {
 			'name'    => _x( 'Pinterest', 'Button Name', 'juiz-social-post-sharer' ),
 			'visible' => 0,
 		),
-		'pocket'   => array(
+		/*'pocket'   => array(
 			'name'    => _x( 'Pocket', 'Button Name', 'juiz-social-post-sharer' ),
 			'visible' => 0,
-		),
+		),*/
 		'reddit'      => array(
 			'name'    => _x( 'Reddit', 'Button Name', 'juiz-social-post-sharer' ),
 			'visible' => 0,
 		),
 		'twitter'     => array(
-			'name'    => _x( 'Twitter', 'Button Name', 'juiz-social-post-sharer' ),
-			'visible' => 1,
+			'name'    => _x( 'X', 'Button Name', 'juiz-social-post-sharer' ),
+			'visible' => 0,
 		),
 		'tumblr'      => array(
 			'name'    => _x( 'Tumblr', 'Button Name', 'juiz-social-post-sharer' ),
@@ -66,8 +66,36 @@ function jsps_register_core_networks( $core_networks ) {
 			'name'    => _x( 'Weibo', 'Button Name', 'juiz-social-post-sharer' ),
 			'visible' => 0,
 		),
-		'whatsapp'       => array(
+		'whatsapp'    => array(
 			'name'    => _x( 'WhatsApp', 'Button Name', 'juiz-social-post-sharer' ),
+			'visible' => 0,
+		),
+		'telegram'    => array(
+			'name'    => _x( 'Telegram', 'Button Name', 'juiz-social-post-sharer' ),
+			'visible' => 0,
+		),
+		'gmail'    => array(
+			'name'    => _x( 'Gmail', 'Button Name', 'juiz-social-post-sharer' ),
+			'visible' => 0,
+		),
+		'flipboard'    => array(
+			'name'    => _x( 'Flipboard', 'Button Name', 'juiz-social-post-sharer' ),
+			'visible' => 0,
+		),
+		'bluesky'     => array(
+			'name'    => _x( 'Bluesky', 'Button Name', 'juiz-social-post-sharer' ),
+			'visible' => 1,
+		),
+		'mastodon'    => array(
+			'name'    => _x( 'Mastodon', 'Button Name', 'juiz-social-post-sharer' ),
+			'visible' => 0,
+		),
+		'wykop'       => array(
+			'name'    => _x( 'Wykop', 'Button Name', 'juiz-social-post-sharer' ),
+			'visible' => 0,
+		),
+		'haneta'      => array(
+			'name'    => _x( 'Haneta', 'Button Name', 'juiz-social-post-sharer' ),
 			'visible' => 0,
 		),
 

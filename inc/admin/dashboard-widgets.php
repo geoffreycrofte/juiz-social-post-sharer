@@ -13,7 +13,7 @@
  */
 function nobs_shared_posts_summary_widget() {
     wp_add_dashboard_widget(
-        'custom_help_widget',
+        'nobs_share_posts_summary_widget',
         __('Nobs • Shared Posts', 'juiz-social-post-sharer'),
         'nobs_shared_posts_summary_output'
     );

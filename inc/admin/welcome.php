@@ -12,7 +12,7 @@ if ( ! function_exists( 'add_juiz_sps_welcome_page' ) ) {
 	function add_juiz_sps_welcome_page() {
 		// The hidden Welcome page
 		add_submenu_page(
-			null, // Makes it a third level page (hidden)
+			'options-general.php', // Passing null doesn't work anymore with PHP 8.2+
 			__( 'Social Post Sharer', 'juiz-social-post-sharer' ),
 			__( 'Social Post Sharer', 'juiz-social-post-sharer' ),
 			'administrator',
@@ -21,6 +21,19 @@ if ( ! function_exists( 'add_juiz_sps_welcome_page' ) ) {
 		);
 	}
 	add_action( 'admin_menu', 'add_juiz_sps_welcome_page' );
+
+	/**
+	 * Remove the welcome page as submenu file.
+	 * Tip to replace the Null hack in add_juiz_sps_welcome_page() > add_submenu_page()
+	 *
+	 * @since   2.3.3
+	 * @author  Geoffrey Crofte
+	 */
+	function remove_juiz_sps_welcome_page( $submenu_file ) {
+		remove_submenu_page( 'options-general.php', JUIZ_SPS_SLUG . '-welcome' );
+		return $submenu_file;
+	}
+	add_filter( 'submenu_file', 'remove_juiz_sps_welcome_page' );
 }
 
 if ( ! function_exists( 'juiz_sps_welcome_page' ) ) {

@@ -1,8 +1,0 @@
-[main]
-host = https://www.transifex.com
-
-[juiz-social-post-sharer.jsps_lang]
-file_filter = languages/jsps_lang-<lang>.po
-source_file = languages/jsps_lang.pot
-source_lang = en_US
-type = PO
