@@ -203,34 +203,39 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
 
 ## Changelog
 
+### 2.3.4
+* Tested on WordPress 6.8.3
+* **Bug fix**
+ * On Safari iOS, when the counters were activated, some buttons were doing nothing. This bug is now fixed until Apple messes up with the web again.
+
 ### 2.3.3
 * Network renamed: Twitter becomes X
-* Bug fix
+* **Bug fix**
  * PHP 8.3 error fixed
 
 ### 2.3.2
-* Bug fix
+* **Bug fix**
  * Fixes a bug on the Mail button which in some case could display a 500 error message.
 
 ### 2.3.1
-* Bug fix
+* **Bug fix**
  * Fixes a Notice error message introduced in v2.2.0 in the Widgets option page that did happen in some cases. (thank Nico ;p)
 
 ### 2.3.0
-* Third-Parties
+* **Third-Parties**
  * Nobs is now compatible with WP Job Manager. This plugin uses the content of WordPress differently than other plugins. A Specific development have been made to reflect the option available in Nobs for this CPT.
 
 ### 2.2.0
-* Gutenberg
+* **Gutenberg**
  * Adds a new block that displays the buttons wherever you need keeping your global settings.
  * Yes, I'm working on a way to customize buttons and options directly into the block, in the meantime you can still use the shortcode for more specific needs.
 
 ### 2.1.4
-* Counters
+* **Counters**
  * Fixes a bug that occures sometimes on new posts with 0 Shares and the global counter activated (JS Error in the console, but the count is taken into account)
 
 ### 2.1.3
-* ShareAPI Button
+* **ShareAPI Button**
  * Uses now post_excerpt in prior of post_content
  * If you have a bug with button not displayed, try filling the Excerpt field in your Posts. You might have a plugin messing with the first lines of your post, use the excerpt to get a short description of your post content.
 
@@ -250,11 +255,11 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
 * Great help from [Sebastien SERRE](https://github.com/sebastienserre) of the [Polylang](https://wordpress.org/plugins/polylang/) team. 
 
 ### 2.0.2
-* Bug Fix: Upgrade Notice wouldn't be removed. It's now fixed. Sorry for the pushy behavior, not on purpose, I promise!
+* **Bug Fix**: Upgrade Notice wouldn't be removed. It's now fixed. Sorry for the pushy behavior, not on purpose, I promise!
 
 ### 2.0.1
 
-* Bug Fix: In very rare cases, the Theme folder can be unexisting and make the plugin display a PHP error. Issue fixed.
+* **Bug Fix**: In very rare cases, the Theme folder can be unexisting and make the plugin display a PHP error. Issue fixed.
 
 ### 2.0.0
 
