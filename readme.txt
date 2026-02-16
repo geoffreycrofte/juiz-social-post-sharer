@@ -4,8 +4,8 @@ Contributors: CreativeJuiz
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJPCWVXGDY&lc=FR&item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&item_number=%23wp%2djsps&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted
 Tags: social, buttons, twitter, facebook, digg, mix, linkedin, pinterest, viadeo, weibo, gutenberg, block, vkontakte, yummly, pocket, whatsapp, diigo, post, evernote, tumblr, reddit, share, sharing, shareAPI, WP Job Manager
 Requires at least: 4.6
-Tested up to: 6.8.3
-Stable tag: 2.3.4
+Tested up to: 6.9.1
+Stable tag: 2.3.5
 
 *Juiz Social Post Sharer* is now *Nobs • Share Buttons*.
 
@@ -184,6 +184,10 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
 
 
 == Changelog ==
+
+= 2.3.5 =
+* Tested on WordPress 6.9.1
+* Simple CSS typo fix (thanks Nico for spotting it)
 
 = 2.3.4 =
 * Tested on WordPress 6.8.3
