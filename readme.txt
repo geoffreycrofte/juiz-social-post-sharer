@@ -2,14 +2,16 @@
 
 Contributors: CreativeJuiz
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJPCWVXGDY&lc=FR&item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&item_number=%23wp%2djsps&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted
-Tags: social, buttons, twitter, facebook, digg, mix, linkedin, pinterest, viadeo, weibo, gutenberg, block, vkontakte, yummly, pocket, whatsapp, diigo, post, evernote, tumblr, reddit, share, sharing, shareAPI, WP Job Manager
+Tags: social, buttons, share, sharing, network
 Requires at least: 4.6
 Tested up to: 6.9.1
 Stable tag: 2.3.6
+License: GPLv2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 *Juiz Social Post Sharer* is now *Nobs • Share Buttons*.
 
-Add smart designed buttons after/before your posts (or wherever you want) to allow visitors to share your content (includes no JavaScript mode & counters). Totally GDPR compliant.
+Add beautiful share buttons in your posts to allow visitors to share your content on social media and other platforms. GDPR Compliant. WCAG Compliant.
 
 == Description ==
 
