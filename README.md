@@ -6,7 +6,7 @@
 * **Tags:** social, buttons, twitter, facebook, digg, mix, linkedin, pinterest, viadeo, weibo, vkontakte, yummly, pocket, whatsapp, diigo, post, evernote, tumblr, reddit, share, sharing, shareAPI, WP Job Manager
 * **Requires at least:** 4.6
 * **Tested up to:** 6.9.1
-* **Stable tag:** 2.3.6
+* **Stable tag:** 2.3.7
 * **License:** [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html) 
 
 **Juiz Social Post Sharer** is now **Nobs • Share Buttons**.
@@ -23,9 +23,11 @@ You're done!
 
 **You can donate to support**
 
-* [Donate what you want with Paypal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJPCWVXGDY&lc=FR&item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&item_number=%23wp%2djsps&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted)
+Creating a plugin and maintaining it of the years takes time and energy. Any support is really appreciated.
+
+* [Donate with Paypal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJPCWVXGDY&lc=FR&item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&item_number=%23wp%2djsps&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted)
 * [Buy Me a Coffee](https://www.buymeacoffee.com/geoffreycrofte) (you can even subscribe for exclusive content, like sneak peek, free license, exclusive info, etc.)
-* [Flattr this thing!](https://flattr.com/@CreativeJuiz)
+* [Revolut me](https://revolut.me/crofte?note=WordPress%20Plugin%20-%20Nobs%20%E2%80%A2%20Share%20Buttons)
 
 **Please, use the support forum to tell me bugs encountered, and be patient, remember it's a free product build on my spare time**
 
