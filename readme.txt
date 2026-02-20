@@ -197,6 +197,10 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
 * **Developers' note**
  * Added some hook aliases for "twitter"/"x" slug in hook names.
 
+= 2.3.6 =
+* Improves keyboard navigation in the e-mail modal. (accessibility)
+* Fixes a warning in JS when using the e-mail modal right after sending an e-mail, at the closing attempt. (would disrupt the user experience at all, but now it's cleaner. Thank you Vlad and Nico for the notice)
+
 = 2.3.5 =
 * Tested on WordPress 6.9.1
 * Simple CSS typo fix (thanks Nico for spotting it)
