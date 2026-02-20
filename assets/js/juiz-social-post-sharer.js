@@ -2,7 +2,7 @@
  * Plugin Name: Nobs • Share Buttons
  * Plugin URI: https://sharebuttons.social
  * Author: Geoffrey Crofte
- * Updated: 2.3.2 - No jQuery needed anymore.
+ * Updated: 2.3.6 - No jQuery needed anymore.
  */
 ;
 document.addEventListener("DOMContentLoaded", function(event) {
@@ -296,6 +296,53 @@ document.addEventListener("DOMContentLoaded", function(event) {
      */
     if ( document.querySelector('.juiz_sps_link_mail') ) {
 
+        const getFocusableElements = function(container) {
+            return Array.from(
+                container.querySelectorAll(`
+                a[href],
+                area[href],
+                input:not([disabled]),
+                select:not([disabled]),
+                textarea:not([disabled]),
+                button:not([disabled]),
+                iframe,
+                object,
+                embed,
+                [contenteditable="true"],
+                [tabindex]:not([tabindex="-1"]),
+                summary
+                `)
+            ).filter(el => el.offsetParent !== null); // excludes hidden elements
+        }
+
+        const trapFocus = function(modal) {
+            const focusableElements = getFocusableElements(modal);
+
+            if (!focusableElements.length) return;
+
+            const first = focusableElements[0];
+            const last = focusableElements[focusableElements.length - 1];
+
+            modal.addEventListener("keydown", (e) => {
+                if (e.key !== "Tab") return;
+
+                // SHIFT + TAB
+                if (e.shiftKey) {
+                if (document.activeElement === first) {
+                    e.preventDefault();
+                    last.focus();
+                }
+                }
+                // TAB
+                else {
+                if (document.activeElement === last) {
+                    e.preventDefault();
+                    first.focus();
+                }
+                }
+            });
+        }
+
         const email_buttons = document.querySelectorAll('.juiz_sps_link_mail');
         open_modal = function(event) {
             
@@ -307,8 +354,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
             let animation = 400;
             let focusedEl = document.activeElement;
             let post_id = event.target.closest('.juiz_sps_links').getAttribute('data-post-id');
+            let close_clicked = false;
             let modalContent = '<div class="juiz-sps-modal-inside">' +
                 '<div class="juiz-sps-modal-header">' +
+                '<button class="juiz-sps-close" type="button"><i aria-hidden="true" class="juiz-sps-icon-close">×</i><span class="juiz-sps-hidden">' + jsps.modalClose + '</span></button>' +
                 '<p id="juiz-sps-email-title" class="juiz-sps-modal-title">' + jsps.modalEmailTitle + '</p>' +
                 '</div>' +
                 '<div class="juiz-sps-modal-content">' +
@@ -337,7 +386,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 '</div>' +
                 '</form>' +
                 '</div>' +
-                '<button class="juiz-sps-close" type="button"><i class="juiz-sps-icon-close">×</i><span class="juiz-sps-hidden">' + jsps.modalClose + '</span></button>' +
                 '<div class="juiz-sps-modal-footer"><p>' + jsps.modalEmailFooter + '</p></div>' +
                 '</div>';
             let jsps_modal = document.createElement('div');
@@ -492,6 +540,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
             // On CLOSE button.
             document.querySelector('.juiz-sps-close').addEventListener('click', function() {
+                close_clicked = true;
                 modal.setAttribute('aria-hidden', 'true');
                 modal.classList.remove('jsps-modal-show');
                 focusedEl.focus();
@@ -515,6 +564,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             // Accessibility.
             // TODO: not enough
             document.querySelector('.juiz-sps-close').addEventListener('blur', function() {
+                if ( close_clicked === false ) return false;
                 this.closest('.juiz-sps-modal').querySelector('form > p:first-child input').focus();
                 return false;
             });

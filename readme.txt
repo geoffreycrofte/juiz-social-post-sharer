@@ -5,7 +5,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJ
 Tags: social, buttons, twitter, facebook, digg, mix, linkedin, pinterest, viadeo, weibo, gutenberg, block, vkontakte, yummly, pocket, whatsapp, diigo, post, evernote, tumblr, reddit, share, sharing, shareAPI, WP Job Manager
 Requires at least: 4.6
 Tested up to: 6.9.1
-Stable tag: 2.3.5
+Stable tag: 2.3.6
 
 *Juiz Social Post Sharer* is now *Nobs • Share Buttons*.
 
@@ -184,6 +184,10 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
 
 
 == Changelog ==
+
+= 2.3.6 =
+* Improves keyboard navigation in the e-mail modal. (accessibility)
+* Fixes a warning in JS when using the e-mail modal right after sending an e-mail, at the closing attempt. (would disrupt the user experience at all, but now it's cleaner. Thank you Vlad and Nico for the notice)
 
 = 2.3.5 =
 * Tested on WordPress 6.9.1
