@@ -1,0 +1,34 @@
+# Ignore Git folder
+.git/
+.github/
+.gitignore
+
+# Ignore the specific screenshot file
+banner-772x250.png
+banner-1544x500.png
+icon.svg
+
+# Test related files
+.phpunit.result.cache
+phpunit.phar
+phpunit.xml
+tests/
+
+# AI Related
+.planning/
+.claude/
+
+# Optional: Ignore other common files and folders that shouldn't be deployed
+.DS_Store
+Thumbs.db
+.env
+.idea/
+.vscode/
+README.md
+node_modules/
+hookdoc.json
+package-lock.json
+package.json
+
+# Translation template (not needed at runtime)
+languages/*.pot
